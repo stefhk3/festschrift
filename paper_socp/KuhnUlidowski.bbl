@@ -1,0 +1,300 @@
+\begin{thebibliography}{38}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\providecommand{\urlprefix}{URL }
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}#1}\else
+  \providecommand{\doi}[1]{doi:\discretionary{}{}{}\begingroup
+  \urlstyle{rm}\url{#1}\endgroup}\fi
+\providecommand{\bibinfo}[2]{#2}
+
+\bibitem[{Baeten and Weijland(1990)}]{BaetenBook}
+\bibinfo{author}{J.~C.~M. Baeten}, \bibinfo{author}{W.~P. Weijland},
+  \bibinfo{title}{Process Algebra (Cambridge Tracts in Theoretical Computer
+  Science 18)}, \bibinfo{publisher}{Cambridge University Press},
+  \bibinfo{year}{1990}.
+
+\bibitem[{Cardelli(2005)}]{CardelliBraneCalculi}
+\bibinfo{author}{L.~Cardelli}, \bibinfo{title}{Brane Calculi}, in:
+  \bibinfo{editor}{V.~Danos}, \bibinfo{editor}{V.~Schachter} (Eds.),
+  \bibinfo{booktitle}{Computational Methods in Systems Biology}, vol.
+  \bibinfo{volume}{3082} of \emph{\bibinfo{series}{LNCS}},
+  \bibinfo{publisher}{Springer}, \bibinfo{pages}{257--278},
+  \bibinfo{year}{2005}.
+
+\bibitem[{Ciocchetta and Hillston(2009)}]{CiocchettaBiopepa}
+\bibinfo{author}{F.~Ciocchetta}, \bibinfo{author}{J.~Hillston},
+  \bibinfo{title}{Bio-PEPA: A Framework for the Modelling and Analysis of
+  Biological Systems}, \bibinfo{journal}{Theoretical Computer Science}
+  \bibinfo{volume}{410}~(\bibinfo{number}{33-34}) (\bibinfo{year}{2009})
+  \bibinfo{pages}{3065--3084}.
+
+\bibitem[{Claydon et~al.(2001)Claydon, Greeves, Warren, and Wothers}]{claydon}
+\bibinfo{author}{J.~Claydon}, \bibinfo{author}{N.~Greeves},
+  \bibinfo{author}{S.~Warren}, \bibinfo{author}{P.~Wothers},
+  \bibinfo{title}{Organic Chemistry}, \bibinfo{publisher}{Oxford University
+  Press}, \bibinfo{year}{2001}.
+
+\bibitem[{Cleaveland et~al.(2001)Cleaveland, L{\"o}ttgen, and
+  Natarajan}]{Cleaveland2001711}
+\bibinfo{author}{R.~Cleaveland}, \bibinfo{author}{G.~L{\"o}ttgen},
+  \bibinfo{author}{V.~Natarajan}, \bibinfo{title}{Priority in Process Algebra},
+  in: \bibinfo{editor}{J.~Bergstra}, \bibinfo{editor}{A.~Ponse},
+  \bibinfo{editor}{S.~Smolka} (Eds.), \bibinfo{booktitle}{Handbook of Process
+  Algebra}, chap.~\bibinfo{chapter}{12}, \bibinfo{publisher}{Elsevier Science},
+  \bibinfo{address}{Amsterdam}, \bibinfo{pages}{711--765},
+  \bibinfo{year}{2001}.
+
+\bibitem[{Cristescu et~al.(2013)Cristescu, Krivine, and Varacca}]{CKV13}
+\bibinfo{author}{I.~Cristescu}, \bibinfo{author}{J.~Krivine},
+  \bibinfo{author}{D.~Varacca}, \bibinfo{title}{A Compositional Semantics for
+  the Reversible $\pi$-Calculus}, in: \bibinfo{booktitle}{Proceedings of LICS
+  2013}, \bibinfo{publisher}{IEEE Computer Society}, \bibinfo{pages}{388--397},
+  \bibinfo{year}{2013}.
+
+\bibitem[{Danos and Krivine(2004)}]{danos2004ccsr}
+\bibinfo{author}{V.~Danos}, \bibinfo{author}{J.~Krivine},
+  \bibinfo{title}{Reversible Communicating Systems}, in:
+  \bibinfo{editor}{P.~Gardner}, \bibinfo{editor}{N.~Yoshida} (Eds.),
+  \bibinfo{booktitle}{CONCUR 2004 - Concurrency Theory}, vol.
+  \bibinfo{volume}{3170} of \emph{\bibinfo{series}{LNCS}},
+  \bibinfo{publisher}{Springer}, \bibinfo{pages}{292--307},
+  \bibinfo{year}{2004}.
+
+\bibitem[{Danos and Krivine(2007)}]{Danos2007ccsr}
+\bibinfo{author}{V.~Danos}, \bibinfo{author}{J.~Krivine},
+  \bibinfo{title}{Formal Molecular Biology Done in CCS-R},
+  \bibinfo{journal}{Electronic Notes in Theoretical Computer Science}
+  \bibinfo{volume}{180}~(\bibinfo{number}{3}) (\bibinfo{year}{2007})
+  \bibinfo{pages}{31 -- 49}, \bibinfo{note}{{P}roceedings of the First Workshop
+  on Concurrent Models in Molecular Biology (BioConcur 2003)}.
+
+\bibitem[{Danos and Laneve(2004)}]{danos2004kappa}
+\bibinfo{author}{V.~Danos}, \bibinfo{author}{C.~Laneve}, \bibinfo{title}{Formal
+  molecular biology}, \bibinfo{journal}{Theoretical Computer Science}
+  \bibinfo{volume}{325}~(\bibinfo{number}{1}) (\bibinfo{year}{2004})
+  \bibinfo{pages}{69--110}.
+
+\bibitem[{Fages et~al.(2004)Fages, Soliman, and Chabrier-Rivier}]{biocham}
+\bibinfo{author}{F.~Fages}, \bibinfo{author}{S.~Soliman},
+  \bibinfo{author}{N.~Chabrier-Rivier}, \bibinfo{title}{Modelling and querying
+  interaction networks in the biochemical abstract machine BIOCHAM},
+  \bibinfo{journal}{Journal of Biological Physics and Chemistry}
+  \bibinfo{volume}{4} (\bibinfo{year}{2004}) \bibinfo{pages}{64--73}.
+
+\bibitem[{Fokkink(2000)}]{ACPBook}
+\bibinfo{author}{W.~Fokkink}, \bibinfo{title}{Introduction to Process Algebra
+  (Texts in Theoretical Computer Science. An EATCS Series)},
+  \bibinfo{publisher}{Springer}, \bibinfo{year}{2000}.
+
+\bibitem[{Fontana and Buss(1996)}]{fontana}
+\bibinfo{author}{W.~Fontana}, \bibinfo{author}{L.~Buss}, \bibinfo{title}{The
+  Barrier of Objects: From Dynamical Systems to Bounded Organizations},
+  \bibinfo{type}{IIASA Working Paper}, \bibinfo{institution}{International
+  Institute for Applied Systems Analysis}, \bibinfo{address}{IIASA, Austria},
+  \bibinfo{year}{1996}.
+
+\bibitem[{Gillespie(1977)}]{Gillespie}
+\bibinfo{author}{D.~T. Gillespie}, \bibinfo{title}{Exact stochastic simulation
+  of coupled chemical reactions}, \bibinfo{journal}{The Journal of Physical
+  Chemistry} \bibinfo{volume}{81}~(\bibinfo{number}{25}) (\bibinfo{year}{1977})
+  \bibinfo{pages}{2340--2361}.
+
+\bibitem[{Hoare(1985)}]{HoareBook}
+\bibinfo{author}{C.~A.~R. Hoare}, \bibinfo{title}{Communicating Sequential
+  Processes (Prentice Hall International Series in Computing Science)},
+  \bibinfo{publisher}{Prentice-Hall}, \bibinfo{year}{1985}.
+
+\bibitem[{K{\"o}hler et~al.(2014)K{\"o}hler, Krivine, and Vidmar}]{Köhler2014}
+\bibinfo{author}{A.~K{\"o}hler}, \bibinfo{author}{J.~Krivine},
+  \bibinfo{author}{J.~Vidmar}, \bibinfo{title}{A Rule-Based Model of Base
+  Excision Repair}, in: \bibinfo{editor}{P.~Mendes}, \bibinfo{editor}{J.~O.
+  Dada}, \bibinfo{editor}{K.~Smallbone} (Eds.),
+  \bibinfo{booktitle}{Computational Methods in Systems Biology}, vol.
+  \bibinfo{volume}{8859} of \emph{\bibinfo{series}{Lecture Notes in
+  Bioinformatics}}, \bibinfo{publisher}{Springer}, \bibinfo{pages}{173--195},
+  \bibinfo{year}{2014}.
+
+\bibitem[{Kuhn and Ulidowski(2015)}]{merevcomp2015}
+\bibinfo{author}{S.~Kuhn}, \bibinfo{author}{I.~Ulidowski},
+  \bibinfo{title}{Towards Modelling of Local Reversibility}, in:
+  \bibinfo{editor}{J.~Krivine}, \bibinfo{editor}{J.-B. Stefani} (Eds.),
+  \bibinfo{booktitle}{Reversible Computation}, vol. \bibinfo{volume}{9138} of
+  \emph{\bibinfo{series}{LNCS}}, \bibinfo{publisher}{Springer},
+  \bibinfo{pages}{279--284}, \bibinfo{year}{2015}.
+
+\bibitem[{Kuhn and Ulidowski(2016)}]{KU16}
+\bibinfo{author}{S.~Kuhn}, \bibinfo{author}{I.~Ulidowski}, \bibinfo{title}{A
+  Calculus for Local Reversibility}, in: \bibinfo{editor}{S.~GDevitt},
+  \bibinfo{editor}{I.~Lanese} (Eds.), \bibinfo{booktitle}{Reversible
+  Computation}, vol. \bibinfo{volume}{9720} of \emph{\bibinfo{series}{LNCS}},
+  \bibinfo{publisher}{Springer}, \bibinfo{pages}{20--35}, \bibinfo{year}{2016}.
+
+\bibitem[{Lanese et~al.(2011)Lanese, Mezzina, Schmitt, and
+  Stefani}]{Lanese_controllingreversibility}
+\bibinfo{author}{I.~Lanese}, \bibinfo{author}{C.~Mezzina},
+  \bibinfo{author}{A.~Schmitt}, \bibinfo{author}{J.-B. Stefani},
+  \bibinfo{title}{Controlling Reversibility in Higher-Order Pi}, in:
+  \bibinfo{editor}{J.-P. Katoen}, \bibinfo{editor}{B.~K{\"o}nig} (Eds.),
+  \bibinfo{booktitle}{CONCUR 2011 – Concurrency Theory}, vol.
+  \bibinfo{volume}{6901} of \emph{\bibinfo{series}{LNCS}},
+  \bibinfo{publisher}{Springer}, \bibinfo{pages}{297--311},
+  \bibinfo{year}{2011}.
+
+\bibitem[{Lanese et~al.(2010)Lanese, Mezzina, and Stefani}]{LaneseMS10}
+\bibinfo{author}{I.~Lanese}, \bibinfo{author}{C.~Mezzina},
+  \bibinfo{author}{J.-B. Stefani}, \bibinfo{title}{Reversing Higher-Order Pi},
+  in: \bibinfo{booktitle}{Proceedings of the 21st International Conference on
+  Concurrency Theory CONCUR 2010}, vol. \bibinfo{volume}{6269} of
+  \emph{\bibinfo{series}{LNCS}}, \bibinfo{publisher}{Springer},
+  \bibinfo{pages}{478--493}, \bibinfo{year}{2010}.
+
+\bibitem[{Lanese et~al.(2013)Lanese, Mezzina, and Stefani}]{Lanese_controlled}
+\bibinfo{author}{I.~Lanese}, \bibinfo{author}{C.~A. Mezzina},
+  \bibinfo{author}{J.-B. Stefani}, \bibinfo{title}{Controlled Reversibility and
+  Compensations}, in: \bibinfo{editor}{R.~Gl{\"u}ck},
+  \bibinfo{editor}{T.~Yokoyama} (Eds.), \bibinfo{booktitle}{Reversible
+  Computation}, vol. \bibinfo{volume}{7581} of \emph{\bibinfo{series}{LNCS}},
+  \bibinfo{publisher}{Springer}, \bibinfo{pages}{233--240},
+  \bibinfo{year}{2013}.
+
+\bibitem[{Milner(1980)}]{Milner1980}
+\bibinfo{author}{R.~Milner}, \bibinfo{title}{A Calculus of Communicating
+  Systems}, vol.~\bibinfo{volume}{92} of \emph{\bibinfo{series}{LNCS}},
+  \bibinfo{publisher}{Springer}, \bibinfo{year}{1980}.
+
+\bibitem[{Milner(1999)}]{MilnerPi}
+\bibinfo{author}{R.~Milner}, \bibinfo{title}{Communicating and Mobile Systems:
+  The $\pi$-calculus}, \bibinfo{publisher}{Cambridge University Press},
+  \bibinfo{address}{New York, NY, USA}, \bibinfo{year}{1999}.
+
+\bibitem[{Mousavi et~al.(2009)Mousavi, Phillips, Reniers, and
+  Ulidowski}]{mousavi}
+\bibinfo{author}{M.~Mousavi}, \bibinfo{author}{I.~Phillips},
+  \bibinfo{author}{M.~A. Reniers}, \bibinfo{author}{I.~Ulidowski},
+  \bibinfo{title}{Semantics and expressiveness of ordered {SOS}},
+  \bibinfo{journal}{Information and Computation}
+  \bibinfo{volume}{207}~(\bibinfo{number}{2}) (\bibinfo{year}{2009})
+  \bibinfo{pages}{85--119}.
+
+\bibitem[{P{\v{a}}un(2000)}]{psystems}
+\bibinfo{author}{G.~P{\v{a}}un}, \bibinfo{title}{Computing with Membranes},
+  \bibinfo{journal}{Journal of Computer and System Sciences}
+  \bibinfo{volume}{61}~(\bibinfo{number}{1}) (\bibinfo{year}{2000})
+  \bibinfo{pages}{108--143}.
+
+\bibitem[{Phillips and Ulidowski(2006)}]{PhillipsUlidowski06}
+\bibinfo{author}{I.~Phillips}, \bibinfo{author}{I.~Ulidowski},
+  \bibinfo{title}{Reversing algebraic process calculi}, in:
+  \bibinfo{booktitle}{Proceedings of 9th International Conference on
+  Foundations of Software Science and Computation Structures, {FOSSACS} 2006},
+  vol. \bibinfo{volume}{3921} of \emph{\bibinfo{series}{LNCS}},
+  \bibinfo{publisher}{Springer}, \bibinfo{pages}{246--260},
+  \bibinfo{year}{2006}.
+
+\bibitem[{Phillips and Ulidowski(2007)}]{Irek2007}
+\bibinfo{author}{I.~Phillips}, \bibinfo{author}{I.~Ulidowski},
+  \bibinfo{title}{Reversing algebraic process calculi}, \bibinfo{journal}{The
+  Journal of Logic and Algebraic Programming}
+  \bibinfo{volume}{73}~(\bibinfo{number}{1–2}) (\bibinfo{year}{2007})
+  \bibinfo{pages}{70--96}.
+
+\bibitem[{Phillips and Ulidowski(2013)}]{irekconcur2013}
+\bibinfo{author}{I.~Phillips}, \bibinfo{author}{I.~Ulidowski},
+  \bibinfo{title}{Reversibility and Asymmetric Conflict in Event Structures},
+  in: \bibinfo{editor}{P.~D'Argenio}, \bibinfo{editor}{H.~Melgratti} (Eds.),
+  \bibinfo{booktitle}{CONCUR 2013 – Concurrency Theory}, vol.
+  \bibinfo{volume}{8052} of \emph{\bibinfo{series}{LNCS}},
+  \bibinfo{publisher}{Springer}, \bibinfo{pages}{303--318},
+  \bibinfo{year}{2013}.
+
+\bibitem[{Phillips et~al.(2013{\natexlab{b}})Phillips, Ulidowski, and
+  Yuen}]{Irek2013}
+\bibinfo{author}{I.~Phillips}, \bibinfo{author}{I.~Ulidowski},
+  \bibinfo{author}{S.~Yuen}, \bibinfo{title}{Modelling of Bonding with
+  Processes and Events}, in: \bibinfo{editor}{G.~W. Dueck},
+  \bibinfo{editor}{D.~M. Miller} (Eds.), \bibinfo{booktitle}{Reversible
+  Computation}, vol. \bibinfo{volume}{7948} of \emph{\bibinfo{series}{LNCS}},
+  \bibinfo{publisher}{Springer}, \bibinfo{pages}{141--154},
+  \bibinfo{year}{2013}{\natexlab{b}}.
+
+\bibitem[{Phillips et~al.(2013{\natexlab{a}})Phillips, Ulidowski, and
+  Yuen}]{Irek2012}
+\bibinfo{author}{I.~Phillips}, \bibinfo{author}{I.~Ulidowski},
+  \bibinfo{author}{S.~Yuen}, \bibinfo{title}{A Reversible Process Calculus and
+  the Modelling of the {ERK} Signalling Pathway}, in:
+  \bibinfo{editor}{R.~Gl{\"u}ck}, \bibinfo{editor}{T.~Yokoyama} (Eds.),
+  \bibinfo{booktitle}{Reversible Computation}, vol. \bibinfo{volume}{7581} of
+  \emph{\bibinfo{series}{LNCS}}, \bibinfo{publisher}{Springer},
+  \bibinfo{pages}{218--232}, \bibinfo{year}{2013}{\natexlab{a}}.
+
+\bibitem[{Priami(1995)}]{PriamiStochasticPi}
+\bibinfo{author}{C.~Priami}, \bibinfo{title}{Stochastic $\pi$-Calculus},
+  \bibinfo{journal}{The Computer Journal}
+  \bibinfo{volume}{38}~(\bibinfo{number}{7}) (\bibinfo{year}{1995})
+  \bibinfo{pages}{578--589}.
+
+\bibitem[{Priami et~al.(2001)Priami, Regev, Shapiro, and
+  Silverman}]{PriameRegev}
+\bibinfo{author}{C.~Priami}, \bibinfo{author}{A.~Regev},
+  \bibinfo{author}{E.~Shapiro}, \bibinfo{author}{W.~Silverman},
+  \bibinfo{title}{Application of a stochastic name-passing calculus to
+  representation and simulation of molecular processes},
+  \bibinfo{journal}{Information Processing Letters}
+  \bibinfo{volume}{80}~(\bibinfo{number}{1}) (\bibinfo{year}{2001})
+  \bibinfo{pages}{25--31}.
+
+\bibitem[{Regev(2001)}]{regev2001a}
+\bibinfo{author}{A.~Regev}, \bibinfo{title}{Representation and simulation of
+  molecular pathways in the stochastic $\pi$-calculus}, in:
+  \bibinfo{editor}{U.~K. R.~Gauges, C. van~Gend} (Ed.), \bibinfo{booktitle}{2nd
+  Workshop on Computation of Biochemical Pathways and Genetic Networks},
+  \bibinfo{publisher}{Logos}, \bibinfo{address}{Berlin},
+  \bibinfo{pages}{109--115}, \bibinfo{year}{2001}.
+
+\bibitem[{Regev et~al.(2004)Regev, Panina, Silverman, Cardelli, and
+  Shapiro}]{RegevBioambients}
+\bibinfo{author}{A.~Regev}, \bibinfo{author}{E.~M. Panina},
+  \bibinfo{author}{W.~Silverman}, \bibinfo{author}{L.~Cardelli},
+  \bibinfo{author}{E.~Shapiro}, \bibinfo{title}{BioAmbients: an abstraction for
+  biological compartments}, \bibinfo{journal}{Theoretical Computer Science}
+  \bibinfo{volume}{325}~(\bibinfo{number}{1}) (\bibinfo{year}{2004})
+  \bibinfo{pages}{141--167}.
+
+\bibitem[{Regev and Shapiro(2004)}]{regev2004}
+\bibinfo{author}{A.~Regev}, \bibinfo{author}{E.~Shapiro}, \bibinfo{title}{The
+  $\pi$-calculus as an Abstraction for Biomolecular Systems}, in:
+  \bibinfo{editor}{G.~Ciobanu}, \bibinfo{editor}{G.~Rozenberg} (Eds.),
+  \bibinfo{booktitle}{Modelling in Molecular Biology},
+  \bibinfo{publisher}{Springer}, \bibinfo{pages}{219--266},
+  \bibinfo{year}{2004}.
+
+\bibitem[{Regev et~al.(2001)Regev, Silverman, and Shapiro}]{regev2001b}
+\bibinfo{author}{A.~Regev}, \bibinfo{author}{W.~Silverman},
+  \bibinfo{author}{E.~Shapiro}, \bibinfo{title}{{{R}epresentation and
+  simulation of biochemical processes using the $\pi$-calculus process
+  algebra}}, \bibinfo{journal}{Pacific Symposium on Biocomputing}
+  (\bibinfo{year}{2001}) \bibinfo{pages}{459--470}.
+
+\bibitem[{Ulidowski(1992)}]{Uli92}
+\bibinfo{author}{I.~Ulidowski}, \bibinfo{title}{Equivalences on Observable
+  Processes}, in: \bibinfo{booktitle}{Proceedings of LICS 1992},
+  \bibinfo{publisher}{IEEE Computer Society}, \bibinfo{pages}{148--159},
+  \bibinfo{year}{1992}.
+
+\bibitem[{Ulidowski and Phillips(2002)}]{irek2002}
+\bibinfo{author}{I.~Ulidowski}, \bibinfo{author}{I.~Phillips},
+  \bibinfo{title}{Ordered {SOS} Process Languages for Branching and Eager
+  Bisimulations}, \bibinfo{journal}{Information and Computation}
+  \bibinfo{volume}{178}~(\bibinfo{number}{1}) (\bibinfo{year}{2002})
+  \bibinfo{pages}{180 -- 213}.
+
+\bibitem[{Ulidowski et~al.(2014)Ulidowski, Phillips, and Yuen}]{irek2014}
+\bibinfo{author}{I.~Ulidowski}, \bibinfo{author}{I.~Phillips},
+  \bibinfo{author}{S.~Yuen}, \bibinfo{title}{Concurrency and Reversibility},
+  in: \bibinfo{editor}{S.~Yamashita}, \bibinfo{editor}{S.-I. Minato} (Eds.),
+  \bibinfo{booktitle}{Reversible Computation}, vol. \bibinfo{volume}{8507} of
+  \emph{\bibinfo{series}{LNCS}}, \bibinfo{publisher}{Springer},
+  \bibinfo{pages}{1--14}, \bibinfo{year}{2014}.
+
+\end{thebibliography}

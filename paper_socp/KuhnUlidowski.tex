@@ -1,0 +1,208 @@
+\documentclass{elsarticle}
+
+\usepackage{graphicx}
+
+\usepackage{oubraces}
+\usepackage{epstopdf}
+
+\usepackage{amssymb,amsmath}
+%\usepackage{amsthm}
+\usepackage{url}
+\usepackage{psfrag}
+\usepackage{color}
+\usepackage{hyperref}
+\usepackage{breakurl}
+%\usepackage[dvips]{graphics,graphicx}
+%\usepackage[dvips]{graphicx}
+\usepackage{rotating}
+
+\usepackage{verbatimbox}
+\usepackage{epsfig}
+\usepackage{chngpage}
+\usepackage[title]{appendix}
+
+\usepackage{amssymb}
+\journal{Science of Computer Programming}
+
+\newcommand{\paral}{\; \vert \;}
+\newcommand{\myvec}[1]{\overrightarrow{#1}}
+\newcommand{\Defeq}{\stackrel{\mathrm{df}}{=}}
+\newcommand{\Bnfeq}{::=}
+\newcommand{\Co}[1]{\overline{#1}}
+
+%
+\newcommand{\Bsep}{\: \mid \: }
+\newcommand{\Rule}[2]{\displaystyle{\frac{#1}{#2}}}
+\newcommand{\SF}[1]{\mathsf{#1}}
+\newcommand{\Act}{\mathsf{Act}}
+\newcommand{\Vis}{\mathsf{Vis}}
+\newcommand{\ActK}{\mathsf{ActK}}
+\newcommand{\Proc}{\mathsf{Proc}}
+\newcommand{\Procc}{\mathsf{ProcC}}
+\newcommand{\Var}{\mathsf{Var}}
+\newcommand{\Pred}{\mathsf{Pred}}
+\newcommand{\Std}{\mathsf{Std}}
+\newcommand{\rms}{\mathrm{S}}
+\newcommand{\rmrec}{\mathrm{rec}}
+\newcommand{\rmreck}{\mathrm{reck}}
+\newcommand{\rmreckR}{\mathrm{reckR}}
+\newcommand{\rma}{\mathrm{A}}
+\newcommand{\rmp}{\mathrm{P}}
+\newcommand{\rmf}{\mathrm{F}}
+\newcommand{\rmr}{\mathrm{R}}
+\newcommand{\rmfr}{\mathrm{FR}}
+\newcommand{\equivS}{\equiv_{\mathrm{S}}}
+\newcommand{\SigSA}{\Sigma_{\mathrm{SA}}}
+\newcommand{\ltran}[1]{\stackrel{#1}{\longrightarrow}}
+\newcommand{\tran}[1]{\stackrel{#1}{\rightarrow}}
+\newcommand{\Tran}[1]{\stackrel{#1}{\Rightarrow}}
+\newcommand{\nottran}[1]{\stackrel{#1}{\not\rightarrow}}
+\newcommand{\Rtran}[1]{\stackrel{#1}{\rightsquigarrow}}
+\newcommand{\notRtran}[1]{\stackrel{#1}{\not\rightsquigarrow}}
+\newcommand{\trans}[1]{\stackrel{#1}{\rightarrow}_{\mathrm{S}}}
+\newcommand{\Par}{\mid}
+\newcommand{\restrict}[1]{\!\setminus\!#1}
+
+\newcommand{\mA}{\mathcal{A}}
+\newcommand{\mSA}{\mathcal{SA}}
+\newcommand{\mWA}{\mathcal{WA}}
+\newcommand{\mAK}{\mathcal{AK}}
+\newcommand{\aAK}{\mathcal{(A)K}}
+\newcommand{\umAK}{\underline{\mathcal{A}}\mathcal{K}}
+\newcommand{\un}[1]{\underline {#1}}
+\newcommand{\PI}{\mathcal{PI}}
+\newcommand{\rom}[1]{\mbox{\rm{#1}}}
+
+\newcommand{\Nil}{\mathbf{0}}
+\newcommand{\New}[1]{\nu#1\: }
+\newcommand{\Str}{\equiv}
+\newcommand{\stdpred}{\mathsf{std}}
+\newcommand{\std}[1]{\mathsf{std}(#1)}
+%
+\newcommand{\Bch}[2]{\mathsf{before}_{#1}(#2)}
+
+\newcommand{\keys}[1]{\mathsf{keys}(#1)}
+\newcommand{\kkey}[1]{\mathsf{k}(#1)}
+\newcommand{\key}[1]{[#1]}
+\newcommand{\Keys}{\mathcal{K}}
+\newcommand{\freshpred}[1]{\mathsf{fsh}[#1]}
+\newcommand{\fresh}[2]{\mathsf{fsh}[#1](#2)}
+
+\newcommand{\ta}[1]{\mathsf{ta}(#1)}
+\newcommand{\action}[1]{\mathsf{act}(#1)}
+
+\newcommand{\intr}{\mbox{\ $\hat{}$\ }}
+%\newcommand{\intr}{\mbox{\; $\widehat{}$\;}}
+\newcommand{\sterm}{\mathsf{trm}}
+\newcommand{\Sterm}[1]{\sterm(#1)}
+\newcommand{\und}[1]{\underline{#1}}
+\newcommand{\sqc}{\mathop{\cdot}}
+\newcommand{\card}[1]{|#1|}
+\newcommand{\bydef}{\stackrel{\emph{def}}{=}}
+%
+\newcommand{\Angle}[1]{\langle #1 \rangle}
+\newcommand{\Tri}{\triangleright}
+\newcommand{\Hole}{\bullet}
+\newcommand{\rec}[1]{\mathrm{rec}\, #1}
+\newcommand{\Rec}[1]{\rec #1 .}
+\newcommand{\Rch}{\mathsf{Rch}}
+\newcommand{\prune}{\pi}
+\newcommand{\Prune}[1]{\prune(#1)}
+\newcommand{\Root}[1]{\mathsf{rt}(#1)}
+\newcommand{\hole}{\mbox{$[\ ]$}}
+
+\newcommand{\Bis}{\sim}
+\newcommand{\Biss}{\Bis_{\mathsf{S}}}
+\newcommand{\Bisf}{\Bis_{\mathsf{F}}}
+\newcommand{\Bisfr}{\Bis_{\mathsf{FR}}}
+%\newcommand{\Bisu}{\Bis_{\Un}}
+\newcommand{\Sim}{\mathcal{S}}
+\newcommand{\Rem}{\backslash}
+\newcommand{\sqeqt}{\sim}
+% rules:
+% static rule
+\newcommand{\one}{\mbox{(I)}}
+\newcommand{\onef}{\mbox{(1)}}
+\newcommand{\oner}{\mbox{(1R)}}
+% choice rule
+\newcommand{\two}{\mbox{(II)}}
+\newcommand{\twof}{\mbox{(2)}}
+\newcommand{\twor}{\mbox{(2R)}}
+% choice axiom
+\newcommand{\thr}{\mbox{(III)}}
+\newcommand{\thrf}{\mbox{(3)}}
+\newcommand{\thrr}{\mbox{(3R)}}
+\newcommand{\thrpf}{\mbox{(3\,$'$\!)}}
+\newcommand{\thrpr}{\mbox{(3\,$'$\!R)}}
+%
+%
+\newcommand{\Draft}[1]{}
+\newcommand{\Comment}[1]{}
+\newcommand{\Rev}[1]{{#1}^{-1}}
+%\newcommand{\Stefan}[1]{{\bf S$<$} #1 {\bf $>$S}}
+\newcommand{\Stefan}[1]{{\bf S(} #1 {\bf )S}}
+\newcommand{\rulename}[1]{\textsf{#1}}
+
+\newtheorem{definition}{Definition}
+\newtheorem{example}{Example}
+\newtheorem{proposition}{Proposition}
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}[thm]{Lemma}
+\newdefinition{rmk}{Remark}
+\newproof{pf}{Proof}
+\newproof{pot}{Proof of Theorem \ref{thm2}}
+
+
+\usepackage{hyperref}
+
+\makeatletter
+\providecommand{\doi}[1]{%
+  \begingroup
+    \let\bibinfo\@secondoftwo
+    \urlstyle{rm}%
+    \href{http://dx.doi.org/#1}{%
+      doi:\discretionary{}{}{}%
+      \nolinkurl{#1}%
+    }%
+  \endgroup
+}
+\makeatother
+
+\begin{document}
+
+\begin{frontmatter}
+
+
+\title{Local reversibility in a Calculus of Covalent Bonding}
+
+\author{Stefan Kuhn, Irek Ulidowski}
+
+\address{Department of Informatics, University of Leicester, Leicester, LE1 7RH, United Kingdom}
+
+\begin{abstract}
+We introduce a process calculus with a new prefixing operator that allows us to model 
+locally controlled reversibility. 
+Actions can be undone spontaneously, as in other reversible process calculi, or as pairs of concerted 
+actions, where performing a weak action forces undoing of another action. The new operator in its 
+full generality allows us to model out-of-causal order computation, where causes are undone 
+before their effects are undone, which goes beyond what typical reversible calculi can express. 
+However, the core calculus, which uses only the reduced form of the new operator, is well behaved as it 
+satisfied causal consistency.
+We demonstrate the usefulness of the calculus by modelling the hydration of formaldehyde in water 
+into methanediol, an industrially important reaction, where the creation and breaking of some 
+bonds are examples of locally controlled out-of-causal order computation.
+\end{abstract}
+
+\begin{keyword}
+Reversible process calculi \sep local reversibility \sep modelling of biochemical reactions
+\end{keyword}
+
+\end{frontmatter}
+
+%% main text
+\input{part1final}
+\input{part2final}
+\newpage
+\input{shortAppendixfinal}
+
+\end{document}

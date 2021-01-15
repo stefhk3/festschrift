@@ -1,0 +1,242 @@
+\begin{subappendices}
+\section*{Appendix}
+
+
+\setcounter{proposition}{3}
+\setcounter{thm}{0}
+
+\begin{proposition}\label{prop:keys2p}
+Let $P$ be consistent. If $P \xrightarrow{\{\mu[k], \underline{\nu}[l]\}} P'$ then $k \notin \keys{P}$, $l \in \keys{P}$  
+	and $\keys{P'}=(\keys{P} \cup \{k\})\setminus\{l\}$ for all $P'$.\\
+\end{proposition}
+
+\begin{pf}By induction on the depth of the inference tree of $P \xrightarrow{\{\mu[k], \underline{\nu}[l]\}} Q$.
+\begin{enumerate}
+\item Base case follows for processes with the inference tree of depth 0.
+%The result follows for processes with the inference tree of depth 0. Such a process 
+%cannot do any transition so the premise of the proposition is therefore false, thus making the statement true.
+\item Inductive hypothesis: We assume that Proposition~\ref{prop:keys2p} holds for all subprocesses $R$ of $P$ and all $\nu[l]$ and all $\mu[k]$, namely if $R$ is a consistent process and $R \xrightarrow{\{\mu[k], \underline{\nu}[l]\}} R'$ for some $R'$ then $k \notin \keys{R}$, $l \in \keys{R}$ and $\keys{R'}=(\keys{R} \cup \{k\})\setminus\{l\}$.
+\item Induction step: We show that Proposition~\ref{prop:keys2p} holds for $P$. For this we consider cases depending on the structure of $P$:
+\begin{enumerate}
+\item $P \equiv R \paral Q$: There are two cases here:
+\begin{enumerate}
+
+	\item The transition is by the rule \rulename{concert} in Figure~\ref{fig:csos}: Assume $P$ is consistent and $P \xrightarrow{\{\mu[k], \underline{\nu}[l]\}} P'$ for some $P'$. Since $P \xrightarrow{\{\mu[k], \underline{\nu}[l]\}} P'$, by rule \rulename{concert}, we have $R \xrightarrow{(\mu_1)[k]} R'$, $Q \xrightarrow{(\mu_2)[k]} Q'$ or $Q \xrightarrow{\mu_2[k]} Q'$, $R' \xrightarrow{\underline{\nu_1}[l]} R''$, $Q' \xrightarrow{\underline{\nu_2}[l]} Q''$, $\gamma(\nu_1,\nu_2)=\nu$ and $\gamma(\mu_1,\mu_2)=\mu$ must hold without loss of generality. Also, $P' \equiv R'' \paral Q''$. We can calculate $\keys{P}$: $\keys{P}=\keys{R} \cup \keys{Q}$. 
+Since $R$ and $Q$ can both perform a transition with $k$ we know, by argument similar 
+to that used in the proof of Proposition~\ref{keys1}.1,  that $k \notin \keys{R}$ and 
+$k \notin \keys{Q}$, and therefore $k \notin \keys{P}$ as required. Since $R'$ and $Q'$ 
+can perform undoing of actions with the key $l$, we know that $l \in \keys{R'}$ and 
+$l \in \keys{Q'}$ by Proposition~\ref{keys1}.2. Transitions of $R$ and $Q$ to $R'$ and $Q'$ respectively do not involve $l$, so $l \in \keys{R}$ and $l \in \keys{Q}$ most hold. Since $\keys{P}=\keys{R \cup Q}$ we 
+deduce that $l \in \keys{P}$ as required. 
+Because of Proposition~\ref{keys1}.1 and Proposition~\ref{keys1}.2 we can calculate 
+$\keys{Q''}$: $\keys{Q''}=\keys{Q'} \setminus \{l\}=(\keys{Q} \cup \{k\}) \setminus \{l\}$, 
+$\keys{R''}$: $\keys{R''}=\keys{R'} \setminus \{l\}=(\keys{R} \cup \{k\}) \setminus \{l\}$, 
+and $\keys{P'}$: $\keys{P'}=\keys{R''} \cup \keys{Q''}=
+(\keys{R} \cup \{k\}) \setminus \{l\} \cup (\keys{Q} \cup \{k\}) \setminus \{l\}=
+(\keys{R} \cup \keys{Q} \cup \{k\}) \setminus \{l\}=(\keys{P} \cup \{k\})\setminus\{l\}$ 
+as required.
+
+\item The transition is by \rulename{concert par} rule in Figure~\ref{fig:csos}: 
+We assume without loss of generality $R \xrightarrow{\{\mu[k], \underline{\nu}[l]\}} R'$ 
+and $\fresh{k}{Q}$, and $P'\equiv R'\paral Q$. By the inductive hypothesis we have 
+$k \notin \keys{R}$, $l \in \keys{R}$ and $\keys{R'}=(\keys{R} \cup \{k\})\setminus\{l\}$. 
+Since $\keys{P}=\keys{R \paral Q}=\keys{R} \cup \keys{Q}$ and $\fresh{k}{Q}$ and 
+$k \notin \keys{R}$ we deduce that $k \notin \keys{P}$. Also since $l \in \keys{R}$ and 
+$\keys{P}=\keys{R \paral Q}=\keys{R} \cup \keys{Q}$ and we deduce that $l \in \keys{P}$.
+Hence, we have  
+$\keys{P'}=\keys{R'} \cup \keys{Q}=(\keys{R} \cup \{k\})\setminus\{l\} \cup \keys{Q}$.
+Since $l\notin \keys{Q}$ by \rulename{concert par}, we have
+		$(\keys{R} \cup \{k\})\setminus\{l\} \cup \keys{Q}=
+(\keys{R \paral Q} \cup \{k\})\setminus\{l\}=(\keys{P} \cup \{k\})\setminus\{l\}$ as required.
+\end{enumerate}
+
+\item $P \equiv (t; b).R$: The transition is by \rulename{concert act} rule in Figure~\ref{fig:csos}. 
+Assume $P$ is consistent and $P \xrightarrow{\{\mu[k], \underline{\nu}[l]\}} P'$. 
+We deduce that $P' \equiv(t;b).R'$ for some $R'$. Recall that $t$ denotes 
+a sequence of past actions, namely an element from $\mAK^*$. The premises of 
+\rulename{concert act} ensure that $\fresh{k}{t}$ and 
+$R \xrightarrow{\{\mu[k],\underline{\nu}[l]\}} R'$. The process $R$ is consistent since 
+$P$ is consistent. Since $R$ is consistent and $R \xrightarrow{\{\mu[k], 
+\underline{\nu}[l]\}} R'$ then, by the inductive hypothesis, $k \notin \keys{R}$, 
+$l \in \keys{R}$ and $\keys{R'}=(\keys{R} \cup \{k\})\setminus\{l\}$. 
+Since $k \notin \keys{R}$ and $\fresh{k}{t}$ we obtain $k \notin \keys{(t;b).R}=\keys{P}$ 
+as required. Since $l \in \keys{R}$ we obtain $l \in \keys{(t;b).R}=\keys{P}$ as required. 
+It is clear by the rules \rulename{act2} and \rulename{concert act} that since  $l \in \keys{R}$
+the key $l$ is not among the keys in $t$ in $(t; b).R$.
+We now calculate $\keys{P'}$: $\keys{P'}=\keys{(t;b).R'}=\kkey{t} \cup \kkey{b} \cup \keys{R'}
+= \kkey{t} \cup \kkey{b} \cup (\keys{R} \cup \{k\})\setminus\{l\}
+= ((\kkey{t} \cup \kkey{b} \cup \keys{R}) \cup \{k\})\setminus\{l\}
+=(\keys{(t;b).R} \cup \{k\}) \setminus\{l\}=(\keys{P} \cup \{k\})\setminus\{l\}$ 
+as required.
+
+\item $P \equiv R \setminus L$: The transition must be by \rulename{concert res} from Figure~\ref{fig:csos}. Assume $P$ is consistent and $P \xrightarrow{\{\mu[k], \underline{\nu}[l]\}} P'$. Since $P \xrightarrow{\{\mu[k], \underline{\nu}[l]\}} P'$ by rule \rulename{concert res} we obtain $R \xrightarrow{\{\mu[k], \underline{\nu}[l]\}} R'$ and $\mu, \nu \notin L \cup (L)$. Since $k \notin \keys{R}$ by the inductive hypothesis it follows that $k \notin \keys{R \setminus L}$ since restriction does not change the keys of the process by definition of $\mathsf{keys}$. Since $l \in \keys{R}$ by the inductive hypothesis it follows that $l \in \keys{R \setminus L}$. Also $\keys{P}=\keys{R}$ and $\keys{P'}=\keys{R'}$ according to the definition of $\mathsf{keys}$. Since by the inductive hypothesis $\keys{R'}=\keys{R} \cup \{k\}$ we can calculate $\keys{P'}$: $\keys{P'}=\keys{R' \setminus L}=\keys{R'}=(\keys{R} \cup \{k\})\setminus\{l\}=(\keys{P} \cup \{k\})\setminus\{l\}$ as required.
+
+\item There are no concerted transitions for $P \equiv (s; c).R$ and $P \equiv S$ with $S\bydef R$.
+\end{enumerate}
+\end{enumerate}
+\end{pf}
+
+\setcounter{proposition}{5}
+\setcounter{thm}{0}
+
+\begin{proposition}\label{prop:conflictp} \normalfont If $t_1 \equiv P \xrightarrow{\underline{\mu}[k]} P'$ and $t_2 \equiv P \xrightarrow{\nu[l]} P''$, then either $t_1$ and $t_2$ are concurrent or $k \in cau(P'',l)$.
+\end{proposition}
+
+\begin{pf}
+By induction on the depth of inference trees for transition of $P$.
+\begin{enumerate}
+\item Base case: Obvious.
+\item Inductive hypothesis: We assume that for all subprocesses $R$ of $P$ and all 
+$\underline{c}[m], d[n]$, if $R$ is a consistent process, $t_1 \equiv R \xrightarrow{\underline{c}[m]} R'$ and $t_2 \equiv R \xrightarrow{d[n]} R''$ then either $t_1$ and $t_2$ are concurrent or $m \in cau(P'',n)$.
+\item Induction step: We show Proposition~\ref{prop:conflictp} for $P$. By Definition~\ref{def:concurrent} there is either an $M$ such that $M \neq P$, $P' \xrightarrow{\nu[l]} M$ and 
+$P'' \xrightarrow{\underline{\mu}[k]} M$, or $k \in cau(P'',l)$ holds. We consider cases based
+on the structure of $P$:
+\begin{enumerate}
+\item $P\equiv (s;b).R$ with $s$ containing at least one past action and at least one fresh action.
+The transitions $t_1$ and $t_2$ are by \rulename{rev act1} respectively \rulename{act1}. 
+Since there is nothing in the rules giving any of them precedence, the transitions are concurrent as required. With $s'$ being the sequence obtained from $s$ by removing actions $\nu$ and $\mu[k]$ we have $t_1 \equiv (s',\nu,\mu[k];b).R \xrightarrow{\underline{\mu}[k]} (s',\nu,\mu,;b).R$ and $t_2 \equiv (s',\nu,\mu[k];b).R \xrightarrow{\nu[l]} (s',\nu[l],\mu[k];b).R$. 
+We now deduce $M \equiv (s',\nu[l],\mu;b).R$, and the properties required for $\nu$ and $\mu[k]$ 
+being concurrent hold: namely $(s',\nu,\mu,;b).R \xrightarrow{\nu[l]} M$ and $(s',\nu[l],\mu[k];b).R \xrightarrow{\underline{\mu}[k]} M$.
+\item $P\equiv (s;b).R$ where $s$ contains only fresh actions: We cannot have the
+required transition $t_2$. Hence Proposition~\ref{prop:conflictp} is vacuously valid.
+
+\item $P\equiv (s;b).R$ where $s$ contains only past actions: There is
+$R \xrightarrow{\nu[l]} R'$, and a $\mu[k] \in s$ so that 
+$t_2 \equiv (s;b).R \xrightarrow{\nu[l]} (s;b).R'$ and $t_1 \equiv (s;b).R 
+\xrightarrow{\underline{\mu}[k]} (s';b).R$ for some $s'$. These transitions are not concurrent 
+since doing any action in $R$ prevents undoing of actions in $s$ and vice versa. 
+Hence $k \in cau(P'',l)$ holds with $P'' \equiv (s;b).R'$.
+\item $P\equiv Q \paral R$:
+There are three cases:
+\begin{enumerate}
+	\item $t_1$ by rule \rulename{rev par} and $t_2$ by rule \rulename{par}. There are two sub-cases:
+\begin{enumerate}
+\item Transitions in the same subprocess: Assume without loss of generality $Q \xrightarrow{\underline{\mu}[k]} Q'$ and $Q \xrightarrow{\nu[l]} Q''$. By the inductive hypothesis these transitions are either concurrent or $k \in cau(Q'',l)$.
+%%\begin{enumerate}
+
+	- concurrent transitions: By the inductive hypothesis there is an $N$ so that $Q' \xrightarrow{\nu[l]} N$ and $Q'' \xrightarrow{\underline{mu}[k]} N$. We can conclude by using rule \rulename{rev par} that $Q' \paral R \xrightarrow{\nu[l]} N \paral R$ and $Q'' \paral R \xrightarrow{\underline{\mu}[k]} N \paral R$. Letting
+$M \equiv N \paral R$ we get the required result.
+
+- $k \in cau(Q'',l)$: Since $cau(P \paral Q,k) = cau(P,k) \cup cau(Q,k)$ according to Definition~\ref{def:causalkeys} we get $cau(Q'' \paral R,l)=cau(Q'',l) \cup cau(R,l)$. If $k \in cau(Q'',l)$ then $k \in cau(Q'',l) \cup cau(R,l)$ must be true as well and, hence, $k \in cau(Q'' \paral R)$. Since $P''\equiv Q'' \paral R$ it follows that $k \in cau(P'',l)$ as required.
+
+\item Transitions in different subprocesses: Assume without loss of generality that $Q \xrightarrow{\underline{\mu}[k]} Q'$ and $R \xrightarrow{\nu[l]} R'$. These transitions are concurrent. 
+By rule \rulename{rev par} $Q \paral R \xrightarrow{\underline{\mu}[k]} Q' \paral R \xrightarrow{\nu[l]} Q' \paral R'$ and $Q \paral R \xrightarrow{\nu[l]} Q \paral R' \xrightarrow{\underline{\mu}[k]} Q' \paral R'$ are valid. These form the diamond required for concurrent transitions with $M \equiv Q' \paral R'$.
+
+\end{enumerate}
+\item $P \xrightarrow{\underline{\mu}[k]} P'$ by rule \rulename{rev com} and $P \xrightarrow{\nu[l]} P''$ by rule \rulename{par}: Without loss of generality this covers all cases with one \rulename{par}
+and one \rulename{rev com} or one \rulename{rev par} and one \rulename{com} transition. We assume that $P \xrightarrow{\underline{\mu}[k]} P'$ happens by rule 
+\rulename{rev com}, where $\gamma(\mu_1,\mu_2)=\mu$, and that $P \xrightarrow{\nu[l]} P''$ happens by rule 
+		\rulename{par}. We also assume that $\nu$ happens in $Q$, so that $Q \xrightarrow{\nu[l]} Q'$, and that $Q \xrightarrow{\underline{\mu_1}[k]} Q''$ and $R \xrightarrow{\underline{\mu_2}[k]} R'$. We know that $\fresh{l}{R}$ because of the preconditions of the \rulename{par} rule and that $l \neq k$ because $\fresh{l}{R}$ and $R \xrightarrow{\underline{\mu_2}[k]} R''$, a transition which could not happen if $l=k$, since according to Proposition~\ref{keys1}.2 a key cannot be fresh for a reverse transition to happen with this key. By the inductive hypothesis transition $Q \xrightarrow{\nu[l]} Q'$ and $Q \xrightarrow{\underline{\mu_1}[k]} Q''$ are either concurrent or $k \in cau(Q',l)$.
+
+\begin{enumerate}
+	\item concurrent transitions: By the inductive hypothesis there is an $N$ so that $Q' \xrightarrow{\underline{\mu_1}[k]} N$ and $Q'' \xrightarrow{\nu[l]} N$. Using the \rulename{rev com} rule we can deduce that $P \xrightarrow{\underline{\mu}[k]} Q'' \paral R'$,  $P \xrightarrow{\nu[l]} Q' \paral R$, $Q'' \paral R' \xrightarrow{\nu[l]} N \paral R'$ and $Q' \paral R \xrightarrow{\underline{\mu}[k]} N \paral R'$. Letting $M \equiv N \paral R'$ we obtain the result.
+\item $k \in cau(Q',l)$: $k \in cau(Q',l)$ implies $k \in (cau(Q',l) \cup cau(R,l))$ according to Definition~\ref{def:causalkeys}, which is $k \in cau(Q' \paral R,l)$. Since $P'' = Q' \paral R$ we have $k \in cau(P'',l)$ as required.
+\end{enumerate}
+\item $P \xrightarrow{\underline{\mu}[k]} P'$ by \rulename{rev com} and $P \xrightarrow{\nu[l]} P''$ by 
+\rulename{com}: Without loss of generality this covers all cases with one \rulename{com} and one 
+\rulename{rev com} transition. We assume that $\gamma(\mu_1,\mu_2)=\mu$ and $\gamma(\nu_1,\nu_2)=\nu$. Also $Q \xrightarrow{\underline{\mu_1}[k]} Q'$, $Q \xrightarrow{\nu_1[l]} Q''$, $R \xrightarrow{\underline{\mu_2}[k]} R'$ and $R \xrightarrow{\nu_2[l]} R''$. By the inductive hypothesis the transitions $\mu_1$ and $\nu_1$ must be either concurrent or $k \in cau(Q'',l)$. For transitions $\mu_2$ and $\nu_2$ the same holds. So we distinguish three cases:
+\begin{enumerate}
+	\item two concurrent transitions: Since $Q \xrightarrow{\underline{\mu_1}[k]} Q'$ and $Q \xrightarrow{\nu_1[l]} Q''$ by the inductive hypothesis it follows that there is an $N$ so that $Q' \xrightarrow{\nu_1[l]} N$, and $Q'' \xrightarrow{\underline{\mu_1}[k]} N$ and since $R \xrightarrow{\underline{\mu_2}[k]} R'$ and $R \xrightarrow{\nu_2[l]} R''$ there is an $N'$ so that $R' \xrightarrow{\nu_2[l]} N'$ and $R'' \xrightarrow{\underline{\mu_2}[k]} N'$. By \rulename{rev par} and \rulename{par} it follows that $P \xrightarrow{\underline{\mu}[k]} Q' \paral R' \xrightarrow{\nu[l]} N \paral N'$ and $P \xrightarrow{\nu[l]} Q'' \paral R'' \xrightarrow{\mu[k]} N \paral N'$. Letting $M \equiv N \paral N'$ gives the result.
+
+\item $k \in cau(Q'',l)$ and $k \in cau(R'',l)$: Since $P''\equiv Q'' \paral R''$ we can calculate $cau(P'',l)=cau(Q'' \paral R'',l)=cau(Q'',l) \cup cau(R'',l)$. Since $k \in cau(Q'',l)$ and $k \in cau(R'',l)$ it follows that $k \in cau(Q'',l) \cup cau(R'',l)$ and  that $k \in cau(P'',l)$ as required.
+
+\item $k \in cau(Q'',l)$, and $R\xrightarrow{\underline{\mu_2}[k]} R'$ and $R \xrightarrow{\nu_2[l]} R''$ are concurrent: Since $P''\equiv Q'' \paral R''$ we get $cau(P'',l)=cau(Q'' \paral R'',l)=cau(Q'',l) \cup cau(R'',l)$. Since $k \in cau(Q'',l)$ it follows that $k \in cau(Q'',l) \cup cau(R'',l)$ and  that $k \in cau(P'',l)$ as required. This also applies when $k \in cau(R'',l)$, so 
+$Q \xrightarrow{\underline{\mu_1}[k]} Q'$ and $Q \xrightarrow{\nu_1[l]} Q''$ are concurrent.
+\end{enumerate}
+\end{enumerate}
+\item $P\equiv R \setminus L$:
+	The transitions $R \setminus L \xrightarrow{\underline{\mu}[k]} R' \setminus L$ and $R \setminus L \xrightarrow{\nu[l]} R'' \setminus L$ are by rule \rulename{rev res} in Figure~\ref{fig:reversesos} respectively \rulename{res} in Figure~\ref{fig:fsos}. We assume without loss of generality that $R \xrightarrow{\underline{\mu}[k]} R'$, $R \xrightarrow{\nu[l]} R''$ and $\mu, \nu \notin L$. By the inductive hypothesis 
+$R \xrightarrow{\underline{\mu}[k]} R'$ and $R \xrightarrow{\nu[l]} R''$ are either concurrent or 
+$k \in cau(R'',l)$.
+\begin{enumerate}
+	\item concurrent transitions: By the inductive hypothesis there is an $N$ so that $R' \xrightarrow{\underline{\mu}[l]} N$ and $R'' \xrightarrow{\nu[k]} N$. Consider $M \equiv N \restrict L$. Since $\mu, \nu \notin L$ by rule \rulename{rev res} respectively \rulename{res} we deduce $P\xrightarrow{\underline{\mu}[k]} R' \restrict L \xrightarrow{\nu[l]} M$ and $P\xrightarrow{\nu[l]} R'' \restrict L \xrightarrow{\underline{\mu}[k]} M$.
+\item $k \in cau(R'',l)$: Since $cau(P \restrict L, k) = cau(P, k)$ according to Definition~\ref{def:causalkeys} we calculate $cau(R'' \restrict L,l)=cau(R'',l)$. If $k \in cau(R'',l)$ it follows that $k \in cau(R'' \restrict L,l)$ as required.
+\end{enumerate}
+\item $P \equiv S$ with $S\bydef R$: similar to the $P\equiv R \setminus L$ case.
+\Comment{
+The transitions $S \xrightarrow{\underline{\mu}[k]} R'$ and $S \xrightarrow{\nu[l]} R''$ are by rule 
+		\rulename{rev con} in Figure~\ref{fig:reversesos} respectively \rulename{res} in Figure~\ref{fig:fsos}. Hence $R \xrightarrow{\underline{\mu}[k]} R'$ and $R \xrightarrow{\nu[l]} R''$. By the inductive hypothesis $R \xrightarrow{\underline{\mu}[k]} R'$ and $R \xrightarrow{\nu[l]} R''$ are
+either concurrent or $k \in cau(R'',l)$.
+\begin{enumerate}
+	\item concurrent: By the inductive hypothesis we know that there must be an $N$ so that $R' \xrightarrow{\nu[l]} N$ and $R'' \xrightarrow{\underline{\mu}[k]} N$. Consider $M \equiv N $. By rule \rulename{rev con}
+	respectively con we can write $P\xrightarrow{\underline{\mu}[k]} R' \xrightarrow{\nu[l]} M$ and $P\xrightarrow{\nu[l]} R'' \xrightarrow{\mu[k]} M$ as required.
+\item $k \in cau(R'',l)$: Since $cau(S) = cau(P) \mbox{ if }S \bydef P$ according to Definition~\ref{def:causalkeys} we can calculate $cau(S)=cau(R'')$. If $k \in cau(R'',l)$ it follows that $k \in cau(S)$ as required.
+\end{enumerate}
+}
+\end{enumerate}
+\end{enumerate}
+\end{pf}
+
+\begin{proposition}[Rearrangement]\label{prop:rearrangep}
+If $\sigma$ is a trace then there exist forward traces 
+$\sigma_1$ and $\sigma_2$ such that $\sigma \asymp \sigma_1^\bullet;\sigma_2$.
+\end{proposition}
+
+\begin{pf}
+We give a constructive proof. We show that any trace can be transformed to the form required
+	by Proposition\ref{prop:rearrangep}.  Any trace must be either $\sigma$, $\sigma^\bullet$ or $\sigma_1^\bullet;\sigma_2$ or it must be of the form $\sigma_1^\bullet;\sigma_2^*;t_1;t_2^\bullet;\sigma_3$ where $\sigma$, $\sigma_1$ and $\sigma_2$ are forward traces and $\sigma_3$ is composed of any number of forward and reverse transitions. In other words this means that we can identify the earliest pair of forward-reverse transitions. The instructions for the transformation to the required form are in the algorithm in 
+Figure~\ref{rearrangement-algorithm}.
+
+\begin{figure}[t]
+\noindent
+\addvbuffer[12pt 8pt]{\renewcommand{\arraystretch}{1.3}\begin{tabular}{ p{.5cm} p{1cm} p{1cm} p{1cm} l }
+  1 & \multicolumn{4}{l}{Let $\sigma_{input}$ be our trace} \\
+  2 & \multicolumn{4}{l}{$\emph{while }(\sigma_{input} \neq \sigma \land \sigma_{input} \neq \sigma^\bullet \land \sigma_{input} \neq \sigma_1^\bullet;\sigma_2$ for all forward traces} \\
+    & \multicolumn{4}{l}{$\sigma, \sigma_1, \sigma_2$)} \\
+		3 & \qquad  & \multicolumn{3}{p{10cm}}{$\sigma_{input}$ is of the form $\sigma_1^\bullet;\sigma_2;t_1;t_2^\bullet;\sigma_3$ for some (possibly new) $\sigma_1, \sigma_2, t_1, t_2, \sigma_3$, where $\sigma_1, \sigma_2, \sigma_3$ are forward traces, $t_1$, $t_2$ are forward transitions (any of $\sigma_1, \sigma_2, \sigma_3$ could be empty sequences $\epsilon$)} \\
+    & \qquad & \multicolumn{3}{p{10cm}}{Let $length(\sigma_1)=n$, $length(\sigma_2)=k$, $length(\sigma_3)=l$. Distance from start to the pair $t_1;t_2^\bullet$ is $n+k$} \\
+  4 & \qquad & \multicolumn{3}{p{10cm}}{Let $t_1 \equiv P \xrightarrow{\mu[m]} P'$, $t_2^\bullet \equiv P' \xrightarrow{\underline{\nu}[n]} P''$ (so $t_2 \equiv P'' \xrightarrow{\nu[n]} P'$)} \\
+  5 & \qquad & \multicolumn{3}{p{10cm}}{$\emph{if }(\mu[m]=\nu[n])\emph{ then}$}\\
+  6 & \qquad & \qquad & \multicolumn{2}{p{9cm}}{Since $\mu[m]=\nu[k]$ we get $P \equiv P''$ and, by Definition~\ref{def:causalequivalence}, transitions $t_1;t_2^\bullet$ are replaced by $\epsilon$ in $\sigma_{input}$} \\
+  7 & \qquad & \qquad & \multicolumn{2}{p{9cm}}{$\sigma_{input}$ is now $\sigma_1^\bullet;\sigma_2;\sigma_3$}\\
+  8 & \qquad & \multicolumn{3}{p{10cm}}{$else$}\\
+  9 & \qquad & \qquad & \multicolumn{2}{p{9cm}}{$\emph{while }(\sigma_2 \neq \epsilon)$}\\
+ 10 & \qquad & \qquad & \qquad & \multicolumn{1}{p{8cm}}{$\sigma_{input}$ is $\sigma_1^\bullet;\sigma_2;t_1;t_2^\bullet;\sigma_3$ for some (possibly new) $\sigma_2$, $t_1$, $t_2$ and $\sigma_3$, with $\sigma_1$ and $\sigma_2$ being forward traces and $t_1$ and $t_2$ being forward transitions}\\
+  11 & \qquad & \qquad & \qquad & \multicolumn{1}{p{8cm}}{According to Proposition~\ref{keys1}.3 there must be a transition $t_1^\bullet \equiv P' \xrightarrow{\underline{\mu}[m]} P$. $t_1^\bullet$ and $t_2^\bullet$ form a diamond with two transitions $t_3^\bullet \equiv P \xrightarrow{\underline{\nu}[n]} M$ and $t_4^\bullet \equiv P'' \xrightarrow{\underline{\mu}[m]} M$ for some $M$ according to Proposition~\ref{prop:revdiamond}. According to Proposition~\ref{keys1}.3 there must be a transition $t_4 \equiv M \xrightarrow{\mu[m]} P''$. The trace $t_3^{\bullet};t_4$ replaces $t_1;t_2^\bullet$ in $\sigma_{input}$ since the traces are coinitial and cofinal}\\
+  12 & \qquad & \qquad & \qquad & \multicolumn{1}{p{8cm}}{$\sigma_{input}$ is now $\sigma_1^\bullet;\sigma_2;t_3^\bullet;t_4;\sigma_3$}\\
+  13 & \qquad & \qquad & \multicolumn{2}{p{9cm}}{$\emph{end while }$(at this point $\sigma_2$ is $\epsilon$)}\\
+  14 & \qquad & \qquad & \multicolumn{2}{p{9cm}}{$\sigma_{input}$ is now $\sigma_1^\bullet;t^\bullet;\sigma_2';\sigma_3$ for some $t, \sigma_2'$ where $\sigma_2'$ is forwards only} \\
+  15 & \qquad & \multicolumn{3}{p{10cm}}{$\emph{end if}$}\\
+  16 & \multicolumn{4}{p{11cm}}{$\emph{end while }$(at this point $\sigma_{input} = \sigma \lor \sigma_{input} = \sigma^\bullet \lor \sigma_{input} = \sigma_1^\bullet;\sigma_2$, for some forward traces $\sigma$, $\sigma_1$ and $\sigma_2$)}\\
+\end{tabular}}
+\caption{Rearrangement algorithm.}
+\label{rearrangement-algorithm}
+\end{figure}
+
+We show that the algorithm terminates in all cases with the required result. Executing 
+the inner while loop (lines 9 to 13) once decreases the length of the resulting $\sigma_2$ by 1 and increases the length of the resulting $\sigma_3$ by 1.
+
+After the inner while loop terminates we have $length(\sigma_2')=length(\sigma_2)$. 
+The trace $\sigma_1^\bullet;t^\bullet$ forms a new reverse only trace whose length is increased 
+by 1 compared to $\sigma_1^\bullet$. 
+
+Executing the outer while loop once decreases the length of the sequence $t_2^\bullet;\sigma_3$,
+which is the ``unprocessed" part of $\sigma_1^\bullet;\sigma_2;t_1;t_2^\bullet;\sigma_3$,
+and changes the structure of $\sigma_{input}$ so it is no longer as required by
+Proposition~\ref{prop:rearrange}. The sequence $\sigma_1^\bullet;\sigma_2;t_1$ is of the form required by Proposition~\ref{prop:rearrange} and its length is increased by the outer while loop. This is because at the end of the outer while loop we have $\sigma_1^\bullet;t^\bullet;\sigma_2';\sigma_3$. 
+The part $\sigma_1^\bullet;t^\bullet;\sigma_2'$ of this trace is in the correct form and 
+its length is increased by one, since $t^\bullet$ is added, $\sigma_1^\bullet$ is unchanged,
+and $length(\sigma_2')=length(\sigma_2)$. The sequence $\sigma_3$ is the ``unprocessed" part, which has been shortened by one transition, in comparison to $t_2^\bullet;\sigma_3$ since $\sigma_3$ is unchanged. Hence the algorithm terminates once $\sigma_3$ has been completely processed and the final $\sigma_{input}$ has the required form with $\sigma_3$ being empty.
+
+\end{pf}
+
+\begin{proposition}[Shortening]\label{prop:shorteningp}
+If $\sigma_1$, $\sigma_2$ are coinitial and cofinal traces, 
+with $\sigma_2$ forward, then there exists a forward trace $\sigma_1'$ of length 
+at most that of $\sigma_1$ such that $\sigma_1' \asymp \sigma_2$.
+\end{proposition}
+
+\begin{pf}
+By induction on the length of $\sigma_1$. If $\sigma_1$ is a forward trace then the proposition 
+holds. If not, then by Proposition~\ref{prop:rearrange} we assume $\sigma_1$ to be
+$\sigma'^\bullet;\sigma$ for some forward sequences $\sigma$ and $\sigma'$. There is only one sub-trace $t_1^\bullet;t_2$ in $\sigma'^\bullet;\sigma$ where the first transition $t_1^\bullet$ is reverse and the second transition $t_2$ is forward. We assume $t_1^\bullet \equiv P \xrightarrow{\underline{\mu}[k]} P'$ and $t_2 \equiv P' \xrightarrow{\nu[l]} P''$. There is a transition $t' \equiv R \xrightarrow{\mu[k]} R'$ 
+in $\sigma_1$ for some $R$, $R'$, otherwise $\sigma_1$ could not be cofinal with $\sigma_2$. 
+Proposition~\ref{keys1}.3 implies that there is a transition $t_1 \equiv P' \xrightarrow{\mu[k]} P$. 
+Transitions $t_1$ and $t_2$ are either concurrent, in conflict, or $l \in cau(P,k)$ or 
+$k \in cau(P'',l)$. The possibility of $t_1$ and $t_2$ being in conflict is excluded since we have $t_1$ and $t_2$ in a valid trace, namely $P' \xrightarrow{\nu[l]} P'' \rightarrow^* R \xrightarrow{\mu[k]} R'$. Also $k \in cau(P'',l)$ is impossible since we perform $\nu[l]$ before $\mu[k]$ in the trace $P \xrightarrow{\underline{\mu}[k]} P' \xrightarrow{\nu[l]} P'' \rightarrow^* R \xrightarrow{\mu[k]} R'$. Finally, $l \in cau(P,k)$ cannot hold because otherwise, since $P' \xrightarrow{\mu[k]} P$, some $\alpha[l]$ transition must have happened in $P'$ before $P' \xrightarrow{\mu[k]} P$. This contradicts $P' \xrightarrow{\nu[l]} P''$ (key $l$ is not fresh in $P'$ due to the $\alpha[l]$ action, hence $P' \xrightarrow{\nu[l]} P'''$ is not possible for any $P'''$). Hence $l \notin cau(P,k)$ and, overall, the only possibility is that $t_1$ and $t_2$ are concurrent.
+
+The transitions $t_1^\bullet$ and $t_2$ form a diamond with two transitions $t_3 \equiv P \xrightarrow{\nu[l]} P'''$ and $t_4^\bullet \equiv P''' \xrightarrow{\underline{\mu}[k]} P''$ for some $P'''$ according to Proposition~\ref{prop:revdiamond}. The trace $t_3;t_4^{\bullet}$ can replace $t_1^\bullet;t_2$ in $\sigma'^\bullet;\sigma$ since the traces are coinitial and cofinal. We can repeat this process of ``moving" an equivalent version of $t_4^\bullet$ to the right (by following the steps described above) until the resulting $t^\bullet$ (with the label $\underline{\mu}[k]$) is directly to the left of $t' \equiv R \xrightarrow{\mu[k]} R'$. These transitions are then $Q \xrightarrow{\underline{\mu}[k]}R \xrightarrow{\mu[k]} R'$ for some $Q$ (where $Q=R$). Using Definition~\ref{def:causalequivalence} we can remove them. The resulting trace is shorter than $\sigma_1$ and we can repeat the process until the trace is forwards only.
+\end{pf}
+
+\end{subappendices}
+

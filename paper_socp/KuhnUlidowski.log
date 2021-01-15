@@ -1,0 +1,674 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=latex 2017.8.24)  4 OCT 2017 13:05
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**KuhnUlidowski.tex
+(./KuhnUlidowski.tex
+LaTeX2e <2016/02/01>
+Babel <3.9q> and hyphenation patterns for 81 language(s) loaded.
+(./elsarticle.cls
+Document Class: elsarticle 2009/09/17, 1.20b: Elsevier Ltd
+\@bls=\dimen102
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen103
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks14
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2016/01/03 v1.0q Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: dvips.def on input line 95.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/dvips.def
+File: dvips.def 2015/12/30 v3.0k Driver-dependent file (DPC,SPQR)
+))
+\Gin@req@height=\dimen104
+\Gin@req@width=\dimen105
+)
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/pifont.sty
+Package: pifont 2005/04/12 PSNFSS-v9.2a Pi font support (SPQR) 
+LaTeX Font Info:    Try loading font information for U+pzd on input line 63.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/upzd.fd
+File: upzd.fd 2001/06/04 font definitions for U/pzd.
+)
+LaTeX Font Info:    Try loading font information for U+psy on input line 64.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/upsy.fd
+File: upsy.fd 2001/06/04 font definitions for U/psy.
+))
+\c@tnote=\count87
+\c@fnote=\count88
+\c@cnote=\count89
+\c@ead=\count90
+\c@author=\count91
+\@eadauthor=\toks15
+\c@affn=\count92
+\absbox=\box26
+\keybox=\box27
+\Columnwidth=\dimen106
+\space@left=\dimen107
+\els@boxa=\box28
+\els@boxb=\box29
+\leftMargin=\dimen108
+\@enLab=\toks16
+\@sep=\skip43
+\@@sep=\skip44
+ (./KuhnUlidowski.spl) (/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.s
+ty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip45
+\bibsep=\skip46
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count93
+)
+\splwrite=\write3
+\openout3 = `KuhnUlidowski.spl'.
+
+\appnamewidth=\dimen109
+) (./oubraces.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf.sty
+Package: epstopdf 2010/02/09 v2.5 Conversion with epstopdf on the fly (HO)
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/infwarerr.sty
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
+)))
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is not detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode is ignored in DVI mode.
+)
+
+Package epstopdf Warning: Drivers other than `pdftex.def' are not supported.
+
+)) (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\@emptytoks=\toks17
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2016/03/03 v2.15a AMS math features
+\@mathmargin=\skip47
+
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks18
+\ex@=\dimen110
+))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen111
+)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 1999/12/14 v2.01 operator names
+)
+\inf@bad=\count94
+LaTeX Info: Redefining \frac on input line 199.
+\uproot@=\count95
+\leftroot@=\count96
+LaTeX Info: Redefining \overline on input line 297.
+\classnum@=\count97
+\DOTSCASE@=\count98
+LaTeX Info: Redefining \ldots on input line 394.
+LaTeX Info: Redefining \dots on input line 397.
+LaTeX Info: Redefining \cdots on input line 518.
+\Mathstrutbox@=\box30
+\strutbox@=\box31
+\big@size=\dimen112
+LaTeX Font Info:    Redeclaring font encoding OML on input line 630.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 631.
+\macc@depth=\count99
+\c@MaxMatrixCols=\count100
+\dotsspace@=\muskip10
+\c@parentequation=\count101
+\dspbrk@lvl=\count102
+\tag@help=\toks19
+\row@=\count103
+\column@=\count104
+\maxfields@=\count105
+\andhelp@=\toks20
+\eqnshift@=\dimen113
+\alignsep@=\dimen114
+\tagshift@=\dimen115
+\tagwidth@=\dimen116
+\totwidth@=\dimen117
+\lineht@=\dimen118
+\@envbody=\toks21
+\multlinegap=\skip48
+\multlinetaggap=\skip49
+\mathdisplay@stack=\toks22
+LaTeX Info: Redefining \[ on input line 2735.
+LaTeX Info: Redefining \] on input line 2736.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip11
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+(/usr/share/texlive/texmf-dist/tex/latex/psfrag/psfrag.sty
+Package: psfrag 1998/04/11 v3.04 PSfrag (MCG)
+\pfg@pcount=\count106
+\pfg@scount=\count107
+\pfg@temp=\write4
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2016/01/03 v1.1b Standard LaTeX Color (DPC)
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package color Info: Driver file: dvips.def on input line 143.
+
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/dvipsnam.def
+File: dvipsnam.def 2015/12/30 v3.0k Driver-dependent file (DPC,SPQR)
+))
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2012/11/06 v6.83m Hypertext links for LaTeX
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-hyperref.sty
+Package: hobsub-hyperref 2012/05/28 v1.13 Bundle oberdiek, subset hyperref (HO)
+
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/hobsub-generic.sty
+Package: hobsub-generic 2012/05/28 v1.13 Bundle oberdiek, subset generic (HO)
+Package: hobsub 2012/05/28 v1.13 Construct package bundles (HO)
+Package hobsub Info: Skipping package `infwarerr' (already loaded).
+Package hobsub Info: Skipping package `ltxcmds' (already loaded).
+Package hobsub Info: Skipping package `ifluatex' (already loaded).
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
+Package ifvtex Info: VTeX not detected.
+Package: intcalc 2007/09/27 v1.1 Expandable calculations with integers (HO)
+Package hobsub Info: Skipping package `ifpdf' (already loaded).
+Package hobsub Info: Skipping package `etexcmds' (already loaded).
+Package hobsub Info: Skipping package `kvsetkeys' (already loaded).
+Package hobsub Info: Skipping package `kvdefinekeys' (already loaded).
+Package hobsub Info: Skipping package `pdftexcmds' (already loaded).
+Package: pdfescape 2011/11/25 v1.13 Implements pdfTeX's escape features (HO)
+Package: bigintcalc 2012/04/08 v1.3 Expandable calculations on big integers (HO
+)
+Package: bitset 2011/01/30 v1.1 Handle bit-vector datatype (HO)
+Package: uniquecounter 2011/01/30 v1.2 Provide unlimited unique counter (HO)
+)
+Package hobsub Info: Skipping package `hobsub' (already loaded).
+Package: letltxmacro 2010/09/02 v1.4 Let assignment for LaTeX macros (HO)
+Package: hopatch 2012/05/28 v1.2 Wrapper for package hooks (HO)
+Package: xcolor-patch 2011/01/30 xcolor patch
+Package: atveryend 2011/06/30 v1.8 Hooks at the very end of document (HO)
+Package atveryend Info: \enddocument detected (standard20110627).
+Package: atbegshi 2011/10/05 v1.16 At begin shipout hook (HO)
+Package: refcount 2011/10/16 v3.4 Data extraction from label references (HO)
+Package: hycolor 2011/01/30 v1.7 Color options for hyperref/bookmark (HO)
+)
+(/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty
+Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
+)
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/auxhook.sty
+Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
+)
+\@linkdim=\dimen119
+\Hy@linkcounter=\count108
+\Hy@pagecounter=\count109
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2012/11/06 v6.83m Hyperref: PDFDocEncoding definition (HO)
+)
+\Hy@SavedSpaceFactor=\count110
+
+(/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg
+File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
+)
+Package hyperref Info: Hyper figures OFF on input line 4443.
+Package hyperref Info: Link nesting OFF on input line 4448.
+Package hyperref Info: Hyper index ON on input line 4451.
+Package hyperref Info: Plain pages OFF on input line 4458.
+Package hyperref Info: Backreferencing OFF on input line 4463.
+Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
+Package hyperref Info: Bookmarks ON on input line 4688.
+\c@Hy@tempcnt=\count111
+LaTeX Info: Redefining \url on input line 5041.
+\XeTeXLinkMargin=\dimen120
+\Fld@menulength=\count112
+\Field@Width=\dimen121
+\Fld@charsize=\dimen122
+Package hyperref Info: Hyper figures OFF on input line 6295.
+Package hyperref Info: Link nesting OFF on input line 6300.
+Package hyperref Info: Hyper index ON on input line 6303.
+Package hyperref Info: backreferencing OFF on input line 6310.
+Package hyperref Info: Link coloring OFF on input line 6315.
+Package hyperref Info: Link coloring with OCG OFF on input line 6320.
+Package hyperref Info: PDF/A mode OFF on input line 6325.
+LaTeX Info: Redefining \ref on input line 6365.
+LaTeX Info: Redefining \pageref on input line 6369.
+\Hy@abspage=\count113
+\c@Item=\count114
+\c@Hfootnote=\count115
+)
+
+Package hyperref Message: Driver (default): hdvips.
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/hdvips.def
+File: hdvips.def 2012/11/06 v6.83m Hyperref driver for dvips
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/pdfmark.def
+File: pdfmark.def 2012/11/06 v6.83m Hyperref definitions for pdfmark specials
+\pdf@docset=\toks23
+\pdf@box=\box32
+\pdf@toks=\toks24
+\pdf@defaulttoks=\toks25
+\HyField@AnnotCount=\count116
+\Fld@listcount=\count117
+\c@bookmark@seq@number=\count118
+
+(/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
+Package: rerunfilecheck 2011/04/15 v1.7 Rerun checks for auxiliary files (HO)
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
+82.
+)
+\Hy@SectionHShift=\skip50
+))
+(/usr/share/texlive/texmf-dist/tex/latex/breakurl/breakurl.sty
+Package: breakurl 2013/04/10 v1.40 Breakable hyperref URLs
+
+(/usr/share/texlive/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/share/texlive/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks26
+\XKV@tempa@toks=\toks27
+)
+\XKV@depth=\count119
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+))
+\burl@toks=\toks28
+)
+(/usr/share/texlive/texmf-dist/tex/latex/rotating/rotating.sty
+Package: rotating 2009/03/28 v2.16a rotated objects in LaTeX
+
+(/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\c@r@tfl@t=\count120
+\rotFPtop=\skip51
+\rotFPbot=\skip52
+\rot@float@box=\box33
+\rot@mess@toks=\toks29
+)
+(/usr/share/texlive/texmf-dist/tex/latex/verbatimbox/verbatimbox.sty
+Package: verbatimbox 2014/03/12 v3.13 Routines for placing verbatim text into b
+oxes, useful in places where the verbatim environment is inaccessible. Secondar
+ily, for adding vertical buffer around an object.
+
+(/usr/share/texlive/texmf-dist/tex/latex/tools/verbatim.sty
+Package: verbatim 2014/10/28 v1.5q LaTeX2e package for verbatim enhancements
+\every@verbatim=\toks30
+\verbatim@line=\toks31
+\verbatim@in@stream=\read1
+)
+(/usr/share/texlive/texmf-dist/tex/latex/readarray/readarray.sty
+Package: readarray 2013/05/09 v1.2 Routines for inputting array data and recall
+ing it on an element-by-element basis. Currently supports 2-D and 3-D array
+
+(/usr/share/texlive/texmf-dist/tex/latex/ifnextok/ifnextok.sty
+Package: ifnextok 2011/06/27 v0.3 test next token (UL)
+)
+\c@@index=\count121
+\c@@plane=\count122
+\c@@row=\count123
+\c@@col=\count124
+\c@use@args=\count125
+\c@@record=\count126
+\c@arg@index=\count127
+\c@break@count=\count128
+)
+\savedverbbox=\box34
+\c@VerbboxLineNo=\count129
+\boxtopsep=\dimen123
+\boxbottomsep=\dimen124
+\ps@tempdima=\dimen125
+\ps@tempboxa=\box35
+\boxtop@sep=\skip53
+\boxbottom@sep=\skip54
+)
+(/usr/share/texlive/texmf-dist/tex/latex/graphics/epsfig.sty
+Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
+\epsfxsize=\dimen126
+\epsfysize=\dimen127
+)
+(/usr/share/texlive/texmf-dist/tex/latex/changepage/chngpage.sty
+Package: chngpage 2009/10/20 v1.2b change page layout
+\c@cp@cnt=\count130
+\c@cp@tempcnt=\count131
+)
+(/usr/share/texlive/texmf-dist/tex/latex/appendix/appendix.sty
+Package: appendix 2009/09/02 v1.2b extra appendix facilities
+\c@@pps=\count132
+\c@@ppsavesec=\count133
+\c@@ppsaveapp=\count134
+)
+\c@definition=\count135
+\c@example=\count136
+\c@proposition=\count137
+\c@thm=\count138
+\c@rmk=\count139
+\c@pf=\count140
+\c@pot=\count141
+
+(./KuhnUlidowski.aux)
+\openout1 = `KuhnUlidowski.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 171.
+LaTeX Font Info:    ... okay on input line 171.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 171.
+LaTeX Font Info:    ... okay on input line 171.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 171.
+LaTeX Font Info:    ... okay on input line 171.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 171.
+LaTeX Font Info:    ... okay on input line 171.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 171.
+LaTeX Font Info:    ... okay on input line 171.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 171.
+LaTeX Font Info:    ... okay on input line 171.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 171.
+LaTeX Font Info:    ... okay on input line 171.
+\AtBeginShipoutBox=\box36
+Package hyperref Info: Link coloring OFF on input line 171.
+
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
+)
+\c@section@level=\count142
+)
+LaTeX Info: Redefining \ref on input line 171.
+LaTeX Info: Redefining \pageref on input line 171.
+LaTeX Info: Redefining \nameref on input line 171.
+
+(./KuhnUlidowski.out) (./KuhnUlidowski.out)
+\@outlinefile=\write5
+\openout5 = `KuhnUlidowski.out'.
+
+LaTeX Font Info:    Try loading font information for U+msa on input line 200.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 200.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) (./part1final.tex
+[1
+
+
+]
+File: exampleintro.eps Graphic file (type eps)
+ <exampleintro.eps> [2]
+Overfull \hbox (0.5001pt too wide) in paragraph at lines 113--113
+[] 
+ []
+
+[3] [4] [5] [6] [7]
+Overfull \hbox (19.38072pt too wide) detected at line 493
+[]
+ []
+
+[8] [9]
+Overfull \hbox (5.72998pt too wide) in paragraph at lines 631--638
+\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 a\OT1/cmr/m/n/10 [1]; \OML/cmm/m/it/10 b\OT1/
+cmr/m/n/10 ) [][] (\OML/cmm/m/it/10 a\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 b\OT1/c
+mr/m/n/10 [\OML/cmm/m/it/10 l\OT1/cmr/m/n/10 ])$, for any $\OML/cmm/m/it/10 l$ 
+\OT1/cmr/m/n/10 dif-fer-ent from 1 and 2, but $(\OML/cmm/m/it/10 e\OT1/cmr/m/n/
+10 [2]; \OML/cmm/m/it/10 b\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 j \OT1/cmr/m/n/10 
+(\OML/cmm/m/it/10 a\OT1/cmr/m/n/10 [1]\OML/cmm/m/it/10 ; e\OT1/cmr/m/n/10 [2])$
+
+ []
+
+[10] [11] [12]
+Overfull \hbox (8.61372pt too wide) in paragraph at lines 860--866
+\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 a; b; s[]\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 c
+\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 :R$ \OT1/cmr/m/n/10 or $(\OML/cmm/m/it/10 a\O
+T1/cmr/m/n/10 [\OML/cmm/m/it/10 k\OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 ; b\OT1/cmr/
+m/n/10 [\OML/cmm/m/it/10 l\OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 ; s[]\OT1/cmr/m/n/1
+0 ; \OML/cmm/m/it/10 c\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 :R [] \OT1/cmr/m/n/10 (
+\OML/cmm/m/it/10 a\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 k\OT1/cmr/m/n/10 ]\OML/cmm/
+m/it/10 ; b; s[]\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 c\OT1/cmr/m/n/10 )\OML/cmm/m
+/it/10 :R [] \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 a; b; s[]\OT1/cmr/m/n/10 ; \OML/
+cmm/m/it/10 c\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 :R$\OT1/cmr/m/n/10 .
+ []
+
+[13] [14] [15]
+Underfull \hbox (badness 10000) in paragraph at lines 977--979
+
+ []
+
+[16]
+Overfull \hbox (10.68909pt too wide) in paragraph at lines 1032--1040
+[]$ 
+ []
+
+[17]
+Overfull \hbox (6.244pt too wide) in paragraph at lines 1103--1106
+\OML/cmm/m/it/10 s[]; t\OT1/cmr/m/n/10 ; \OML/cmm/m/it/10 b\OT1/cmr/m/n/10 )\OM
+L/cmm/m/it/10 :R$\OT1/cmr/m/n/10 . We can ap-ply $\OML/cmm/m/it/10 ^^Y$ \OT1/cm
+r/m/n/10 to the pro-cesses: $\OML/cmm/m/it/10 ^^Y\OT1/cmr/m/n/10 ((\OML/cmm/m/i
+t/10 ^^V \OT1/cmr/m/n/10 : \OML/cmm/m/it/10 s[]; t\OT1/cmr/m/n/10 ; \OML/cmm/m/
+it/10 b\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 :R\OT1/cmr/m/n/10 ) =
+ []
+
+[18] [19] [20] [21] [22]) (./part2final.tex
+File: formaldehyde1.eps Graphic file (type eps)
+ <formaldehyde1.eps> [23]
+File: formaldehyde2.eps Graphic file (type eps)
+
+<formaldehyde2.eps> [24]
+File: formaldehyde_acid.eps Graphic file (type eps)
+ <formaldehyde_acid.eps>
+Overfull \hbox (1.47737pt too wide) in paragraph at lines 92--102
+[]\OT1/cmr/m/n/10 The acid-catalysed re-ac-tion is de-scribed in Fig-ure [][][]
+[]. Here the $[]$ molecule,
+ []
+
+File: formaldehyde_base.eps Graphic file (type eps)
+<formaldehyde_base.eps>
+Missing character: There is no ‚ in font cmr7!
+Missing character: There is no Å in font cmr10!
+Missing character: There is no ª in font cmr10!
+Missing character: There is no ‚ in font cmr7!
+Missing character: There is no Å in font cmr10!
+Missing character: There is no ª in font cmr10!
+File: formaldehyde72.eps Graphic file (type eps)
+ <formaldehyde72.eps> [25]
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Å in font cmr10!
+Missing character: There is no ª in font cmr10!
+File: formal_all_real2.eps Graphic file (type eps)
+ <formal_all_real2.eps>
+[26]
+File: formal_all.eps Graphic file (type eps)
+ <formal_all.eps> [27]
+Overfull \hbox (7.78087pt too wide) detected at line 297
+[]
+ []
+
+[28]
+Overfull \hbox (1.3891pt too wide) in paragraph at lines 330--330
+[] 
+ []
+
+[29]
+Underfull \hbox (badness 10000) in paragraph at lines 412--415
+
+ []
+
+[30]
+Underfull \hbox (badness 10000) in paragraph at lines 467--472
+
+ []
+
+[31]
+Underfull \hbox (badness 10000) in paragraph at lines 492--495
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 516--519
+
+ []
+
+[32]
+Underfull \hbox (badness 10000) in paragraph at lines 562--565
+
+ []
+
+[33] [34]
+Underfull \hbox (badness 10000) in paragraph at lines 725--729
+
+ []
+
+[35]
+Underfull \hbox (badness 10000) in paragraph at lines 791--794
+
+ []
+
+[36] [37] [38] [39] (./KuhnUlidowski.bbl [40] [41]
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ì in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ì in font cmr10!
+Missing character: There is no ‚ in font cmr10!
+Missing character: There is no Ä in font cmr10!
+Missing character: There is no ì in font cmr10!
+ [42])) [43]
+(./shortAppendixfinal.tex
+Underfull \hbox (badness 10000) in paragraph at lines 9--11
+
+ []
+
+
+Overfull \hbox (2.15265pt too wide) in paragraph at lines 39--51
+\OT1/cmr/m/n/10 we de-duce that $\OML/cmm/m/it/10 k [] []\OT1/cmr/m/n/10 (\OML/
+cmm/m/it/10 P\OT1/cmr/m/n/10 )$. Also since $\OML/cmm/m/it/10 l \OMS/cmsy/m/n/1
+0 2 []\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 R\OT1/cmr/m/n/10 )$ and $[](\OML/cmm/m/
+it/10 P\OT1/cmr/m/n/10 ) =
+ []
+
+[44] [45] [46]
+Overfull \hbox (7.30943pt too wide) in paragraph at lines 133--134
+\OML/cmm/m/it/10 cau\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 R; l\OT1/cmr/m/n/10 ))$ a
+c-cord-ing to Def-i-ni-tion [][][][], which is $\OML/cmm/m/it/10 k \OMS/cmsy/m/
+n/10 2 \OML/cmm/m/it/10 cau\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 Q[] \OMS/cmsy/m/n/
+10 j \OML/cmm/m/it/10 R; l\OT1/cmr/m/n/10 )$.
+ []
+
+
+Overfull \hbox (11.08952pt too wide) in paragraph at lines 143--145
+\OT1/cmr/m/n/10 rent: Since $\OML/cmm/m/it/10 P[] \OMS/cmsy/m/n/10 ^^Q \OML/cmm
+/m/it/10 Q[] \OMS/cmsy/m/n/10 j \OML/cmm/m/it/10 R[]$ \OT1/cmr/m/n/10 we get $\
+OML/cmm/m/it/10 cau\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 P[]; l\OT1/cmr/m/n/10 ) = 
+\OML/cmm/m/it/10 cau\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 Q[] \OMS/cmsy/m/n/10 j \O
+ML/cmm/m/it/10 R[]; l\OT1/cmr/m/n/10 ) =
+ []
+
+[47]
+Overfull \hbox (42.20663pt too wide) in paragraph at lines 181--202
+[] 
+ []
+
+[48])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 208.
+ [49] [50]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 208.
+ (./KuhnUlidowski.aux)
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 208.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 208.
+Package rerunfilecheck Info: File `KuhnUlidowski.out' has not changed.
+(rerunfilecheck)             Checksum: 4FBFB0825E7C48229F832B83B9A78672;1154.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 208.
+ ) 
+Here is how much of TeX's memory you used:
+ 7534 strings out of 493030
+ 106366 string characters out of 6136260
+ 221735 words of memory out of 5000000
+ 10896 multiletter control sequences out of 15000+600000
+ 14526 words of font info for 53 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 42i,23n,32p,1385b,736s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on KuhnUlidowski.dvi (50 pages, 370416 bytes).

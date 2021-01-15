@@ -1,7 +1,16 @@
+%% This is elsarticle-num-names-alpha.bst - a modified version 
+%%      of elsarticle-num-names.bst file,
+%%      in which the entires in the bibliography are ordered alphabetically by author name.
+%% The modification was based on the answer of RStaniucha in tex.SE:
+%%      http://tex.stackexchange.com/a/308419/20929
+%%      and implemented by Erel Segal-Halevi in 2016-05.
 %%
-%% This is file `elsarticle-num-names.bst',
+%% The original copyright notice follows.
+%% 
+%%
 %% 
 %% Copyright 2007, 2008, 2009 Elsevier Ltd
+%%
 %% 
 %% This file is part of the 'Elsarticle Bundle'.
 %% ---------------------------------------------
@@ -17,11 +26,33 @@
 %% given in the file `manifest.txt'.
 %% 
 %%
-%% $Id: elsarticle-num-names.bst 19 2009-12-17 07:07:52Z rishi $
+%% This is file `elsearticle-num-names.bst',
+%% generated with the docstrip utility.
 %%
+%% The original source files were:
 %%
+%% merlin.mbs  (with options: `head,exlang,ay,nat,seq-no,nm-init,ed-au,dt-jnl,dt-end,atit-u,jttl-rm,vnum-sp,volp-blk,jdt-p,pp-last,num-xser,jnm-x,btit-rm,bt-rm,bkpg-x,isbn,issn,doi,edpar,bkedcap,blk-com,in-col,english,ppx,ed,abr,xedn,varand,xand,url,url-blk,bibinfo,nfss,,{}')
+%% english.mbs  (with options: `exlang,ay,nat,seq-no,nm-init,ed-au,dt-jnl,dt-end,atit-u,jttl-rm,vnum-sp,volp-blk,jdt-p,pp-last,num-xser,jnm-x,btit-rm,bt-rm,bkpg-x,isbn,issn,doi,edpar,bkedcap,blk-com,in-col,english,ppx,ed,abr,xedn,varand,xand,url,url-blk,bibinfo,nfss,,{}')
+%% merlin.mbs  (with options: `tail,exlang,ay,nat,seq-no,nm-init,ed-au,dt-jnl,dt-end,atit-u,jttl-rm,vnum-sp,volp-blk,jdt-p,pp-last,num-xser,jnm-x,btit-rm,bt-rm,bkpg-x,isbn,issn,doi,edpar,bkedcap,blk-com,in-col,english,ppx,ed,abr,xedn,varand,xand,url,url-blk,bibinfo,nfss,,{}')
 %% ----------------------------------------
+%% *** Journal of Sound and Vibration ***
 %%
+%% Copyright 1994-2004 Patrick W Daly
+ % ===============================================================
+ % IMPORTANT NOTICE:
+ % This bibliographic style (bst) file has been generated from one or
+ % more master bibliographic style (mbs) files, listed above.
+ %
+ % This generated file can be redistributed and/or modified under the terms
+ % of the LaTeX Project Public License Distributed from CTAN
+ % archives in directory macros/latex/base/lppl.txt; either
+ % version 1 of the License, or any later version.
+ % ===============================================================
+ % Name and version information of the main mbs file:
+ % \ProvidesFile{merlin.mbs}[2004/02/09 4.13 (PWD, AO, DPC)]
+ %   For use with BibTeX version 0.99a or later
+ %-------------------------------------------------------------------
+
 ENTRY
  { address
    author
@@ -890,9 +921,6 @@ FUNCTION {article}
    { format.journal.pages }
    { format.journal.eid }
  if$
- format.issn output
- format.doi output
- format.url output
  format.note output
  fin.entry
 }
@@ -919,10 +947,6 @@ FUNCTION {book}
      format.book.crossref output.nonnull
    }
  if$
- format.edition output
- format.isbn output
- format.doi output
- format.url output
  format.note output
  format.date "year" output.check
  fin.entry
@@ -934,9 +958,6 @@ FUNCTION {booklet}
  format.title "title" output.check
  howpublished "howpublished" bibinfo.check output
  address "address" bibinfo.check output
- format.isbn output
- format.doi output
- format.url output
  format.note output
  format.date "year" output.check
  fin.entry
@@ -974,8 +995,6 @@ FUNCTION {inbook}
    'skip$
  if$
  format.pages "pages" output.check
- format.doi output
- format.url output
  format.note output
  format.date "year" output.check
  fin.entry
@@ -992,16 +1011,12 @@ FUNCTION {incollection}
      format.number.series output
      format.chapter.pages output
      format.publisher.address output
-     format.edition output
-     format.isbn output
    }
    { format.incoll.inproc.crossref output.nonnull
      format.chapter.pages output
    }
  if$
  format.pages "pages" output.check
- format.doi output
- format.url output
  format.note output
  format.date "year" output.check
  fin.entry
@@ -1021,15 +1036,11 @@ FUNCTION {inproceedings}
          format.publisher.address output
        }
      if$
-     format.isbn output
-     format.issn output
    }
    { format.incoll.inproc.crossref output.nonnull
    }
  if$
  format.pages "pages" output.check
- format.doi output
- format.url output
  format.note output
  format.date "year" output.check
  fin.entry
@@ -1043,8 +1054,6 @@ FUNCTION {manual}
  organization "organization" bibinfo.check output
  address "address" bibinfo.check output
  format.edition output
- format.doi output
- format.url output
  format.note output
  format.date "year" output.check
  fin.entry
@@ -1389,19 +1398,67 @@ FUNCTION {reverse.pass}
 EXECUTE {initialize.extra.label.stuff}
 ITERATE {forward.pass}
 REVERSE {reverse.pass}
+
+
+FUNCTION {author.organization.sort}
+{ author empty$
+    { organization empty$
+        { key empty$
+            { "to sort, need author, organization, or key in " cite$ * warning$
+              ""
+            }
+            { key sortify }
+          if$
+        }
+        { "The " #4 organization chop.word sortify }
+      if$
+    }
+    { author sort.format.names }
+  if$
+}
+
+FUNCTION {editor.organization.sort}
+{ editor empty$
+    { organization empty$
+        { key empty$
+            { "to sort, need editor, organization, or key in " cite$ * warning$
+              ""
+            }
+            { key sortify }
+          if$
+        }
+        { "The " #4 organization chop.word sortify }
+      if$
+    }
+    { editor sort.format.names }
+  if$
+}
 FUNCTION {bib.sort.order}
-{ sort.label
- "    "
- *
- year field.or.null sortify
- *
- "    "
- *
- title field.or.null
- sort.format.title
- *
- #1 entry.max$ substring$
- 'sort.key$ :=
+{ type$ "book" =
+  type$ "inbook" =
+  or
+    'author.editor.sort
+    { type$ "proceedings" =
+    'editor.organization.sort
+        { type$ "manual" =
+            'author.organization.sort
+            'author.sort
+          if$
+        }
+      if$
+    }
+  if$
+  "    "
+  *
+  year field.or.null sortify
+  *
+  "    "
+  *
+  title field.or.null
+  sort.format.title
+  *
+  #1 entry.max$ substring$
+  'sort.key$ :=
 }
 ITERATE {bib.sort.order}
 SORT
@@ -1438,6 +1495,4 @@ EXECUTE {end.bib}
 %% End of customized bst file
 %%
 %%
-%% End of file `elsarticle-num-names.bst'.
-
-
+%% End of file `elsarticle-num-names-alpha.bst'.

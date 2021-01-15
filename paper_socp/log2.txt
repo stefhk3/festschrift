@@ -1,0 +1,32 @@
+This is dvips(k) 5.98 Copyright 2009 Radical Eye Software (www.radicaleye.com)
+' TeX output 2016.11.07:2242' -> elsarticle-template-1-num.ps
+</usr/share/texmf-texlive/dvips/base/tex.pro>
+</usr/share/texmf-texlive/dvips/psfrag/psfrag.pro>
+</usr/share/texmf-texlive/dvips/base/texps.pro>
+</usr/share/texmf-texlive/dvips/base/special.pro>
+</usr/share/texmf-texlive/dvips/base/color.pro>. 
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy6.pfb>
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr6.pfb>
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi7.pfb>
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi6.pfb>
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmex10.pfb>
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmss10.pfb>
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb>
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmss12.pfb>
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr8.pfb>
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi8.pfb>
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti8.pfb>
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi12.pfb>
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb>
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr17.pfb>[1] [2] 
+[3] [4] [5] [6] [7] [8] [9] [10] [11] [12] [13] [14] [15] [16] [17
+<./formaldehyde1.eps><./formaldehyde2.eps>] [18<./formaldehyde_acid.eps>
+<./formaldehyde_base.eps>] [19] [20] [21<./misc.eps>] [22] [23] [24] [25] 
+[26] [27] [28] [29] [30] [31] [32] [33] [34] [35] [36] [37] [38] [39] [40] 
+[41] [42] [43] [44] [45] [46] [47] [48] [49] [50] [51] [52] [53] [54] [55
+<./formal_all_real.eps>] [56<./formal_all.eps>] 

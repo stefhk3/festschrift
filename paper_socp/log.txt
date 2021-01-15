@@ -1,0 +1,415 @@
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian)
+entering extended mode
+(./elsarticle-template-1-num.tex
+LaTeX2e <2009/09/24>
+Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, farsi, arabic, croatian, bulgarian, ukrainian, russian, czech, slov
+ak, danish, dutch, finnish, french, basque, ngerman, german, german-x-2009-06-1
+9, ngerman-x-2009-06-19, ibycus, monogreek, greek, ancientgreek, hungarian, san
+skrit, italian, latin, latvian, lithuanian, mongolian2a, mongolian, bokmal, nyn
+orsk, romanian, irish, coptic, serbian, turkish, welsh, esperanto, uppersorbian
+, estonian, indonesian, interlingua, icelandic, kurmanji, slovenian, polish, po
+rtuguese, spanish, galician, catalan, swedish, ukenglish, loaded.
+(./elsarticle.cls
+Document Class: elsarticle 2009/09/17, 1.20b: Elsevier Ltd
+(/usr/share/texmf-texlive/tex/latex/base/article.cls
+Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
+(/usr/share/texmf-texlive/tex/latex/base/size12.clo))
+(/usr/share/texmf-texlive/tex/latex/graphics/graphicx.sty
+(/usr/share/texmf-texlive/tex/latex/graphics/keyval.sty)
+(/usr/share/texmf-texlive/tex/latex/graphics/graphics.sty
+(/usr/share/texmf-texlive/tex/latex/graphics/trig.sty)
+(/etc/texmf/tex/latex/config/graphics.cfg)
+(/usr/share/texmf-texlive/tex/latex/graphics/dvips.def)))
+(/usr/share/texmf-texlive/tex/latex/psnfss/pifont.sty
+(/usr/share/texmf-texlive/tex/latex/psnfss/upzd.fd)
+(/usr/share/texmf-texlive/tex/latex/psnfss/upsy.fd))
+(./elsarticle-template-1-num.spl)
+(/usr/share/texmf-texlive/tex/latex/natbib/natbib.sty))
+(/usr/share/texmf-texlive/tex/latex/ltxmisc/oubraces.sty)
+(/usr/share/texmf-texlive/tex/latex/oberdiek/epstopdf.sty
+(/usr/share/texmf-texlive/tex/latex/oberdiek/epstopdf-base.sty
+(/usr/share/texmf-texlive/tex/generic/oberdiek/infwarerr.sty)
+(/usr/share/texmf-texlive/tex/latex/oberdiek/grfext.sty)
+(/usr/share/texmf-texlive/tex/latex/oberdiek/kvoptions.sty
+(/usr/share/texmf-texlive/tex/generic/oberdiek/kvsetkeys.sty
+(/usr/share/texmf-texlive/tex/generic/oberdiek/etexcmds.sty)))
+(/usr/share/texmf-texlive/tex/generic/oberdiek/pdftexcmds.sty
+(/usr/share/texmf-texlive/tex/generic/oberdiek/ifluatex.sty)
+(/usr/share/texmf-texlive/tex/generic/oberdiek/ltxcmds.sty))
+
+Package epstopdf Warning: Other drivers than `pdftex.def' are not supported.
+
+)) (/usr/share/texmf-texlive/tex/latex/amsfonts/amssymb.sty
+(/usr/share/texmf-texlive/tex/latex/amsfonts/amsfonts.sty))
+(/usr/share/texmf-texlive/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texmf-texlive/tex/latex/amsmath/amstext.sty
+(/usr/share/texmf-texlive/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texmf-texlive/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texmf-texlive/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texmf-texlive/tex/latex/ltxmisc/url.sty)
+(/usr/share/texmf-texlive/tex/latex/psfrag/psfrag.sty)
+(/usr/share/texmf-texlive/tex/latex/graphics/color.sty
+(/etc/texmf/tex/latex/config/color.cfg)
+(/usr/share/texmf-texlive/tex/latex/graphics/dvipsnam.def))
+(/usr/share/texmf-texlive/tex/latex/hyperref/hyperref.sty
+(/usr/share/texmf-texlive/tex/generic/oberdiek/ifpdf.sty)
+(/usr/share/texmf-texlive/tex/generic/oberdiek/ifvtex.sty)
+(/usr/share/texmf-texlive/tex/generic/ifxetex/ifxetex.sty)
+(/usr/share/texmf-texlive/tex/latex/oberdiek/hycolor.sty
+(/usr/share/texmf-texlive/tex/latex/oberdiek/xcolor-patch.sty))
+(/usr/share/texmf-texlive/tex/latex/hyperref/pd1enc.def)
+(/usr/share/texmf-texlive/tex/latex/latexconfig/hyperref.cfg)
+Implicit mode ON; LaTeX internals redefined
+(/usr/share/texmf-texlive/tex/generic/oberdiek/bitset.sty
+(/usr/share/texmf-texlive/tex/generic/oberdiek/intcalc.sty)
+(/usr/share/texmf-texlive/tex/generic/oberdiek/bigintcalc.sty))
+(/usr/share/texmf-texlive/tex/generic/oberdiek/atbegshi.sty))
+*hyperref using default driver hdvips*
+(/usr/share/texmf-texlive/tex/latex/hyperref/hdvips.def
+(/usr/share/texmf-texlive/tex/latex/hyperref/pdfmark.def))
+(/usr/share/texmf-texlive/tex/latex/breakurl/breakurl.sty
+(/usr/share/texmf-texlive/tex/latex/xkeyval/xkeyval.sty
+(/usr/share/texmf-texlive/tex/generic/xkeyval/xkeyval.tex)))
+(/usr/share/texmf-texlive/tex/latex/rotating/rotating.sty
+(/usr/share/texmf-texlive/tex/latex/base/ifthen.sty))
+(/usr/share/texmf-texlive/tex/latex/verbatimbox/verbatimbox.sty
+(/usr/share/texmf-texlive/tex/latex/tools/verbatim.sty))
+(/usr/share/texmf-texlive/tex/latex/graphics/epsfig.sty)
+(/usr/share/texmf-texlive/tex/latex/changepage/chngpage.sty)
+(/usr/share/texmf-texlive/tex/latex/appendix/appendix.sty)
+(./elsarticle-template-1-num.aux)
+(/usr/share/texmf-texlive/tex/latex/hyperref/nameref.sty
+(/usr/share/texmf-texlive/tex/latex/oberdiek/refcount.sty))
+(./elsarticle-template-1-num.out) (./elsarticle-template-1-num.out)
+(/usr/share/texmf-texlive/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texmf-texlive/tex/latex/amsfonts/umsb.fd)
+
+Package natbib Warning: Citation `irek2014' on page 1 undefined on input line 2
+87.
+
+[1]
+
+Package natbib Warning: Citation `Irek2012' on page 2 undefined on input line 3
+00.
+
+
+Package natbib Warning: Citation `Irek2012' on page 2 undefined on input line 3
+05.
+
+
+Package natbib Warning: Citation `Irek2007' on page 2 undefined on input line 3
+06.
+
+
+Package natbib Warning: Citation `Irek2013' on page 2 undefined on input line 3
+09.
+
+
+Package natbib Warning: Citation `irekconcur2013' on page 2 undefined on input 
+line 309.
+
+
+Package natbib Warning: Citation `danos2004ccsr' on page 2 undefined on input l
+ine 311.
+
+
+Package natbib Warning: Citation `Danos2007ccsr' on page 2 undefined on input l
+ine 311.
+
+
+Package natbib Warning: Citation `PhillipsUlidowski06' on page 2 undefined on i
+nput line 311.
+
+
+Package natbib Warning: Citation `Irek2007' on page 2 undefined on input line 3
+11.
+
+
+Package natbib Warning: Citation `LaneseMS10' on page 2 undefined on input line
+ 311.
+
+
+Package natbib Warning: Citation `Lanese_controllingreversibility' on page 2 un
+defined on input line 311.
+
+
+Package natbib Warning: Citation `Lanese_controlled' on page 2 undefined on inp
+ut line 311.
+
+
+Package natbib Warning: Citation `CKV13' on page 2 undefined on input line 311.
+
+
+
+Package natbib Warning: Citation `merevcomp2015' on page 2 undefined on input l
+ine 314.
+
+
+Package natbib Warning: Citation `danos2004ccsr' on page 2 undefined on input l
+ine 318.
+
+[2]
+
+Package natbib Warning: Citation `Milner1980' on page 3 undefined on input line
+ 351.
+
+
+Package natbib Warning: Citation `BaetenBook' on page 3 undefined on input line
+ 351.
+
+
+Package natbib Warning: Citation `Irek2007' on page 3 undefined on input line 3
+60.
+
+
+Overfull \hbox (14.17993pt too wide) in paragraph at lines 374--374
+[] 
+[3]
+
+Package natbib Warning: Citation `danos2004kappa' on page 4 undefined on input 
+line 382.
+
+
+Package natbib Warning: Citation `Danos2007ccsr' on page 4 undefined on input l
+ine 383.
+
+
+Package natbib Warning: Citation `CardelliL11' on page 4 undefined on input lin
+e 383.
+
+
+Package natbib Warning: Citation `Irek2007' on page 4 undefined on input line 3
+89.
+
+[4]
+
+Package natbib Warning: Citation `Irek2007' on page 5 undefined on input line 4
+36.
+
+[5]
+Overfull \hbox (16.95232pt too wide) detected at line 565
+[]
+
+Overfull \hbox (56.77135pt too wide) detected at line 612
+[]
+
+Overfull \hbox (76.1072pt too wide) detected at line 650
+[]
+
+Overfull \hbox (74.20216pt too wide) detected at line 677
+[]
+
+Package natbib Warning: Citation `Irek2012' on page 6 undefined on input line 6
+97.
+
+
+Package natbib Warning: Citation `Irek2012' on page 6 undefined on input line 7
+00.
+
+
+Package natbib Warning: Citation `MilnerBook' on page 6 undefined on input line
+ 701.
+
+
+Package natbib Warning: Citation `Uli92' on page 6 undefined on input line 707.
+
+
+[6]
+
+Package natbib Warning: Citation `ACPBook' on page 7 undefined on input line 71
+1.
+
+[7]
+
+Package natbib Warning: Citation `irek2002' on page 8 undefined on input line 7
+41.
+
+
+Package natbib Warning: Citation `mousavi' on page 8 undefined on input line 74
+1.
+
+[8] [9]
+Overfull \hbox (12.76285pt too wide) in paragraph at lines 785--792
+\OML/cmm/m/it/12 ^^M\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 b; b\OT1/cmr/m/n/12 ) = \
+OML/cmm/m/it/12 d$\OT1/cmr/m/it/12 . It can-not per-form any con-certed ac-tion
+s: Al-though $\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 a\OT1/cmr/m/n/12 [1]; \OML/cmm/
+m/it/12 b\OT1/cmr/m/n/12 ) [][]
+[10] [11] [12]
+
+Package natbib Warning: Citation `PhillipsUlidowski06' on page 13 undefined on 
+input line 878.
+
+
+Package natbib Warning: Citation `Irek2007' on page 13 undefined on input line 
+878.
+
+
+Overfull \hbox (16.40048pt too wide) in paragraph at lines 883--891
+[]$ 
+
+Overfull \hbox (27.5395pt too wide) detected at line 929
+[]
+
+Package natbib Warning: Citation `danos2004ccsr' on page 13 undefined on input 
+line 939.
+
+[13] [14]
+
+Package natbib Warning: Citation `danos2004ccsr' on page 15 undefined on input 
+line 983.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1007--1009
+
+[15] <formaldehyde1.eps> [16] <formaldehyde2.eps> [17] <formaldehyde_acid.eps>
+<formaldehyde_base.eps> [18] [19] <misc.eps>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<formal_all_real.eps>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[20] <formal_all.eps> [21]
+Overfull \hbox (44.18347pt too wide) in paragraph at lines 1206--1214
+[]\OT1/cmr/m/n/12 The four molecules of the re-ac-tion are placed in par-al-lel
+: $[]$.
+[22]
+Overfull \hbox (7.97002pt too wide) in paragraph at lines 1233--1236
+\OT1/cmr/m/n/12 where $\OML/cmm/m/it/12 L \OT1/cmr/m/n/12 = \OMS/cmsy/m/n/12 f\
+OML/cmm/m/it/12 c[]; c[]; c[]; c[]; h[]; h[]; h[]; h[]; h[]; h[]; o[]; o[]; o[]
+; o[]; o[]; o[]; n; p; []; []\OMS/cmsy/m/n/12 g$\OT1/cmr/m/n/12 . 
+
+Overfull \hbox (34.98799pt too wide) in paragraph at lines 1265--1265
+[] 
+
+Overfull \hbox (10.1827pt too wide) in paragraph at lines 1274--1274
+[] 
+[23]
+Overfull \hbox (10.8493pt too wide) in paragraph at lines 1293--1293
+[] 
+[24]
+Overfull \hbox (29.71024pt too wide) in paragraph at lines 1331--1331
+[] 
+
+Overfull \hbox (92.1642pt too wide) in paragraph at lines 1345--1345
+[] 
+
+Overfull \hbox (1.33205pt too wide) in paragraph at lines 1357--1358
+[]\OT1/cmr/m/n/12 In ad-di-tion to this path we also model the acid- re-spec-ti
+vely base-catalysed
+
+Overfull \hbox (6.47723pt too wide) in paragraph at lines 1369--1369
+[] 
+[25]
+Overfull \hbox (71.15367pt too wide) in paragraph at lines 1381--1381
+[] 
+
+Overfull \hbox (24.78738pt too wide) in paragraph at lines 1392--1392
+[] 
+
+Overfull \hbox (63.40929pt too wide) in paragraph at lines 1404--1404
+[] 
+
+Overfull \hbox (7.51602pt too wide) in paragraph at lines 1416--1416
+[] 
+
+Overfull \hbox (84.03607pt too wide) in paragraph at lines 1428--1428
+[] 
+[26]
+Overfull \hbox (30.7984pt too wide) in paragraph at lines 1433--1434
+[]\OT1/cmr/m/n/12 The acid-catalysed path works as fol-lows (start-ing from the
+ $\OML/cmm/m/it/12 FA \OMS/cmsy/m/n/12 j \OML/cmm/m/it/12 W \OMS/cmsy/m/n/12 j 
+\OML/cmm/m/it/12 HO \OMS/cmsy/m/n/12 j \OML/cmm/m/it/12 H[]O$
+
+Overfull \hbox (29.35678pt too wide) in paragraph at lines 1443--1443
+[] 
+
+Overfull \hbox (89.43126pt too wide) in paragraph at lines 1454--1454
+[] 
+
+Overfull \hbox (32.32132pt too wide) in paragraph at lines 1464--1464
+[] 
+[27]
+Overfull \hbox (85.25626pt too wide) in paragraph at lines 1477--1477
+[] 
+
+Overfull \hbox (25.79361pt too wide) in paragraph at lines 1487--1487
+[] 
+
+Overfull \hbox (82.90355pt too wide) in paragraph at lines 1498--1498
+[] 
+
+Overfull \hbox (29.56612pt too wide) in paragraph at lines 1508--1508
+[] 
+
+Overfull \hbox (82.90355pt too wide) in paragraph at lines 1519--1519
+[] 
+[28]
+Overfull \hbox (25.79361pt too wide) in paragraph at lines 1529--1529
+[] 
+[29]
+Overfull \hbox (129.71724pt too wide) detected at line 1584
+[]
+(/usr/share/texmf-texlive/tex/latex/base/omscmr.fd)
+Overfull \hbox (0.15843pt too wide) in paragraph at lines 1591--1592
+\OT1/cmr/m/n/12 only by their sub-scripts in-side one $(\OML/cmm/m/it/12 s\OT1/
+cmr/m/n/12 ; \OML/cmm/m/it/12 b\OT1/cmr/m/n/12 )$ group, the keys can be swappe
+d. 
+[30] [31]
+Overfull \hbox (16.14948pt too wide) in paragraph at lines 1670--1679
+[]$ 
+[32]
+No file elsarticle-template-1-num.bbl.
+[33]
+Overfull \hbox (8.58212pt too wide) in paragraph at lines 1763--1764
+[]\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 P[]\OT1/cmr/m/n/12 ) = []((\OML/cmm/m/it/12
+ t\OT1/cmr/m/n/12 ; \OML/cmm/m/it/12 b\OT1/cmr/m/n/12 )\OML/cmm/m/it/12 :R[]\OT
+1/cmr/m/n/12 ) = []((\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 ; \OML/cmm/m/it/12 b\OT1
+/cmr/m/n/12 )) \OMS/cmsy/m/n/12 [ []\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 R[]\OT1/c
+mr/m/n/12 ) = []((\OML/cmm/m/it/12 t\OT1/cmr/m/n/12 ; \OML/cmm/m/it/12 b\OT1/cm
+r/m/n/12 )) \OMS/cmsy/m/n/12 [
+[34] [35] [36] [37] [38] [39] [40] [41] [42] [43] [44] [45]
+Overfull \hbox (29.92912pt too wide) in paragraph at lines 1954--1955
+\OML/cmm/m/it/12 cau\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 Q; k\OT1/cmr/m/n/12 )$ \O
+T1/cmr/m/it/12 ac-cord-ing to Def-i-ni-tion [][][][] we cal-cu-late $\OML/cmm/m
+/it/12 cau\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 Q[] \OMS/cmsy/m/n/12 j \OML/cmm/m/i
+t/12 R; l\OT1/cmr/m/n/12 ) =
+
+Overfull \hbox (9.76361pt too wide) in paragraph at lines 1954--1955
+\OML/cmm/m/it/12 cau\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 Q[]; l\OT1/cmr/m/n/12 ) \
+OMS/cmsy/m/n/12 [ \OML/cmm/m/it/12 cau\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 R; l\OT
+1/cmr/m/n/12 )$\OT1/cmr/m/it/12 . If $\OML/cmm/m/it/12 k \OMS/cmsy/m/n/12 2 \OM
+L/cmm/m/it/12 cau\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 Q[]; l\OT1/cmr/m/n/12 )$ \OT
+1/cmr/m/it/12 then $\OML/cmm/m/it/12 k \OMS/cmsy/m/n/12 2 \OML/cmm/m/it/12 cau\
+OT1/cmr/m/n/12 (\OML/cmm/m/it/12 Q[]; l\OT1/cmr/m/n/12 ) \OMS/cmsy/m/n/12 [
+
+Overfull \hbox (2.01476pt too wide) in paragraph at lines 1954--1955
+\OML/cmm/m/it/12 cau\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 R; l\OT1/cmr/m/n/12 )$ \O
+T1/cmr/m/it/12 must be true as well and, hence, $\OML/cmm/m/it/12 k \OMS/cmsy/m
+/n/12 2 \OML/cmm/m/it/12 cau\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 Q[] \OMS/cmsy/m/n
+/12 j \OML/cmm/m/it/12 R\OT1/cmr/m/n/12 )$\OT1/cmr/m/it/12 .
+[46]
+Overfull \hbox (25.52751pt too wide) in paragraph at lines 1962--1963
+\OML/cmm/m/it/12 cau\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 R; l\OT1/cmr/m/n/12 ))$ \
+OT1/cmr/m/it/12 ac-cord-ing to Def-i-ni-tion [][][][], which is $\OML/cmm/m/it/
+12 k \OMS/cmsy/m/n/12 2 \OML/cmm/m/it/12 cau\OT1/cmr/m/n/12 (\OML/cmm/m/it/12 Q
+[] \OMS/cmsy/m/n/12 j \OML/cmm/m/it/12 R; l\OT1/cmr/m/n/12 )$\OT1/cmr/m/it/12 .
+
+[47] [48]
+Overfull \hbox (62.83185pt too wide) in paragraph at lines 1994--2014
+[][]\OT1/cmr/m/it/12 12pt 8pt][] 
+[49]
+Overfull \vbox (145.52036pt too high) has occurred while \output is active
+[50] [51] [52] [53]
+Underfull \hbox (badness 10000) in paragraph at lines 2055--2057
+
+
+Package natbib Warning: There were undefined citations.
+
+[54] [55] [56] (./elsarticle-template-1-num.aux) )
+(see the transcript file for additional information)
+Output written on elsarticle-template-1-num.dvi (56 pages, 346648 bytes).
+Transcript written on elsarticle-template-1-num.log.

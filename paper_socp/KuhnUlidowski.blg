@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: KuhnUlidowski.aux
+The style file: elsarticle-num-names-alpha.bst
+Database file #1: main-29-6.bib
+You've used 38 entries,
+            2862 wiz_defined-function locations,
+            958 strings with 13533 characters,
+and the built_in function-call counts, 25261 in all, are:
+= -- 1746
+> -- 901
+< -- 38
++ -- 381
+- -- 290
+* -- 3232
+:= -- 3474
+add.period$ -- 38
+call.type$ -- 38
+change.case$ -- 268
+chr.to.int$ -- 37
+cite$ -- 38
+duplicate$ -- 1782
+empty$ -- 1845
+format.name$ -- 423
+if$ -- 4679
+int.to.chr$ -- 2
+int.to.str$ -- 39
+missing$ -- 389
+newline$ -- 124
+num.names$ -- 180
+pop$ -- 357
+preamble$ -- 1
+purify$ -- 277
+quote$ -- 0
+skip$ -- 629
+stack$ -- 0
+substring$ -- 1282
+swap$ -- 1766
+text.length$ -- 15
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 356
+warning$ -- 0
+while$ -- 192
+width$ -- 0
+write$ -- 442
