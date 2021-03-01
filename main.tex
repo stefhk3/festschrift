@@ -987,11 +987,76 @@ A limitation of our modelling is that it allows the UDG during its ``walk'' to b
 
 We have used the software from Chapter~\ref{sec:simulation} to test the modelling. The desired path is one of the possibilities, which shows that our modelling is adequate in this respect. We also get some undesired reactions: Apart from UDG binding to any DP group during its walk, there is also the possibility that the unused $p5$ action of a $DP$, which is at the end of the DNA strand, interacts with an unused $p3$ from the a DP at the other end of the DNA strand. This is not impossible as a such, but prevented in reality by at least two effects we do not model. One is again the spatial arrangement, the other is the fact that the ends of the DNA are protected by special groups, which we do not model here. They prevent reactions at the DNA ends.
 
-\subsection{Conclusion}
+\section{DNA Mismatch Repair}
+\label{sec:dnamimatch}
 
-In this chapter we have seen that our calculus is suitable for modelling higher-level processes in biological systems. We have also used the full power of our calculus with nested prefixes like $(s;b).(s';b').P$, and not only simple processes of the form $(s;b).\Nil$, as we did before. We have modelled the ``walk'' of UDG along 
-a strand of DNA by actions in $s$, and, once a fault is found, the repair mechanism was modelled
-by the actions in $s'$. We have seen that our modelling enables some unwanted reactions, but we can explain this by noting that we do not include spatial effects in our modelling.
+\subsection{Description of DNA Mismatch Repair}
+
+In Section~\ref{sec:ber}, the problem was the incorporation into DNA of a base which should not occur in DNA at all. The repair relied on recognizing this base. Another possible error is that two bases are included which ar both possible in DNA, but do not match, for example, a pair of adenine and cytosine. This can happen if, after the splitting of the double strand, the new strand produced to match the old one, does not actually match the old strand - for example, incorporating a adenine opposite a cytosine, which should normally be matched by a thymine.
+
+Such a repair (a DNA mismatch repair, called MMR herafter) is not possible in the same way as the base excision repair, since any of the two bases could be wrong, so the non-matching  bases do not tell what to do.  As before, we model the process using several abstractions. A description of the process on an abstract level is as follows: TODO
+
+\subsection{Modelling DNA Mismatch Repair}
+
+For modelling MMR, we use the components from Section~\ref{sec:ber} as much as possiible. We resuse the deoxyribose/phosphate groups, and the four bases A, T, C, and G:
+
+In order to model MMR, we need the following components: deoxyribose/phosphate groups, the UDG, the uracil and the four other bases. The other bases will not take part in the reactions, but include them in our model in order to demonstrate the interaction we. The components are the following:
+%
+$$\begin{array}{lll}
+DP & \bydef & (p3,p5,b,d).DP'\\
+A & \bydef & (b;i).(a).A'\\
+T & \bydef & (b;i).(t).T'\\
+G & \bydef & (b;i).(g).G'\\
+C & \bydef & (b;i).(c).C'\\
+\end{array}$$
+%
+where processes $A$, $T$, $G$, $C$, and $U$ model the bases adenine (A), cytosine (C), guanine (G), and thymine (T). Process $UDG$ represents the Uracil-DNA glycosylase and $DP$ a deoxyribose/phosphate group. Here $d$, and $e$ are weak actions, all other actions, namely $p3$, $p5$, $b$, $a$, $t$, $g$, and $c$ are strong. TODO add new actions?
+
+We also need additional components, namely the methyl group, the MutS, MutL, MutH, and UvrD proteins. We model these as follows:
+$$\begin{array}{lll}
+MS & \bydef & ().MS'\\
+ML & \bydef & ().ML'\\
+MH & \bydef & ().MH'\\
+UD & \bydef & ().UD'\\
+\end{array}$$
+%
+where processes $MS$, $ML$, $MH$, and $UD$ model the MutS, MutL, MutH, and UvrD protein respectively. TODO weak and strong actions
+
+
+The synchronisation function for our system is as follows:TODO extend as needed
+%
+$$\begin{array}{ l c l l }
+\gamma(p3,p5) & = & p & \\
+\gamma(b,b) & = & bb &\\
+\gamma(a,t) & = & at &  \\
+\gamma(g,c) & = & gc & \\
+\end{array}$$
+%
+
+As before, the deoxyribose/phosphate groups and the bases can combine to form a DNA strand. In that strand, there can be DNA mismatches. Note that we do not model how they happen, we just assume a DNA strand as in Figure~\ref{fig:state1} with a DNA mismatch and correct pairs otherwise. The mismatch here is an A-G pair, but that is not crucial for our modelling.
+
+\begin{figure}[h!]
+\psfrag{UDG}{${\mathrm{UDG}}$}
+\psfrag{sp1}{${\mathrm{DP_1}}$}
+\psfrag{sp2}{${\mathrm{DP_2}}$}
+\psfrag{sp3}{${\mathrm{DP_3}}$}
+\psfrag{sp4}{${\mathrm{DP_4}}$}
+\psfrag{sp5}{${\mathrm{DP_5}}$}
+\psfrag{sp6}{${\mathrm{DP_6}}$}
+\psfrag{A}{${\mathrm{A}}$}
+\psfrag{T}{${\mathrm{T}}$}
+\psfrag{C1}{${\mathrm{C_1}}$}
+\psfrag{C2}{${\mathrm{C_2}}$}
+\psfrag{G1}{${\mathrm{G_1}}$}
+\psfrag{G2}{${\mathrm{G_2}}$}
+\psfrag{U}{${\mathrm{U}}$}
+\psfrag{1}{${\mathrm{1}}$}
+\psfrag{2}{${\mathrm{2}}$}
+  \centering
+    %\includegraphics[width=1.0\textwidth]{mmr/state1}
+  \caption[A three base pair DNA fragment.]{A four base pair DNA fragment, with a DNA mismatch adn methylation of one strand.}
+  \label{fig:state1}
+\end{figure}
 
 \section{Related Work}
 
