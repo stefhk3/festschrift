@@ -1000,7 +1000,7 @@ We have used the software from Chapter~\ref{sec:simulation} to test the modellin
 
 In Section~\ref{sec:ber}, the problem was the incorporation into DNA of a base which should not occur in DNA at all. The repair relied on recognizing this base. Another possible error is that two bases are included which ar both possible in DNA, but do not match, for example, a pair of adenine and cytosine. This can happen if, after the splitting of the double strand, the new strand produced to match the old one, does not actually match the old strand - for example, incorporating a adenine opposite a cytosine, which should normally be matched by a thymine.
 
-Such a repair (a DNA mismatch repair, called MMR herafter) is not possible in the same way as the base excision repair, since any of the two bases could be wrong, so the non-matching  bases do not tell what to do.  As before, we model the process using several abstractions. A description of the process on an abstract level is as follows: TODO
+Such a repair (a DNA mismatch repair, called MMR herafter) is not possible in the same way as the base excision repair, since any of the two bases could be wrong, so the non-matching  bases do not tell what to do.  As before, we model the process using several abstractions. A description of the process on an abstract level is as follows: TODO \cite{pmid27198632}
 
 \subsection{Modelling DNA Mismatch Repair}
 
@@ -1009,10 +1009,10 @@ For modelling MMR, we use the components from Section~\ref{sec:ber} as much as p
 In order to model MMR, we need the following components: deoxyribose/phosphate groups, the UDG, the uracil and the four other bases. The other bases will not take part in the reactions, but include them in our model in order to demonstrate the interaction we. The components are the following:
 %
 $$\begin{array}{lll}
-DP & \bydef & (p3,p5,b,d).DP'\\
-A & \bydef & (b;i).(a).A'\\
-T & \bydef & (b;i).(t).T'\\
-G & \bydef & (b;i).(g).G'\\
+DP & \bydef & (p3,p5;c).(b,d).DP'\\
+A & \bydef & (b;i).(a).(m).A'\\
+T & \bydef & (b;i).(t;r).T'\\
+G & \bydef & (b;i).(g;r).G'\\
 C & \bydef & (b;i).(c).C'\\
 \end{array}$$
 %
@@ -1020,10 +1020,11 @@ where processes $A$, $T$, $G$, $C$, and $U$ model the bases adenine (A), cytosin
 
 We also need additional components, namely the methyl group, the MutS, MutL, MutH, and UvrD proteins. We model these as follows:
 $$\begin{array}{lll}
-MS & \bydef & ().MS'\\
-ML & \bydef & ().ML'\\
-MH & \bydef & ().MH'\\
-UD & \bydef & ().UD'\\
+Me & \bydef & (m).(n).Me'\\
+MS & \bydef & (m2,m2).(l).MS'\\
+ML & \bydef & (l).(n).(o).ML'\\
+MH & \bydef & (o).(c).MH'\\
+UD & \bydef & (r;r).(c;c).UD'\\
 \end{array}$$
 %
 where processes $MS$, $ML$, $MH$, and $UD$ model the MutS, MutL, MutH, and UvrD protein respectively. TODO weak and strong actions
@@ -1037,7 +1038,7 @@ $$\begin{array}{ l c l l }
 \gamma(a,t) & = & at &  \\
 \gamma(g,c) & = & gc & \\
 \end{array}$$
-%
+%mm m2a m2g m2c m2t ll nn oo cc rr
 
 As before, the deoxyribose/phosphate groups and the bases can combine to form a DNA strand. In that strand, there can be DNA mismatches. Note that we do not model how they happen, we just assume a DNA strand as in Figure~\ref{fig:state1} with a DNA mismatch and correct pairs otherwise. The mismatch here is an A-G pair, but that is not crucial for our modelling.
 
@@ -1059,8 +1060,8 @@ As before, the deoxyribose/phosphate groups and the bases can combine to form a 
 \psfrag{1}{${\mathrm{1}}$}
 \psfrag{2}{${\mathrm{2}}$}
   \centering
-    %\includegraphics[width=1.0\textwidth]{mmr/state1}
-  \caption[A three base pair DNA fragment.]{A four base pair DNA fragment, with a DNA mismatch adn methylation of one strand.}
+    \includegraphics[width=1.0\textwidth]{mmr/state1}
+  \caption[A five base pair DNA fragment.]{A four base pair DNA fragment, with a DNA mismatch and methylation of one strand.}
   \label{fig:state1}
 \end{figure}
 
