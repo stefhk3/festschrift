@@ -998,15 +998,15 @@ We have used the software from Chapter~\ref{sec:simulation} to test the modellin
 
 \subsection{Description of DNA Mismatch Repair}
 
-In Section~\ref{sec:ber}, the problem was the incorporation into DNA of a base which should not occur in DNA at all. The repair relied on recognizing this base. Another possible error is that two bases are included which are both possible in DNA, but do not match, for example, a pair of adenine and cytosine. This can happen if, after the splitting of the double strand, the new strand intended to match the old one, does not actually match the old strand - for example, incorporating a adenine opposite a cytosine, which should normally be matched by a thymine.
+In Section~\ref{sec:ber}, the problem was the incorporation into DNA of a base which should not occur in DNA at all. The repair relied on recognizing this base. Another possible error is that two bases are included which are both possible in DNA, but do not match, for example, a pair of adenine and cytosine. This can happen if, after the splitting of the double strand, the new strand intended to match the old one, does not actually match the old strand - for example, incorporating an adenine opposite a cytosine, which should normally be matched by a thymine.
 
-Such a repair (a DNA mismatch repair, called MMR herafter) is not possible in the same way as the base excision repair, since any of the two bases could be wrong, so the non-matching  bases do not tell what to do.  As before, we model the process using several abstractions. A description of the process on an abstract level is as follows: If two bases are incorporated into a DNA strand which do not match (i.e. are not C/G or A/T pairs), this constitutes a defect in the DNA strand. A repair similar to the BER is not possible, since it is not clear which of the two bases is correct just from the bases alone - both could be right. We are looking at a specific way to handle this situation, called Methyl Mismatch Repair (MMR). This is the repair mechanism in bacteria, in particular E. coli, for which detailled studies has been done.\footnote{Paul L. Modrich, Tomas Lindahl and Aziz Sancar received the Nobel Price in Chemistry 2015 for their work on DNA repair. Modrich's Nobel Lecture about Methyl-directed Mismatch Repair in E. coli and humans \cite{pmid27198632} gives a nice overview.}, This process is based on DNA strands being methylated some time after their creation. Methylation means the attachment a methyl group (a carbon atom with three hydrogen atoms), in this case to the Adenine base. Specifically this happens whenever there is a GATC sequence. Since the methylation (which is done by specific proteins, which we do not model) happens with a delay after the duplication of a strand, for some time the old strand is methylated, the new strand is not. This enables the removal of specifially the new base, which must be the wrong one.
+Such a repair (a DNA mismatch repair) is not possible in the same way as the base excision repair, since any of the two bases could be wrong, so the non-matching  bases do not tell what to do. As before, we model the DNA mismatch repair process using several abstractions. A description of the process on an abstract level is as follows: If two bases are incorporated into a DNA strand which do not match (i.e. are not C/G or A/T pairs), this constitutes a defect in the DNA strand. A repair similar to BER is not possible, since it is not clear which of the two bases is correct just from the bases alone - both could be right. We are looking at a specific way to handle this situation, called Methyl Mismatch Repair (MMR). This is the repair mechanism in bacteria, in particular E. coli, for which detailed studies has been done.\footnote{Paul L. Modrich, Tomas Lindahl and Aziz Sancar received the Nobel Price in Chemistry 2015 for their work on DNA repair. Modrich's Nobel Lecture about Methyl-directed Mismatch Repair in E. coli and humans \cite{pmid27198632} gives a nice overview.} This process is based on DNA strands being methylated sometime after their creation. Methylation means the attachment a methyl group (a carbon atom with three hydrogen atoms), in this case to the Adenine base. Specifically, this happens whenever there is a GATC sequence. Since the methylation (which is done by specific proteins, which we do not model) happens with a delay after the duplication of a strand, for some time the old strand is methylated, the new strand is not. This enables the removal of exactly the new base, which must be the wrong one.
 
-The actual repair involved the proteins MutS, MutL, MutH, and UvrD. MutS first binds to the mismatch and then recruits MutL and MutH. MutL can detected the methylated strand and can form a loop in the DNA. In this loop, the newer strand now is outside, whereas the old strand is covered by itself and MutL. MutH cleavs the unmethylated strand. This happens in some distance from the mismatch, due to the size of the proteins and the loop in the DNA. UvrD can then detect the cleavage and can move along the strand. It removes the outer strand when moving along. At the same time, the MutL, MutH, and MutS proteins are released and the loop in the DNA disappears. UvrD moves to after the mismatch, removing the wrong base together with their neighbours. UvrD then goes off the DNA and leaves the old, and correct, strand to be completed. 
+The actual repair involves the proteins MutS, MutL, MutH, and UvrD. MutS first binds to the mismatch and then recruits MutL and MutH. MutL can detected the methylated strand and can form a loop in the DNA. In this loop, the newer strand now is outside, whereas the old strand is covered by itself and MutL. MutH cleavs the unmethylated strand. This happens in some distance from the mismatch, due to the size of the proteins and the loop in the DNA. UvrD can then detect the cleavage and can move along the strand. It removes the outer strand when moving along. At the same time, the MutL, MutH, and MutS proteins are released and the loop in the DNA disappears. UvrD moves to after the mismatch, removing the wrong base together with their neighbours. UvrD then goes off the DNA and leaves the old, and correct, strand to be completed. 
 
 \subsection{Modelling DNA Mismatch Repair}
 
-For modelling MMR, we use the components from Section~\ref{sec:ber} as much as possiible. We reuse the deoxyribose/phosphate groups, and the four bases A, T, C, and G. We will extend those components where needed, but we will keep the original actions. Overall, in order to model MMR, we need the following components: deoxyribose/phosphate groups, the four bases A, T, G, C, the methyl group Me, and the proteins MutS, MutL, MutH, and UvrD. The resused components are the following:
+For modelling MMR, we use the components from Section~\ref{sec:ber} as much as possible. We reuse the deoxyribose/phosphate groups, and the four bases A, T, C, and G. We will extend those components where needed, but we will keep the original actions. Overall, in order to model MMR, we need the following components: deoxyribose/phosphate groups, the four bases A, T, G, C, the methyl group Me, and the proteins MutS, MutL, MutH, and UvrD. The reused components are the following:
 %
 $$\begin{array}{lll}
 DP & \bydef & (p3,p5;s).DP' \paral (b,d).DP'\\
@@ -1016,7 +1016,7 @@ G & \bydef & (b;i).(g;r).G'\\
 C & \bydef & (b;i).(c;r).C'\\
 \end{array}$$
 %
-where processes $A$, $T$, $G$, and $C$ model the bases adenine (A), cytosine (C), guanine (G), and thymine (T). Notice we have added actions s, m, and r. Also the actions on DP have been regrouped (but all original actions are still there). In DP, we are now using a parallel operator. This is necessary to enable a breaking of a bond to p3 or p5 whilst there is still a bond to $b$. The action $d$, which was used by UDG in the modelling of BER is not used here, as we will see. We keep it to have an extension of the previous modelling.
+where processes $A$, $T$, $G$, and $C$ model the bases adenine (A), cytosine (C), guanine (G), and thymine (T). Notice we have added actions s, m, and r. Also, the actions on DP have been regrouped (but all original actions are still there). In DP, we are now using a parallel operator. This is necessary to enable a breaking of a bond to p3 or p5 whilst there is still a bond to $b$. The action $d$, which was used by UDG in the modelling of BER is not used here, as we will see. We keep it to have an extension of the previous modelling.
 
 We also need additional components, namely the methyl group, the MutS, MutL, MutH, and UvrD proteins. We model these as follows:
 $$\begin{array}{lll}
@@ -1027,7 +1027,7 @@ MH & \bydef & (o).(w).MH'\\
 UD & \bydef & (u;r).UD' \paral (v;s).UD'\\
 \end{array}$$
 %
-where processes $MS$, $ML$, $MH$, and $UD$ model the MutS, MutL, MutH, and UvrD protein respectively.  Here $s$, $i$, and $r$ are weak actions, all other actions, namely $p3$, $p5$, $b$, $b$, $d$, $b$, $a$, $t$, $g$, $c$, m, n, m2, l, o, s, u, v and w are strong. Notice that $i$ is not used, but we keep it to have this model as an extension of the BER model. In UD, we again use a  parallel operator. This will make it possible for UvrD to break two bonds with every ``step'' it moves.
+where processes $MS$, $ML$, $MH$, and $UD$ model the MutS, MutL, MutH, and UvrD protein respectively.  Here $s$, $i$, and $r$ are weak actions, all other actions, namely $p3$, $p5$, $b$, $b$, $d$, $b$, $a$, $t$, $g$, $c$, $m$, $n$, $m2$, $l$, $o$, $s$, $u$, $v$ and $w$ are strong. Notice that $i$ is not used, but we keep it to have this model as an extension of the BER model. In $UD$, we again use a  parallel operator. This will make it possible for UvrD to break two bonds with every ``step'' it moves.
 
 
 The synchronisation function for our system is as follows:
@@ -1071,7 +1071,7 @@ As before, the deoxyribose/phosphate groups and the bases can combine to form a 
 \psfrag{1}{${\mathrm{1}}$}
 \psfrag{2}{${\mathrm{2}}$}
   \centering
-    %\includegraphics[width=1.0\textwidth]{mmr/state1}
+    \includegraphics[width=1.0\textwidth]{mmr/state1}
   \caption[A six base pair DNA fragment.]{A six base pair DNA fragment, with a DNA mismatch and methylation of one strand. The proteins MutL, MutS, MutH, and UvrD are currently not bound to the DNA.}
   \label{fig:state1}
 \end{figure}
@@ -1195,7 +1195,7 @@ Note that execution of c on $DP_9$ leads to breaking a bond between two deoxyrib
 \psfrag{2}{${\mathrm{2}}$}
   \centering
     \includegraphics[width=1.0\textwidth]{mmr/state2}
-  \caption[A six base pair DNA fragment.]{A six base pair DNA fragment, with a DNA mismatch and methylation of one strand. TODO}
+  \caption[A six base pair DNA fragment.]{A six base pair DNA fragment, with a DNA mismatch and methylation of one strand. The mismatch has been detected by MutS and MutH and MutL have been recruited. MutL has detected the methylation, and MutH has cleaved the strand containing the wrong base.}
   \label{fig:state2}
 \end{figure}
 
@@ -1250,7 +1250,7 @@ This is shown in Figure~\ref{fig:state3}. This process can continue until the of
 \psfrag{2}{${\mathrm{2}}$}
   \centering
     \includegraphics[width=1.0\textwidth]{mmr/state3}
-  \caption[A six base pair DNA fragment.]{A six base pair DNA fragment, with a DNA mismatch and methylation of one strand. TODO}
+  \caption[A six base pair DNA fragment.]{A six base pair DNA fragment, with a DNA mismatch and methylation of one strand. UvrD has now bonded to $T_2$ and $SP_{10}$, breaking the bonds of those molecules to the rest of the DNA via concerted actions (shown as dotted lines). In a next step, UvrD can now ``walk'' along the DNA strand, and remove the next pair (indicated by dotted lines as well).}
   \label{fig:state3}
 \end{figure}
 
