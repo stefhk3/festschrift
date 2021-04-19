@@ -1227,7 +1227,8 @@ Note that execution of c on $DP_9$ leads to breaking a bond between two deoxyrib
 Now the UvrD protein can use the cleavage to remove pairs of deoxyribose/phosphate groups and bases. This works as follows:
 
 \begin{flalign*}
-&\xrightarrow{\{sp3[34],\underline{at}[14]\}} &\overset{ \rulename{prom}}\Rightarrow \xrightarrow{\{rr[35],\underline{at}[24]\}} \Rightarrow (p3_1,p5_1[1];s_1).DP_1' \paral (b_1[10],d_1).DP_1'' \paral (p3_2[1],p5_2[2];s_2).DP_2' \paral &&\\
+&\xrightarrow{\{sp3[34],\underline{at}[14]\}} \overset{ \rulename{prom}}\Rightarrow \xrightarrow{\{rr[35],\underline{at}[24]\}} \Rightarrow & &\\
+& (p3_1,p5_1[1];s_1).DP_1' \paral (b_1[10],d_1).DP_1'' \paral (p3_2[1],p5_2[2];s_2).DP_2' \paral &&\\
 &(b_2[8],d_2).DP_2'' \paral (p3_3[2],p5_3[3];s_3).DP_3' \paral (b_3[6],d_3).DP_3'' \paral (p3_4[3],p5_4[4];s_4).DP_4' \paral (b_4[9],d_4).DP_4'' \paral &&\\
 &(p3_5[4],p5_5[5];s_5).DP_5' \paral (b_5[7],d_5).DP_5'' \paral (p3_6[5],p5_6;s_6).DP_6' \paral (b_6[11],d_6)).DP_6'' \paral  &&\\
 &(b_1[6];i_1).(\mathbf{a_1}).(m_1[27];r).A_1' \paral (b_2[7];i_2).(a_2[28]).(m_2;r).A_2' \paral (b_3[18];i_3).(a_3[23]).(m_3;r).A_3' \paral &&\\
@@ -1244,7 +1245,8 @@ Now the UvrD protein can use the cleavage to remove pairs of deoxyribose/phospha
 From here, UvrD can ``walk'' along the strand. As opposed to BER, the bonds between the base pairs are now broken. In parallel, the bonds between the deoxyribose/phosphate groups are also broken as UvrD progresses:
 
 \begin{flalign*}
-&\xrightarrow{\{ss[36],\underline{p5p3}[15]\}} &\overset{ \rulename{prom}}\Rightarrow \xrightarrow{\{rr[37],\underline{cg}[25]\}} \Rightarrow (p3_1,p5_1[1];s_1).DP_1' \paral (b_1[10],d_1).DP_1'' \paral (p3_2[1],p5_2[2];s_2).DP_2' \paral &&\\
+&\xrightarrow{\{ss[36],\underline{p5p3}[15]\}} \overset{ \rulename{prom}}\Rightarrow \xrightarrow{\{rr[37],\underline{cg}[25]\}} \Rightarrow &&\\
+& (p3_1,p5_1[1];s_1).DP_1' \paral (b_1[10],d_1).DP_1'' \paral (p3_2[1],p5_2[2];s_2).DP_2' \paral &&\\
 &(b_2[8],d_2).DP_2'' \paral (p3_3[2],p5_3[3];s_3).DP_3' \paral (b_3[6],d_3).DP_3'' \paral (p3_4[3],p5_4[4];s_4).DP_4' \paral (b_4[9],d_4).DP_4'' \paral &&\\
 &(p3_5[4],p5_5[5];s_5).DP_5' \paral (b_5[7],d_5).DP_5'' \paral (p3_6[5],p5_6;s_6).DP_6' \paral (b_6[11],d_6)).DP_6'' \paral  &&\\
 &(b_1[6];i_1).(a_1).(m_1[27];r).A_1' \paral (b_2[7];i_2).(a_2[28]).(m_2;r).A_2' \paral (b_3[18];i_3).(a_3[23]).(m_3;r).A_3' \paral &&\\
