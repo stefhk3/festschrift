@@ -1018,6 +1018,13 @@ C & \bydef & (b;i).(c;r).C'\\
 %
 where processes $A$, $T$, $G$, and $C$ model the bases adenine (A), cytosine (C), guanine (G), and thymine (T). Notice we have added actions $s$, $m$, and $r$. Also, the actions on DP have been regrouped (but all original actions are still there). In $DP$, we are now using a parallel operator. This is necessary to enable a breaking of a bond to $p3$ or $p5$ whilst there is still a bond to $b$. The action $d$, which was used by UDG in the modelling of BER is not used here, as we will see. We keep it to have an extension of the previous modelling.
 
+%
+% Not much is written about $Me$ and how it binds with $A$s. Are any other compounds that can bind similarly with $T, G$ and $C$?
+% I am not sure using parallel with $A$ is appropriate. Also, from page 24 onwards the actions of copies of $A$ are wrong: weak 
+% actions r are with m and not with a as in definitions on page 20. Couldn't Me bond with A_1 on r and thus break bond with T_2 (by concerted
+% action)?
+%
+
 We also need additional components, namely the methyl group, the MutS, MutL, MutH, and UvrD proteins. We model these as follows:
 $$\begin{array}{lll}
 Me & \bydef & (m).(n).Me'\\
@@ -1088,7 +1095,10 @@ We leave out the restriction from now on for ease of reading. We number actions 
 &(p3_1,p5_1[1];s_1).DP_1' \paral (b_1[10],d_1).DP_1'' \paral (p3_2[1],p5_2[2];s_2).DP_2' \paral (b_2[8],d_2).DP_2'' \paral &&\\
 &(p3_3[2],p5_3[3];s_3).DP_3' \paral (b_3[6],d_3).DP_3'' \paral (p3_4[3],p5_4[4];s_4).DP_4' \paral (b_4[9],d_4).DP_4'' \paral &&\\
 &(p3_5[4],p5_5[5];s_5).DP_5' \paral (b_5[7],d_5).DP_5'' \paral (p3_6[5],p5_6;s_6).DP_6' \paral (b_6[11],d_6)).DP_6'' \paral  &&\\
-&(b_1[6];i_1).(a_1[24]).(m_1[40];r_1).A_1' \paral (b_2[7];i_2).(a_2).(m_2;r_2).A_2' \paral (b_3[18];i_3).(a_3[23]).(m_3;r_3).A_3' \paral &&\\
+&(b_1[6];i_1).(a_1[24]).(m_1[40];r_1).A_1' \paral (b_2[7];i_2).(a_2).(m_2;r_2).A_2' \paral (b_3[18];i_3).(a_3[23]).(m_3;r_3).A_3' %
+% Actions of As are different here than as defined on page 20.
+%
+\paral &&\\
 &(b_4[8];i_4).(t_1[23]:r_4).T_1' \paral (b_5[19];i_5).(t_2[24];r_5).T_2' \paral  (b_6[9];i_6).(g_1[25];r_6).G_1' \paral &&\\
 &(b_7[17];i_7).(g_2[41];r_7).G_2' \paral (b_8[21];i_8).(g_3;r_8).G_3' \paral (b_9[22];i_9).(g_4[27];r_9).G_4' \paral&&\\
 &(b_{10}[10];i_{10}).(c_1[41];r_{10}).C_1' \paral (b_{11}[11];i_{11}).(c_2[27];r_{11}).C_2' \paral (b_{12}[20];i_{12}).(c_3[25];r_{12}).C_3'  \paral&&\\
@@ -1185,7 +1195,7 @@ MutH is now ready to cleave the DNA at the right location:
 &(o[32]).(\mathbf{w[33]}).MutH' \paral (u;r).UvrD' \paral (v;s).UvrD''&&
 \end{flalign*}
 
-{\em Promotion} now moves the key to action $p8$:
+Next, {\em promotion} happens, which moves the bond with key 33 from weak action $s_9$ to strong action $p3_9$:
 
 \begin{flalign*}
 &\overset{ \rulename{prom}}\Rightarrow (p3_1,p5_1[1];s_1).DP_1' \paral (b_1[10],d_1).DP_1'' \paral (p3_2[1],p5_2[2];s_2).DP_2' \paral &&\\
@@ -1270,10 +1280,16 @@ The removal of the first base and deoxyribose/phosphate group is shown in Figure
 \end{figure}
 
 From here, UvrD can ``walk'' along the strand. As opposed to BER, the bonds between the base pairs are now broken during the walk. In parallel, the bonds between the deoxyribose/phosphate groups are also broken as UvrD progresses:
+%
+%
+%Can you please write the two pair of transitions separately? It will be easier to check and explain to the reader
+%
 
 \begin{flalign*}
-&\xrightarrow{\{ss[36],\underline{vp3}[34],\underline{p}[15]\}} \overset{ \rulename{prom}}\Rightarrow \xrightarrow{\{rr[37],\underline{tu}[35],\underline{cg}[25]\}} \overset{ \rulename{prom}}\Rightarrow (p3_1,p5_1[1];s_1).DP_1' \paral (b_1[10],d_1).DP_1'' \paral (p3_2[1],p5_2[2];s_2).DP_2' \paral &&\\
-&(b_2[8],d_2).DP_2'' \paral (p3_3[2],p5_3[3];s_3).DP_3' \paral (b_3[6],d_3).DP_3'' \paral (p3_4[3],p5_4[4];s_4).DP_4' \paral (b_4[9],d_4).DP_4'' \paral &&\\
+&\xrightarrow{\{ss[36],\underline{vp3}[34],\underline{p}[15]\}} \overset{ \rulename{prom}}\Rightarrow \xrightarrow{\{rr[37],\underline{tu}[35],\underline{cg}[25]\}} \overset{ \rulename{prom}}\Rightarrow &&\\
+& (p3_1,p5_1[1];s_1).DP_1' \paral (b_1[10],d_1).DP_1'' \paral (p3_2[1],p5_2[2];s_2).DP_2' \paral 
+(b_2[8],d_2).DP_2'' \paral && \\
+& (p3_3[2],p5_3[3];s_3).DP_3' \paral (b_3[6],d_3).DP_3'' \paral (p3_4[3],p5_4[4];s_4).DP_4' \paral (b_4[9],d_4).DP_4'' \paral &&\\
 &(p3_5[4],p5_5[5];s_5).DP_5' \paral (b_5[7],d_5).DP_5'' \paral (p3_6[5],p5_6;s_6).DP_6' \paral (b_6[11],d_6)).DP_6'' \paral  &&\\
 &(b_1[6];i_1).(a_1).(m_1[40];r).A_1' \paral (b_2[7];i_2).(a_2[28]).(m_2;r).A_2' \paral (b_3[18];i_3).(a_3[23]).(m_3;r).A_3' \paral &&\\
 &(b_4[8];i_4).(t_1[23]:r_1).T_1' \paral (b_5[19];i_5).(t_2[35];r_2).T_2' \paral  (b_6[9];i_6).(\mathbf{g_1};r_3).G_1' \paral &&\\
@@ -1287,7 +1303,9 @@ From here, UvrD can ``walk'' along the strand. As opposed to BER, the bonds betw
 \end{flalign*}
 
 This is shown in Figure~\ref{fig:state4}. Here, the first  base and deoxyribose/phosphate group has been removed (no longer shown in Figure~\ref{fig:state4}) and UvrD is moving to the next  base and deoxyribose/phosphate group, again removing them. The two concerted actions are shown by thin (36/15) and bold dashed lines (37/25).
-
+%
+% Remove this comment, or adopt it so it describes a ``new'' problem and not the old one which we may have solved by three action % concerted actions.
+%
 \textbf{Problem: We also need to remove bond 34 when forming 36 and remove 35 when forming 37. That is the "three actions together" which is problematic. UD is attached not to DP9 initially and then to DP 10, but to DP 10 initially and then to DP 11 because otherwise it would float away with the DB 9/T 2.}
 
 \begin{figure}[h!]
@@ -1314,8 +1332,15 @@ This is shown in Figure~\ref{fig:state4}. Here, the first  base and deoxyribose/
 \end{figure}
 
 This process can continue until the offending base has been removed. Figure~\ref{fig:state6} shows the removal of the offending base. Once this is done and the MutH, MutL, and MutS proteins have detached we get the situation shown in Figure~\ref{fig:state7}. This is now ready for other proteins to replace the bases and and deoxyribose/phosphate groups. Notice that the remaining strand contains the necessary information for this, in particular only a T base can be put in opposite the A base.
+%
+% What happens to $Me$ here, as we would like it to un-bond with $A_1$ in Figur 15.
+%
 
-The modelling done so far does not involve any spatial configurataions. As in the BER example, this means that UvrD could bond to any deoxyribose/phosphate group, not just the neighbouring one. It also means that we have not modelled the formation of the loop in the DNA, which is crucual for cleaving the correct strand.
+The modelling done so far does not involve any spatial configurataions. As in the BER example, this means that UvrD could bond to any deoxyribose/phosphate group, not just the neighbouring one. It also means that we have not modelled the formation of the loop in the DNA, which is crucial for cleaving the correct strand.
+%
+% Also, explain why UD does not continue bonding to DP13 and to G4 and to the other such compounds to the right of the DNA 
+% strand.
+%
 
 \begin{figure}[h!]
 \psfrag{UvrDG}{${\mathrm{UvrDG}}$}
