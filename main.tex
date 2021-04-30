@@ -1010,20 +1010,13 @@ For modelling MMR, we use the components from Section~\ref{sec:ber} as much as p
 %
 $$\begin{array}{lll}
 DP & \bydef & (p3,p5;s).DP' \paral (b,d).DP''\\
-A & \bydef & (b;i).(a;r).(m).A'\\
+A & \bydef & (b;i).(a,m;r).A'\\
 T & \bydef & (b;i).(t;r).T'\\
 G & \bydef & (b;i).(g;r).G'\\
 C & \bydef & (b;i).(c;r).C'\\
 \end{array}$$
 %
-where processes $A$, $T$, $G$, and $C$ model the bases adenine (A), cytosine (C), guanine (G), and thymine (T). Notice we have added actions $s$, $m$, and $r$. Also, the actions on DP have been regrouped (but all original actions are still there). In $DP$, we are now using a parallel operator. This is necessary to enable a breaking of a bond to $p3$ or $p5$ whilst there is still a bond to $b$. The action $d$, which was used by UDG in the modelling of BER is not used here, as we will see. We keep it to have an extension of the previous modelling.
-
-%
-% Not much is written about $Me$ and how it binds with $A$s. Are any other compounds that can bind similarly with $T, G$ and $C$?
-% I am not sure using parallel with $A$ is appropriate. Also, from page 24 onwards the actions of copies of $A$ are wrong: weak 
-% actions r are with m and not with a as in definitions on page 20. Couldn't Me bond with A_1 on r and thus break bond with T_2 (by concerted
-% action)?
-%
+where processes $A$, $T$, $G$, and $C$ model the bases adenine (A), cytosine (C), guanine (G), and thymine (T). Notice we have added actions $s$, $m$, and $r$. $m$ is enabling the methylation. It only exists in $A$, since the methylation is only happending there. Also, the actions on DP have been regrouped (but all original actions are still there). In $DP$, we are now using a parallel operator. This is necessary to enable a breaking of a bond to $p3$ or $p5$ whilst there is still a bond to $b$. The action $d$, which was used by UDG in the modelling of BER is not used here, as we will see. We keep it to have an extension of the previous modelling.
 
 We also need additional components, namely the methyl group, the MutS, MutL, MutH, and UvrD proteins. We model these as follows:
 $$\begin{array}{lll}
@@ -1095,10 +1088,7 @@ We leave out the restriction from now on for ease of reading. We number actions 
 &(p3_1,p5_1[1];s_1).DP_1' \paral (b_1[10],d_1).DP_1'' \paral (p3_2[1],p5_2[2];s_2).DP_2' \paral (b_2[8],d_2).DP_2'' \paral &&\\
 &(p3_3[2],p5_3[3];s_3).DP_3' \paral (b_3[6],d_3).DP_3'' \paral (p3_4[3],p5_4[4];s_4).DP_4' \paral (b_4[9],d_4).DP_4'' \paral &&\\
 &(p3_5[4],p5_5[5];s_5).DP_5' \paral (b_5[7],d_5).DP_5'' \paral (p3_6[5],p5_6;s_6).DP_6' \paral (b_6[11],d_6)).DP_6'' \paral  &&\\
-&(b_1[6];i_1).(a_1[24]).(m_1[40];r_1).A_1' \paral (b_2[7];i_2).(a_2).(m_2;r_2).A_2' \paral (b_3[18];i_3).(a_3[23]).(m_3;r_3).A_3' %
-% Actions of As are different here than as defined on page 20.
-%
-\paral &&\\
+&(b_1[6];i_1).(a_1[24],m_1[40];r_1).A_1' \paral (b_2[7];i_2).(a_2,m_2;r_2).A_2' \paral (b_3[18];i_3).(a_3[23],m_3;r_3).A_3' \paral &&\\
 &(b_4[8];i_4).(t_1[23]:r_4).T_1' \paral (b_5[19];i_5).(t_2[24];r_5).T_2' \paral  (b_6[9];i_6).(g_1[25];r_6).G_1' \paral &&\\
 &(b_7[17];i_7).(g_2[41];r_7).G_2' \paral (b_8[21];i_8).(g_3;r_8).G_3' \paral (b_9[22];i_9).(g_4[27];r_9).G_4' \paral&&\\
 &(b_{10}[10];i_{10}).(c_1[41];r_{10}).C_1' \paral (b_{11}[11];i_{11}).(c_2[27];r_{11}).C_2' \paral (b_{12}[20];i_{12}).(c_3[25];r_{12}).C_3'  \paral&&\\
@@ -1109,14 +1099,16 @@ We leave out the restriction from now on for ease of reading. We number actions 
 &(o).(w).MutH' \paral (u;r).UvrD' \paral (v;s).UvrD''&&
 \end{flalign*}
 
-MutS can now bond to the $A$ and $G$ bases,  specifically to processes $A_2$ and $G_3$  via the $a_2$ and $g_3$ actions. This is the recognition of the mismatch. The bonding is not possible if the bases are properly paired, and also not if a Uracil is incorporated into the strand (as in the BER example). The transitions for creating the two bonds between $MutS$ and
+In this short DNA section , we firstly have a mismatch - $A_2$ and $G_3$ do not form an A/T or G/C pair as required. Secondly, methylation has happened on the old half of the strand, which means that an methyl group ($Me$) is attached to $A_1$. Note that there is no methyl group on $A_2$. This is because the methylation only happens on CTAG sequences. This happens via a specific protein, which we do not model, we just assume the end result. No $A$s would be methylated on the new half, even if they were in a CTAG sequence, since not enough time has passed for this to happen.
+
+MutS can now bond to the $A$ and $G$ bases,  specifically to processes $A_2$ and $G_3$  via the $a_2$ and $g_3$ actions. This is the recognition of the mismatch. Not that the $a$ and $g$ actions are not available on matching pairs. So the bonding is not possible if the bases are properly paired, and also not if a Uracil is incorporated into the strand (as in the BER example). The transitions for creating the two bonds between $MutS$ and
 $A_2$ and $G_3$ are as follows:
 
 \begin{flalign*}
 &\xrightarrow{m2a[28]} \xrightarrow{m2g[29]} (p3_1,p5_1[1];s_1).DP_1' \paral (b_1[10],d_1).DP_1'' \paral (p3_2[1],p5_2[2];s_2).DP_2' \paral &&\\
 &(b_2[8],d_2).DP_2'' \paral (p3_3[2],p5_3[3];s_3).DP_3' \paral (b_3[6],d_3).DP_3'' (p3_4[3],p5_4[4];s_4).DP_4' \paral (b_4[9],d_4).DP_4'' \paral&&\\
 &(p3_5[4],p5_5[5];s_5).DP_5' \paral (b_5[7],d_5).DP_5'' \paral (p3_6[5],p5_6;s_6).DP_6' \paral (b_6[11],d_6)).DP_6'' \paral  &&\\
-&(b_1[6];i_1).(a_1[24]).(m_1[40];r_1).A_1' \paral (b_2[7];i_2).(\mathbf{a_2[28]}).(m_2;r_2).A_2' \paral (b_3[18];i_3).(a_3[23]).(m_3;r_3).A_3' \paral &&\\
+&(b_1[6];i_1).(a_1[24],m_1[40];r_1).A_1' \paral (b_2[7];i_2).(\mathbf{a_2[28]},m_2;r_2).A_2' \paral (b_3[18];i_3).(a_3[23],m_3;r_3).A_3' \paral &&\\
 &(b_4[8];i_4).(t_1[23]:r_4).T_1' \paral (b_5[19];i_5).(t_2[24];r_5).T_2' \paral  (b_6[9];i_6).(g_1[25];r_6).G_1' \paral &&\\
 &(b_7[17];i_7).(g_2[41];r_7).G_2' \paral (b_8[21];i_8).(\mathbf{g_3[29]};r_8).G_3' \paral (b_9[22];i_9).(g_4[27];r_9).G_4' \paral&&\\
 &(b_{10}[10];i_{10}).(c_1[41];r_{10}).C_1' \paral (b_{11}[11];i_{11}).(c_2[27];r_{11}).C_2' \paral (b_{12}[20];i_{12}).(c_3[25];r_{12}).C_3'  \paral&&\\
@@ -1133,7 +1125,7 @@ Now it is possible for $MutL$ to bond to $MutS$ via a synchronisation on $l$ wit
 &\xrightarrow{ll[30]} (p3_1,p5_1[1];s_1).DP_1' \paral (b_1[10],d_1).DP_1'' \paral (p3_2[1],p5_2[2];s_2).DP_2' \paral (b_2[8],d_2).DP_2'' \paral &&\\
 &(p3_3[2],p5_3[3];s_3).DP_3' \paral (b_3[6],d_3).DP_3'' \paral (p3_4[3],p5_4[4];s_4).DP_4' \paral (b_4[9],d_4).DP_4'' \paral &&\\
 &(p3_5[4],p5_5[5];s_5).DP_5' \paral (b_5[7],d_5).DP_5'' \paral (p3_6[5],p5_6;s_6).DP_6' \paral (b_6[11],d_6)).DP_6'' \paral  &&\\
-&(b_1[6];i_1).(a_1[24]).(m_1[40];r_1).A_1' \paral (b_2[7];i_2).(a_2[28]).(m_2;r_2).A_2' \paral (b_3[18];i_3).(a_3[23]).(m_3;r_3).A_3' \paral &&\\
+&(b_1[6];i_1).(a_1[24],m_1[40];r_1).A_1' \paral (b_2[7];i_2).(a_2[28],m_2;r_2).A_2' \paral (b_3[18];i_3).(a_3[23],m_3;r_3).A_3' \paral &&\\
 &(b_4[8];i_4).(t_1[23]:r_4).T_1' \paral (b_5[19];i_5).(t_2[24];r_5).T_2' \paral  (b_6[9];i_6).(g_1[25];r_6).G_1' \paral &&\\
 &(b_7[17];i_7).(g_2[41];r_7).G_2' \paral (b_8[21];i_8).(g_3[29];r_8).G_3' \paral (b_9[22];i_9).(g_4[27];r_9).G_4' \paral&&\\
 &(b_{10}[10];i_{10}).(c_1[41];r_{10}).C_1' \paral (b_{11}[11];i_{11}).(c_2[27];r_{11}).C_2' \paral (b_{12}[20];i_{12}).(c_3[25];r_{12}).C_3'  \paral&&\\
@@ -1150,7 +1142,7 @@ $MutL$ now can bond with $Me$ via $n$, which means it detects which of the stran
 &\xrightarrow{nn[31]} (p3_1,p5_1[1];s_1).DP_1' \paral (b_1[10],d_1).DP_1'' \paral (p3_2[1],p5_2[2];s_2).DP_2' \paral (b_2[8],d_2).DP_2'' \paral &&\\
 &(p3_3[2],p5_3[3];s_3).DP_3' \paral (b_3[6],d_3).DP_3'' \paral (p3_4[3],p5_4[4];s_4).DP_4' \paral (b_4[9],d_4).DP_4'' \paral &&\\
 &(p3_5[4],p5_5[5];s_5).DP_5' \paral (b_5[7],d_5).DP_5'' \paral (p3_6[5],p5_6;s_6).DP_6' \paral (b_6[11],d_6)).DP_6'' \paral  &&\\
-&(b_1[6];i_1).(a_1[24]).(m_1[40];r_1).A_1' \paral (b_2[7];i_2).(a_2[28]).(m_2;r_2).A_2' \paral (b_3[18];i_3).(a_3[23]).(m_3;r_3).A_3' \paral &&\\
+&(b_1[6];i_1).(a_1[24],m_1[40];r_1).A_1' \paral (b_2[7];i_2).(a_2[28],m_2;r_2).A_2' \paral (b_3[18];i_3).(a_3[23],m_3;r_3).A_3' \paral &&\\
 &(b_4[8];i_4).(t_1[23]:r_4).T_1' \paral (b_5[19];i_5).(t_2[24];r_5).T_2' \paral  (b_6[9];i_6).(g_1[25];r_6).G_1' \paral &&\\
 &(b_7[17];i_7).(g_2[41];r_7).G_2' \paral (b_8[21];i_8).(g_2[29];r_8).G_3' \paral (b_9[22];i_9).(g_2[27];r_9).G_4' \paral&&\\
 &(b_9[10];i_9).(c_1[41];r_{10}).C_1' \paral (b_{10}[11];i_{10}).(c_2[27];r_{11}).C_2' \paral (b_{11}[20];i_{11}).(c_3[25];r_{12}).C_3'  \paral&&\\
@@ -1167,7 +1159,7 @@ MutL is now ready to recruit MutH:
 &\xrightarrow{oo[32]} (p3_1,p5_1[1];s_1).DP_1' \paral (b_1[10],d_1).DP_1'' \paral (p3_2[1],p5_2[2];s_2).DP_2' \paral (b_2[8],d_2).DP_2'' \paral&&\\ 
 &(p3_3[2],p5_3[3];s_3).DP_3' \paral (b_3[6],d_3).DP_3'' \paral (p3_4[3],p5_4[4];s_4).DP_4' \paral (b_4[9],d_4).DP_4'' \paral &&\\
 &(p3_5[4],p5_5[5];s_5).DP_5' \paral (b_5[7],d_5).DP_5'' \paral (p3_6[5],p5_6;s_6).DP_6' \paral (b_6[11],d_6)).DP_6'' \paral  &&\\
-&(b_1[6];i_1).(a_1[24]).(m_1[40];r_1).A_1' \paral (b_2[7];i_2).(a_2[28]).(m_2;r_2).A_2' \paral (b_3[18];i_3).(a_3[23]).(m_3;r_3).A_3' \paral &&\\
+&(b_1[6];i_1).(a_1[24],m_1[40];r_1).A_1' \paral (b_2[7];i_2).(a_2[28],m_2;r_2).A_2' \paral (b_3[18];i_3).(a_3[23],m_3;r_3).A_3' \paral &&\\
 &(b_4[8];i_4).(t_1[23]:r_4).T_1' \paral (b_5[19];i_5).(t_2[24];r_5).T_2' \paral  (b_6[9];i_6).(g_1[25];r_6).G_1' \paral &&\\
 &(b_7[17];i_7).(g_2[41];r_7).G_2' \paral (b_8[21];i_8).(g_3[29];r_8).G_3' \paral (b_9[22];i_9).(g_4[27];r_9).G_4' \paral&&\\
 &(b_{10}[10];i_{10}).(c_1[41];r_{10}).C_1' \paral (b_{11}[11];i_{11}).(c_2[27];r_{11}).C_2' \paral (b_{12}[20];i_{12}).(c_3[25];r_{12}).C_3'  \paral&&\\
@@ -1184,7 +1176,7 @@ MutH is now ready to cleave the DNA at the right location:
 &\xrightarrow{\{ws[33],\underline{p}[13]\}} (p3_1,p5_1[1];s_1).DP_1' \paral (b_1[10],d_1).DP_1'' \paral (p3_2[1],p5_2[2];s_2).DP_2' \paral &&\\
 &(b_2[8],d_2).DP_2'' \paral (p3_3[2],p5_3[3];s_3).DP_3' \paral (b_3[6],d_3).DP_3'' \paral (p3_4[3],p5_4[4];s_4).DP_4' \paral (b_4[9],d_4).DP_4'' \paral &&\\
 &(p3_5[4],p5_5[5];s_5).DP_5' \paral (b_5[7],d_5).DP_5'' \paral (p3_6[5],p5_6;s_6).DP_6' \paral (b_6[11],d_6)).DP_6'' \paral  &&\\
-&(b_1[6];i_1).(a_1[24]).(m_1[40];r_1).A_1' \paral (b_2[7];i_2).(a_2[28]).(m_2;r_2).A_2' \paral (b_3[18];i_3).(a_3[23]).(m_3;r_3).A_3' \paral &&\\
+&(b_1[6];i_1).(a_1[24],m_1[40];r_1).A_1' \paral (b_2[7];i_2).(a_2[28],m_2;r_2).A_2' \paral (b_3[18];i_3).(a_3[23],m_3;r_3).A_3' \paral &&\\
 &(b_4[8];i_4).(t_1[23]:r_4).T_1' \paral (b_5[19];i_5).(t_2[24];r_5).T_2' \paral  (b_6[9];i_6).(g_1[25];r_6).G_1' \paral &&\\
 &(b_7[17];i_7).(g_2[41];r_7).G_2' \paral (b_8[21];i_8).(g_3[29];r_8).G_3' \paral (b_9[22];i_9).(g_4[27];r_9).G_4' \paral&&\\
 &(b_{10}[10];i_{10}).(c_1[41];r_{10}).C_1' \paral (b_{11}[11];i_{11}).(c_2[27];r_{11}).C_2' \paral (b_{12}[20];i_{12}).(c_3[25];r_{12}).C_3'  \paral&&\\
@@ -1201,7 +1193,7 @@ Next, {\em promotion} happens, which moves the bond with key 33 from weak action
 &\overset{ \rulename{prom}}\Rightarrow (p3_1,p5_1[1];s_1).DP_1' \paral (b_1[10],d_1).DP_1'' \paral (p3_2[1],p5_2[2];s_2).DP_2' \paral &&\\
 &(b_2[8],d_2).DP_2'' \paral (p3_3[2],p5_3[3];s_3).DP_3' \paral (b_3[6],d_3).DP_3'' \paral (p3_4[3],p5_4[4];s_4).DP_4' \paral (b_4[9],d_4).DP_4'' \paral &&\\
 &(p3_5[4],p5_5[5];s_5).DP_5' \paral (b_5[7],d_5).DP_5'' \paral (p3_6[5],p5_6;s_6).DP_6' \paral (b_6[11],d_6)).DP_6'' \paral  &&\\
-&(b_1[6];i_1).(a_1[24]).(m_1[40];r_1).A_1' \paral (b_2[7];i_2).(a_2[28]).(m_2;r_2).A_2' \paral (b_3[18];i_3).(a_3[23]).(m_3;r_3).A_3' \paral &&\\
+&(b_1[6];i_1).(a_1[24],m_1[40];r_1).A_1' \paral (b_2[7];i_2).(a_2[28],m_2;r_2).A_2' \paral (b_3[18];i_3).(a_3[23],m_3;r_3).A_3' \paral &&\\
 &(b_4[8];i_4).(t_1[23]:r_4).T_1' \paral (b_5[19];i_5).(t_2[24];r_5).T_2' \paral  (b_6[9];i_6).(g_1[25];r_6).G_1' \paral &&\\
 &(b_7[17];i_7).(g_2[41];r_7).G_2' \paral (b_8[21];i_8).(g_3[29];r_8).G_3' \paral (b_9[22];i_9).(g_4[27];r_9).G_4' \paral&&\\
 &(b_{10}[10];i_{10}).(c_1[41];r_{10}).C_1' \paral (b_{11}[11];i_{11}).(c_2[27];r_{11}).C_2' \paral (b_{12}[20];i_{12}).(c_3[25];r_{10}).C_3'  \paral&&\\
@@ -1243,7 +1235,7 @@ Now the UvrD protein can use the cleavage to remove pairs of deoxyribose/phospha
 &\xrightarrow{\{sv[34],\underline{at}[14]\}}  \overset{ \rulename{prom}}\Rightarrow \xrightarrow{\{ur[35],\underline{at}[24]\}}  \overset{ \rulename{prom}}\Rightarrow (p3_1,p5_1[1];s_1).DP_1' \paral (b_1[10],d_1).DP_1'' \paral (p3_2[1],p5_2[2];s_2).DP_2' \paral &&\\
 &(b_2[8],d_2).DP_2'' \paral (p3_3[2],p5_3[3];s_3).DP_3' \paral (b_3[6],d_3).DP_3'' \paral (p3_4[3],p5_4[4];s_4).DP_4' \paral (b_4[9],d_4).DP_4'' \paral &&\\
 &(p3_5[4],p5_5[5];s_5).DP_5' \paral (b_5[7],d_5).DP_5'' \paral (p3_6[5],p5_6;s_6).DP_6' \paral (b_6[11],d_6)).DP_6'' \paral  &&\\
-&(b_1[6];i_1).(\mathbf{a_1}).(m_1[40];r_1).A_1' \paral (b_2[7];i_2).(a_2[28]).(m_2;r_2).A_2' \paral (b_3[18];i_3).(a_3[23]).(m_3;r_3).A_3' \paral &&\\
+&(b_1[6];i_1).(\mathbf{a_1},m_1[40];r_1).A_1' \paral (b_2[7];i_2).(a_2[28],m_2;r_2).A_2' \paral (b_3[18];i_3).(a_3[23],m_3;r_3).A_3' \paral &&\\
 &(b_4[8];i_4).(t_1[23]:r_4).T_1' \paral (b_5[19];i_5).(\mathbf{t_2[35]};r_5).T_2' \paral  (b_6[9];i_6).(g_1[25];r_6).G_1' \paral &&\\
 &(b_7[17];i_7).(g_2[41];r_7).G_2' \paral (b_8[21];i_8).(g_3[29];r_8).G_3' \paral (b_9[22];i_9).(g_4[27];r_9).G_4' \paral&&\\
 &(b_{10}[10];i_{10}).(c_1[41];r_{10}).C_1' \paral (b_{11}[11];i_{11}).(c_2[27];r_{11}).C_2' \paral (b_{12}[20];i_{12}).(c_3[25];r_{12}).C_3'  \paral&&\\
@@ -1253,6 +1245,8 @@ Now the UvrD protein can use the cleavage to remove pairs of deoxyribose/phospha
 &(m[40]).(n[31]).Me'\paral (m2[28],m2[29]).(l[30]).MutS' \paral (l[30]).(n[31]).(o[32]).MutL' \paral &&\\
 &(o[32]).(w[33]).MutH' \paral (\mathbf{u[35]};r).UvrD' \paral (\mathbf{v[34]};s).UvrD''&&
 \end{flalign*}
+
+$UD$ is attached not to $DP_9$ initially here, but to $DP_10$. If it would be attached to $DP_9$, it would have no connection to the DNA strand anymore once the bonds of $DP_9$ and $T_2$ to the DNA strand are broken.
 
 The removal of the first base and deoxyribose/phosphate group is shown in Figure~\ref{fig:state3}. The dashed lines indicate the bonds being broken and formed during concerted actions. The two concerted actions are shown by thin (34/14) and bold dashed lines (35/24).
 
@@ -1279,34 +1273,49 @@ The removal of the first base and deoxyribose/phosphate group is shown in Figure
   \label{fig:state3}
 \end{figure}
 
-From here, UvrD can ``walk'' along the strand. As opposed to BER, the bonds between the base pairs are now broken during the walk. In parallel, the bonds between the deoxyribose/phosphate groups are also broken as UvrD progresses:
-%
-%
-%Can you please write the two pair of transitions separately? It will be easier to check and explain to the reader
-%
+From here, UvrD can ``walk'' along the strand. As opposed to BER, the bonds between the base pairs are now broken during the walk. In parallel, the bonds between the deoxyribose/phosphate groups are also broken as UvrD progresses. We write this as two separate concerted transitions here for clarity:
 
 \begin{flalign*}
-&\xrightarrow{\{ss[36],\underline{vp3}[34],\underline{p}[15]\}} \overset{ \rulename{prom}}\Rightarrow \xrightarrow{\{rr[37],\underline{tu}[35],\underline{cg}[25]\}} \overset{ \rulename{prom}}\Rightarrow &&\\
+&\xrightarrow{\{ss[36],\underline{vp3}[34],\underline{p}[15]\}} \overset{ \rulename{prom}}\Rightarrow  &&\\
 & (p3_1,p5_1[1];s_1).DP_1' \paral (b_1[10],d_1).DP_1'' \paral (p3_2[1],p5_2[2];s_2).DP_2' \paral 
 (b_2[8],d_2).DP_2'' \paral && \\
 & (p3_3[2],p5_3[3];s_3).DP_3' \paral (b_3[6],d_3).DP_3'' \paral (p3_4[3],p5_4[4];s_4).DP_4' \paral (b_4[9],d_4).DP_4'' \paral &&\\
 &(p3_5[4],p5_5[5];s_5).DP_5' \paral (b_5[7],d_5).DP_5'' \paral (p3_6[5],p5_6;s_6).DP_6' \paral (b_6[11],d_6)).DP_6'' \paral  &&\\
-&(b_1[6];i_1).(a_1).(m_1[40];r).A_1' \paral (b_2[7];i_2).(a_2[28]).(m_2;r).A_2' \paral (b_3[18];i_3).(a_3[23]).(m_3;r).A_3' \paral &&\\
-&(b_4[8];i_4).(t_1[23]:r_1).T_1' \paral (b_5[19];i_5).(t_2[35];r_2).T_2' \paral  (b_6[9];i_6).(\mathbf{g_1};r_3).G_1' \paral &&\\
+&(b_1[6];i_1).(a_1,m_1[40];r).A_1' \paral (b_2[7];i_2).(a_2[28],m_2;r).A_2' \paral (b_3[18];i_3).(a_3[23],m_3;r).A_3' \paral &&\\
+&(b_4[8];i_4).(t_1[23]:r_1).T_1' \paral (b_5[19];i_5).(t_2[35];r_2).T_2' \paral  (b_6[9];i_6).(g_1[25];r_3).G_1' \paral &&\\
+&(b_7[17];i_7).(g_2[41];r_4).G_2' \paral (b_8[21];i_8).(g_2[29];r_4).G_3' \paral (b_9[22];i_9).(g_3[27];r_5).G_4' \paral&&\\
+&(b_9[10];i_9).(c_1[41];r_6).C_1' \paral (b_{10}[11];i_{10}).(c_2[27];r_7).C_2' \paral (b_{11}[20];i_{11}).(c_3[25];r_8).C_3'  \paral&&\\
+&(p3_7,p5_7[12];s_7).DP_7' \paral (b_7[17],d_7).DP_7'' \paral (p3_8[12],p5_8;s_8).DP_8' \paral (b_8[18],d_8).DP_8'' \paral &&\\
+&(p3_9[33],p5_9;s_9).DP_9' \paral (b_9[19],d_9).DP_9'' \paral (\mathbf{p3_{10},p5_{10}};s_{10}).DP_{10}' \paral (b_{10}[20],d_{10})).DP_{10}'' \paral &&\\
+&(\mathbf{p3_{11}[36]},p5_{11}[16];s_{11}).DP_{11}' \paral (b_{11}[21],d_{11}).DP_{11}'' \paral (p3_{12}[16],p5_{12};s_{12}).DP_{12}' \paral (b_{12}[22],d_{12}).DP_{12}'' \paral  &&\\
+&(m[40]).(n[31]).Me'\paral (m2[28],m2[29]).(l[30]).MutS' \paral (l[30]).(n[31]).(o[32]).MutL' \paral &&\\
+&(o[32]).(w[33]).MutH' \paral (u[35];r).UvrD' \paral (\mathbf{v[36]};s).UvrD''&&
+\end{flalign*}
+
+\begin{flalign*}
+&\xrightarrow{\{rr[37],\underline{tu}[35],\underline{cg}[25]\}} \overset{ \rulename{prom}}\Rightarrow  &&\\
+& (p3_1,p5_1[1];s_1).DP_1' \paral (b_1[10],d_1).DP_1'' \paral (p3_2[1],p5_2[2];s_2).DP_2' \paral 
+(b_2[8],d_2).DP_2'' \paral && \\
+& (p3_3[2],p5_3[3];s_3).DP_3' \paral (b_3[6],d_3).DP_3'' \paral (p3_4[3],p5_4[4];s_4).DP_4' \paral (b_4[9],d_4).DP_4'' \paral &&\\
+&(p3_5[4],p5_5[5];s_5).DP_5' \paral (b_5[7],d_5).DP_5'' \paral (p3_6[5],p5_6;s_6).DP_6' \paral (b_6[11],d_6)).DP_6'' \paral  &&\\
+&(b_1[6];i_1).(a_1,m_1[40];r).A_1' \paral (b_2[7];i_2).(a_2[28],m_2;r).A_2' \paral (b_3[18];i_3).(a_3[23],m_3;r).A_3' \paral &&\\
+&(b_4[8];i_4).(t_1[23]:r_1).T_1' \paral (b_5[19];i_5).(\mathbf{t_2};r_2).T_2' \paral  (b_6[9];i_6).(\mathbf{g_1};r_3).G_1' \paral &&\\
 &(b_7[17];i_7).(g_2[41];r_4).G_2' \paral (b_8[21];i_8).(g_2[29];r_4).G_3' \paral (b_9[22];i_9).(g_3[27];r_5).G_4' \paral&&\\
 &(b_9[10];i_9).(c_1[41];r_6).C_1' \paral (b_{10}[11];i_{10}).(c_2[27];r_7).C_2' \paral (b_{11}[20];i_{11}).(\mathbf{c_3[37]};r_8).C_3'  \paral&&\\
 &(p3_7,p5_7[12];s_7).DP_7' \paral (b_7[17],d_7).DP_7'' \paral (p3_8[12],p5_8;s_8).DP_8' \paral (b_8[18],d_8).DP_8'' \paral &&\\
-&(p3_9[33],p5_9;s_9).DP_9' \paral (b_9[19],d_9).DP_9'' \paral (p3_{10},\mathbf{p5_{10}};s_{10}).DP_{10}' \paral (b_{10}[20],d_{10})).DP_{10}'' \paral &&\\
-&(\mathbf{p3_{11}[36]},p5_{11}[16];s_{11}).DP_{11}' \paral (b_{11}[21],d_{11}).DP_{11}'' \paral (p3_{12}[16],p5_{12};s_{12}).DP_{12}' \paral (b_{12}[22],d_{12}).DP_{12}'' \paral  &&\\
+&(p3_9[33],p5_9;s_9).DP_9' \paral (b_9[19],d_9).DP_9'' \paral (p3_{10},p5_{10};s_{10}).DP_{10}' \paral (b_{10}[20],d_{10})).DP_{10}'' \paral &&\\
+&(p3_{11}[36],p5_{11}[16];s_{11}).DP_{11}' \paral (b_{11}[21],d_{11}).DP_{11}'' \paral (p3_{12}[16],p5_{12};s_{12}).DP_{12}' \paral (b_{12}[22],d_{12}).DP_{12}'' \paral  &&\\
 &(m[40]).(n[31]).Me'\paral (m2[28],m2[29]).(l[30]).MutS' \paral (l[30]).(n[31]).(o[32]).MutL' \paral &&\\
-&(o[32]).(w[33]).MutH' \paral (\mathbf{u[37]};r).UvrD' \paral (\mathbf{v[36]};s).UvrD''&&
+&(o[32]).(w[33]).MutH' \paral (\mathbf{u[37]};r).UvrD' \paral (v[36];s).UvrD''&&
 \end{flalign*}
 
+
+
+
+
+
 This is shown in Figure~\ref{fig:state4}. Here, the first  base and deoxyribose/phosphate group has been removed (no longer shown in Figure~\ref{fig:state4}) and UvrD is moving to the next  base and deoxyribose/phosphate group, again removing them. The two concerted actions are shown by thin (36/15) and bold dashed lines (37/25).
-%
-% Remove this comment, or adopt it so it describes a ``new'' problem and not the old one which we may have solved by three action % concerted actions.
-%
-\textbf{Problem: We also need to remove bond 34 when forming 36 and remove 35 when forming 37. That is the "three actions together" which is problematic. UD is attached not to DP9 initially and then to DP 10, but to DP 10 initially and then to DP 11 because otherwise it would float away with the DB 9/T 2.}
+\textbf{Problem: The three actions concerted action is not part of the calculus so far.}
 
 \begin{figure}[h!]
 \psfrag{UvrDG}{${\mathrm{UvrDG}}$}
@@ -1331,16 +1340,9 @@ This is shown in Figure~\ref{fig:state4}. Here, the first  base and deoxyribose/
   \label{fig:state4}
 \end{figure}
 
-This process can continue until the offending base has been removed. Figure~\ref{fig:state6} shows the removal of the offending base. Once this is done and the MutH, MutL, and MutS proteins have detached we get the situation shown in Figure~\ref{fig:state7}. This is now ready for other proteins to replace the bases and and deoxyribose/phosphate groups. Notice that the remaining strand contains the necessary information for this, in particular only a T base can be put in opposite the A base.
-%
-% What happens to $Me$ here, as we would like it to un-bond with $A_1$ in Figur 15.
-%
+This process can continue until the offending base has been removed. Figure~\ref{fig:state6} shows the removal of the offending base. We do not model how the number of base pairs to remove is determined. In reality, that number is not fixed, but is determined by the interal workings of the protein, where the number is statistically distributed. Once this is done and the MutH, MutL, and MutS proteins have detached we get the situation shown in Figure~\ref{fig:state7}. This is now ready for other proteins to replace the bases and and deoxyribose/phosphate groups. Notice that the remaining strand contains the necessary information for this, in particular only a T base can be put in opposite the A base. Note that the methyl group stays attached to $A_1$, since it is still an old DNA strand. Also the appropriate groups in the new, lower half will be methylated, so that both strands are marked as old material after the next DNA duplication process.
 
 The modelling done so far does not involve any spatial configurataions. As in the BER example, this means that UvrD could bond to any deoxyribose/phosphate group, not just the neighbouring one. It also means that we have not modelled the formation of the loop in the DNA, which is crucial for cleaving the correct strand.
-%
-% Also, explain why UD does not continue bonding to DP13 and to G4 and to the other such compounds to the right of the DNA 
-% strand.
-%
 
 \begin{figure}[h!]
 \psfrag{UvrDG}{${\mathrm{UvrDG}}$}
