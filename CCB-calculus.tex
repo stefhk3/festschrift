@@ -149,20 +149,20 @@ S \bydef P
 S \bydef P
 \\[15pt]
 \Rule
-{\kkey{s}=\emptyset \quad  \std{P}}
-{\std{(s;b).P}}
+{\kkey{s}=\emptyset \quad  \std{\mu.P}}
+{\std{((s;b)\Mid \mu).P}}
 \qquad &
 \Rule
-{m \notin \kkey{s} \quad \fresh{m}{P}}
-{\fresh{m}{(s;b).P}}
+{m \notin \kkey{s} \quad \fresh{m}{\mu.P}}
+{\fresh{m}{((s;b)\Mid \mu).P}}
 \\[15pt]
 \Rule
 {\std{P} \quad \std{Q}}
 {\std{P \paral Q}}
 \qquad &
 \Rule
-{m \notin \kkey{s} \quad m \neq n \quad \fresh{m}{P}}
-{\fresh{m}{(s;b[n]).P}}
+{m \notin \kkey{s} \quad m \neq n \quad \fresh{m}{\mu.P}}
+{\fresh{m}{((s;b[n])\Mid \mu).P}}
 \\[15pt]
 \Rule
 {\std{P}}
@@ -185,11 +185,13 @@ We use two predicates $\std{P}:\Proc$ and $\fresh{m}{P}:\Keys \times \Proc$ in o
 They are defined in Figure~\ref{fig:predicates}, and they use two auxiliary functions
 $\kkey{s}: (\mathcal{A}\cup\mathcal{AK})^* \rightarrow \mathcal{P}(\Keys)$ and
 $\keys{P}: \Proc \rightarrow \mathcal{P}(\Keys)$. 
+%
 The function $\kkey$ is defined as follows:
 $\kkey{\epsilon}=\emptyset$, $\kkey{\alpha:s}=\{l\}\cup\kkey{s} \text{ if }\alpha=a[l]$, for 
 $a\in \mathcal{A}$ and $l\in \Keys$, and $\kkey{\alpha:s}= \kkey{s} \text{ if }\alpha \in \mathcal{A}$.
-The function $\keys$ is given by $\keys{\Nil}=\emptyset$, $\keys{S}=\keys{P}$ if $S\bydef P$, $\keys{(s;b).
-P}=\kkey{s} \cup \kkey{b} \cup \keys{P}$, $\keys{P \paral Q}= \keys{P} \cup \keys{Q}$, and $\keys{P \restrict L}=\keys{P}$. Informally $\keys{P}$ associates with each term $P$ the set of its keys. 
+%
+The function $\keys$ is given by $\keys{\Nil}=\emptyset$, $\keys{S}=\keys{P}$ if $S\bydef P$, 
+$\keys{((s;b)\Mid \mu).P}=\kkey{s} \cup \kkey{b} \cup \keys{\mu.P}$, $\keys{P \paral Q}= \keys{P} \cup \keys{Q}$, and $\keys{P \restrict L}=\keys{P}$. Informally $\keys{P}$ associates with each term $P$ the set of its keys. 
 A process $P$ is standard, written $\std{P}$, if it contains no past actions (hence no keys). 
 A key $n$ is fresh in $Q$, written $\freshpred{n}(Q)$, if $Q$ contains no past action with the key $n$.
 We extend the notion of fresh keys to the sequences of actions and past actions $s$ and $t$ 
@@ -201,15 +203,26 @@ via the function $\kkey$.
 \begin{figure}[t] 
 \[
 \begin{array}{ll}
+\rulename{s}\ 
+\Rule
+{\fresh{k}{s,s'}}
+{(s,a,s';b) \xrightarrow{a[k]}_s (s,a[k],s';b)}
+\qquad &
+\rulename{c}\
+\Rule
+{\sigma \xrightarrow{a[k]}_s \sigma'\quad \fresh{k}{\mu}}
+{\sigma \paral \mu \xrightarrow{a[k]}_s \sigma' \paral \mu}
+%
+\\[25pt]
 \rulename{act1}\ 
 \Rule
-{\std{P} \quad \fresh{k}{s,s'}}
-{(s,a,s';b).P \xrightarrow{a[k]}(s,a[k],s';b).P}
+{\std{P} \quad \fresh{k}{\mu}\quad \mu \xrightarrow{a[k]}_s \mu'}
+{\mu.P \xrightarrow{a[k]}\mu'.P}
 \qquad &
 \rulename{act2}\
 \Rule
-{P \xrightarrow{a[k]} P' \quad \fresh{k}{t}}
-{(t;b).P \xrightarrow{a[k]} (t;b).P'}
+{P \xrightarrow{a[k]} P' \quad \fresh{k}{\eta}}
+{\eta.P \xrightarrow{a[k]} \eta.P'}
 \\[25pt]
 %\rom{act3}\ Dec 17
 %\Rule
@@ -267,11 +280,22 @@ and the reduction rule \rulename{red1} in Figure~\ref{fig:reduction}.
 \begin{figure}[t]
 \[
 \begin{array}{ll}
+\rulename{rev s}\ 
+\Rule
+{\fresh{k}{s,s'}}
+{(s,a[k],s';b) \xrightarrow{\underline{a}[k]}_s (s,a,s';b)}
+\qquad &
+\rulename{rev c}\
+\Rule
+{\sigma \xrightarrow{\underline{a}[k]}_s \sigma'\quad \fresh{k}{\mu}}
+{\sigma \paral \mu \xrightarrow{\underline{a}[k]}_s \sigma' \paral \mu}
+\\[25pt]
+%
 \rulename{rev act1}\
 \Rule
 {\std{P} %\quad \fresh{k}{s,s'}
-}
-{(s,a[k],s';b).P \xrightarrow{\underline{a}[k]}(s,a,s';b).P}
+\quad \mu \xrightarrow{\underline{a}[k]}_s \mu' }
+{\mu.P \xrightarrow{\underline{a}[k]}\mu'.P}
 \quad &
 %
 % b was previously beta. Since we must apply prom rewrite before we apply any SOS rule, we do not 
@@ -284,7 +308,7 @@ and the reduction rule \rulename{red1} in Figure~\ref{fig:reduction}.
 \Rule
 {P \xrightarrow{\underline{a}[k]} P' %\quad \fresh{k}{t}
 }
-{(t;b).P \xrightarrow{\underline{a}[k]} (t;b).P'}
+{\eta.P \xrightarrow{\underline{a}[k]} \eta.P'}
 \\[25pt]
 % Dec 17
 %\rom{rev act3}\
@@ -326,15 +350,38 @@ and $b \in \mathcal{WA}$. %Note that $\beta \in \mA \cup \mAK$.
 \begin{figure}[t] 
 \[
 \begin{array}{l}
+\rulename{w}\
+\Rule
+{\fresh{l}{t}}
+{(t;b) \xrightarrow{(b)[l]}_s (t;b[l])} \qquad\qquad
+\rulename{cw}\
+\Rule
+{\sigma \xrightarrow{(b)[l]}_s \sigma'\quad \fresh{l}{\mu}}
+{\sigma \paral \mu \xrightarrow{(b[l]}_s \sigma' \paral \mu}
+\\[20pt]
 \rulename{aux1}\ 
-\Rule{\std{P} \quad \fresh{k}{t}}
-{(t;b).P \xrightarrow{(b)[k]}(t;b[k]).P}
+\Rule{\std{P} \quad \fresh{k}{t}\quad \mu\xrightarrow{(b)[k]}_s \mu'}
+{\mu.P \xrightarrow{(b)[k]}\mu'.P}
 \qquad
 \rulename{aux2}\
 \Rule
-{P \xrightarrow{(b)[k]} P' \quad \fresh{k}{t}}
-{(t;b').P \xrightarrow{(b)[k]} (t;b').P'}
+{P \xrightarrow{(b)[k]} P' \quad \fresh{k}{\eta}}
+{\eta.P \xrightarrow{(b)[k]} \eta.P'}
 \\[25pt]
+\rulename{concert2 new}\ 
+\Rule
+{U\equiv P \paral Q \quad  P\xrightarrow{(b)[k]}P'\xrightarrow{\underline{a}[l]}P'' 
+  \quad Q\xrightarrow{\alpha[k]}Q' 
+  \quad R\xrightarrow{\underline{d}[l]}R'% %\quad \fresh{k}{Q} 
+ }
+{U \paral R\xrightarrow{\{e[k],\underline{f}[l]\}} P'' \paral Q'\paral R'} (*)\\[25pt]
+\rulename{concert3 new}\ 
+\Rule
+{U\equiv P \paral Q \quad  P\xrightarrow{(b)[k]}P'\xrightarrow{\underline{a}[l]}P'' 
+  \quad Q\xrightarrow{\alpha[k]}Q' \xrightarrow{\underline{e}[m]}Q''
+  \quad R\xrightarrow{\underline{d}[l],\underline{f}[m]}R'' % %\quad \fresh{k}{Q} 
+ }
+{U \paral R\xrightarrow{\{e[k],\underline{f}[l]\}} P'' \paral Q''\paral R''} (*)\\[25pt]
 \rulename{concert}\ 
 \Rule
 {P\xrightarrow{(b)[k]}P' \quad P'\xrightarrow{\underline{a}[l]}P'' \qquad Q\xrightarrow{\alpha[k]}Q' 
