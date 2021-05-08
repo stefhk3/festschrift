@@ -23,7 +23,8 @@ We shall also use two sets of auxiliary action labels, namely the set $(\mA) =\{
 the semantics of CCB.
 
 Molecules may have several bonding \emph{sites} and several bonds can be created or dissolved at each bonding site. A site and its potential bonds is modelled via a construct $(s;b)$, where $s$ is a sequence of actions and $b$ is a weak action. The action $b$ can be omitted, in which case the construct is written as $(s)$. When a molecule has several sites $(s;b), \ldots,(s';b')$, called a \emph{collection},
-which can form bonds with sites of other molecules, we shall write the sites as composed in parallel:  $(s;b) \Mid  \ldots \Mid (s';b')$. Such expressions will be used to define the prefix operator. More formally, a site $\sigma$ is either $(s;b)$ or $(s)$. A collection $\mu$ is either $\sigma$ or $\sigma\Mid\sigma$.
+which can form bonds with sites of other molecules, we shall write them as $(s;b) \Mid  \ldots \Mid (s';b')$ using the symbol $\paral$ to indicate that sites bond independently of each other. Such expressions will be used to define the prefix operator. More formally, a site $\sigma$ is either $(s;b)$ or $(s)$. A collection $\mu$ is either $\sigma$ or $\sigma\Mid\sigma$, and 
+$\epsilon$ is the empty collection of sites.
 
 
 We now define the Calculus of Covalent Bonding, or CCB for short. The syntax of CCB is given 
@@ -130,24 +131,32 @@ is written as $con(r)$.
 \begin{array}{ll}
 \Rule
 {}
-{\std{\Nil}}
-\qquad &
-\Rule
-{}
-{\fresh{m}{\Nil}}
-\\[15pt]
+{\std{\Nil}} \quad 
 \Rule
 {\std{P}}
 {\std{S}}
-\quad
+\;\;
 S \bydef P
 \qquad &
 \Rule
+{}
+{\fresh{m}{\Nil}} \quad
+\Rule
 {\fresh{m}{P}}
 {\fresh{m}{S}}
-\quad
+\;\;
 S \bydef P
 \\[15pt]
+%
+\Rule
+{\kkey{s}=\emptyset \quad  \std{P}}
+{\std{(s;b).P}}
+\qquad &
+\Rule
+{m \notin \kkey{s} \quad \fresh{m}{P}}
+{\fresh{m}{(s;b).P}}
+\\[15pt]
+%
 \Rule
 {\kkey{s}=\emptyset \quad  \std{\mu.P}}
 {\std{((s;b)\Mid \mu).P}}
@@ -156,14 +165,22 @@ S \bydef P
 {m \notin \kkey{s} \quad \fresh{m}{\mu.P}}
 {\fresh{m}{((s;b)\Mid \mu).P}}
 \\[15pt]
-\Rule
-{\std{P} \quad \std{Q}}
-{\std{P \paral Q}}
+%
+
 \qquad &
+\Rule
+{m \notin \kkey{s} \quad m \neq n \quad \fresh{m}{P}}
+{\fresh{m}{(s;b[n]).P}}
+\\[15pt]
+%
+&
 \Rule
 {m \notin \kkey{s} \quad m \neq n \quad \fresh{m}{\mu.P}}
 {\fresh{m}{((s;b[n])\Mid \mu).P}}
 \\[15pt]
+\Rule
+{\std{P} \quad \std{Q}}
+{\std{P \paral Q}}\quad 
 \Rule
 {\std{P}}
 {\std{P \setminus L}}
@@ -357,7 +374,7 @@ and $b \in \mathcal{WA}$. %Note that $\beta \in \mA \cup \mAK$.
 \rulename{cw}\
 \Rule
 {\sigma \xrightarrow{(b)[l]}_s \sigma'\quad \fresh{l}{\mu}}
-{\sigma \paral \mu \xrightarrow{(b[l]}_s \sigma' \paral \mu}
+{\sigma \paral \mu \xrightarrow{(b)[l]}_s \sigma' \paral \mu}
 \\[20pt]
 \rulename{aux1}\ 
 \Rule{\std{P} \quad \fresh{k}{t}\quad \mu\xrightarrow{(b)[k]}_s \mu'}
@@ -378,10 +395,10 @@ and $b \in \mathcal{WA}$. %Note that $\beta \in \mA \cup \mAK$.
 \rulename{concert3 new}\ 
 \Rule
 {U\equiv P \paral Q \quad  P\xrightarrow{(b)[k]}P'\xrightarrow{\underline{a}[l]}P'' 
-  \quad Q\xrightarrow{\alpha[k]}Q' \xrightarrow{\underline{e}[m]}Q''
-  \quad R\xrightarrow{\underline{d}[l],\underline{f}[m]}R'' % %\quad \fresh{k}{Q} 
+  \quad Q\xrightarrow{\alpha[k]}Q' \xrightarrow{\underline{g}[m]}Q''
+  \quad R\xrightarrow{\underline{d}[l],\underline{h}[m]}R'' % %\quad \fresh{k}{Q} 
  }
-{U \paral R\xrightarrow{\{e[k],\underline{f}[l]\}} P'' \paral Q''\paral R''} (*)\\[25pt]
+{U \paral R\xrightarrow{\{e[k],\underline{f}[l]\},\underline{j}[m]} P'' \paral Q''\paral R''} (**)\\[25pt]
 \rulename{concert}\ 
 \Rule
 {P\xrightarrow{(b)[k]}P' \quad P'\xrightarrow{\underline{a}[l]}P'' \qquad Q\xrightarrow{\alpha[k]}Q' 
@@ -399,14 +416,16 @@ and $b \in \mathcal{WA}$. %Note that $\beta \in \mA \cup \mAK$.
 \rulename{concert res}\
 \Rule
 {P \xrightarrow{\{{a}[k], \underline{h}[l]\}} P'}
-{P\backslash L \xrightarrow{\{{a}[k], \underline{h}[l]\}} P'\backslash L} (**)
+{P\backslash L \xrightarrow{\{{a}[k], \underline{h}[l]\}} P'\backslash L}\;\;  a, \underline{h}  \notin L \cup (L)
 %
 \end{array}
 \] 
 \caption{SOS rules for concerted actions. The condition (*) is 1. $\alpha$ is $c$ or $(c)$ 
-and $\gamma(b,c)=e$ for some $c\in \mathcal{A}$, and 2. $\gamma(a,d)=f$. 
-The condition (**) is $a, \underline{h}  \notin L \cup (L)$. 
-Recall that $t \in \mAK^*$.} \label{fig:csos}
+and $\gamma(b,c)=e$ for some $c\in \mathcal{A}$, and 2. $\gamma(a,d)=f$. The condition (**) is (*) additionally with
+$\gamma(g,h)=j$.
+%
+\emph{The new concert2 and concert3 rules should be OK. I keep old concert rule for comparison for the time being. The last three rules need adjusting}.}
+%Recall that $t \in \mAK^*$.} \label{fig:csos}
 \end{figure}
 
 \begin{figure}[t] 
