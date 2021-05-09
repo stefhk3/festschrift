@@ -24,7 +24,7 @@ the semantics of CCB.
 
 Molecules may have several bonding \emph{sites} and several bonds can be created or dissolved at each bonding site. A site and its potential bonds is modelled via a construct $(s;b)$, where $s$ is a sequence of actions and $b$ is a weak action. The action $b$ can be omitted, in which case the construct is written as $(s)$. When a molecule has several sites $(s;b), \ldots,(s';b')$, called a \emph{collection},
 which can form bonds with sites of other molecules, we shall write them as $(s;b) \Mid  \ldots \Mid (s';b')$ using the symbol $\paral$ to indicate that sites bond independently of each other. Such expressions will be used to define the prefix operator. More formally, a site $\sigma$ is either $(s;b)$ or $(s)$. A collection $\mu$ is either $\sigma$ or $\sigma\Mid\sigma$, and 
-$\epsilon$ is the empty collection of sites.
+$\epsilon$ is the empty collection of sites. We shall denote a collection $\mu$ where all site are fully bonded as $\eta$.
 
 
 We now define the Calculus of Covalent Bonding, or CCB for short. The syntax of CCB is given 
@@ -61,7 +61,7 @@ DNA replication. Such a protein could be modelled by having the walk modelled in
 %
 The new feature of the operator $(s;b).P$ is the execution of the weak action $b$, which
 can happen only after all the actions in $s$ have taken place. Performing $b$ then forces
-undoing one of the past actions in $s$ (by the \rulename{concert} rule in Figure~\ref{fig:csos}).
+undoing one of the past actions in $s$ (by the \rulename{concert} rules in Figures~\ref{fig:c1sos}-\ref{fig:c2sos}).
 
 $P\paral Q$ represents two systems $P$ and $Q$ which can perform actions or reverse actions on
 their own, or which can interact with each other according to a communication function
@@ -79,6 +79,7 @@ operator $[f]$, where $f: \mA \rightarrow \mA$, which could be easily added.
 %
 %move this elsewhere?
 %
+\Comment{
 The example in the Introduction and our main example in Section~\ref{sec:bigexample} seem to indicate that only
 simple processes of the form $(s;b).\Nil$ are sufficient in the modelling of chemical reactions. 
 However, there are examples where a nested prefix $(s;b).(s';b').P$ is useful. 
@@ -87,7 +88,7 @@ a strand of DNA and repairs faults which occurred in the DNA replication. The wa
 could be modelled by actions in $s$, and, once a fault is found, the repair mechanism could be modelled
 by the actions in $s'$. Another example where the full calculus is useful is a model of long 
 standing transactions with compensations in \cite{Irek2012}.
-
+}
 
 The set of \emph{process terms} is ranged over by $P,Q$ and $R$ and is denoted by $\Proc$. 
 In the setting of CCB these terms are called simply \emph{processes}. 
@@ -113,11 +114,11 @@ the rules in Figures~\ref{fig:fsos}--\ref{fig:reversesos}
 are influenced by \cite{Irek2007}. 
 Note that
 sequences $s$ and $t$ are members of $(\mathcal{A}\cup\mathcal{AK})^*$ and $\mathcal{AK}^*$
-respectively in Figures~\ref{fig:fsos}--\ref{fig:csos}.
+respectively in Figures~\ref{fig:fsos}--\ref{fig:xc2sos}.
 
 We now introduce and explain the SOS rules before returning to 
 the rewrite rules. Let $r$ be an SOS rule for an operator $f$ of CCB as in 
-Figures~\ref{fig:fsos}--\ref{fig:csos}. 
+Figures~\ref{fig:fsos}--\ref{fig:sc}. 
 %Then, $f$ is the operator of $r$ and the elements of $X$ are the arguments of $r$. 
 %We write $rules(f)$ for the set of SOS rules for $f$. 
 Transitions above the horizontal bar in $r$ are called \emph{premises}. 
@@ -273,7 +274,8 @@ via the function $\kkey$.
 \end{array}
 \] 
 \caption{Forward SOS rules. The condition (*) is $\gamma(a,d)=c$, 
-and $b \in \mathcal{WA}$.} \label{fig:fsos}
+and $b \in \mathcal{WA}$.} 
+\label{fig:fsos}
 \end{figure}
 
 \begin{example}
@@ -365,7 +367,7 @@ and $b \in \mathcal{WA}$. %Note that $\beta \in \mA \cup \mAK$.
 \end{figure}
 
 \begin{figure}[t] 
-\[
+$$
 \begin{array}{l}
 \rulename{w}\
 \Rule
@@ -385,48 +387,71 @@ and $b \in \mathcal{WA}$. %Note that $\beta \in \mA \cup \mAK$.
 {P \xrightarrow{(b)[k]} P' \quad \fresh{k}{\eta}}
 {\eta.P \xrightarrow{(b)[k]} \eta.P'}
 \\[25pt]
-\rulename{concert2 new}\ 
+\rulename{concert1}\ 
+\Rule
+{P\xrightarrow{(b)[k]}P' \quad P'\xrightarrow{\underline{a}[l]}P'' \qquad Q\xrightarrow{\alpha[k]}Q' 
+  \quad Q'\xrightarrow{\underline{d}[l]}Q''% %\quad \fresh{k}{Q} 
+ }
+{P \paral Q\xrightarrow{\{e[k],\underline{f}[l]\}} P'' \paral Q''} (*)\\[25pt]
+\rulename{concert2}\ 
 \Rule
 {U\equiv P \paral Q \quad  P\xrightarrow{(b)[k]}P'\xrightarrow{\underline{a}[l]}P'' 
   \quad Q\xrightarrow{\alpha[k]}Q' 
   \quad R\xrightarrow{\underline{d}[l]}R'% %\quad \fresh{k}{Q} 
  }
 {U \paral R\xrightarrow{\{e[k],\underline{f}[l]\}} P'' \paral Q'\paral R'} (*)\\[25pt]
-\rulename{concert3 new}\ 
+\rulename{concert3}\ 
 \Rule
 {U\equiv P \paral Q \quad  P\xrightarrow{(b)[k]}P'\xrightarrow{\underline{a}[l]}P'' 
   \quad Q\xrightarrow{\alpha[k]}Q' \xrightarrow{\underline{g}[m]}Q''
   \quad R\xrightarrow{\underline{d}[l],\underline{h}[m]}R'' % %\quad \fresh{k}{Q} 
  }
 {U \paral R\xrightarrow{\{e[k],\underline{f}[l]\},\underline{j}[m]} P'' \paral Q''\paral R''} (**)\\[25pt]
-\rulename{concert}\ 
-\Rule
-{P\xrightarrow{(b)[k]}P' \quad P'\xrightarrow{\underline{a}[l]}P'' \qquad Q\xrightarrow{\alpha[k]}Q' 
-  \quad Q'\xrightarrow{\underline{d}[l]}Q''% %\quad \fresh{k}{Q} 
- }
-{P \paral Q\xrightarrow{\{e[k],\underline{f}[l]\}} P'' \paral Q''} (*)\\[25pt]
-\rulename{concert act}\
+
+\end{array}$$
+\caption{SOS rules for concerted actions. The condition (*) is 1. $\alpha$ is $c$ or $(c)$ 
+and $\gamma(b,c)=e$ for some $c\in \mathcal{A}$, and 2. $\gamma(a,d)=f$. The condition (**) is (*) additionally with
+$\gamma(g,h)=j$.}
+\label{fig:c1sos}
+\end{figure}
+
+
+\begin{figure}[t] 
+\[
+\begin{array}{l}
+\rulename{concert2 act}\
 \Rule
 {P \xrightarrow{\{{a}[k], \underline{h}[l]\}} P' \quad \fresh{k}{t}}
-{(t;b).P \xrightarrow{\{{a}[k], \underline{h}[l]\}} (t;b).P'}\\[25pt]
-\rulename{concert par}\
+{\eta.P \xrightarrow{\{{a}[k], \underline{h}[l]\}} \eta.P'}\\[25pt]
+\rulename{concert3 act}\
+\Rule
+{P \xrightarrow{\{{a}[k], \underline{h}[l], \underline{j}[m]\}} P' \quad \fresh{k}{t}}
+{\eta.P \xrightarrow{\{{a}[k], \underline{h}[l], \underline{j}[m]\}} \eta.P'}\\[25pt]
+\rulename{concert2 par}\
 \Rule
 {P \xrightarrow{\{{a}[k], \underline{h}[l]\}} P'\quad \fresh{k}{Q} \quad \fresh{l}{Q}}
 {P \paral Q \xrightarrow{\{{a}[k], \underline{h}[l]\}} P' \paral Q}\\[25pt]
-\rulename{concert res}\
+\rulename{concert2 par}\
+\Rule
+{P \xrightarrow{\{{a}[k], \underline{h}[l], \underline{j}[m]\}} P'\quad \fresh{k}{Q} \quad \fresh{l}{Q}\quad \fresh{m}{Q}}
+{P \paral Q \xrightarrow{\{{a}[k], \underline{h}[l], \underline{j}[m]\}} P' \paral Q}\\[25pt]
+\rulename{concert2 res}\
 \Rule
 {P \xrightarrow{\{{a}[k], \underline{h}[l]\}} P'}
-{P\backslash L \xrightarrow{\{{a}[k], \underline{h}[l]\}} P'\backslash L}\;\;  a, \underline{h}  \notin L \cup (L)
+{P\backslash L \xrightarrow{\{{a}[k], \underline{h}[l]\}} P'\backslash L}\;\;  a, \underline{h}  \notin L \cup (L)\\[25pt]
+\rulename{concert3 res}\
+\Rule
+{P \xrightarrow{\{{a}[k], \underline{h}[l], \underline{j}[m]\}} P'}
+{P\backslash L \xrightarrow{\{{a}[k], \underline{h}[l], \underline{j}[m]\}} P'\backslash L}\;\;  a, \underline{h}, \underline{j}  \notin L \cup (L)
 %
 \end{array}
 \] 
-\caption{SOS rules for concerted actions. The condition (*) is 1. $\alpha$ is $c$ or $(c)$ 
-and $\gamma(b,c)=e$ for some $c\in \mathcal{A}$, and 2. $\gamma(a,d)=f$. The condition (**) is (*) additionally with
-$\gamma(g,h)=j$.
-%
-\emph{The new concert2 and concert3 rules should be OK. I keep old concert rule for comparison for the time being. The last three rules need adjusting}.}
-%Recall that $t \in \mAK^*$.} \label{fig:csos}
+\caption{SOS rules for the prefix, parallel composition and restriction and concerted transitions.
+\label{fig:xc2sos} 
+}
 \end{figure}
+
+
 
 \begin{figure}[t] 
 \[
@@ -434,7 +459,8 @@ $\gamma(g,h)=j$.
 %\rom{sc}\
 \Rule
 {P \Rightarrow Q \quad Q \tran{\mu} Q' \quad Q' \Rightarrow P'}
-{P\tran{\mu} P'} 
+{P\tran{\mu} P
+'} 
 %\quad \mu \in \mAK\cup \umAK \cup \mathcal{C}
 %%TODO Moreover, $S\equiv P$ for all $S, P$ 
 %%such that $S\bydef P$.
@@ -480,7 +506,7 @@ Since $(a,b).(c).S$ is the definition of $S$ we obtain by rule \rulename{rev con
 }
 \end{example}
 
-Figure \ref{fig:csos} contains the SOS rules that define the new concerted actions transitions. 
+Figures \ref{fig:yc1sos}--\ref{fig:xc2sos} contain the SOS rules that define the new concerted actions transitions. 
 The main rule is the rule \rulename{concert} that defines when a pair of concerted actions 
 takes place.  We also have two auxiliary rules \rulename{aux1} and \rulename{aux2} which 
 define only an auxiliary transition relation needed in the \rulename{concert} rule. 
@@ -500,7 +526,7 @@ Next, we illustrate how concerted actions transitions work.
 \begin{example}\label{ex:examp1}
 {\rm Consider the process $(a;b) \paral a \paral b$ with $\gamma(a,a)=c$ and $\gamma(b,b)=d$. After the
 initial synchronisation of actions $a$, which produces the transition $c[1]$, we have a transition
-with a pair of concerted actions by rule \rulename{concert} in Figure~\ref{fig:csos}
+with a pair of concerted actions by rule \rulename{concert1} in Figure~\ref{fig:c1sos}
 $$(a[1];b) \paral a[1] \paral  b \xrightarrow{\{d[2], \underline{c}[1]\}} 
   (a;b[2])\paral a \paral b[2]$$
 since $(a[1];b) \xrightarrow{(b)[2]} (a[1];b[2])$ by \rulename{aux1}, 
@@ -511,7 +537,7 @@ by \rulename{par} and \rulename{rev par}.}
 
 \begin{example}\label{ex:examp2}
 {\rm Consider $(a[1];b)\paral (a[1];b)\paral e$ with $\gamma(a,a)=c$ and $\gamma(b,b)=d$.
-We clearly have the following pair of concerted actions
+We clearly have the following pair of concerted actions derived by 
  $$(a[1];b)\paral (a[1];b)\paral e  \xrightarrow{\{d[2], \underline{c}[1]\}} 
 (a;b[2])\paral (a;b[2])\paral e. $$}
 \end{example}
@@ -529,8 +555,8 @@ to treat $(a[1];b)$ and $ (e[2];b)$ as $P$ and $Q$ in the \rulename{concert} rul
 we cannot undo a communication on $a$ or $e$.}
 \end{example}
 
-Overall, the transitions in Figures~\ref{fig:fsos}--\ref{fig:csos} are labelled with $a[k] \in \mAK$, or with 
-$\underline{c}[l] \in \umAK$, or with concerted actions $(a[k], \underline{c}[l])$.
+Overall, the transitions in Figures~\ref{fig:fsos}--\ref{fig:xc2sos} are labelled with $a[k] \in \mAK$, or with 
+$\underline{c}[l] \in \umAK$, or with concerted actions $(a[k], \underline{c}[l])$  or $(a[k], \underline{c}[l], \underline{e}[m])$.
 %\} \in \mathcal{C}$.
 
 We also have the usual structural congruence rules 
