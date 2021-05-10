@@ -280,7 +280,7 @@ and $b \in \mathcal{WA}$.}
 
 \begin{example}
 {\rm
-We illustrate how processes compute forwards using the new prefixing operator. Consider a standard
+We illustrate how processes compute forwards using the new prefixing operator. Initially, we consider processes where collections have single sites only. Consider a standard
 process $(a;b).(c) \paral (a,d,c)$ and the communication function $\gamma$ given by $\gamma(a,a)=a$ 
 and $\gamma(c,c)=c$. We have
 $$(a;b).(c) \paral  (a,d,c) \xrightarrow{a[1]} (a[1];b).(c) \paral  (a[1],d,c)$$
@@ -302,7 +302,7 @@ and the reduction rule \rulename{red1} in Figure~\ref{fig:reduction}.
 \rulename{rev s}\ 
 \Rule
 {\fresh{k}{s,s'}}
-{(s,a[k],s';b) \xrightarrow{\underline{a}[k]}_s (s,a,s';b)}
+{(s,a[k],s';\beta) \xrightarrow{\underline{a}[k]}_s (s,a,s';\beta)}
 \qquad &
 \rulename{rev c}\
 \Rule
@@ -389,7 +389,7 @@ $$
 \\[25pt]
 \rulename{concert1}\ 
 \Rule
-{P\xrightarrow{(b)[k]}P' \quad P'\xrightarrow{\underline{a}[l]}P'' \qquad Q\xrightarrow{\alpha[k]}Q' 
+{P\xrightarrow{(b)[k]} P'\xrightarrow{\underline{a}[l]}P'' \qquad Q\xrightarrow{\alpha[k]}Q' 
   \quad Q'\xrightarrow{\underline{d}[l]}Q''% %\quad \fresh{k}{Q} 
  }
 {P \paral Q\xrightarrow{\{e[k],\underline{f}[l]\}} P'' \paral Q''} (*)\\[25pt]
@@ -497,7 +497,7 @@ and rev sc when $\mu\in \umAK$.}
 \label{fig:reduction}
 \end{figure}
 
-The next example illustrates how some of the reverse SOS rules work.
+The next example illustrates how some of the reverse SOS rules work. We also consider here processes with collections that consist of single sites. 
 \begin{example}
 {\rm 
 Consider $(a[1],b).(c).S$ where $S\bydef (a,b).(c).S$. We have 
@@ -506,7 +506,7 @@ Since $(a,b).(c).S$ is the definition of $S$ we obtain by rule \rulename{rev con
 }
 \end{example}
 
-Figures \ref{fig:yc1sos}--\ref{fig:xc2sos} contain the SOS rules that define the new concerted actions transitions. 
+Figures \ref{fig:c1sos}--\ref{fig:xc2sos} contain the SOS rules that define the new concerted actions transitions. 
 The main rule is the rule \rulename{concert} that defines when a pair of concerted actions 
 takes place.  We also have two auxiliary rules \rulename{aux1} and \rulename{aux2} which 
 define only an auxiliary transition relation needed in the \rulename{concert} rule. 
@@ -524,35 +524,51 @@ in the premises of \rulename{concert act}.
 Next, we illustrate how concerted actions transitions work.
 
 \begin{example}\label{ex:examp1}
-{\rm Consider the process $(a;b) \paral a \paral b$ with $\gamma(a,a)=c$ and $\gamma(b,b)=d$. After the
-initial synchronisation of actions $a$, which produces the transition $c[1]$, we have a transition
-with a pair of concerted actions by rule \rulename{concert1} in Figure~\ref{fig:c1sos}
+{\rm Consider the process $(a;b) \paral a \paral b$ with $\gamma(a,a)=c$ and $\gamma(b,d)=f$. After the
+initial synchronisation of actions $a$, which produces the transition $c[1]$, we can bond weak $b$ with strong $d$ producing $f$, and at the same time break the $c$ bond. This is represented by a transition
+with a pair of concerted actions:
 $$(a[1];b) \paral a[1] \paral  b \xrightarrow{\{d[2], \underline{c}[1]\}} 
   (a;b[2])\paral a \paral b[2]$$
-since $(a[1];b) \xrightarrow{(b)[2]} (a[1];b[2])$ by \rulename{aux1}, 
-$(a[1];b[2]) \xrightarrow{\underline{a}[1]} (a;b[2])$ by \rulename{rev act1}, 
+The transition is derived by rule \rulename{concert1} in Figure~\ref{fig:c1sos}
+ since $(a[1];b) \xrightarrow{(b)[2]} (a[1];b[2]) \xrightarrow{\underline{a}[1]} (a;b[2])$ by \rulename{aux1} and \rulename{rev act1}, 
 and since $a[1] \paral b \xrightarrow{b[2]} a[1] \paral b[2] \xrightarrow{\underline{a}[1]} a \paral b[2]$
 by \rulename{par} and \rulename{rev par}.}
 \end{example}
-
+%
+The next example illustrates a concerted transition involving a weak bond.
 \begin{example}\label{ex:examp2}
-{\rm Consider $(a[1];b)\paral (a[1];b)\paral e$ with $\gamma(a,a)=c$ and $\gamma(b,b)=d$.
-We clearly have the following pair of concerted actions derived by 
+{\rm Consider $(a[1];b)\paral (a[1];b)\paral e$ with $\gamma(a,a)=c$ and $\gamma(b,b)=d$. Recall that actions $b$ here are weak.
+We have the following pair of concerted actions derived by \rulename{concert1}, where the bond created and the bond broken are between the same two processes:
  $$(a[1];b)\paral (a[1];b)\paral e  \xrightarrow{\{d[2], \underline{c}[1]\}} 
 (a;b[2])\paral (a;b[2])\paral e. $$}
 \end{example}
 
-There are processes with weak actions that can potentially communicate but there are no concerted actions 
-transitions due to our SOS rules:
+There are situations where creation of a bond between two processes with weak actions requires breaking of bonds with other processes. Such transitions cannot be derived by \rulename{concert1}, so we use other concert rules in Figure~\ref{fig:c1sos}.
+
 
 \begin{example}\label{ex:examp3}
-{\rm Consider $(a[1];b)\paral (e[2];b)\paral (a[1],e[2])$ with $\gamma(a,a)=c$ and $\gamma(b,b)=d$.
-The process cannot perform any concerted actions: Although $(a[1];b)  \xrightarrow{(b)[l]} 
+{\rm Consider $(a[1];b)\paral (e[2];b)\paral (a[1],e[2])$ with $\gamma(a,a)=c$, $\gamma(b,b)=d$, and
+$\gamma(e,e)=h$.
+The process cannot perform any concerted actions by \rulename{concert1}: Although $(a[1];b)  \xrightarrow{(b)[l]} 
 \xrightarrow{\underline{a}[1]} (a;b[l])$, for any $l$ different from 1 and 2, but
 $(e[2];b)\paral (a[1],e[2])$  cannot perform the auxiliary $(b[l])$
 transition since there are no SOS rules for parallel composition and auxiliary actions $(b)$. This forces us
-to treat $(a[1];b)$ and $ (e[2];b)$ as $P$ and $Q$ in the \rulename{concert} rule, respectively, and we notice that
-we cannot undo a communication on $a$ or $e$.}
+to treat $(a[1];b)$ and $ (e[2];b)$ as $P$ and $Q$ in \rulename{concert1}, respectively, and we notice that
+we cannot undo a communication on $a$ or $e$. However, this is precisely what \rulename{concert2} allows, so we have these two concerted transitions:
+$$
+(a[1];b)\paral (e[2];b)\paral (a[1],e[2])  \xrightarrow{\{d[3], \underline{c}[1]\}} 
+(a;b[3])\paral (e[2];b[3])\paral (a,e[2])
+$$ 
+$$
+(a[1];b)\paral (e[2];b)\paral (a[1],e[2])  \xrightarrow{\{d[3], \underline{h}[2]\}} 
+(a[1];b[3])\paral (e;b[3])\paral (a[1],e)
+$$ 
+We notice that, following the first transition, the $h[2]$ bond can be broken, and correspondingly the $c[1]$ bond can be broken after the second transition. Since creation and breaking of such bonds is almost instantaneous, we need a new concert rule that capture such reactions. Using \rulename{concert3} we derive the following:
+$$
+(a[1];b)\paral (e[2];b)\paral (a[1],e[2])  \xrightarrow{\{d[3], \underline{c}[1], \underline{h}[2]\}} 
+(a;b[3])\paral (e;b[3])\paral (a,e)
+$$ 
+Here, the bond $d$ is created which results in two other bonds being broken.  }
 \end{example}
 
 Overall, the transitions in Figures~\ref{fig:fsos}--\ref{fig:xc2sos} are labelled with $a[k] \in \mAK$, or with 
