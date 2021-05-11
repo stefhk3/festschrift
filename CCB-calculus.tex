@@ -1,8 +1,8 @@
-%\section{A Calculus of Covalent Bonding}\label{sec:calculus}
+%\section{Calculus of Covalent Bonding}\label{sec:calculus}
 %
-
-In this section we define the calculus introduced informally in the Introduction. 
-First, we introduce some preliminary notions and notations.
+Calculus of Covalent Bonding, or CCB for short, was introduced in~\cite{KU16} and fully defined in~\cite{KU2017}. We recall some of the main definitions in order to make the paper more self-contained. We note, however, that some SOS rules 
+are revised and two new SOS rules for concerted actions are added. 
+We first introduce some preliminary notions and notations.
 
 Let $\mA$ be the set of (forward) action labels, 
 ranged over by $a,b,c,d,e,f$. We partition $\mA$ into the set of \emph{strong actions}, written as
@@ -13,22 +13,22 @@ undoing of actions. The set $\mathcal{P}(\mA \cup \underline\mA)$ is ranged over
 Let $\Keys$ be an infinite set of {\em communication keys} (or {\em keys} for short)
 \cite{PhillipsUlidowski06,Irek2007}, ranged over by $k,l, m,n$. The Cartesian product $\mathcal A \times \Keys$, denoted by $\mAK$,
  represents past actions, which are written as $a[k]$ for $a\in \mA$ and $k\in\Keys$. 
-Correspondingly, we have the set $\umAK$ that represents undoing of past actions. We use $\alpha, \beta$ to identify actions which are either from $\mA$ or $\mAK$. It would be 
+Correspondingly, we have the set $\umAK$ that represents undoing of past actions. Letters $\alpha, \beta$ denote actions which are either from $\mA$ or $\mAK$. It will be 
 useful to consider sequences of actions or past actions, namely the elements of $(\mA \cup \mAK)^*$, 
-which are ranged over by $s,s'$ and sequences of purely past actions, namely the elements of $\mAK^*$, 
-which are ranged over by $t,t'$. The empty sequence is denoted by $\epsilon$. We use the notation $\alpha, s$ and
+which are ranged over by $s,s'$, and sequences of purely past actions, namely the elements of $\mAK^*$, 
+which are ranged over by $t,t'$. The empty sequence is denoted by $\epsilon$. We use $\alpha, s$ and
 $s,s'$ to denote a concatenation of elements, which can be strings or single actions.
 
 We shall also use two sets of auxiliary action labels, namely the set $(\mA) =\{ (a)\ \mid a\in\mA\}$, and its product with the set of keys, namely $(\mA)\Keys$. These labels will be used in the auxiliary rules when defining
 the semantics of CCB.
 
-Molecules may have several bonding \emph{sites} and several bonds can be created or dissolved at each bonding site. A site and its potential bonds is modelled via a construct $(s;b)$, where $s$ is a sequence of actions and $b$ is a weak action. The action $b$ can be omitted, in which case the construct is written as $(s)$. When a molecule has several sites $(s;b), \ldots,(s';b')$, called a \emph{collection},
-which can form bonds with sites of other molecules, we shall write them as $(s;b) \Mid  \ldots \Mid (s';b')$ using the symbol $\paral$ to indicate that sites bond independently of each other. Such expressions will be used to define the prefix operator. More formally, a site $\sigma$ is either $(s;b)$ or $(s)$. A collection $\mu$ is either $\sigma$ or $\sigma\Mid\sigma$, and 
+Molecules may have several bonding \emph{sites} and several bonds can be created or dissolved at each bonding site. A site and its potential bonds are modelled via $(s;b)$, where $s$ is a sequence of actions and $b$ is a weak action. The action $b$ can be omitted, in which case the construct is written as $(s)$. When a molecule has several sites 
+$(s;b), \ldots,(s';b')$ we shall write them as $(s;b) \Mid  \ldots \Mid (s';b')$ by using the symbol $\paral$ to indicate that sites bond independently of each other. Such expressions are called \emph{collections of sites}, or just collections, and will be used to define the prefix operator. More formally, a site $\sigma$ is either $(s;b)$ or $(s)$. A collection $\mu$ is either $\sigma$ or $\sigma\Mid\sigma$, and 
 $\epsilon$ is the empty collection of sites. We shall denote a collection $\mu$ where all site are fully bonded as $\eta$.
 
 
-We now define the Calculus of Covalent Bonding, or CCB for short. The syntax of CCB is given 
-below where $P$ is a process term:
+We now define the Calculus of Covalent Bonding. The syntax of CCB is given 
+below where $P$ and $Q$ are process terms:
 
 %$$P ::=  S \ \mid \ (s;b).P \ \mid \ P\paral Q \ \mid \ P\restrict L $$
 $$P ::=  S \ \mid \ \mu.P \ \mid \ P\paral Q \ \mid \ P\restrict L $$
@@ -61,7 +61,7 @@ DNA replication. Such a protein could be modelled by having the walk modelled in
 %
 The new feature of the operator $(s;b).P$ is the execution of the weak action $b$, which
 can happen only after all the actions in $s$ have taken place. Performing $b$ then forces
-undoing one of the past actions in $s$ (by the \rulename{concert} rules in Figures~\ref{fig:c1sos}-\ref{fig:c2sos}).
+undoing one of the past actions in $s$ (by the \rulename{concert} rules in Figures~\ref{fig:c1sos}-\ref{fig:xc2sos}).
 
 $P\paral Q$ represents two systems $P$ and $Q$ which can perform actions or reverse actions on
 their own, or which can interact with each other according to a communication function
@@ -104,7 +104,8 @@ with $St$ the set of states, $AL$ the set of action labels and $\rightarrow:
 \subseteq St \times AL \times St$ the labelled transition relation.
 The set of states $St$ is the set $\Proc$. In practice, all our results and examples hold for
 \emph{consistent} processes, namely processes
-reachable from standard processes (see Definition~\ref{consistent}). 
+reachable from standard processes.
+% (see Definition~\ref{consistent}). 
 The action labels are the forward actions $\mAK$, 
 the reverse actions $\umAK$ and the \emph{pairs of concerted actions} $\mAK \times \umAK$. 
 %
@@ -116,7 +117,7 @@ Note that
 sequences $s$ and $t$ are members of $(\mathcal{A}\cup\mathcal{AK})^*$ and $\mathcal{AK}^*$
 respectively in Figures~\ref{fig:fsos}--\ref{fig:xc2sos}.
 
-We now introduce and explain the SOS rules before returning to 
+Next, we recall and explain the SOS rules before returning to 
 the rewrite rules. Let $r$ be an SOS rule for an operator $f$ of CCB as in 
 Figures~\ref{fig:fsos}--\ref{fig:sc}. 
 %Then, $f$ is the operator of $r$ and the elements of $X$ are the arguments of $r$. 
@@ -199,6 +200,7 @@ S \bydef P
 \label{fig:predicates}
 \end{figure}
 %
+%
 We use two predicates $\std{P}:\Proc$ and $\fresh{m}{P}:\Keys \times \Proc$ in our SOS rules. 
 They are defined in Figure~\ref{fig:predicates}, and they use two auxiliary functions
 $\kkey{s}: (\mathcal{A}\cup\mathcal{AK})^* \rightarrow \mathcal{P}(\Keys)$ and
@@ -212,8 +214,9 @@ The function $\keys$ is given by $\keys{\Nil}=\emptyset$, $\keys{S}=\keys{P}$ if
 $\keys{((s;b)\Mid \mu).P}=\kkey{s} \cup \kkey{b} \cup \keys{\mu.P}$, $\keys{P \paral Q}= \keys{P} \cup \keys{Q}$, and $\keys{P \restrict L}=\keys{P}$. Informally $\keys{P}$ associates with each term $P$ the set of its keys. 
 A process $P$ is standard, written $\std{P}$, if it contains no past actions (hence no keys). 
 A key $n$ is fresh in $Q$, written $\freshpred{n}(Q)$, if $Q$ contains no past action with the key $n$.
-We extend the notion of fresh keys to the sequences of actions and past actions $s$ and $t$ 
-via the function $\kkey$.
+We extend the notion of fresh keys to the sequences of actions and past actions $s$ and $t$, and to sites $\sigma$, 
+via the function $\kkey$. Moreover, correspondingly, $\freshpred{n}(\mu)$ if $\freshpred{n}(\sigma)$ for every
+site $\sigma$ in $\mu$. 
 %Figure~\ref{fig:predicates} defines the predicates by induction over the process terms. 
 %We could also have said that $\std{P}$ is true if $\keys{P} = \emptyset$ and that 
 %$\fresh{m}{P}$ is true if $i \notin \keys{P}$.
@@ -431,7 +434,7 @@ $\gamma(g,h)=j$.}
 \Rule
 {P \xrightarrow{\{{a}[k], \underline{h}[l]\}} P'\quad \fresh{k}{Q} \quad \fresh{l}{Q}}
 {P \paral Q \xrightarrow{\{{a}[k], \underline{h}[l]\}} P' \paral Q}\\[25pt]
-\rulename{concert2 par}\
+\rulename{concert3 par}\
 \Rule
 {P \xrightarrow{\{{a}[k], \underline{h}[l], \underline{j}[m]\}} P'\quad \fresh{k}{Q} \quad \fresh{l}{Q}\quad \fresh{m}{Q}}
 {P \paral Q \xrightarrow{\{{a}[k], \underline{h}[l], \underline{j}[m]\}} P' \paral Q}\\[25pt]
@@ -630,54 +633,37 @@ with rewrite rules, we opted for a directly defined transition relation.
 
 We now define the transition relation for the labelled transition system for CCB.
 Recall that the states of the LTS are processes in $\Proc$ and the labels are members of $\mA$,
-$\mAK$, $\aAK$ and the concerted actions labels in $\mAK \times \umAK$. 
-%We shall use this notation.
+$\mAK$, $\aAK$ and the concerted actions labels in $\mAK \times \umAK$
+or $\mAK \times \umAK \times \umAK$. First, the transition relation on collections sites, $\rightarrow_s$, 
+is defined as the smallest relation derived by the rules \rulename{s}, \rulename{c},  \rulename{rev s}, \rulename{rev c},   
+\rulename{w}, and \rulename{cw} in Figures~\ref{fig:fsos}--\ref{fig:c1sos}.   
+%
 Let $d:\Proc \rightarrow \mathbb{N}$ be the operator depth function defined by 
 $d(P)=0$ if $P$ is a constant, and $d(f(P_1,\ldots,P_n))=1+max\{d(P_i)\vert 1 \leq i \leq n\}$ 
 otherwise, where $f$ is an operator of CCB. The transition relation is given as follows:
 %
 %
-\Comment{old definition
-\begin{definition}\label{LTS} \normalfont 
-We associate to $\Proc$ and $\mAK \cup \umAK \cup \aAK \cup (\mAK \times \umAK)$ 
-a transition relation 
-$\rightarrow$ given by $ \bigcup_{l<\omega} \rightarrow^l$, where transition relations 
-$\rightarrow^l \subseteq \Proc \times \mAK \cup \umAK \cup \aAK \cup (\mAK \times \umAK) \times \Proc$ 
-are as follows, with $b\in \mAK$ and $\mu \in \mAK \cup \umAK \cup (\mAK \times \umAK)$:
-\begin{enumerate}
-%
-\item
-$P \xrightarrow{(b)[k]} P' \in \rightarrow^l$ if $d(P)=l$, 
-$P \xrightarrow{(b)[k]} P'= \rho(con(r))$, for $r$ either \rulename{aux1} or \rulename{aux2} 
-and a substitution $\rho$,
-and each premise in $\rho(pre(r))$ is a valid transition in $\bigcup_{k<l} \rightarrow^k$ or a valid predicate.
-
-\item $P \tran{\mu} P'\in \rightarrow^l$ if $d(P)=l$, $P\Rightarrow Q$, for some $Q$ such that $Q$ 
-does not contain any \rulename{prom}, \rulename{move-r} and \rulename{move-l} redex,  $Q \tran{\mu} Q'= \rho(con(r))$, for some 
-rule $r$ and a substitution $\rho$, such that each member of $\rho(pre(r))$ is either a valid transition 
-in $ \bigcup_{k<l} \rightarrow^k$, a valid rewrite or a valid predicate, and $Q'\Rightarrow P'$.
-\end{enumerate}
-\end{definition}
-}
-%
-%
 \begin{definition}\label{LTS} \normalfont
-We associate to $\Proc$ and $\mAK \cup \umAK \cup \aAK \cup (\mAK \times \umAK)$
+We associate to $\Proc$ and $\mAK \cup \umAK \cup \aAK \cup (\mAK \times \umAK) 
+\cup (\mAK \times \umAK\times \umAK) $
 a transition relation
 $\rightarrow$ given by $ \bigcup_{l<\omega} \rightarrow^l$, where transition relations
-$\rightarrow^l \subseteq \Proc \times \mAK \cup \umAK \cup \aAK \cup (\mAK \times \umAK) \times \Proc$
-are as follows, with $b\in \mAK$ and $\mu \in \mAK \cup \umAK \cup (\mAK \times \umAK)$:
+$\rightarrow^l \subseteq \Proc \times \mAK \cup \umAK \cup \aAK \cup (\mAK \times \umAK) \times 
+ (\mAK \times \umAK\times \umAK) \Proc$
+are as follows, with $b\in \mAK$ and $\mu \in \mAK \cup \umAK \cup (\mAK \times \umAK)
+\cup (\mAK \times \umAK\times \umAK) $:
 
 \begin{enumerate}
 \item
 $P \xrightarrow{(b)[k]} P' \in \rightarrow^l$ if $d(P)=l$,
 $P \xrightarrow{(b)[k]} P'= \rho(con(r))$, where $r$ is either \rulename{aux1} or \rulename{aux2},
-and each premise in $pre(r)$ is a valid transition in $\bigcup_{k<l} \rightarrow^k$ or a valid predicate.
+and each premise in $pre(r)$ is a valid transition in $\bigcup_{k<l} \rightarrow^k$, a valid transition $\rightarrow_s$, 
+ or a valid predicate.
 
 \item $P \tran{\mu} P'\in \rightarrow^l$ if $d(P)=l$, $P\Rightarrow Q$, for some $Q$ such that $Q$
 does not contain any \rulename{prom}, \rulename{move-r} and \rulename{move-l} redex,  $Q \tran{\mu} Q'= con(r)$,
 for some rule $r$ where each member of $pre(r)$ is either a valid transition
-in $ \bigcup_{k<l} \rightarrow^k$, a valid rewrite or a valid predicate, and $Q'\Rightarrow P'$.
+in $ \bigcup_{k<l} \rightarrow^k$, a valid transition $\rightarrow_s$, a valid rewrite or a valid predicate, and $Q'\Rightarrow P'$.
 
 \end{enumerate}
 
@@ -722,3 +708,14 @@ this bond by computing forwards alone is not possible.}
 We shall call henceforth the transitions derived by the forward SOS rules as the \emph{forward transitions} 
 and, the the transitions derived by the reverse SOS rules as the \emph{reverse transitions}.
 Correspondingly, there are the \emph{concerted (action)} transitions. 
+\subsection{Properties of CCB}
+The current version of CCB is a minor extension of the original CCB from \cite{KU2017}. If our collections have only one site, then both calculi have the same syntax. If we additionally do not define rules for concerted transitions that involve three actions, namely \rulename{concert3}, \rulename{concert3 act}, \rulename{concert3 par}, \rulename{concert3 res},
+and do not use the alternative rule \rulename{concert2}, then the transition relations that are associated with both calculi are the same. This means that all the properties that the original CCB posses are also enjoyed by the core of the current calculus.
+
+
+
+
+
+
+
+
