@@ -999,3 +999,176 @@ language={English}
   doi       = {10.1016/j.entcs.2004.01.040}
  }
 
+@article{KU2017,
+title = {Local reversibility in a Calculus of Covalent Bonding},
+journal = {Science of Computer Programming},
+volume = {151},
+pages = {18-47},
+year = {2018},
+note = {Special issue of the 8th Conference on Reversible Computation (RC2016)},
+issn = {0167-6423},
+doi = {https://doi.org/10.1016/j.scico.2017.09.008},
+url = {https://www.sciencedirect.com/science/article/pii/S016764231730196X},
+author = {Stefan Kuhn and Irek Ulidowski},
+keywords = {Reversible process calculi, Local reversibility, Modelling of biochemical reactions},
+abstract = {We introduce a process calculus with a new prefixing operator that allows us to model locally controlled reversibility. Actions can be undone spontaneously, as in other reversible process calculi, or as pairs of concerted actions, where performing a weak action forces undoing of another action. The new operator in its full generality allows us to model out-of-causal order computation, where causes are undone before their effects are undone, which goes beyond what typical reversible calculi can express. However, the core calculus, which uses only the reduced form of the new operator, is well behaved as it satisfied causal consistency. We demonstrate the usefulness of the calculus by modelling the hydration of formaldehyde in water into methanediol, an industrially important reaction, where the creation and breaking of some bonds are examples of locally controlled out-of-causal order computation.}
+}
+
+@article{CIOBANU2007117,
+title = {P systems with minimal parallelism},
+journal = {Theoretical Computer Science},
+volume = {378},
+number = {1},
+pages = {117-130},
+year = {2007},
+issn = {0304-3975},
+doi = {https://doi.org/10.1016/j.tcs.2007.03.044},
+url = {https://www.sciencedirect.com/science/article/pii/S0304397507002459},
+author = {Gabriel Ciobanu and Linqiang Pan and Gheorghe Păun and Mario J. Pérez-Jiménez},
+keywords = {Membrane computing, P System, Universality,  Problem},
+abstract = {A current research topic in membrane computing is to find more realistic P systems from a biological point of view, and one target in this respect is to relax the condition of using the rules in a maximally parallel way. We contribute in this paper to this issue by considering the minimal parallelism of using the rules: if at least a rule from a set of rules associated with a membrane or a region can be used, then at least one rule from that membrane or region must be used, without any other restriction (e.g., more rules can be used, but we do not care how many). Weak as it might look, this minimal parallelism still leads to universality. We first prove this for the case of symport/antiport rules. The result is obtained both for generating and accepting P systems, in the latter case also for systems working deterministically. Then, we consider P systems with active membranes, and again the usual results are obtained: universality and the possibility to solve NP-complete problems in polynomial time (by trading space for time).}
+}
+
+@article{CIOBANU2003123,
+title = {Distributed algorithms over communicating membrane systems},
+journal = {Biosystems},
+volume = {70},
+number = {2},
+pages = {123-133},
+year = {2003},
+note = {Cell Computing},
+issn = {0303-2647},
+doi = {https://doi.org/10.1016/S0303-2647(03)00035-2},
+url = {https://www.sciencedirect.com/science/article/pii/S0303264703000352},
+author = {Gabriel Ciobanu},
+keywords = {Membrane systems, Antiport carriers, Distributed and parallel computing, Broadcast, Convergecast, Flooding, Leader election, Mutual exclusion, Fault tolerance, Consensus},
+abstract = {This paper presents fundamental distributed algorithms over membrane systems with antiport carriers. We describe distributed algorithms for collecting and dispersing information, leader election in these systems, and the mutual exclusion problem. Finally, we consider membrane systems producing correct results despite some failures at some of the components or the communication links. We show that membrane systems with antiport carriers provide an appropriate model for distributed computing, particularly for message-passing algorithms interpreted here as membrane transport in both directions, namely when two chemicals behave as input and output messages and pass the membranes in both directions using antiport carriers.}
+}
+
+@InProceedings{10.1007/978-3-540-31837-8_12,
+author="Besozzi, Daniela
+and Ciobanu, Gabriel",
+editor="Mauri, Giancarlo
+and P{\u{a}}un, Gheorghe
+and P{\'e}rez-Jim{\'e}nez, Mario J.
+and Rozenberg, Grzegorz
+and Salomaa, Arto",
+title="A P System Description of the Sodium-Potassium Pump",
+booktitle="Membrane Computing",
+year="2005",
+publisher="Springer Berlin Heidelberg",
+address="Berlin, Heidelberg",
+pages="210--223",
+abstract="The sodium-potassium pump is a fundamental transmembrane protein present in all animal cells. The functioning of the pump is described and analyzed in the formal framework of P systems, considered here as tools for modelling a bio-cellular process. New features such as variable membrane labelling, activation conditions for rules, membrane bilayer and specific communication rules are defined, to the aim of providing a more appropriate description of the pump. A Sevilla carpet of the sodium-potassium pump is given, as a starting point to identify the pumps as the processors able to execute the rules of a high-level P system in a maximal parallel and nondeterministic manner, activated and controlled by steady-state concentrations. Some related topics for further research are proposed.",
+isbn="978-3-540-31837-8"
+}
+
+@Article{Aman2020,
+author={Aman, Bogdan
+and Ciobanu, Gabriel},
+title={Reversible computation in nature inspired rule-based systems},
+journal={Journal of Membrane Computing},
+year={2020},
+month={Dec},
+day={01},
+volume={2},
+number={4},
+pages={246-254},
+abstract={Since reversibility is an inherent property of many natural phenomena, it makes sense to investigate reversibility in natural computing. More exactly, to study reversible computation in rule-based systems inspired by living cells. Thus, we consider systems working with rules over multisets of objects which are evolving in a maximal parallel manner. After defining what reversibility means in these rule-based systems, we explore their properties that are fully reversible. Some specific properties for reversible computation are{\^A} presented.},
+issn={2523-8914},
+doi={10.1007/s41965-020-00053-z},
+url={https://doi.org/10.1007/s41965-020-00053-z}
+}
+
+@InProceedings{10.1007/978-3-319-99498-7_8,
+author="Kuhn, Stefan",
+editor="Kari, Jarkko
+and Ulidowski, Irek",
+title="Simulation of Base Excision Repair in the Calculus of Covalent Bonding",
+booktitle="Reversible Computation",
+year="2018",
+publisher="Springer International Publishing",
+address="Cham",
+pages="123--129",
+abstract="In previous papers we have introduced a new process calculus inspired by chemical reactions, called the Calculus of Covalent Bonding. The key feature of the calculus was a new prefix operator of the form (s; b), where doing of action b triggers undoing of one of the actions in s. Because of this connection between doing and undoing of actions (or forming and breaking of bonds in a chemical modelling) we called this local reversibility. We have shown that our calculus enables out-of-causal order reversibility. In this paper we demonstrate the Base Excision Repair of DNA, a high-level biological example, using our calculus. We also introduce a software which allows us to check the syntax of processes and to simulate their execution.",
+isbn="978-3-319-99498-7"
+}
+
+@article{CARDELLI2000177,
+title = {Mobile ambients},
+journal = {Theoretical Computer Science},
+volume = {240},
+number = {1},
+pages = {177-213},
+year = {2000},
+issn = {0304-3975},
+doi = {https://doi.org/10.1016/S0304-3975(99)00231-5},
+url = {https://www.sciencedirect.com/science/article/pii/S0304397599002315},
+author = {Luca Cardelli and Andrew D. Gordon},
+keywords = {Agents, Process calculi, Mobility, Wide-area computation},
+abstract = {We introduce a calculus describing the movement of processes and devices, including movement through administrative domains.}
+}
+
+@InProceedings{10.1007/978-3-540-28644-8_19,
+author="Danos, Vincent
+and Krivine, Jean",
+editor="Gardner, Philippa
+and Yoshida, Nobuko",
+title="Reversible Communicating Systems",
+booktitle="CONCUR 2004 - Concurrency Theory",
+year="2004",
+publisher="Springer",
+address="Berlin, Heidelberg",
+pages="292--307",
+abstract="One obtains in this paper a process algebra RCCS, in the style of CCS, where processes can backtrack. Backtrack, just as plain forward computation, is seen as a synchronization and incurs no additional cost on the communication structure. It is shown that, given a past, a computation step can be taken back if and only if it leads to a causally equivalent past.",
+isbn="978-3-540-28644-8"
+}
+
+@article{PHILLIPS200770,
+title = {Reversing algebraic process calculi},
+journal = {The Journal of Logic and Algebraic Programming},
+volume = {73},
+number = {1},
+pages = {70-96},
+year = {2007},
+note = {Foundations of Software Science and Computation Structures 2006 (FOSSACS 2006)},
+issn = {1567-8326},
+doi = {https://doi.org/10.1016/j.jlap.2006.11.002},
+url = {https://www.sciencedirect.com/science/article/pii/S1567832607000379},
+author = {Iain Phillips and Irek Ulidowski},
+keywords = {Reversible computation, Structural Operational Semantics (SOS), Formats of SOS rules, CCS with Keys, Forward–reverse bisimulation, Congruence result},
+abstract = {Reversible computation has a growing number of promising application areas such as the modelling of biochemical systems, program debugging and testing, and even programming languages for quantum computing. We formulate a procedure for converting operators of standard algebraic process calculi such as CCS into reversible operators, while preserving their operational semantics. We define forward–reverse bisimulation and show that it is preserved by all reversible operators.}
+}
+
+@InProceedings{10.1007/978-3-642-15375-4_33,
+author="Lanese, Ivan
+and Mezzina, Claudio Antares
+and Stefani, Jean-Bernard",
+editor="Gastin, Paul
+and Laroussinie, Fran{\c{c}}ois",
+title="Reversing Higher-Order Pi",
+booktitle="CONCUR 2010 - Concurrency Theory",
+year="2010",
+publisher="Springer Berlin Heidelberg",
+address="Berlin, Heidelberg",
+pages="478--493",
+abstract="The notion of reversible computation is attracting increasing interest because of its applications in diverse fields, in particular the study of programming abstractions for reliable systems. In this paper, we continue the study undertaken by Danos and Krivine on reversible CCS by defining a reversible higher-order $\pi$-calculus (HO$\pi$). We prove that reversibility in our calculus is causally consistent and that one can encode faithfully reversible HO$\pi$ into a variant of HO$\pi$.",
+isbn="978-3-642-15375-4"
+}
+
+
+@article{DANOS200469,
+title = {Formal molecular biology},
+journal = {Theoretical Computer Science},
+volume = {325},
+number = {1},
+pages = {69-110},
+year = {2004},
+note = {Computational Systems Biology},
+issn = {0304-3975},
+doi = {https://doi.org/10.1016/j.tcs.2004.03.065},
+url = {https://www.sciencedirect.com/science/article/pii/S0304397504002336},
+author = {Vincent Danos and Cosimo Laneve},
+abstract = {A language of formal proteins, the κ-calculus, is introduced. Interactions are modeled at the domain level, bonds are represented by means of shared names, and reactions are required to satisfy a causality requirement of monotonicity. An example of a simplified signalling pathway is introduced to illustrate how standard biological events can be expressed in our protein language. A more comprehensive example, the lactose operon, is also developed, bringing some confidence in the formalism considered as a modeling language. Then a finer-grained concurrent model, the mκ-calculus, is considered, where interactions have to be at most binary. We show how to embed the coarser-grained language in the latter, a property which we call self-assembly. Finally we show how the finer-grained language can itself be encoded in π-calculus, a standard foundational language for concurrency theory.}
+}
+
