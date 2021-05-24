@@ -1,6 +1,6 @@
 %\section{Calculus of Covalent Bonding}\label{sec:calculus}
 %
-Calculus of Covalent Bonding, or CCB for short, was fully defined in~\cite{KU2017}. We recall some of the main definitions in order to make the paper more self-contained. We note, however, that some SOS rules 
+Calculus of Covalent Bonding, or CCB for short, was defined in~\cite{KU2017}. We recall here the main definitions in order to make the paper self-contained. We note, however, that some SOS rules 
 are revised and two new SOS rules for concerted actions are added. 
 We first introduce some preliminary notions and notations.
 
@@ -19,11 +19,11 @@ which are ranged over by $s,s'$, and sequences of purely past actions, namely th
 which are ranged over by $t,t'$. The empty sequence is denoted by $\epsilon$. We use $\alpha, s$ and
 $s,s'$ to denote a concatenation of elements, which can be strings or single actions.
 
-We shall also use two sets of auxiliary action labels, namely the set $(\mA) =\{ (a)\ \mid a\in\mA\}$, and its product with the set of keys, namely $(\mA)\Keys$. These labels will be used in the auxiliary rules when defining
+We shall also use two sets of \emph{auxiliary action} labels, namely the set $(\mA) =\{ (a)\ \mid a\in\mA\}$, and its product with the set of keys, denoted by $(\mA)\Keys$. These labels will be used in the auxiliary rules when defining
 the semantics of CCB.
 
-Molecules may have several bonding \emph{sites} and several bonds can be created or dissolved at each bonding site. A site and its potential bonds are modelled via $(s;b)$, where $s$ is a sequence of actions and $b$ is a weak action. The action $b$ can be omitted, in which case the construct is written as $(s)$. When a molecule has several sites 
-$(s;b), \ldots,(s';b')$ we shall write them as $(s;b) \Mid  \ldots \Mid (s';b')$ by using the symbol $\paral$ to indicate that sites bond independently of each other. Such expressions are called \emph{collections of sites}, or just collections, and will be used to define the prefix operator. More formally, a site $\sigma$ is either $(s;b)$ or $(s)$. A collection $\mu$ is either $\sigma$ or $\sigma\Mid\sigma$, and 
+Molecules may have several bonding \emph{sites} and several bonds can be created or dissolved at each bonding site. A site and its potential bonds are modelled via $(s;b)$, where $s$ is a sequence of actions, where actions model bonds, and $b$ is a weak (bond) action. The action $b$ can be omitted, in which case the construct is written as $(s)$. When a molecule has several sites 
+$(s;b), \ldots,(s';b')$ we shall write them as $(s;b) \Mid  \ldots \Mid (s';b')$ by using the symbol ``$\paral$'' to indicate that sites bond independently of each other. Such expressions are called \emph{collections of sites}, or just collections, and will be used to define the prefix operator. More formally, a site $\sigma$ is either $(s;b)$ or $(s)$. A collection $\mu$ is either $\sigma$ or $\sigma\Mid\sigma$, and 
 $\epsilon$ is the empty collection of sites. We shall denote a collection $\mu$ where all site are fully bonded as $\eta$.
 
 
@@ -39,10 +39,10 @@ actions (and no past actions). There is also a special identifier
  $\Nil$, denoting the deadlocked process, which has no defining equation.
 
 We have a general prefixing operator $\mu.P$. This operator
-extends the prefixing operators in \cite{DK2007}, \cite{Irek2012}, and {\cite{KU16}. 
+extends the prefixing operators in \cite{DK2007}, \cite{Irek2012}, and {\cite{KU16,KU2017}. 
 If each site of $\mu$ has only one action, then it is the multi-action prefix from \cite{DK2007}.
-If the collection $\mu$ has only one site, then it is the general prefixing operator from \cite{KU16}. 
-If it and the site has no weak action, then the prefixing is written as $(s).P$ and is called the
+If the collection $\mu$ has only one site, then it is the general prefixing operator from \cite{KU16,KU2017}. 
+If its only site has no weak action, then the prefixing is written as $(s).P$ and is called the
 \emph{simple prefix}. 
 The simple prefix is the prefixing operator in \cite{Irek2012}. 
 One of the actions in $s$ in $(s).P$ may be a weak action from $\mWA$. If $s$ is a sequence that contains   
@@ -90,8 +90,8 @@ by the actions in $s'$. Another example where the full calculus is useful is a m
 standing transactions with compensations in \cite{Irek2012}.
 }
 
-The set of \emph{process terms} is ranged over by $P,Q$ and $R$ and is denoted by $\Proc$. 
-In the setting of CCB these terms are called simply \emph{processes}. 
+The set of \emph{process terms} is ranged over by $P, Q$ and $R$ and is denoted by $\Proc$. 
+In the setting of CCB these terms are called \emph{processes}. 
 A context $C\hole$ is a process term containing a \emph{hole}, represented by $\hole$. 
 Formally, contexts are defined by
 the following syntax: $C::= \hole \mid (s;b).C \mid P\paral C \mid C \paral P \mid C\restrict L $.
@@ -102,20 +102,20 @@ We define the semantics of our calculus by a labelled transition system,
 LTS for short, which is a structure $(St,AL,\rightarrow: \subseteq St \times AL \times St)$
 with $St$ the set of states, $AL$ the set of action labels and $\rightarrow: 
 \subseteq St \times AL \times St$ the labelled transition relation.
-The set of states $St$ is the set $\Proc$. In practice, all our results and examples hold for
-\emph{consistent} processes, namely processes
-reachable from standard processes.
+The set of states $St$ is the set $\Proc$. 
+%In practice, all our results and examples hold for \emph{consistent} processes, namely processes
+%reachable from standard processes.
 % (see Definition~\ref{consistent}). 
 The action labels are the forward actions $\mAK$, 
-the reverse actions $\umAK$ and the \emph{pairs of concerted actions} $\mAK \times \umAK$. 
+the reverse actions $\umAK$ and the \emph{groups of concerted actions} $\mAK \times \umAK \cup 
+ \mAK \times \umAK \times \umAK$. 
 %
 The labelled transition relation is defined by SOS rules (Figures~\ref{fig:fsos}--\ref{fig:sc}) 
 and rewrite rules (Figure~\ref{fig:reduction}), where
 the rules in Figures~\ref{fig:fsos}--\ref{fig:reversesos}
 are influenced by \cite{Irek2007}. 
-Note that
-sequences $s$ and $t$ are members of $(\mathcal{A}\cup\mathcal{AK})^*$ and $\mathcal{AK}^*$
-respectively in Figures~\ref{fig:fsos}--\ref{fig:xc2sos}.
+Note that sequences $s$ and $t$ in Figures~\ref{fig:fsos}--\ref{fig:xc2sos} 
+are members of $(\mathcal{A}\cup\mathcal{AK})^*$ and $\mathcal{AK}^*$ respectively.
 
 Next, we recall and explain the SOS rules before returning to 
 the rewrite rules. Let $r$ be an SOS rule for an operator $f$ of CCB as in 
@@ -212,8 +212,8 @@ $a\in \mathcal{A}$ and $l\in \Keys$, and $\kkey{\alpha:s}= \kkey{s} \text{ if }\
 %
 The function $\keys$ is given by $\keys{\Nil}=\emptyset$, $\keys{S}=\keys{P}$ if $S\bydef P$, 
 $\keys{((s;b)\Mid \mu).P}=\kkey{s} \cup \kkey{b} \cup \keys{\mu.P}$, $\keys{P \paral Q}= \keys{P} \cup \keys{Q}$, and $\keys{P \restrict L}=\keys{P}$. Informally $\keys{P}$ associates with each term $P$ the set of its keys. 
-A process $P$ is standard, written $\std{P}$, if it contains no past actions (hence no keys). 
-A key $n$ is fresh in $Q$, written $\freshpred{n}(Q)$, if $Q$ contains no past action with the key $n$.
+A process $P$ is \emph{standard}, written $\std{P}$, if it contains no past actions (hence no keys). 
+A key $n$ is \emph{fresh} in $Q$, written $\freshpred{n}(Q)$, if $Q$ contains no past action with the key $n$.
 We extend the notion of fresh keys to the sequences of actions and past actions $s$ and $t$, and to sites $\sigma$, 
 via the function $\kkey$. Moreover, correspondingly, $\freshpred{n}(\mu)$ if $\freshpred{n}(\sigma)$ for every
 site $\sigma$ in $\mu$. 
@@ -469,8 +469,8 @@ $\gamma(g,h)=j$.}
 %%such that $S\bydef P$.
 \end{array}
 \] 
-\caption{Structural congruence rule sc when $\mu\in \mAK \cup (\mAK\times \umAK)$,
-and rev sc when $\mu\in \umAK$.} 
+\caption{Structural congruence rule \rulename{sc} when $\mu\in \mAK \cup (\mAK\times \umAK) \cup  (\mAK\times \umAK\times \umAK))$,
+and \rulename{rev sc} when $\mu\in \umAK$.} 
 \label{fig:sc}
 \end{figure}
 
@@ -478,21 +478,21 @@ and rev sc when $\mu\in \umAK$.}
 \[
 \begin{array}{lll}
 \rulename{red1}: & P\Par Q \Rightarrow Q\Par P& 
-\\[10pt]
+\\[5pt]
 \rulename{red2}: & P\Par (Q\Par R) \Rightarrow (P\Par Q)\Par R &
-\\[10pt]
+\\[5pt]
 \rulename{red3}: & (P\Par Q)\Par R \Rightarrow P\Par (Q\Par R) & 
-\\[10pt]
+\\[5pt]
 \rulename{red4}: & P\Par \Nil \Rightarrow P & 
-\\[10pt]
+\\[5pt]
 \rulename{red5}: & (P\paral Q)\backslash L \Rightarrow P\backslash L \paral Q & \mbox{ if fn(Q)} \cap L = \emptyset
-\\[10pt]
+\\[5pt]
 \rulename{red6}: & P\backslash L \paral Q \Rightarrow (P\paral Q)\backslash L & \mbox{ if fn(Q)} \cap L = \emptyset
-\\[10pt]
+\\[5pt]
 \rulename{prom}: & (s,a,s';b[k]).P \Rightarrow (s,a[k],s';b).P & \mbox{ if } a \in \mathcal{SA}, b \in \mathcal{WA} 
-\\[10pt]
+\\[5pt]
 \rulename{move-r}: & (s,a,s',b[k],s'').P \Rightarrow (s,a[k],s',b,s'').P & \mbox{ if } a \in \mathcal{SA}, b \in \mathcal{WA}
-\\[10pt]
+\\[5pt]
 \rulename{move-l}: & (s,b[k],s',a,s'').P \Rightarrow (s,b,s',a[k],s'').P & \mbox{ if } a \in \mathcal{SA}, b \in \mathcal{WA}
 \end{array}
 \] 
@@ -510,19 +510,23 @@ Since $(a,b).(c).S$ is the definition of $S$ we obtain by rule \rulename{rev con
 \end{example}
 
 Figures \ref{fig:c1sos}--\ref{fig:xc2sos} contain the SOS rules that define the new concerted actions transitions. 
-The main rule is the rule \rulename{concert} that defines when a pair of concerted actions 
-takes place.  We also have two auxiliary rules \rulename{aux1} and \rulename{aux2} which 
-define only an auxiliary transition relation needed in the \rulename{concert} rule. 
-Note that the \rulename{concert} rule uses \emph{lookahead} \cite{Uli92}.
-Also note that transitions in \rulename{aux1} and \rulename{aux2} use the auxiliary labels $(b)[k]$ 
-for all $b \in \mWA$ and $k \in \Keys$. The rule \rulename{concert par} requires that $k$ is fresh in $Q$,
+The main rules are the \rulename{concert} rules in Figure~\ref{fig:c1sos} that define when a pair or a triple 
+of concerted action take place. 
+We also have four auxiliary rules \rulename{w}, \rulename{cw}, \rulename{aux1} and \rulename{aux2} which 
+define only an auxiliary action transition relation needed in the \rulename{concert} rules.
+Note that transitions in \rulename{aux1} and \rulename{aux2} use the auxiliary labels $(b)[k]$ 
+for all $b \in \mWA$ and $k \in \Keys$. Also note that the three \rulename{concert} rules use \emph{lookahead} \cite{Uli92}.
+
+
+
+The rules \rulename{concert par} in Figure~\ref{fig:xc2sos} require that $k$ is fresh in $Q$,
 correspondingly as in \rulename{par}. Moreover, we need to ensure that when we reverse $h$ with the key $l$
-in $P$ we do not leave out any actions with the key $l$ in $Q$ which make up a multiaction 
-communication with the key $l$. Hence, we also include the premise $\fresh{l}{Q}$ in \rulename{concert par}.
-The rule \rulename{concert act} requires, correspondingly as \rulename{act}, that $k$ is fresh in $t$.
-Our operational semantics guarantees that if a standard process evolves to $(t;b).P$, for some $P$, and
+in $P$ we do not leave out any actions with the key $l$ in $Q$ which make up a multi-action 
+communication with the key $l$. Hence, we also include the premise $\fresh{l}{Q}$ in \rulename{concert par} rules. Correspondingly for the key $m$ in $Q$.
+The two rules \rulename{concert act} require, correspondingly as \rulename{act}, that $k$ is fresh in $t$.
+Our operational semantics guarantees that if a standard process evolves to $(t;b).P$, where all actions in $t$ are fully executed, and
 $P$ reverses an action with the key $l$, then $l$ is fresh in $t$. Hence, we do not include $\fresh{l}{t}$
-in the premises of \rulename{concert act}.
+in the premises of the \rulename{concert act} rules.
 %
 Next, we illustrate how concerted actions transitions work.
 
@@ -538,7 +542,7 @@ and since $a[1] \paral b \xrightarrow{b[2]} a[1] \paral b[2] \xrightarrow{\under
 by \rulename{par} and \rulename{rev par}.}
 \end{example}
 %
-The next example illustrates a concerted transition involving a weak bond.
+The next example illustrates a creation of a bond between weak actions.
 \begin{example}\label{ex:examp2}
 {\rm Consider $(a[1];b)\paral (a[1];b)\paral e$ with $\gamma(a,a)=c$ and $\gamma(b,b)=d$. Recall that actions $b$ here are weak.
 We have the following pair of concerted actions derived by \rulename{concert1}, where the bond created and the bond broken are between the same two processes:
@@ -566,7 +570,7 @@ $$
 (a[1];b)\paral (e[2];b)\paral (a[1],e[2])  \xrightarrow{\{d[3], \underline{h}[2]\}} 
 (a[1];b[3])\paral (e;b[3])\paral (a[1],e)
 $$ 
-We notice that, following the first transition, the $h[2]$ bond can be broken, and correspondingly the $c[1]$ bond can be broken after the second transition. Since creation and breaking of such bonds is almost instantaneous, we need a new concert rule that capture such reactions. Using \rulename{concert3} we derive the following:
+We notice that, following the first transition, the $h[2]$ bond can be broken, and correspondingly the $c[1]$ bond can be broken after the second transition. Since creation and breaking of such bonds is almost instantaneous, we need a new concert rule that captures such cascade of reactions. Using \rulename{concert3} we derive the following:
 $$
 (a[1];b)\paral (e[2];b)\paral (a[1],e[2])  \xrightarrow{\{d[3], \underline{c}[1], \underline{h}[2]\}} 
 (a;b[3])\paral (e;b[3])\paral (a,e)
@@ -579,7 +583,7 @@ $\underline{c}[l] \in \umAK$, or with concerted actions $(a[k], \underline{c}[l]
 %\} \in \mathcal{C}$.
 
 We also have the usual structural congruence rules 
-sc and rev sc in Figure~\ref{fig:sc}, 
+\rulename{sc} and \rulename{rev sc} in Figure~\ref{fig:sc}, 
 which potentially combine reductions (defined below) with transitions.
 
 Next, we introduce our reduction relation which is given by the reduction (rewrite) rules 
@@ -594,7 +598,7 @@ $\mathsf{fn}(S)=\mathsf{fn}(P) \text{ if }  S\bydef P$, $\mathsf{fn}((\alpha : s
 \end{definition}
 
 \noindent
-Our reduction rules have names such as, for example, \rulename{red} and we write 
+The reduction rules have names such as, for example, \rulename{red} and we write 
 \rulename{red}: $P \Rightarrow Q$
 to indicate that the reduction rule $P \Rightarrow Q$ is called \rulename{red}. 
 The process $P$ in the rule
@@ -711,6 +715,11 @@ Correspondingly, there are the \emph{concerted (action)} transitions.
 \subsection{Properties of CCB}
 The current version of CCB is a minor extension of the original CCB from \cite{KU2017}. If our collections have only one site, then both calculi have the same syntax. If we additionally do not define rules for concerted transitions that involve three actions, namely \rulename{concert3}, \rulename{concert3 act}, \rulename{concert3 par}, \rulename{concert3 res},
 and do not use the alternative rule \rulename{concert2}, then the transition relations that are associated with both calculi are the same. This means that all the properties that the original CCB posses are also enjoyed by the core of the current calculus.
+
+In particular, we can show, using the same arguments as in \cite{KU2017}, that some this CCB satisfies several classical properties of reversible computation such as, for example, \emph{Well-foundedness}, \emph{Reverse Diamond} and \emph{Forward Diamond} \cite{PHILLIPS200770,LPU2020}. Moreover, if we leave out weak actions (and do not use SOS rules that involve weak actions), then the resulting calculus satisfies the \emph{Causal Consistency} property
+~\cite{10.1007/978-3-540-28644-8_19,LPU2020}. This gives confidence that the core of CCB models reversibility correctly. 
+
+The purpose of CCB is however to capture the so called ``out-of-causal order'' behaviour which is so common in biochemical reactions. This is achieved via our concerted actions transitions, which allow us faithful modelling of complex sequences of reactions such as those present in a DNA mismatch repair mechanism. 
 
 
 
