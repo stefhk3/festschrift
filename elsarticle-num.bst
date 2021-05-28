@@ -1113,7 +1113,7 @@ FUNCTION {output.bibitem}
 }
 
 FUNCTION {fin.entry}
-{ output.web.refs  % urlbst
+{ %output.web.refs  % urlbst
   makeinlinelink       % ooops, it appears we didn't have a title for inlinelink
     { setup.inlinelink % add some artificial link text here, as a fallback
       "[link]" output.nonnull }
@@ -1177,7 +1177,7 @@ FUNCTION {article}
   format.journal.pages
   format.note output
   fin.entry
-  write.url
+  %write.url
 }
 
 FUNCTION {book}
@@ -1206,7 +1206,7 @@ FUNCTION {book}
   if$
   format.note output
   fin.entry
-  write.url
+  %write.url
 }
 
 FUNCTION {booklet}
@@ -1275,7 +1275,7 @@ FUNCTION {incollection}
   format.pages "pages" output.check
   format.note output
   fin.entry
-  write.url
+  %write.url
 }
 
 FUNCTION {inproceedings}
@@ -1301,7 +1301,7 @@ FUNCTION {inproceedings}
   format.pages "pages" output.check
   format.note output
   fin.entry
-  write.url
+  %write.url
 }
 
 FUNCTION {conference} { inproceedings }

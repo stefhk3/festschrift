@@ -211,10 +211,25 @@ We have demonstrated in previous work that the Calculus of Covalent Bonding (CCB
 \linenumbers
 
 \section{Introduction}
-Probably write this last, once we have the rest
+
+Deoxyribonucleic acid (DNA) carries the essential information for the working of all known organisms. It is composed of two polynucleotide chains. Each nucleotide contains one of the four nucleobases (or simply bases) cytosine (C), guanine (G), adenine (A) or thymine (T). Crucially, those two chains contain the same biological information. This is achieved by the four bases C, G, A, and T being able to pair as either A-T or G-C pairs due to their chemical interaction. So each half contains the same information, but expressed differently. This in turn enables DNA replication. Replication happens by the DNA being split in halfs and each chain then being completed with the matching bases, so that each new DNA is an identical copy of the original DNA. This replication in turn enables the multiplication of cells and growth.
+
+In practice DNA can be imperfect. This can be due either to external factors, e.g. radiation (the reason why nuclear radition is damaging long-term) or internal factors, e.g. free radicals produced by the body. Another source of DNA errors are problems during replication. For example, it can happen that two bases are included which are both possible in DNA, but do not match, for example, a pair of adenine and cytosine, which should normally be matched by a thymine. Figure~\ref{fig:damages} shows such a mismatch on the right: The combination of the A/G bases is incorrect. On the left, an incorporation of a uracil base, which would normally not occur in DNA at all, is shown. A repair mechanism for this, base excision repair (BER), was modelled in \cite{10.1007/978-3-319-99498-7_8} using the Calculus of Covalent Bonding (CCB).
+
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=1.0\textwidth]{Types_of_DNA_Damage_part}
+  \caption[Two types of DNA damage.]{Two types of DNA damage. The right half shows a DNA mismatch (the example used here). On the left, the incorporation of a Uracil base is shown, which was modelled in \cite{10.1007/978-3-319-99498-7_8}. Part of \href{https://commons.wikimedia.org/wiki/File:Types_of_DNA_Damage.jpg}{Image} by Chantelmao, licensed under \href{https://creativecommons.org/licenses/by-sa/4.0/deed.en}{CC-BY-SA-4.0}.}
+  \label{fig:damages}
+\end{figure}
+
+DNA repair is crucial to maintain the quality of information in an organisms. Whilst DNA replication errors are rare (they happend at a rate of about 1 per every 100,000 nucleotides), this translates to large numbers of errors given the length of DNA (about 120,000 mistakes every time a human cell divides) \cite{damage}. Since incorrect DNA can give rise to cancer and other illnesses and generally to early aging and death, DNA repair is a crucial part of life and its understanding is an important strand of research.
+
+In this paper, we model DNA mismatch repair using CCB. This extends previous work of modelling BER. The aim of the work is on the one hand to further test and evaluate CCB. On the other hand, it is an extension of the biolgocal modelling done in previous work.
 
 \section{Related Work}
 \input{CCB-related.tex}
+%
 \section{A Calculus of Covalent Bonding}\label{sec:calculus}
 \input{CCB-calculus.tex}
 %
@@ -225,8 +240,6 @@ Probably write this last, once we have the rest
 \section{DNA Mismatch Repair}\label{sec:dnamimatch}
 \input{CCB-mmr.tex}
 %
-\section{Future Work}
-
 \section{Conclusion}
 
 \section*{References}
