@@ -38,7 +38,7 @@
 \usepackage{epsfig}
 \usepackage{epstopdf}
 \usepackage{amssymb}
-
+\usepackage{bm}
 
 
 %% `Elsevier LaTeX' style
@@ -161,6 +161,19 @@
 \newcommand{\Rev}[1]{{#1}^{-1}}
 \newcommand{\rulename}[1]{\textsf{#1}}
 
+
+%
+%
+\newcommand{\DP}{\mathit{DP}}
+\newcommand{\Me}{\mathit{Me}}
+\newcommand{\Meprime}{\mathit{Me'}}
+\newcommand{\MutS}{\mathit{MutS}}
+\newcommand{\MutSprime}{\mathit{MutS'}}
+\newcommand{\MutL}{\mathit{MutL}}
+\newcommand{\MutH}{\mathit{MutH}}
+\newcommand{\UvrD}{\mathit{UvrD}}
+%
+
 \newtheorem{theorem}{Theorem}
 \newtheorem{definition}{Definition}
 \newtheorem{remark}{Remark}
@@ -199,6 +212,8 @@
 
 \begin{abstract}
 %We have demonstrated in previous work that the Calculus of Covalent Bonding (CCB) can be used to simulate higher-level biochemical processes. This is significant since CCB was originally devised to model organic chemical reactions on a lower level. We are now extending the use of CCB to model another gene repair pathway, DNA Mismatch Repair (MMR). This is a more complex pathway than the Base Excision Repair (BER) which we modelled originally. It involves four proteins and needs a distinction between the two chains in a DNA strand. We demonstrate that we can model this by extending our modelling of BER and that we can do this using the unchanged CCB calculus and operational semantics. We also show that the simulation software developed previously can be used to execute this pathway.
+%
+%
 We have demonstrated in previous work that the Calculus of Covalent Bonding (CCB) can be used to simulate higher-level biochemical processes. This is significant since CCB was originally devised to model organic chemical reactions on a lower level. We now extend the use of the calculus  to model an important gene repair pathway, namely DNA Mismatch Repair (MMR). This complex pathway involves four helper proteins and needs a distinction between the two chains in a DNA strand. 
 We extend the calculus and its operational semantics slightly by allowing more complex concerted actions.
 We also show that the simulation software developed previously can be used to execute this pathway.
