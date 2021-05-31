@@ -14,15 +14,16 @@ We now return to the DNA mismatch repair, which we have briefly described in the
 %Such a repair is not possible in the same way as the base excision repair (BER), since any of the two bases could be wrong, so the non-matching  bases do not tell what to do. In contrast, to repair the incorporation of a uracil, clearly the uracil must be removed and replaced. A description of the process on an abstract level is as follows: 
 If two bases are incorporated into a DNA strand which do not match, namely are not A-T or C-G pairs, this constitutes a defect in the DNA strand. A repair similar to BER is not possible, since it is not clear which of the two bases is correct.
 % just from the bases alone - both could be right. 
-We are looking at a specific way to handle this situation, called Methyl Mismatch Repair (MMR). This is the repair mechanism in bacteria, in particular E. coli, for which detailed studies has been done~\footnote{Paul L. Modrich, Tomas Lindahl and Aziz Sancar received the Nobel Price in Chemistry 2015 for their work on DNA repair. Modrich's Nobel Lecture about Methyl-directed Mismatch Repair in E. coli and humans \cite{pmid27198632} gives a nice overview.}.
-The mechanism relies on DNA strands being methylated sometime after their creation. Methylation means the attachment a methyl group (a carbon atom with three hydrogen atoms), in this case to the adenine base A. Specifically, this happens whenever there is a GATC sequence. Since the methylation (which is done by specific proteins, which we do not model) happens with a delay after the duplication of a strand, for some time the old strand is methylated, the new strand is not. This enables the removal of the wrong base from the new strand.
+We are looking at a specific way to handle this situation, called Methyl Mismatch Repair (MMR). This is the repair mechanism in bacteria, in particular E.\! coli, for which detailed studies has been done\footnote{Paul L. Modrich, Tomas Lindahl and Aziz Sancar received the Nobel Price in Chemistry 2015 for their work on DNA repair. Modrich's Nobel Lecture about Methyl-directed Mismatch Repair in E. coli and humans \cite{pmid27198632} gives a good overview.}.
+The mechanism relies on DNA strands being methylated sometime after their creation. Methylation means the attachment a methyl group (a carbon atom with three hydrogen atoms), in this case to the adenine base A. Specifically, this happens whenever there is a GATC sequence. Since the methylation %(which is done by specific proteins, which we do not model) 
+happens with a delay after the duplication of a strand, old strand is methylated and the new strand is not methylated for a short period of time. This enables the removal of the wrong base from the new strand.
 
-The actual repair involves the proteins MutS, MutL, MutH, and UvrD. MutS first binds to the mismatch and then recruits MutL and MutH. MutL can detect the methylated strand and can form a loop in the DNA. In this loop, the newer strand now is outside, whereas the old strand is covered by itself and MutL. MutH cleaves the unmethylated strand. This happens in some distance from the mismatch, due to the size of the proteins and the loop in the DNA. UvrD can then detect the cleavage and can move along the strand. It removes the outer strand when moving along. At the same time, the MutL, MutH, and MutS proteins are released and the loop in the DNA disappears. UvrD moves to after the mismatch, removing the wrong base together with their neighbours. UvrD then goes off the DNA and leaves the old, and correct, strand to be completed. 
+The actual repair involves the proteins MutS, MutL, MutH, and UvrD. MutS first binds to the mismatch and then recruits MutL and MutH. MutL can detect the methylated strand and can form a loop in the DNA. In this loop, the newer strand is now outside, whereas the old strand is covered by itself and MutL. Then MutH cleaves the unmethylated strand. This happens in some distance from the mismatch, due to the size of the proteins and the loop in the DNA. UvrD can then detect the cleavage and can move along the strand towards the site of the mismatch. It removes the outer strand when moving along. At the same time, the MutL, MutH, and MutS proteins are released and the loop in the DNA disappears. Finally UvrD moves to a position immediately beyond the mismatch, removing the wrong base together with their neighbours while moving. UvrD then goes off the DNA and leaves the old, and correct, strand to be completed. 
 
 \subsection{DNA Mismatch Repair System}
 
-Having presented all major components that are involved in this mismatch repair mechanism, we now define them in 
-the syntax of CCB. Our intention is to reuse the components from \cite{10.1007/978-3-319-99498-7_8} as much as possible. Specifically, we reuse the deoxyribose/phosphate groups, and the four bases A, T, C, and G. We will extend those components where needed, but we will keep the original actions. We need the following components for the MMR system: deoxyribose/phosphate groups (DP), the four bases A, T, G, C, the methyl group Me, and the proteins MutS, MutL, MutH, and UvrD. The reused components are as follows:
+Having briefly introduce all major components that are involved in this mismatch repair mechanism, we now
+define them in the syntax of CCB. Our intention is to reuse the components from \cite{10.1007/978-3-319-99498-7_8} as much as possible. Specifically, we reuse the deoxyribose/phosphate groups, and the four bases A, T, C, and G. We will extend those components where needed, but we will keep the original actions. We need the following components for the MMR system: deoxyribose/phosphate groups (DP), the four bases A, T, G, C, the methyl group Me, and the proteins MutS, MutL, MutH, and UvrD. The reused components are as follows:
 %
 $$\begin{array}{lll}
 \DP & \bydef & ((p3,p5;s) \paral (b,d)).\DP'\\
@@ -33,10 +34,10 @@ C & \bydef & (b;i).(c;r).C'\\
 \end{array}$$
 %
 %where processes $A$, $T$, $G$, and $C$ model the bases adenine (A), cytosine (C), guanine (G), and thymine (T). 
-Notice we have added new actions $s$, $m$, and $r$. The action $m$ is enabling the methylation. It only exists in $A$, since the methylation happens only there. %Also, the actions on DP have been regrouped (but all original actions are still there). 
-In $\DP$, we now use a collection with two sites. This is necessary to enable breaking of a bond to $p3$ or $p5$, which is are on one site, whilst there is still a bond to $b$ on the other site. %The action $d$, which was used by UDG in the modelling of BER is not used here, as we will see. We keep it to have an extension of the previous modelling.
+Notice we have added new actions $s$, $m$, and $r$. The action $m$ enables the methylation. It only exists in $A$, since the methylation happens only there. %Also, the actions on DP have been regrouped (but all original actions are still there). 
+In $\DP$, we now use a collection with two sites. This is necessary to enable breaking of a bond to $p3$ or $p5$, which are on one site, whilst there is still a bond to $b$ on the other site. %The action $d$, which was used by UDG in the modelling of BER is not used here, as we will see. We keep it to have an extension of the previous modelling.
 
-We also need additional components, namely the methyl group ME, and the MutS, MutL, MutH, and UvrD proteins. They are written in CCB as follows:
+We also need additional components, namely the methyl group Me, and the MutS, MutL, MutH, and UvrD proteins. They are written in CCB as follows:
 $$\begin{array}{lll}
 \Me & \bydef & (m).(n).\Me' \\
 \MutS & \bydef & (k,k).(l).\MutS'\\
@@ -62,14 +63,17 @@ The synchronisation function for our system is as follows:
 \hline
 \gamma(r,r) & = & rr & \gamma(t,u) & = & tu &\gamma(p,s) & = & ps &\gamma(w,s) & = & ws\\
 \hline
-\gamma(v,p3) & = & vp3 &  \gamma(u,r) & = & ur  & \gamma(s,v) & = & sv & & & \\
+\gamma(s,p3) & = & sp3 &  \gamma(v,p3) & = & vp3 &\gamma(w,p3) & = & wp3  & \gamma(u,r) & = & ur \\
+\hline
+\gamma(s,s) & = & ss & \gamma(s,v) & = & sv & \gamma(u,c) &=  & uc &  \\
 \end{array}
 \]
 
-As before, the deoxyribose/phosphate groups and the bases can combine to form a DNA strand. In that strand, there can be DNA mismatches. Note that we do not model how they happen, we just assume a DNA strand as in Figure~\ref{fig:state1} with a DNA mismatch and correct pairs otherwise. The mismatch here is an A-G pair.
+As before, the deoxyribose/phosphate groups and the bases can combine to form a DNA strand. In that strand, there can be DNA mismatches. Note that we do not model how they happen, we just assume a DNA strand as in Figure~\ref{fig:state1} with a DNA mismatch and correct pairs otherwise. The mismatch here is on an A, G pair.
 %, but that is not crucial for our modelling. 
-The A-G bases cannot bond to each other, that is the case in our modelling as well as in reality, and this gives the opportunity for the repair. There is a CTAG sequence (respectively a GATC sequence) on the top (respectively bottom) 
-chain of the DNA in Figure~\ref{fig:state1}. This is where the methylation happens. In our case, we have a recently duplicated strand, where the older chain is the upper one (A is methylated there) and the newer chain is the lower one (where A is not methylated). The methylation itself is done by proteins which are not modelled here. This is the situation where the MMR can happen.
+The A and G bases cannot bond to each other--it is the case in our model as well as in reality--and this gives the opportunity for the repair. There is a CTAG sequence (respectively a GATC sequence) on the top left (respectively bottom left) 
+chain of the DNA in Figure~\ref{fig:state1}. This is where the methylation happens. In our case, we have a recently duplicated strand, where the older chain is the upper one (A is methylated there) and the newer chain is the lower one (where A is not methylated). The methylation itself is done by proteins which are not modelled here. 
+%This is the situation where the MMR can happen.
 
 \begin{figure}[h!]
 \psfrag{dp1}{$DP_1$}
@@ -120,7 +124,7 @@ G_2 \paral A_3 \paral T_2 \paral C_3 \paral G_3 \paral G_4 \paral \\
 \setminus\{p3, p5, s, i, r, b, b, d, b, a, t, g, c, m, n, k, l, o, s, u, v, w\} 
 \end{array}$$ 
 
-We leave out the restriction from now on for ease of reading. We mark the copies of processes and their actions using subscripts in order to make them unique. Pairs of keys show on which actions initial bonds have been created. The MMR  system in full detail (but without restriction) is given below.   
+We leave out the restriction from now on for ease of reading. We mark copies of processes $\DP$ and the bases, and their actions, using subscripts in order to make them unique. Pairs of keys show on which actions initial bonds have been created. The MMR  system in full detail (but without restriction) is given below.   
 %
 \begin{flalign*}
 &((p3_1,p5_1[1];s_1) \paral (b_1[10],d_1)).DP_1' \paral ((p3_2[1],p5_2[2];s_2) \paral (b_2[8],d_2)).DP_2' \paral &&\\
@@ -136,14 +140,14 @@ We leave out the restriction from now on for ease of reading. We mark the copies
 &(m[40]).(n).Me'\paral (k,k).(l).MutS' \paral (l).(n).(o).MutL' \paral &&\\
 &(o).(w).MutH' \paral (u;r) \paral (v;s).UvrD'&&
 \end{flalign*}
-$\DP_1$ is connected to $\DP_2$ via the bond on $p_3$ and $p_5$ with the key 1. Similarly, $\DP_1$ is bonded to $C_1$ via the bond on actions $b$ with the key 10. Also, $\Me$ is bonded with $A_1$ on $m$ with the key 40. Correspondingly, there are other initial bonds in the MMR system as shown in Figure~\ref{fig:state1}.
+$\DP_1$ is connected to $\DP_2$ via the bond on $p5_1$ and $p3_2$ with the key 1. Similarly, $\DP_1$ is bonded to $C_1$ via the bond on actions $b$ with the key 10. Also, $\Me$ is bonded with $A_1$ on $m$ with the key 40. Correspondingly, there are other initial bonds with appropriate keys in the MMR system as shown in Figure~\ref{fig:state1}.
 
 
-A mismatch in the DNA section in Figure~\ref{fig:state1} is between $A_2$ and $G_3$: do not form a A-T or G-C 
-pair as required. Methylation is on the old upper half of the strand, which means that an methyl group $\Me$ is attached to $A_1$. Note that there is no methyl group on $A_2$. This is because the methylation only happens on CTAG sequences via a specific protein, which we do not model here.%, we just assume the end result. 
+A mismatch in the DNA section in Figure~\ref{fig:state1} is between $A_2$ and $G_3$: they do not form a A-T or G-C 
+pair as required. Methylation is on the old upper half of the strand, which means that a methyl group $\Me$ is attached to $A_1$. Note that there is no methyl group on $A_2$. This is because the methylation only happens on CTAG sequences via a specific protein, which we do not model here. %, we just assume the end result. 
 No bases $A$ are methylated on the new lower half, even if they parts of CTAG sequences, since not enough time has passed at this stage for this to happen. 
 
-Before we show the main reactions of the MMR mechanism, we shall shorten the presentation of our MMR system so that the reactions are more easily readable and can be checked.  Since $\DP_1$, $\DP_2$, $\DP_3$, $\DP_4$, $\DP_5$, $\DP_6$, $\DP_7$, $C_1$,  $T_1$, $C_2$, $G_2$, $A_3$, and $G_4$  (read from top to bottom and from left to right in Figure~\ref{fig:state1}) never directly participate in the reactions, we will leave them out from now. This makes the syntax of the MMR system much smaller:
+Before we show the main reactions of the MMR mechanism, we shall shorten the presentation of our MMR system so that the reactions are more easily readable and can be quickly checked.  Since $\DP_1$, $\DP_2$, $\DP_3$, $\DP_4$, $\DP_5$, $\DP_6$, and $\DP_7$, and the bases $C_1$,  $T_1$, $C_2$, $G_2$, $A_3$, and $G_4$  (read from top to bottom and from left to right in Figure~\ref{fig:state1}) never directly participate in the reactions, we will leave them out from now. The remaining part of the syntax of the MMR system much smaller:
 %
 \begin{flalign*}
 & (b_1[6];i_1).(a_1[24],m_1[40];r_1).A_1' \paral 
@@ -156,15 +160,17 @@ Before we show the main reactions of the MMR mechanism, we shall shorten the pre
 &(m[40]).(n).\Me'\paral (k,k).(l).\MutS' \paral (l).(n).(o).\MutL' \paral &&\\
 &(o).(w).\MutH' \paral (u;r) \paral (v;s).\UvrD'&&
 \end{flalign*}
-Note, however, that leaving out some components results in several ``incomplete'' bonds, for example with the key 12 between $\DP_8$ and the left out $\DP_7$.  
+Note, however, that leaving out some components results in appearance of  several ``incomplete'' bonds, for example with $\DP_8$ and $\DP_7$, which is left out, with the key 12.  
 
 \subsection{Reactions in DNA Mismatch Repair}
 
 
-The protein $\MutS$ can now bond to processes $A_2$ and $G_3$  via the $a_2$ and $g_3$ actions. This is the recognition of the mismatch. 
+We now present the main reactions of the MMR system, thus illustrating the benefits of concerted actions transitions.
+ 
+ We start with the protein $\MutS$ bonding to processes $A_2$ and $G_3$  via the $a_2$ and $g_3$ actions respectively. This is the recognition of the mismatch. 
 %Note that the $a$ and $g$ actions are not available on matching pairs. So the bonding is not possible if the bases are properly paired, and also not if a Uracil is incorporated into the strand (as in the BER example). 
 The transitions for creating the two bonds between $\MutS$ and
-$A_2$ and $G_3$ are as follows, where highlight the participating actions and keys in bold font:
+$A_2$ and $G_3$ are as follows, where we highlight the participating actions and keys in bold font:
 
 \begin{flalign*}
 & (b_1[6];i_1).(a_1[24],m_1[40];r_1).A_1' \paral 
@@ -188,7 +194,7 @@ $A_2$ and $G_3$ are as follows, where highlight the participating actions and ke
 &(o).(w).\MutH' \paral ((u;r) \paral (v;s)).\UvrD'&&
 \end{flalign*}
 
-Now it is possible for $\MutL$ to bond to $\MutS$ on $l$ with key 30:
+Now it is possible for $\MutL$ to bond to $\MutS$ on $l$ with key 30 (see Figure~\ref{fig:state2}):
 %
 \begin{flalign*}
 &\xrightarrow{ll[30]} (b_1[6];i_1).(a_1[24],m_1[40];r_1).A_1' \paral (b_6[9];i_6).(g_1[25];r_6).G_1' \paral &&\\
@@ -200,7 +206,7 @@ Now it is possible for $\MutL$ to bond to $\MutS$ on $l$ with key 30:
 &(o).(w).\MutH' \paral ((u;r) \paral (v;s)).\UvrD'&&
 \end{flalign*}
 
-$\MutL$ then can bond with $\Me$ on $n$, which means it detects which of the strands is methylated, and therefore the correct one:
+$\MutL$ then bonds with $\Me$ on $n$, which means it detects which of the strands is methylated, and therefore the correct one:
 %
 \begin{flalign*}
 &\xrightarrow{nn[31]} (b_1[6];i_1).(a_1[24],m_1[40];r_1).A_1' \paral (b_6[9];i_6).(g_1[25];r_6).G_1' \paral &&\\
@@ -224,7 +230,7 @@ $\MutL$ is now ready to recruit $\MutH$:
 &(\bm{o[32]}).(w).\MutH' \paral ((u;r) \paral (v;s)).\UvrD'&&
 \end{flalign*}
 %
-$\MutH$ is now ready to cleave the DNA at the right location. This is done by bonding to $\DP_9$ with key 33 and, at the same time, breaking the bond between $\DP_9$ and $\DP_8$ (with the key 13). These two simultaneous reactions are represented by the following concerted actions transition.
+The system at this stage is shown in Figure~\ref{fig:state2}. Next, $\MutH$ is ready to cleave the DNA at the right location. This is done by bonding to $\DP_9$ with key 33 and, at the same time, breaking the bond between $\DP_9$ and $\DP_8$ (with the key 13). These two simultaneous reactions are represented by the following concerted actions transition.
 %
 \begin{flalign*}
 &\xrightarrow{\{ws[33],\underline{p}[13]\}} (b_1[6];i_1).(a_1[24],m_1[40];r_1).A_1' \paral (b_6[9];i_6).(g_1[25];r_6).G_1' \paral  &&\\
@@ -236,7 +242,7 @@ $\MutH$ is now ready to cleave the DNA at the right location. This is done by bo
 &(o[32]).(\bm{w[33]}).MutH' \paral ((u;r) \paral (v;s)).UvrD'&&
 \end{flalign*}
 
-Next, {\em promotion} happens, which moves the bond with key 33 from weak action $s_9$ to strong action $p3_9$ in one of the sites of $\DP_9$:
+Next, {\em promotion} happens, which moves the bond with the key 33 from a weak action $s_9$ to strong a action $p3_9$ in one of the sites of $\DP_9$:
 
 \begin{flalign*}
 &\overset{ \rulename{prom}}\Rightarrow (b_1[6];i_1).(a_1[24],m_1[40];r_1).A_1' \paral (b_6[9];i_6).(g_1[25];r_6).G_1' \paral  &&\\
@@ -286,10 +292,13 @@ Note that execution of $s_9$ on $\DP_9$ leads to breaking a bond between two deo
   \label{fig:state2}
 \end{figure}
 
-Now the $\UvrD$ protein can use the cleavage to remove pairs of deoxyribose/phosphate groups and bases. This works as follows:
+Next, the protin $UvrD$ gets involved in the repair. It uses the cleavage to remove pairs of deoxyribose/phosphate groups and bases. 
+Firstly, $\UvrD$ bonds to $\DP_{10}$ (key 34) and thus breaks the bond between $\DP_{10}$ and its left neighbour 
+$\DP_9$ (key 14). Secondly, $\UvrD$ combines with $T_2$ (key 35) thus breaking the bond between $T_2$ and its paired base $A_1$ (key 24). Each of these concerted actions transitions is followed immediately by an application of \rulename{prom}. This rewrite moves bonds from weak actions $s_{10}$ and $r_5$ to strong actions $p3_{10}$ and $t_2$ respectively.
+These concerted actions transitions and applications of \rulename{prom} are as follows:
 
 \begin{flalign*}
-&\xrightarrow{\{sv[34],\underline{at}[14]\}}  \overset{ \rulename{prom}}\Rightarrow \xrightarrow{\{ur[35],\underline{at}[24]\}}  \overset{ \rulename{prom}}\Rightarrow (b_1[6];i_1).(\bm{a_1},m_1[40];r_1).A_1' \paral  (b_6[9];i_6).(g_1[25];r_6).G_1' \paral &&\\
+&\xrightarrow{\{sv[34],\underline{p}[14]\}}  \overset{ \rulename{prom}}\Rightarrow \xrightarrow{\{ur[35],\underline{at}[24]\}}  \overset{ \rulename{prom}}\Rightarrow (b_1[6];i_1).(\bm{a_1},m_1[40];r_1).A_1' \paral  (b_6[9];i_6).(g_1[25];r_6).G_1' \paral &&\\
 &(b_2[7];i_2).(a_2[28],m_2;r_2).A_2' \paral (b_5[19];i_5).(\bm{t_2[35]};r_5).T_2' \paral (b_{12}[20];i_{12}).(c_3[25];r_{12}).C_3'  \paral&&\\
 &(b_8[21];i_8).(g_3[29];r_8).G_3' \paral ((p3_8[12],p5_8;s_8) \paral (b_8[18],d_8)).\DP_8' \paral &&\\
 &((p3_9[33],p5_9;s_9) \paral (b_9[19],d_9)).\DP_9' \paral ((\bm{p3_{10}[34]},p5_{10}[15];s_{10}) \paral (b_{10}[20],d_{10})).\DP_{10}' \paral  &&\\
@@ -298,7 +307,7 @@ Now the $\UvrD$ protein can use the cleavage to remove pairs of deoxyribose/phos
 &(o[32]).(w[33]).\MutH' \paral ((\bm{u[35]};r) \paral (\bm{v[34]};s)).\UvrD'&&
 \end{flalign*}
 
-Note that $\UvrD$ is not attached to $\DP_9$ initially, but to $\DP_{10}$. If it had been attached to $\DP_9$, it would have had no connection to the DNA strand once the bonds of $DP_9$ and $T_2$ to the rest of DNA strand are broken.
+Note that $\UvrD$ does not attach to $\DP_9$ initially, but to $\DP_{10}$. If it had been attached to $\DP_9$, it would have had no connection to the DNA strand once the bonds of $DP_9$ and $T_2$ to the rest of DNA strand are broken.
 
 The removal of the first base and deoxyribose/phosphate group is shown in Figure~\ref{fig:state3}. The dashed lines indicate the bonds being broken and formed during concerted actions. The two pairs of concerted actions with keys
 (34,14) and (35,24) are shown by thin and bold dashed lines respectively.
@@ -339,10 +348,14 @@ The removal of the first base and deoxyribose/phosphate group is shown in Figure
   \label{fig:state3}
 \end{figure}
 
-From here,$\UvrD$ can ``walk'' along the strand (to the right). As opposed to BER, the bonds between the base pairs are now broken during the walk. Concurrently, the bonds between the deoxyribose/phosphate groups are also broken as $\UvrD$ progresses. We write these reactions as two separate concerted actions transitions for clarity:
+$\UvrD$ can now ``walk'' along the lower chain  of the the strand towards the right. 
+%As opposed to BER, the bonds between the base pairs are now broken during the walk. 
+Concurrently, the bonds between the deoxyribose/phosphate groups are also broken as $\UvrD$ progresses. We write these reactions as two separate concerted actions transitions for clarity, and note that this is the first time we have used the new \rulename{concert3} SOS rule.
 
 \begin{flalign*}
-&\xrightarrow{\{ss[36],\underline{vp3}[34],\underline{p}[15]\}} \overset{ \rulename{prom}}\Rightarrow  (b_1[6];i_1).(a_1,m_1[40];r).A_1' \paral (b_6[9];i_6).(g_1[25];r_3).G_1' \paral &&\\
+&\xrightarrow{\{ss[36],\underline{vp3}[34],\underline{p}[15]\}} 
+\overset{ \rulename{prom}}\Rightarrow \; \overset{ \rulename{prom}}\Rightarrow 
+(b_1[6];i_1).(a_1,m_1[40];r).A_1' \paral (b_6[9];i_6).(g_1[25];r_3).G_1' \paral &&\\
 &(b_2[7];i_2).(a_2[28],m_2;r).A_2' \paral (b_5[19];i_5).(t_2[35];r_2).T_2' \paral (b_{11}[20];i_{11}).(c_3[25];r_8).C_3'  \paral&&\\
 &(b_8[21];i_8).(g_2[29];r_4).G_3' \paral ((p3_8[12],p5_8;s_8) \paral (b_8[18],d_8)).\DP_8' \paral &&\\
 &((p3_9[33],p5_9;s_9) \paral (b_9[19],d_9)).\DP_9' \paral ((\bm{p3_{10},p5_{10}};s_{10}) \paral (b_{10}[20],d_{10})).\DP_{10}' \paral &&\\
@@ -350,9 +363,12 @@ From here,$\UvrD$ can ``walk'' along the strand (to the right). As opposed to BE
 &(m[40]).(n[31]).\Me'\paral (k[28],k[29]).(l[30]).\MutS' \paral (l[30]).(n[31]).(o[32]).\MutL' \paral &&\\
 &(o[32]).(w[33]).\MutH' \paral ((u[35];r) \paral (\bm{v[36]};s)).\UvrD'&&
 \end{flalign*}
-
+Notice that promotion has taken place from $s_{11}$ to $p3_{11}$ and from $s$ to $v$. Correspondingly, from
+$r_8$ to $c_3$ and from $r$ to $u$ below.
 \begin{flalign*}
-&\xrightarrow{\{rr[37],\underline{tu}[35],\underline{cg}[25]\}} \overset{ \rulename{prom}}\Rightarrow  (b_1[6];i_1).(a_1,m_1[40];r).A_1' \paral (b_6[9];i_6).(\bm{g_1};r_3).G_1' \paral  &&\\
+&\xrightarrow{\{rr[37],\underline{tu}[35],\underline{cg}[25]\}} 
+\overset{ \rulename{prom}}\Rightarrow \; \overset{ \rulename{prom}}\Rightarrow 
+ (b_1[6];i_1).(a_1,m_1[40];r).A_1' \paral (b_6[9];i_6).(\bm{g_1};r_3).G_1' \paral  &&\\
 &(b_2[7];i_2).(a_2[28],m_2;r).A_2' \paral (b_5[19];i_5).(\bm{t_2};r_2).T_2' \paral (b_{11}[20];i_{11}).(\bm{c_3[37]};r_8).C_3'  \paral&&\\
 &(b_8[21];i_8).(g_2[29];r_4).G_3' \paral  ((p3_8[12],p5_8;s_8) \paral (b_8[18],d_8)).\DP_8' \paral &&\\
 &((p3_9[33],p5_9;s_9) \paral (b_9[19],d_9)).\DP_9' \paral ((p3_{10},p5_{10};s_{10}) \paral (b_{10}[20],d_{10})).\DP_{10}' \paral &&\\
@@ -362,7 +378,8 @@ From here,$\UvrD$ can ``walk'' along the strand (to the right). As opposed to BE
 \end{flalign*}
 
 
-This is shown in Figure~\ref{fig:state4}. Here, the first  base and deoxyribose/phosphate group has been removed (no longer shown in Figure~\ref{fig:state4}) and UvrD is moving to the next  base and deoxyribose/phosphate group, again removing them. The two concerted actions  transitions with keys (36,34,15) and (37,35,25) are shown by thin and bold dashed lines respectively. Notice that here we have used the new rule \rulename{concert 3}.
+The resulting system is shown in Figure~\ref{fig:state4}. Here, the first  base and deoxyribose/phosphate group has been removed (no longer shown in Figure~\ref{fig:state4}) and $\UvrD$ is moving to the next  base and deoxyribose/phosphate group, again removing them. The two concerted actions  transitions with keys (36,34,15) and (37,35,25) are shown by thin and bold dashed lines respectively. 
+%Notice that here we have used the new rule \rulename{concert 3}.
 
 \begin{figure}[h!]
 \psfrag{dp1}{${DP_1}$}
@@ -400,13 +417,15 @@ This is shown in Figure~\ref{fig:state4}. Here, the first  base and deoxyribose/
   \label{fig:state4}
 \end{figure}
 
-This process can continue until the offending base has been removed. Figure~\ref{fig:state6} shows the removal of the offending base. We do not model how the number of base pairs to remove is determined. 
+This process continues until the offending base has been removed. Figure~\ref{fig:state6} shows the removal of the offending base. 
+%We do not model how the number of base pairs to remove is determined. 
 %In reality, that number is not fixed, but is determined by the interal workings of the protein, where the number is statistically distributed. 
-Once this is done and the MutH, MutL, and MutS proteins have detached we get the situation shown in Figure~\ref{fig:state7}. This is now ready for other proteins to replace the bases and and deoxyribose/phosphate groups. Notice that the remaining strand contains the necessary information for this, in particular only a $T$ process can bond with $A_2$ base. Note that the methyl group stays attached to $A_1$, since it is still an old DNA strand. Also the appropriate groups in the new, lower half will be methylated, so that both strands are marked as old material after the next DNA duplication process.
+Once this is done and the MutH, MutL, and MutS proteins have detached we get the situation shown in Figure~\ref{fig:state7}. The resulting system is now ready for other proteins to replace the bases and deoxyribose/phosphate groups. Notice that the remaining strand contains the necessary information for this, in particular that only a $T$ bases can bond with $A_1$ and $A_2$ and that a $C$ must bond with $G_1$. Note that the methyl group stays attached to $A_1$, since it is still an old DNA strand. Also the appropriate groups in the new, lower half will be methylated, so that both strands are marked as old material after the next DNA duplication process.
 
-The modelling done so far does not involve any spatial configurataions. As in the BER example, this means that UvrD could bond to any deoxyribose/phosphate group, not just the neighbouring one. It also means that we have not modelled the formation of the loop in the DNA, which is crucial for cleaving the correct strand.
+Our modelling has not considered any aspects of spatial configuration of proteins and bases. As in the BER example, 
+this means that UvrD could bond to any deoxyribose/phosphate group, not just the neighbouring one. It also means that we have not modelled the formation of the loop in the DNA, which is crucial for cleaving the correct strand.
 
-\begin{figure}[h!]
+\begin{figure}[t!]
 \psfrag{dp1}{${DP_1}$}
 \psfrag{dp2}{${DP_2}$}
 \psfrag{dp3}{${DP_3}$}
@@ -442,7 +461,7 @@ The modelling done so far does not involve any spatial configurataions. As in th
   \label{fig:state6}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[t!]
 \psfrag{dp1}{${DP_1}$}
 \psfrag{dp2}{${DP_2}$}
 \psfrag{dp3}{${DP_3}$}
