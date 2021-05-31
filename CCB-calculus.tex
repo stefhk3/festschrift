@@ -7,9 +7,9 @@ some SOS rules being revised. Moreover, two new SOS rules for concerted actions 
 We first introduce some preliminary notions and notations.
 
 Let $\mA$ be the set of (forward) action labels, 
-ranged over by $a,b,c,d,e,f$. We partition $\mA$ into the set of \emph{strong actions}, written as
+ranged over by $a,b,c,d,e,f,h$ and $j$. We partition $\mA$ into the set of \emph{strong actions}, written as
 $\mSA$, and the set of \emph{weak actions}, written as $\mWA$. Reverse (or past) action labels are members of
-$\underline\mA$, with typical members $\un{a},\un b, \un c,\un d, \un e ,\un f$, and represent 
+$\underline\mA$, with typical members $\un{a},\un b, \un c,\un d, \un e ,\un f, \un h$ and $\un j$, and represent 
 undoing of actions. The set $\mathcal{P}(\mA \cup \underline\mA)$ is ranged over by $L$.
 
 Let $\Keys$ be an infinite set of {\em communication keys} (or {\em keys} for short)
@@ -26,7 +26,7 @@ the semantics of CCB.
 
 Molecules may have several bonding \emph{sites} and several bonds can be created or dissolved at each bonding site. A site and its potential bonds are modelled via $(s;b)$, where $s$ is a sequence of actions, where actions model bonds, and $b$ is a weak (bond) action. The action $b$ can be omitted, in which case the construct is written as $(s)$. When a molecule has several sites 
 $(s;b), \ldots,(s';b')$ we shall write them as $(s;b) \Mid  \ldots \Mid (s';b')$ by using the symbol ``$\paral$'' to indicate that sites bond independently of each other. Such expressions are called \emph{collections of sites}, or just collections, and will be used to define the prefix operator. More formally, a site $\sigma$ is either $(s;b)$ or $(s)$. A collection $\mu$ is either $\sigma$ or $\sigma\Mid\sigma$, and 
-$\epsilon$ is the empty collection of sites. We shall denote a collection $\mu$ where all site are fully bonded as $\eta$.
+$\epsilon$ is the empty collection of sites. We shall denote collections where all sites are fully bonded as $\eta$.
 
 
 We now define the Calculus of Covalent Bonding. The syntax of CCB is given 
@@ -92,7 +92,7 @@ by the actions in $s'$. Another example where the full calculus is useful is a m
 standing transactions with compensations in \cite{Irek2012}.
 }
 
-The set of \emph{process terms} is ranged over by $P, Q$ and $R$ and is denoted by $\Proc$. 
+The set of \emph{process terms} is ranged over by $P$, $Q$ and $R$ and is denoted by $\Proc$. 
 In the setting of CCB these terms are called \emph{processes}. 
 A context $C\hole$ is a process term containing a \emph{hole}, represented by $\hole$. 
 Formally, contexts are defined by
@@ -480,21 +480,21 @@ and \rulename{rev sc} when $\mu\in \umAK$.}
 \[
 \begin{array}{lll}
 \rulename{red1}: & P\Par Q \Rightarrow Q\Par P& 
-\\[5pt]
+\\[2pt]
 \rulename{red2}: & P\Par (Q\Par R) \Rightarrow (P\Par Q)\Par R &
-\\[5pt]
+\\[2pt]
 \rulename{red3}: & (P\Par Q)\Par R \Rightarrow P\Par (Q\Par R) & 
-\\[5pt]
+\\[2pt]
 \rulename{red4}: & P\Par \Nil \Rightarrow P & 
-\\[5pt]
+\\[2pt]
 \rulename{red5}: & (P\paral Q)\backslash L \Rightarrow P\backslash L \paral Q & \mbox{ if fn(Q)} \cap L = \emptyset
-\\[5pt]
+\\[2pt]
 \rulename{red6}: & P\backslash L \paral Q \Rightarrow (P\paral Q)\backslash L & \mbox{ if fn(Q)} \cap L = \emptyset
-\\[5pt]
+\\[2pt]
 \rulename{prom}: & (s,a,s';b[k]).P \Rightarrow (s,a[k],s';b).P & \mbox{ if } a \in \mathcal{SA}, b \in \mathcal{WA} 
-\\[5pt]
+\\[2pt]
 \rulename{move-r}: & (s,a,s',b[k],s'').P \Rightarrow (s,a[k],s',b,s'').P & \mbox{ if } a \in \mathcal{SA}, b \in \mathcal{WA}
-\\[5pt]
+\\[2pt]
 \rulename{move-l}: & (s,b[k],s',a,s'').P \Rightarrow (s,b,s',a[k],s'').P & \mbox{ if } a \in \mathcal{SA}, b \in \mathcal{WA}
 \end{array}
 \] 
@@ -512,7 +512,7 @@ Since $(a,b).(c).S$ is the definition of $S$ we obtain by rule \rulename{rev con
 \end{example}
 
 Figures \ref{fig:c1sos}--\ref{fig:xc2sos} contain the SOS rules that define the new concerted actions transitions. 
-The main rules are the \rulename{concert} rules in Figure~\ref{fig:c1sos} that define when a pair or a triple 
+The main rules are the three \rulename{concert} rules in Figure~\ref{fig:c1sos} that define when a pair or a triple 
 of concerted action take place. 
 We also have four auxiliary rules \rulename{w}, \rulename{cw}, \rulename{aux1} and \rulename{aux2} which 
 define only an auxiliary action transition relation needed in the \rulename{concert} rules.
@@ -529,8 +529,8 @@ The two rules \rulename{concert act} require, correspondingly as \rulename{act},
 Our operational semantics guarantees that if a standard process evolves to $(t;b).P$, where all actions in $t$ are fully executed, and
 $P$ reverses an action with the key $l$, then $l$ is fresh in $t$. Hence, we do not include $\fresh{l}{t}$
 in the premises of the \rulename{concert act} rules.
-%
-Next, we illustrate how concerted actions transitions work.
+
+We now illustrate how concerted actions transitions work.
 
 \begin{example}\label{ex:examp1}
 {\rm Consider the process $(a;b) \paral a \paral b$ with $\gamma(a,a)=c$ and $\gamma(b,d)=f$. After the
@@ -572,12 +572,13 @@ $$
 (a[1];b)\paral (e[2];b)\paral (a[1],e[2])  \xrightarrow{\{d[3], \underline{h}[2]\}} 
 (a[1];b[3])\paral (e;b[3])\paral (a[1],e)
 $$ 
-We notice that, following the first transition, the $h[2]$ bond can be broken, and correspondingly the $c[1]$ bond can be broken after the second transition. Since creation and breaking of such bonds is almost instantaneous, we need a new concert rule that captures such cascade of reactions. Using \rulename{concert3} we derive the following:
+We notice that, following the first transition, the $h[2]$ bond can be broken, and correspondingly the $c[1]$ bond can be broken after the second transition. Since creation and breaking of such bonds is almost instantaneous, we have added 
+a new concert rule that captures such cascade of three reactions, called \rulename{concert3}. It allows us to derive
 $$
 (a[1];b)\paral (e[2];b)\paral (a[1],e[2])  \xrightarrow{\{d[3], \underline{c}[1], \underline{h}[2]\}} 
-(a;b[3])\paral (e;b[3])\paral (a,e)
+(a;b[3])\paral (e;b[3])\paral (a,e) .
 $$ 
-Here, the bond $d$ is created which results in two other bonds being broken.  }
+Here, creation of the bond $d$ results in two other bonds being broken.  }
 \end{example}
 
 Overall, the transitions in Figures~\ref{fig:fsos}--\ref{fig:xc2sos} are labelled with $a[k] \in \mAK$, or with 
@@ -590,14 +591,15 @@ which potentially combine reductions (defined below) with transitions.
 
 Next, we introduce our reduction relation which is given by the reduction (rewrite) rules 
 in Figure~\ref{fig:reduction}. The reduction relation is needed to define {\em promotion} 
-of actions. First we define the function $\mathsf{fn}$ for {\em free names} of processes.
-
-\begin{definition} \normalfont 
-The function $\mathsf{fn}: \Proc \rightarrow \mathcal{P}(\Keys)$ is given as follows: 
+of actions. First we define {\em free names} of processes. 
+%
+%\begin{definition} \normalfont 
+The function 
+$\mathsf{fn}: \Proc \rightarrow \mathcal{P}(\Keys)$ is given as follows: 
 $\mathsf{fn}(\Nil) = \emptyset$,
 $\mathsf{fn}(S)=\mathsf{fn}(P) \text{ if }  S\bydef P$, $\mathsf{fn}((\alpha : s;b).P)=\{\alpha\} \cup 
 \mathsf{fn}((s;b).P)$, $\mathsf{fn}((a;b).P)=\{a,b\} \cup \mathsf{fn}(P) $, $\mathsf{fn}(P\paral Q)=\mathsf{fn}(P) \cup \mathsf{fn}(Q)$, and $\mathsf{fn}(P \restrict L)=\mathsf{fn}(P) \restrict L$.
-\end{definition}
+%\end{definition}
 
 \noindent
 The reduction rules have names such as, for example, \rulename{red} and we write 
@@ -628,14 +630,14 @@ of concerted actions) the bond establishes itself on the strong action thus rele
 In order to align the use of these three rules to what happens in chemical reactions, we insist
 that they are used as soon as they becomes applicable: this is made 
 precise in Definition~\ref{LTS}.
-We could have used the idea of ordering on SOS rules and rewrite rules \cite{irek2002,mousavi}
-to specify that the rewrite rules \rulename{prom}, \rulename{move-r} and \rulename{move-r} are higher 
-in the ordering than all SOS rules and the remaining rewrite rules, implying that they should 
-be applied first when deriving transitions. Alternatively, we could have tried to 
-employ some of the techniques presented in \cite{Cleaveland2001711} to define our transition relation.
-This would require the use of negative information in the premisses, and the definitions in the style
-as those in \cite{irek2002,mousavi}.  However, since we combine SOS rules
-with rewrite rules, we opted for a directly defined transition relation.
+%We could have used the idea of ordering on SOS rules and rewrite rules \cite{irek2002,mousavi}
+%to specify that the rewrite rules \rulename{prom}, \rulename{move-r} and \rulename{move-r} are higher 
+%in the ordering than all SOS rules and the remaining rewrite rules, implying that they should 
+%be applied first when deriving transitions. Alternatively, we could have tried to 
+%employ some of the techniques presented in \cite{Cleaveland2001711} to define our transition relation.
+%This would require the use of negative information in the premisses, and the definitions in the style
+%as those in \cite{irek2002,mousavi}.  However, since we combine SOS rules
+%with rewrite rules, we opted for a directly defined transition relation.
 
 We now define the transition relation for the labelled transition system for CCB.
 Recall that the states of the LTS are processes in $\Proc$ and the labels are members of $\mA$,

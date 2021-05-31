@@ -270,8 +270,11 @@ In this paper, we model DNA mismatch repair using our calculus CCB. This builds 
 \input{CCB-mmr.tex}
 %
 \section{Conclusion}
+We have shown previously work that the Calculus of Covalent Bonding can be used to represent and simulate higher-level biochemical processes and reactions. In this paper, we have extend the calculus and its operational semantics so that we can model appropriately an important gene repair pathway, namely DNA Mismatch Repair (MMR). We have used a prefix operator that can represent multiple bonding sites, 
+and we have 
+included two additional SOS rules for concerted actions transitions, involving two or three actions. 
 
-\section*{References}
+The MMR is a complex pathway. We have modelled it with twelve deoxyribose/phosphate groups, twelve bases and four helper proteins, all composed in parallel. We then have shown a sequence of reactions, including bonding reactions and concerted actions reactions, involving either two or three reactions, that represented MMR mechanism. These have worked very well in our opinion. However, we are not able to consider spatial aspects of such reactions in the current setting, which is left to future research.
 
 \bibliography{mybibfile}
 
