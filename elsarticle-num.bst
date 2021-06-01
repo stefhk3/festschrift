@@ -1252,7 +1252,7 @@ FUNCTION {inbook}
   format.pages "pages" output.check
   format.note output
   fin.entry
-  write.url
+  %write.url
 }
 
 FUNCTION {incollection}
@@ -1337,7 +1337,7 @@ FUNCTION {manual}
   format.note output
   format.date output
   fin.entry
-  write.url
+  %write.url
 }
 
 FUNCTION {mastersthesis}
@@ -1351,7 +1351,7 @@ FUNCTION {mastersthesis}
   format.note output
   format.date "year" output.check
   fin.entry
-  write.url
+  %write.url
 }
 
 FUNCTION {misc}
@@ -1378,7 +1378,7 @@ FUNCTION {phdthesis}
   format.note output
   format.date "year" output.check
   fin.entry
-  write.url
+  %write.url
 }
 
 FUNCTION {proceedings}
@@ -1411,7 +1411,7 @@ FUNCTION {proceedings}
   if$
   format.note output
   fin.entry
-  write.url
+  %write.url
 }
 
 FUNCTION {techreport}
@@ -1425,7 +1425,7 @@ FUNCTION {techreport}
   format.note output
   format.date "year" output.check
   fin.entry
-  write.url
+  %write.url
 }
 
 FUNCTION {unpublished}
