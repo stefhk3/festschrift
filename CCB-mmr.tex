@@ -68,7 +68,7 @@ The synchronisation function for our system is as follows:
 \gamma(s,s) & = & ss & \gamma(s,v) & = & sv & \gamma(u,c) &=  & uc &  \\
 \end{array}
 \]
-The deoxyribose/phosphate groups and the bases can combine to form a DNA strand. There can be DNA mismatches in such strands. Note that we do not model how they happen, we just assume a DNA strand as in Figure~\ref{fig:state1} with one DNA mismatch.% and correct pairs otherwise. 
+The deoxyribose/phosphate groups and the bases can combine to form a DNA strand. There can be DNA mismatches in such strands. Note that we do not model how they happen, we just assume a DNA strand as in Figure~\ref{fig:state1} with one DNA mismatch.% and correct pairs otherwise.
 The mismatch here is on an A and G pair.
 %, but that is not crucial for our modelling.
 The A and G bases cannot bond to each other--it is the case in our model as well as in reality--and this gives the opportunity for the repair. There is a CTAG sequence (respectively a GATC sequence) on the top left (respectively bottom left)
@@ -144,7 +144,7 @@ $\DP_1$ is connected to $\DP_2$ via the bond on $p5_1$ and $p3_2$ with the key 1
 
 
 A mismatch in the DNA section in Figure~\ref{fig:state1} is between $A_2$ and $G_3$: they do not form an
-A-T or G-C pair as required. 
+A-T or G-C pair as required.
 Methylation is on the old upper half of the strand, which means that a methyl group $\Me$ is attached to $A_1$. Note that there is no methyl group on $A_2$. This is because the methylation only happens on CTAG sequences via a specific protein, which we do not model here. %, we just assume the end result.
 No bases $A$ are methylated on the new lower half, even if they parts of CTAG sequences, since not enough time has passed at this stage for this to happen.
 
@@ -161,7 +161,7 @@ Before we show the main reactions of the MMR mechanism, we shall shorten the pre
 &(m[40]).(n).\Me'\paral (k,k).(l).\MutS' \paral (l).(n).(o).\MutL' \paral &&\\
 &(o).(w).\MutH' \paral (u;r) \paral (v;s).\UvrD'&&
 \end{flalign*}
-Note that leaving out some components results in appearance of  several ``incomplete'' bonds, for example, between 
+Note that leaving out some components results in appearance of  several ``incomplete'' bonds, for example, between
 $\DP_8$ and $\DP_7$, which is left out, with the key 12.
 
 \subsection{Reactions in DNA Mismatch Repair}
@@ -232,7 +232,7 @@ Finally, $\MutL$ recruits $\MutH$:
 &(\bm{o[32]}).(w).\MutH' \paral ((u;r) \paral (v;s)).\UvrD'&&
 \end{flalign*}
 %
-The system at this stage is shown in Figure~\ref{fig:state15}. 
+The system at this stage is shown in Figure~\ref{fig:state15}.
 
 Next, $\MutH$ is ready to cleave the DNA at the right location. This is done by bonding to $\DP_9$ with the key 33 and, at the same time, breaking the bond between $\DP_9$ and $\DP_8$ (with the key 13). These two simultaneous reactions are represented by the following concerted actions transition.
 %
@@ -269,7 +269,7 @@ Next, $\MutH$ is ready to cleave the DNA at the right location. This is done by 
 \psfrag{UD}{${\mathit{UvrD}}$}
   \centering
     \includegraphics[width=1.0\textwidth]{mmr/state15}
-  \caption[A six base pair DNA fragment.]{A six base pair DNA fragment, with a DNA mismatch and methylation of one strand. The proteins MutL, MutS, and  MutH are bonded to the strand and ready to recruit UvrD, which is not 
+  \caption[A six base pair DNA fragment.]{A six base pair DNA fragment, with a DNA mismatch and methylation of one strand. The proteins MutL, MutS, and  MutH are bonded to the strand and ready to recruit UvrD, which is not
   involved at this point yet.}
   \label{fig:state15}
 \end{figure}
@@ -293,11 +293,13 @@ Next, {\em promotion} happens, which moves the bond with the key 33 from a weak 
 &(m[40]).(n[31]).Me'\paral (k[28],k[29]).(l[30]).MutS' \paral (l[30]).(n[31]).(o[32]).MutL' \paral &&\\
 &(o[32]).({w[33]}).MutH' \paral ((u;r) \paral (v;s)).UvrD'&&
 \end{flalign*}
-Note that execution of $s_9$ on $\DP_9$ leads to breaking a bond between two deoxyribose/phosphate groups. Specifically, bond 33 from $\MutH$ to $DP_9$ via actions $w$ and $s$ is formed and bond 13 between $p5$ in $\DP_8$ and $p3$ in  $\DP_9$ is broken. %We use concerted actions and rewriting for this. 
+Note that execution of $s_9$ on $\DP_9$ leads to breaking a bond between two deoxyribose/phosphate groups. Specifically, bond 33 from $\MutH$ to $DP_9$ via actions $w$ and $s$ is formed and bond 13 between $p5$ in $\DP_8$ and $p3$ in  $\DP_9$ is broken. %We use concerted actions and rewriting for this.
 
 The situation after this step is shown in Figure~\ref{fig:state2}. This has now the right DNA strand cleaved.
 
 \begin{figure}[h!]
+\psfrag{13}[cc][][0.8][0]{$13$}
+\psfrag{33}[cc][][0.8][0]{$33$}
 \psfrag{dp1}{$DP_1$}
 \psfrag{dp2}{$DP_2$}
 \psfrag{dp3}{$DP_3$}
@@ -329,7 +331,7 @@ The situation after this step is shown in Figure~\ref{fig:state2}. This has now 
 \psfrag{UD}{${\mathit{UvrD}}$}
   \centering
     \includegraphics[width=1.0\textwidth]{mmr/state2}
-  \caption[A six base pair DNA fragment.]{%A six base pair DNA fragment, with a DNA mismatch and methylation of one strand. 
+  \caption[A six base pair DNA fragment.]{%A six base pair DNA fragment, with a DNA mismatch and methylation of one strand.
   The mismatch has been detected by $\MutS$, and $\MutH$ and $\MutL$ have been recruited. $\MutL$ has detected the methylation, and $\MutH$ has cleaved the strand containing the wrong base.}
   \label{fig:state2}
 \end{figure}
@@ -350,12 +352,16 @@ These concerted actions transitions and applications of \rulename{prom} are as f
 \end{flalign*}
 Note that $\UvrD$ does not attach to $\DP_9$ initially, but to $\DP_{10}$. If it had been attached to $\DP_9$, it would have had no connection to the DNA strand once the bonds of $DP_9$ and $T_2$ to the rest of DNA strand are broken.
 
-The removal of the first base and deoxyribose/phosphate group is shown in Figure~\ref{fig:state3}. The 
+The removal of the first base and deoxyribose/phosphate group is shown in Figure~\ref{fig:state3}. The
 bold lines show the bonds being created and the dashed lines indicate the bonds being broken.
-% and formed during concerted actions. 
+% and formed during concerted actions.
 The two pairs of concerted actions transitions have the keys (34,14) and (35,24) respectively.
 
 \begin{figure}[h!]
+\psfrag{24}[cc][][0.8][0]{$24$}
+\psfrag{14}[cc][][0.8][0]{$14$}
+\psfrag{35}[cc][][0.8][0]{$35$}
+\psfrag{34}[cc][][0.8][0]{$34$}
 \psfrag{dp1}{${DP_1}$}
 \psfrag{dp2}{${DP_2}$}
 \psfrag{dp3}{${DP_3}$}
@@ -387,7 +393,7 @@ The two pairs of concerted actions transitions have the keys (34,14) and (35,24)
 \psfrag{UD}{${\mathit{UvrD}}$}
   \centering
     \includegraphics[width=1.0\textwidth]{mmr/state3}
-  \caption[A six base pair DNA fragment.]{%A six base pair DNA fragment, with a DNA mismatch and methylation of one strand. 
+  \caption[A six base pair DNA fragment.]{%A six base pair DNA fragment, with a DNA mismatch and methylation of one strand.
   $\UvrD$ has now bonded to $T_2$ and $\DP_{10}$ (bold lines), breaking the bonds of those molecules to the rest of the DNA (dotted lines). %In a next step, $\UvrD$ can now ``walk'' along the DNA strand, and remove the next pair of $\DP$ and base molecules.
 }
   \label{fig:state3}
@@ -429,6 +435,12 @@ and deoxyribose/phosphate group $\DP_{10}$, again to remove them. The two concer
 %Notice that here we have used the new rule \rulename{concert 3}.
 
 \begin{figure}[h!]
+\psfrag{25}[cc][][0.8][0]{$25$}
+\psfrag{14}[cc][][0.8][0]{$14$}
+\psfrag{35}[cc][][0.8][0]{$35$}
+\psfrag{34}[cc][][0.8][0]{$34$}
+\psfrag{36}[cc][][0.8][0]{$36$}
+\psfrag{37}[cc][][0.8][0]{$37$}
 \psfrag{dp1}{${DP_1}$}
 \psfrag{dp2}{${DP_2}$}
 \psfrag{dp3}{${DP_3}$}
@@ -460,7 +472,7 @@ and deoxyribose/phosphate group $\DP_{10}$, again to remove them. The two concer
 \psfrag{UD}{${\mathit{UvrD}}$}
   \centering
     \includegraphics[width=1.0\textwidth]{mmr/state4}
-  \caption[A six base pair DNA fragment.]{%A six base pair DNA fragment, with a DNA mismatch and methylation of one strand. 
+  \caption[A six base pair DNA fragment.]{%A six base pair DNA fragment, with a DNA mismatch and methylation of one strand.
   $\UvrD$ has now bonded to $C_3$ and $\DP_{11}$ (bonds shows as bold lines), breaking the bonds of those molecules to the rest of the DNA via concerted actions (shown as dotted lines). The group of $T_2$ and $\DP_{9}$ is now no longer attached to the DNA and is therefore shown in grey. % This process can continue for more pairs.
 }
   \label{fig:state4}
@@ -469,10 +481,16 @@ and deoxyribose/phosphate group $\DP_{10}$, again to remove them. The two concer
 This process continues until the offending base $G_3$ has been removed. We do not show concerted actions transitions that model that since they correspond very closely to the last two transitions. Figure~\ref{fig:state6} shows the result of these two transitions which remove of the offending base.
 %We do not model how the number of base pairs to remove is determined.
 %In reality, that number is not fixed, but is determined by the interal workings of the protein, where the number is statistically distributed.
-Once this is done and the MutH, MutL, and MutS proteins have detached we get the situation shown in Figure~\ref{fig:state7}. 
+Once this is done and the MutH, MutL, and MutS proteins have detached we get the situation shown in Figure~\ref{fig:state7}.
 
 
 \begin{figure}[t!]
+\psfrag{29}[cc][][0.8][0]{$29$}
+\psfrag{16}[cc][][0.8][0]{$16$}
+\psfrag{38}[cc][][0.8][0]{$38$}
+\psfrag{39}[cc][][0.8][0]{$39$}
+\psfrag{36}[cc][][0.8][0]{$36$}
+\psfrag{37}[cc][][0.8][0]{$37$}
 \psfrag{dp1}{${DP_1}$}
 \psfrag{dp2}{${DP_2}$}
 \psfrag{dp3}{${DP_3}$}
@@ -504,7 +522,7 @@ Once this is done and the MutH, MutL, and MutS proteins have detached we get the
 \psfrag{UD}{${\mathit{UvrD}}$}
   \centering
     \includegraphics[width=1.0\textwidth]{mmr/state6}
-  \caption[A six base pair DNA fragment.]{%A six base pair DNA fragment, with a DNA mismatch and methylation of one strand. 
+  \caption[A six base pair DNA fragment.]{%A six base pair DNA fragment, with a DNA mismatch and methylation of one strand.
 $\UvrD$ has now bonded to $G_3$ (the offending base) and $\DP_{12}$, breaking the bonds of those molecules to the rest of the DNA via concerted actions (shown as dotted lines). The offending base is removed after this step. As before, the $C_3$-$\DP_{10}$ group is shown in grey, since it is no longer attached to the DNA.}
   \label{fig:state6}
 \end{figure}
