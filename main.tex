@@ -215,12 +215,12 @@
 %We have demonstrated in previous work that the Calculus of Covalent Bonding (CCB) can be used to simulate higher-level biochemical processes. This is significant since CCB was originally devised to model organic chemical reactions on a lower level. We are now extending the use of CCB to model another gene repair pathway, DNA Mismatch Repair (MMR). This is a more complex pathway than the Base Excision Repair (BER) which we modelled originally. It involves four proteins and needs a distinction between the two chains in a DNA strand. We demonstrate that we can model this by extending our modelling of BER and that we can do this using the unchanged CCB calculus and operational semantics. We also show that the simulation software developed previously can be used to execute this pathway.
 %
 %
-We have demonstrated in previous work that the Calculus of Covalent Bonding (CCB) can be used to simulate higher-level biochemical processes. This is significant since CCB was originally devised to model organic chemical reactions on a lower level. We now extend the use of the calculus  to model an important gene repair pathway, namely DNA Mismatch Repair (MMR). This complex pathway involves four helper proteins and needs a distinction between the two chains in a DNA strand. 
-We extend the calculus and its operational semantics slightly by allowing more complex concerted actions.
-We also show that the simulation software developed previously can be used to execute this pathway.
+We have demonstrated in previous work that the Calculus of Covalent Bonding (CCB) can be used to simulate higher-level biochemical processes. This is significant since CCB was originally devised to model lower level organic chemical reactions. In this paper we extend the use of the calculus  to model an important gene repair pathway, namely DNA Mismatch Repair (MMR). This complex pathway involves four helper proteins and needs a distinction between the two chains in a DNA strand. 
+We extend the calculus by allowing prefixing with collections of bonding sits and its operational semantics by allowing more complex concerted actions transitions.
+%We also show that the simulation software developed previously can be used to execute this pathway.
 \end{abstract}
 
-\begin{keyword}Reversible process calculus, modelling of DNA Mismatch Repair.
+\begin{keyword}Reversible computation, Calculus of Covalent Bonding, DNA Mismatch Repair.
 %\texttt{elsarticle.cls}\sep \LaTeX\sep Elsevier \sep template
 %\MSC[2010] 00-01\sep  99-00
 \end{keyword}
@@ -253,7 +253,7 @@ or internal factors, such as free radicals produced by the body. Another source 
 
 DNA repair is crucial to maintain the quality of information in organisms. Whilst DNA replication errors are rare (they happen at a rate of about 1 per every 100,000 nucleotides), this translates to a large number of errors given the length of DNA: about 120,000 mistakes every time a human cell divides~\cite{damage}. Since incorrect DNA can give rise to cancer and other illnesses and generally to early aging and death, DNA repair is a crucial part of life and its understanding is an important strand of research.
 
-In this paper, we model DNA mismatch repair using our calculus CCB. This builds upon and extends our previous work of the modelling of BER and other biochemical reactions.
+In this paper, we model DNA mismatch repair using the calculus CCB. This builds upon and extends our previous work on the modelling of BER and other biochemical reactions.
 %. The aim of the work is on the one hand to further test and evaluate CCB. On the other hand, it is an extension of the biological modelling done in previous work.
 
 \section{Related Work}
@@ -273,7 +273,7 @@ In this paper, we model DNA mismatch repair using our calculus CCB. This builds 
 We have shown previously that the Calculus of Covalent Bonding can be used successfully to represent and simulate higher-level biochemical processes and reactions. In this paper, we have extend the calculus and its operational semantics further so that we can model appropriately an important gene repair pathway, namely the DNA Mismatch Repair (MMR) mechanism. We have used a prefix operator that can represent 
 multiple bonding sites,  and we have included two additional SOS rules for concerted actions transitions, involving two or three actions. 
 
-The MMR mechanism is a complex pathway. We have modelled it with twelve deoxyribose/phosphate groups, twelve bases and four helper proteins, all composed in parallel. We then have shown a sequence of transitions, including bonding reactions and concerted actions reactions (involving either two or three reactions), that represent the MMR mechanism. The model and the transitions have worked very well in our opinion. However, we have not been able to consider some spatial aspects of such reactions in the current setting, which is left to future research.
+The MMR mechanism is a complex pathway. We have modelled it with twelve deoxyribose/phosphate groups, twelve bases and four helper proteins, all composed in parallel. We then have shown a sequence of transitions (representing bonding reactions and cascades of concerted reactions with either two or three reactions each) that represent the MMR mechanism. The model and the transitions have worked very well in our opinion. However, we have not been able to consider some spatial aspects of such reactions in the current setting, which is left to future research.
 
 \bibliography{mybibfile}
 
