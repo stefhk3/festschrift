@@ -1,9 +1,9 @@
 %\section{Calculus of Covalent Bonding}\label{sec:calculus}
 %
-Calculus of Covalent Bonding, or CCB for short, was defined in~\cite{KU2017}. 
+The Calculus of Covalent Bonding, or CCB for short, was defined in~\cite{KU2017}. 
 We recall here the main definitions in order to make the paper self-contained. 
-We note, however, that the syntax of CCB is slightly extended resulting in several 
-some SOS rules being revised. Moreover, two new SOS rules for concerted actions are added. 
+We note, however, that the syntax of this version of CCB is slightly extended resulting in several 
+SOS rules being revised. Moreover, two new SOS rules for concerted actions are added. 
 We first introduce some preliminary notions and notations.
 
 Let $\mA$ be the set of (forward) action labels, 
@@ -26,15 +26,14 @@ the semantics of CCB.
 
 Molecules may have several bonding \emph{sites} and several bonds can be created or dissolved at each bonding site. A site and its potential bonds are modelled via $(s;b)$, where $s$ is a sequence of actions, where actions model bonds, and $b$ is a weak (bond) action. The action $b$ can be omitted, in which case the construct is written as $(s)$. When a molecule has several sites 
 $(s;b), \ldots,(s';b')$ we shall write them as $(s;b) \Mid  \ldots \Mid (s';b')$ by using the symbol ``$\paral$'' to indicate that sites bond independently of each other. Such expressions are called \emph{collections of sites}, or just collections, and will be used to define the prefix operator. More formally, a site $\sigma$ is either $(s;b)$ or $(s)$. A collection $\mu$ is either $\sigma$ or $\sigma\Mid\sigma$, and 
-$\epsilon$ is the empty collection of sites. We shall denote collections where all sites are fully bonded as $\eta$.
+$\epsilon$ is the empty collection of sites. We shall denote collections where all strong actions of all sites are fully bonded as $\eta$.
 
 
 We now define the Calculus of Covalent Bonding. The syntax of CCB is given 
 below where $P$ and $Q$ are process terms:
-
 %$$P ::=  S \ \mid \ (s;b).P \ \mid \ P\paral Q \ \mid \ P\restrict L $$
 $$P ::=  S \ \mid \ \mu.P \ \mid \ P\paral Q \ \mid \ P\restrict L $$
-
+%
 The set of process identifiers (constants) $\PI$ contains typical elements $S$ and $T$. 
 A process identifier $S$ has normally a defining equation $S\bydef P$ where $P$ contains only forward 
 actions (and no past actions). There is also a special identifier
@@ -502,7 +501,7 @@ and \rulename{rev sc} when $\mu\in \umAK$.}
 \label{fig:reduction}
 \end{figure}
 
-The next example illustrates how some of the reverse SOS rules work. We also consider here processes with collections that consist of single sites. 
+The next example illustrates how some of the reverse SOS rules work. We only consider here processes with collections that consist of single sites. 
 \begin{example}
 {\rm 
 Consider $(a[1],b).(c).S$ where $S\bydef (a,b).(c).S$. We have 
@@ -513,7 +512,7 @@ Since $(a,b).(c).S$ is the definition of $S$ we obtain by rule \rulename{rev con
 
 Figures \ref{fig:c1sos}--\ref{fig:xc2sos} contain the SOS rules that define the new concerted actions transitions. 
 The main rules are the three \rulename{concert} rules in Figure~\ref{fig:c1sos} that define when a pair or a triple 
-of concerted action take place. 
+of concerted actions take place. 
 We also have four auxiliary rules \rulename{w}, \rulename{cw}, \rulename{aux1} and \rulename{aux2} which 
 define only an auxiliary action transition relation needed in the \rulename{concert} rules.
 Note that transitions in \rulename{aux1} and \rulename{aux2} use the auxiliary labels $(b)[k]$ 
@@ -572,7 +571,7 @@ $$
 (a[1];b)\paral (e[2];b)\paral (a[1],e[2])  \xrightarrow{\{d[3], \underline{h}[2]\}} 
 (a[1];b[3])\paral (e;b[3])\paral (a[1],e)
 $$ 
-We notice that, following the first transition, the $h[2]$ bond can be broken, and correspondingly the $c[1]$ bond can be broken after the second transition. Since creation and breaking of such bonds is almost instantaneous, we have added 
+We notice that, following the first transition above, the $h[2]$ bond can be broken, and correspondingly the $c[1]$ bond can be broken after the second transition. Since creation and breaking of such bonds is almost instantaneous, we have added 
 a new concert rule that captures such cascade of three reactions, called \rulename{concert3}. It allows us to derive
 $$
 (a[1];b)\paral (e[2];b)\paral (a[1],e[2])  \xrightarrow{\{d[3], \underline{c}[1], \underline{h}[2]\}} 
@@ -720,7 +719,7 @@ Correspondingly, there are the \emph{concerted (action)} transitions.
 The current version of CCB is a minor extension of the original CCB from \cite{KU2017}. If our collections have only one site, then both calculi have the same syntax. If we additionally do not define rules for concerted transitions that involve three actions, namely \rulename{concert3}, \rulename{concert3 act}, \rulename{concert3 par}, \rulename{concert3 res},
 and do not use the alternative rule \rulename{concert2}, then the transition relations that are associated with both calculi are the same. This means that all the properties that the original CCB posses are also enjoyed by the core of the current calculus.
 
-In particular, we can show, using the same arguments as in \cite{KU2017}, that some this CCB satisfies several classical properties of reversible computation such as, for example, \emph{Well-foundedness}, \emph{Reverse Diamond} and \emph{Forward Diamond} \cite{PHILLIPS200770,LPU2020}. Moreover, if we leave out weak actions (and do not use SOS rules that involve weak actions), then the resulting calculus satisfies the \emph{Causal Consistency} property
+In particular, we can show, using the same arguments as in \cite{KU2017}, that this CCB satisfies several classical properties of reversible computation such as, for example, \emph{Well-foundedness}, \emph{Reverse Diamond} and \emph{Forward Diamond} \cite{PHILLIPS200770,LPU2020}. Moreover, if we leave out weak actions (and do not use SOS rules that involve weak actions), then the resulting calculus satisfies the \emph{Causal Consistency} property
 ~\cite{10.1007/978-3-540-28644-8_19,LPU2020}. This gives confidence that the core of CCB models reversibility correctly. 
 
 The purpose of CCB is however to capture the so called ``out-of-causal order'' behaviour which is so common in biochemical reactions. This is achieved via our concerted actions transitions, which allow us faithful modelling of complex sequences of reactions such as those present in a DNA mismatch repair mechanism. 
