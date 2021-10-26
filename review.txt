@@ -1,0 +1,50 @@
+1. The process terms describing the systems are long and somehow difficult to follows. For
+instance, the given example, involving only 6 pairs of bases, results in a half a page formula (page
+22). While there is some effort to simplify the term, the notation is still long and much of the text in
+pages 23-29 contains redundant information. A suggestion here is the use something similar to the
+global-local handling notation used in the K-framework (see, e.g., https://kframework.org/).
+
+>I understand this is asking for some formal short notation. I will check that kframework.
+
+2. Quite often, graphs are useful in grasping intuition on process terms. Maybe developing a
+graphical representation of the CCB processes may simplify understanding and pave a way towards
+including geometrical information on DNA shape.
+Detailed comments (page, global line numbers):
+
+>This asks not for some graphics (which we have got), but a graphical version of the calculus. I will look at this. Generally, both comments may not be easy to do without needing more space.
+
+p2,25: DNA errors often occur when DNA is used for reading the information about the proteins to
+be synthesized in the cells.
+
+>Not sure about this. We are talking about wrong replicated DNA. It can happen that a protein is produced wrongly from DNA (or RMA), but that is not a matter of "gene repair". Might be interesting, but it is different.
+
+p5,110: bee
+
+>Corrected.
+
+p6,130: Maybe a short clarification of the distinction strong-weak actions is useful at this point.
+p6,140: "use α, s and s, s′ to denote a concatenation" - the notation is unclear; include some
+parentheses ( ), or " " to separate the terms from the text
+p7,150: "A collection μ is either σ or σ | σ" - if the is a BN-like syntax, should be σ | μ
+p7,155: The syntax includes also recursive definition, not included in that one-line description
+p8,185: "(s; b).C | P | C | C | P | C \ L" - confusion of two roles of "|"
+p10,Fig3: b does not appear in this rule
+
+>b is in the s rule.
+
+p11,Fig4: similar
+
+>we use beta here.
+
+p12,Fig5: similar somehow, it is unclear why do you use condition * and **; why not simply
+include those particular cases explicitly?
+
+>for me, this was just because of space.
+
+p12,Ex3: it seems to be a confusion here between b,d,f - check this example again
+p13,Fig6: what is "t" in concert2 act?
+p16,275: Is this strong-weak action explanation useful at p6,130?
+p22,top: "The MMR system in full detail..." Actually, this is the result after all reactions in the
+previously described MMR system are used. It shows an order of firing transitions in the original
+system to arrive at this form, directly linked to the picture in Fig.9
+p30,Fig14: "the offending base C_3" - is G_3
