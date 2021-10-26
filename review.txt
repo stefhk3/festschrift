@@ -42,9 +42,14 @@ include those particular cases explicitly?
 >for me, this was just because of space.
 
 p12,Ex3: it seems to be a confusion here between b,d,f - check this example again
+
+>Corrected. uses b and d (not b and b) since b is weak and d is not.
+
 p13,Fig6: what is "t" in concert2 act?
 p16,275: Is this strong-weak action explanation useful at p6,130?
 p22,top: "The MMR system in full detail..." Actually, this is the result after all reactions in the
 previously described MMR system are used. It shows an order of firing transitions in the original
 system to arrive at this form, directly linked to the picture in Fig.9
 p30,Fig14: "the offending base C_3" - is G_3
+
+>Corrected.
