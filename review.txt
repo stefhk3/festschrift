@@ -4,7 +4,7 @@ instance, the given example, involving only 6 pairs of bases, results in a half 
 pages 23-29 contains redundant information. A suggestion here is the use something similar to the
 global-local handling notation used in the K-framework (see, e.g., https://kframework.org/).
 
->I understand this is asking for some formal short notation. I will check that kframework.
+>I understand this is asking for some formal short notation. I will check that kframework. 
 
 2. Quite often, graphs are useful in grasping intuition on process terms. Maybe developing a
 graphical representation of the CCB processes may simplify understanding and pave a way towards
@@ -23,11 +23,26 @@ p5,110: bee
 >Corrected.
 
 p6,130: Maybe a short clarification of the distinction strong-weak actions is useful at this point.
-p6,140: "use α, s and s, s′ to denote a concatenation" - the notation is unclear; include some
+
+>Not sure what exactly the reviewer is thinking about. The distinction is really in the operational semantics, and those follow later.
+
+p6,140: "use Î±, s and s, sâ€² to denote a concatenation" - the notation is unclear; include some
 parentheses ( ), or " " to separate the terms from the text
-p7,150: "A collection μ is either σ or σ | σ" - if the is a BN-like syntax, should be σ | μ
+
+>Not sure what's best. If we say "use (Î±, s) and (s, sâ€²)" it looks like the () are part of the syntax. And more spaces is odd. We have the italics. Doesn't that show it?
+
+p7,150: "A collection Î¼ is either Ïƒ or Ïƒ | Ïƒ" - if the is a BN-like syntax, should be Ïƒ | Î¼
+
+>I think that's a correct remark, it needs changing.
+
 p7,155: The syntax includes also recursive definition, not included in that one-line description
+
+>Don't understand this. The "one-line description" is P ::= S | mu:P | P|Q | P\L, I assume - this has recursion?
+
 p8,185: "(s; b).C | P | C | C | P | C \ L" - confusion of two roles of "|"
+
+>I think we need to use spaces similar to p7
+
 p10,Fig3: b does not appear in this rule
 
 >b is in the s rule.
@@ -46,10 +61,20 @@ p12,Ex3: it seems to be a confusion here between b,d,f - check this example agai
 >Corrected. uses b and d (not b and b) since b is weak and d is not.
 
 p13,Fig6: what is "t" in concert2 act?
+
+>That should be eta
+
 p16,275: Is this strong-weak action explanation useful at p6,130?
+
+>I am not sure if just moving this is useful. And if we want to give the reason etc. on 130 as well, it means reorganising a lot
+
 p22,top: "The MMR system in full detail..." Actually, this is the result after all reactions in the
 previously described MMR system are used. It shows an order of firing transitions in the original
 system to arrive at this form, directly linked to the picture in Fig.9
+
+>I think the reviewer believes that the "previously described system" (p 21) is different from this. It is not, for my understanding. There is just less detail. Not sure how to word this best. It does link to fig. 9, but we say so in line 395.
+
 p30,Fig14: "the offending base C_3" - is G_3
 
 >Corrected.
+
