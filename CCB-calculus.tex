@@ -8,7 +8,11 @@ We first introduce some preliminary notions and notations.
 
 Let $\mA$ be the set of (forward) action labels, 
 ranged over by $a,b,c,d,e,f,h$ and $j$. We partition $\mA$ into the set of \emph{strong actions}, written as
-$\mSA$, and the set of \emph{weak actions}, written as $\mWA$. Reverse (or past) action labels are members of
+$\mSA$, and the set of \emph{weak actions}, written as $\mWA$. 
+\textcolor{blue}{
+Communication between pairs of actions model creating bonds and undoing such communications represents breaking bonds. Most bonds result from communication between strong actions, but some bonds also involve a weak action. When a bond involving a weak action is created it causes breaking a neighbouring bond on strong actions\footnote{Fuller explanation follows Definition~1 on page 16.}
+}
+Reverse (or past) action labels are members of
 $\underline\mA$, with typical members $\un{a},\un b, \un c,\un d, \un e ,\un f, \un h$ and $\un j$, and represent 
 undoing of actions. The set $\mathcal{P}(\mA \cup \underline\mA)$ is ranged over by $L$.
 
@@ -25,8 +29,8 @@ We shall also use two sets of \emph{auxiliary action} labels, namely the set $(\
 the semantics of CCB.
 
 Molecules may have several bonding \emph{sites} and several bonds can be created or dissolved at each bonding site. A site and its potential bonds are modelled via $(s;b)$, where $s$ is a sequence of actions, where actions model bonds, and $b$ is a weak (bond) action. The action $b$ can be omitted, in which case the construct is written as $(s)$. When a molecule has several sites 
-$(s;b), \ldots,(s';b')$ we shall write them as $(s;b) \Mid  \ldots \Mid (s';b')$ by using the symbol ``$\paral$'' to indicate that sites bond independently of each other. Such expressions are called \emph{collections of sites}, or just collections, and will be used to define the prefix operator. More formally, a site $\sigma$ is either $(s;b)$ or $(s)$. A collection $\mu$ is either 
-$\sigma$ or a composition of finitely many sites $\sigma\Mid\ldots\Mid \sigma$, and 
+$(s;b), \ldots,(s';b')$ we shall write them as $(s;b) \Mid  \ldots \Mid (s';b')$ by using the symbol ``$\paral$'' to indicate that sites bond independently of each other. Such expressions are called \emph{collections of sites}, or just collections, and will be used to define the prefix operator. More formally, a site $\sigma$ is either $(s;b)$ or $(s)$. \textcolor{blue}{A collection $\mu$ is either 
+$\sigma$ or a composition of finitely many sites $\sigma\Mid\ldots\Mid \sigma$}, and 
 $\epsilon$ is the empty collection of sites. We shall denote collections where all strong actions of all sites are fully bonded as $\eta$.
 
 
@@ -62,7 +66,7 @@ DNA replication. Such a protein could be modelled by having the walk modelled in
 %
 %
 The new feature of the operator $(s;b).P$ is the execution of the weak action $b$, which
-can happen only after all the actions in $s$ have taken place. Performing $b$ then forces
+can happen only after all the actions in $s$, which are strong actions, have taken place. Performing $b$ then forces
 undoing one of the past actions in $s$ (by the \rulename{concert} rules in Figures~\ref{fig:c1sos}-\ref{fig:xc2sos}).
 
 $P\paral Q$ represents two systems $P$ and $Q$ which can perform actions or reverse actions on
@@ -262,7 +266,7 @@ site $\sigma$ in $\mu$.
 \Rule
 {P \xrightarrow{a[k]} P' \quad Q \xrightarrow{d[k]} Q'}
 {P \paral Q \xrightarrow{c[k]} P' \paral Q'}
-\; (*)
+%\; (*)
 %
 \\[25pt]
 \rulename{res}\
@@ -278,8 +282,8 @@ site $\sigma$ in $\mu$.
 \; S \bydef P
 \end{array}
 \] 
-\caption{Forward SOS rules. The condition (*) is $\gamma(a,d)=c$, 
-and $b \in \mathcal{WA}$.} 
+\caption{Forward SOS rules. We assume $\gamma(a,d)=c$ and $b \in \mathcal{WA}$.} 
+% caption at submission \caption{Forward SOS rules. The condition (*) is $\gamma(a,d)=c$, and $b \in \mathcal{WA}$.} 
 \label{fig:fsos}
 \end{figure}
 
@@ -349,7 +353,7 @@ and the reduction rule \rulename{red1} in Figure~\ref{fig:reduction}.
 \Rule
 {P \xrightarrow{\underline{a}[k]} P' \quad Q \xrightarrow{\underline{d}[k]} Q'}
 {P \paral Q \xrightarrow{\underline{c}[k]} P' \paral Q'}
-\; (*)
+%\; (*)
 %
 \\[25pt]
 \rulename{rev res}\
@@ -365,9 +369,12 @@ and the reduction rule \rulename{red1} in Figure~\ref{fig:reduction}.
 \; S \bydef P'
 \end{array}
 \]
-\caption{Reverse SOS rules. The condition (*) is $\gamma(a,d)=c$, and 
+\caption{Reverse SOS rules. We assume $\gamma(a,d)=c$, and 
 and $\beta$ is either $b$ or $b[l]$ for $b \in \mathcal{WA}$. %Note that $\beta \in \mA \cup \mAK$.
 } 
+% at submission \caption{Reverse SOS rules. The condition (*) is $\gamma(a,d)=c$, and 
+%and $\beta$ is either $b$ or $b[l]$ for $b \in \mathcal{WA}$.
+%} 
 \label{fig:reversesos}
 \end{figure}
 
@@ -397,26 +404,25 @@ $$
 {P\xrightarrow{(b)[k]} P'\xrightarrow{\underline{a}[l]}P'' \qquad Q\xrightarrow{\alpha[k]}Q' 
   \quad Q'\xrightarrow{\underline{d}[l]}Q''% %\quad \fresh{k}{Q} 
  }
-{P \paral Q\xrightarrow{\{e[k],\underline{f}[l]\}} P'' \paral Q''} (*)\\[25pt]
+{P \paral Q\xrightarrow{\{e[k],\underline{f}[l]\}} P'' \paral Q''}\\[25pt]
 \rulename{concert2}\ 
 \Rule
 {U\equiv P \paral Q \quad  P\xrightarrow{(b)[k]}P'\xrightarrow{\underline{a}[l]}P'' 
   \quad Q\xrightarrow{\alpha[k]}Q' 
   \quad R\xrightarrow{\underline{d}[l]}R'% %\quad \fresh{k}{Q} 
  }
-{U \paral R\xrightarrow{\{e[k],\underline{f}[l]\}} P'' \paral Q'\paral R'} (*)\\[25pt]
+{U \paral R\xrightarrow{\{e[k],\underline{f}[l]\}} P'' \paral Q'\paral R'} \\[25pt]
 \rulename{concert3}\ 
 \Rule
 {U\equiv P \paral Q \quad  P\xrightarrow{(b)[k]}P'\xrightarrow{\underline{a}[l]}P'' 
   \quad Q\xrightarrow{\alpha[k]}Q' \xrightarrow{\underline{g}[m]}Q''
   \quad R\xrightarrow{\underline{d}[l],\underline{h}[m]}R'' % %\quad \fresh{k}{Q} 
  }
-{U \paral R\xrightarrow{\{e[k],\underline{f}[l]\},\underline{j}[m]} P'' \paral Q''\paral R''} (**)\\[25pt]
+{U \paral R\xrightarrow{\{e[k],\underline{f}[l]\},\underline{j}[m]} P'' \paral Q''\paral R''}\\[25pt]
 
 \end{array}$$
-\caption{SOS rules for concerted actions. The condition (*) is 1. $\alpha$ is $c$ or $(c)$ 
-and $\gamma(b,c)=e$ for some $c\in \mathcal{A}$, and 2. $\gamma(a,d)=f$. The condition (**) is (*) additionally with
-$\gamma(g,h)=j$.}
+\caption{SOS rules for concerted actions. We assume $\alpha$ is $c$ or $(c)$ 
+and $\gamma(b,c)=e$ for some $c\in \mathcal{A}$, $\gamma(a,d)=f$, and  $\gamma(g,h)=j$.}
 \label{fig:c1sos}
 \end{figure}
 
@@ -426,11 +432,11 @@ $\gamma(g,h)=j$.}
 \begin{array}{l}
 \rulename{concert2 act}\
 \Rule
-{P \xrightarrow{\{{a}[k], \underline{h}[l]\}} P' \quad \fresh{k}{t}}
+{P \xrightarrow{\{{a}[k], \underline{h}[l]\}} P' \quad \fresh{k}{\eta}}
 {\eta.P \xrightarrow{\{{a}[k], \underline{h}[l]\}} \eta.P'}\\[25pt]
 \rulename{concert3 act}\
 \Rule
-{P \xrightarrow{\{{a}[k], \underline{h}[l], \underline{j}[m]\}} P' \quad \fresh{k}{t}}
+{P \xrightarrow{\{{a}[k], \underline{h}[l], \underline{j}[m]\}} P' \quad \fresh{k}{\eta}}
 {\eta.P \xrightarrow{\{{a}[k], \underline{h}[l], \underline{j}[m]\}} \eta.P'}\\[25pt]
 \rulename{concert2 par}\
 \Rule
