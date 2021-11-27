@@ -25,7 +25,8 @@ We shall also use two sets of \emph{auxiliary action} labels, namely the set $(\
 the semantics of CCB.
 
 Molecules may have several bonding \emph{sites} and several bonds can be created or dissolved at each bonding site. A site and its potential bonds are modelled via $(s;b)$, where $s$ is a sequence of actions, where actions model bonds, and $b$ is a weak (bond) action. The action $b$ can be omitted, in which case the construct is written as $(s)$. When a molecule has several sites 
-$(s;b), \ldots,(s';b')$ we shall write them as $(s;b) \Mid  \ldots \Mid (s';b')$ by using the symbol ``$\paral$'' to indicate that sites bond independently of each other. Such expressions are called \emph{collections of sites}, or just collections, and will be used to define the prefix operator. More formally, a site $\sigma$ is either $(s;b)$ or $(s)$. A collection $\mu$ is either $\sigma$ or $\sigma\Mid\sigma$, and 
+$(s;b), \ldots,(s';b')$ we shall write them as $(s;b) \Mid  \ldots \Mid (s';b')$ by using the symbol ``$\paral$'' to indicate that sites bond independently of each other. Such expressions are called \emph{collections of sites}, or just collections, and will be used to define the prefix operator. More formally, a site $\sigma$ is either $(s;b)$ or $(s)$. A collection $\mu$ is either 
+$\sigma$ or a composition of finitely many sites $\sigma\Mid\ldots\Mid \sigma$, and 
 $\epsilon$ is the empty collection of sites. We shall denote collections where all strong actions of all sites are fully bonded as $\eta$.
 
 
@@ -94,9 +95,9 @@ standing transactions with compensations in \cite{Irek2012}.
 The set of \emph{process terms} is ranged over by $P$, $Q$ and $R$ and is denoted by $\Proc$. 
 In the setting of CCB these terms are called \emph{processes}. 
 A context $C\hole$ is a process term containing a \emph{hole}, represented by $\hole$. 
-Formally, contexts are defined by
-the following syntax: $C::= \hole \mid (s;b).C \mid P\paral C \mid C \paral P \mid C\restrict L $.
-The term $C[Q]$ denotes the result of filling the hole in the context $C\hole$ with the process $Q$.
+Formally, contexts are defined by the following syntax: 
+$$C::= \hole\ \mid\ (s;b).C\ \mid\  P\paral C \ \mid\  C \paral P \ \mid \ C\restrict L $$
+The term $C[Q]$ denotes the result of filling the hole in the context $C\hole$ with $Q$.
 We say that $R$ is a \emph{subprocess} of $P$ if $P$ is $C[R]$ for some context $C\hole$.
 
 We define the semantics of our calculus by a labelled transition system,
@@ -365,7 +366,7 @@ and the reduction rule \rulename{red1} in Figure~\ref{fig:reduction}.
 \end{array}
 \]
 \caption{Reverse SOS rules. The condition (*) is $\gamma(a,d)=c$, and 
-and $b \in \mathcal{WA}$. %Note that $\beta \in \mA \cup \mAK$.
+and $\beta$ is either $b$ or $b[l]$ for $b \in \mathcal{WA}$. %Note that $\beta \in \mA \cup \mAK$.
 } 
 \label{fig:reversesos}
 \end{figure}
