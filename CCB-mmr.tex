@@ -162,18 +162,19 @@ We now present the main reactions of the MMR system, thus illustrating the benef
 
  We start with the protein $\MutS$ bonding to processes $A_2$ and $G_3$  via the $a_2$ and $g_3$ actions respectively. This is the recognition of the mismatch.
 %Note that the $a$ and $g$ actions are not available on matching pairs. So the bonding is not possible if the bases are properly paired, and also not if a Uracil is incorporated into the strand (as in the BER example).
-The transitions for creating the two bonds between $\MutS$ and
-$A_2$ and $G_3$ are as follows, where we highlight the participating actions and keys in bold font:
+The transitions for creating the two bonds of $\MutS$ with
+$A_2$ and $G_3$ are as follows, where first we highlight the participating actions in bold blue font and then we
+highlight the actions and keys in bold black font after the bonds are created:
 
 \begin{flalign*}
 & (b_1[6];i_1).(a_1[24],m_1[40];r_1).A_1' \paral
-(b_6[9];i_6).(g_1[25];r_6).G_1' \paral (b_2[7];i_2).(a_2,m_2;r_2).A_2' \paral  &&\\
-& (b_5[19];i_5).(t_2[24];r_5).T_2' \paral
-(b_{12}[20];i_{12}).(c_3[25];r_{12}).C_3'  \paral (b_8[21];i_8).(g_3;r_8).G_3' \paral &&\\
-&  ((p3_8[12],p5_8[13];s_8) \paral (b_8[18],d_8)).\DP_8' \paral &&\\
+(b_6[9];i_6).(g_1[25];r_6).G_1' \paral & & \\
+& (b_2[7];i_2).(\Blue{\bm{a_2}},m_2;r_2).A_2' \paral  (b_5[19];i_5).(t_2[24];r_5).T_2' \paral
+(b_{12}[20];i_{12}).(c_3[25];r_{12}).C_3'  \paral & & \\
+& (b_8[21];i_8).(\Blue{\bm{g_3}};r_8).G_3' \paral  ((p3_8[12],p5_8[13];s_8) \paral (b_8[18],d_8)).\DP_8' \paral &&\\
 &((p3_9[13],p5_9[14];s_9) \paral (b_9[19],d_9)).\DP_9' \paral ((p3_{10}[14],p5_{10}[15];s_{10}) \paral (b_{10}[20],d_{10})).\DP_{10}' \paral  &&\\
 &((p3_{11}[15],p5_{11}[16];s_{11}) \paral (b_{11}[21],d_{11})).\DP_{11}' \paral ((p3_{12}[16],p5_{12};s_{12}) \paral (b_{12}[22],d_{12})).\DP_{12}' \paral  &&\\
-&(m[40]).(n).\Me'\paral (k,k).(l).\MutS' \paral (l).(n).(o).\MutL' \paral &&\\
+&(m[40]).(n).\Me'\paral (\Blue{\bm{k}},\Blue{\bm{k}}).(l).\MutS' \paral (l).(n).(o).\MutL' \paral &&\\
 &(o).(w).\MutH' \paral (u;r) \paral (v;s).\UvrD'&&\\
 %
 &\xrightarrow{ka[28]} \xrightarrow{kg[29]} &&\\
@@ -183,11 +184,11 @@ $A_2$ and $G_3$ are as follows, where we highlight the participating actions and
 &(b_8[21];i_8).(\bm{g_3[29]};r_8).G_3' \paral ((p3_8[12],p5_8[13];s_8) \paral (b_8[18],d_8)).\DP_8' \paral &&\\
 &((p3_9[13],p5_9[14];s_9) \paral (b_9[19],d_9)).\DP_9' \paral ((p3_{10}[14],p5_{10}[15];s_{10}) \paral (b_{10}[20],d_{10})).\DP_{10}' \paral &&\\
 &((p3_{11}[15],p5_{11}[16];s_{11}) \paral (b_{11}[21],d_{11})).\DP_{11}' \paral ((p3_{12}[16],p5_{12};s_{12}) \paral (b_{12}[22],d_{12})).\DP_{12}' \paral  &&\\
-&(m[40]).(n).\Me'\paral (\bm{k[28],k[29]}).(l).\MutS' \paral (l).(n).(o).\MutL' \paral &&\\
+&(m[40]).(n).\Me'\paral (\bm{k[28],k[29]}).(\Blue{\bm{l}}).\MutS' \paral (\Blue{\bm{l}}).(n).(o).\MutL' \paral &&\\
 &(o).(w).\MutH' \paral ((u;r) \paral (v;s)).\UvrD'&&
 \end{flalign*}
 
-Now it is possible for $\MutL$ to bond to $\MutS$ on $l$ with key 30 (see Figure~\ref{fig:state15}):
+Now it is possible for $\MutL$ to bond to $\MutS$ on $l$ with key 30 (see Figure~\ref{fig:state15}). Again, the participating actions $l$ are in bold blue font before the transition and then they are displayed in bold black font:
 %
 \begin{flalign*}
 &\xrightarrow{ll[30]} (b_1[6];i_1).(a_1[24],m_1[40];r_1).A_1' \paral (b_6[9];i_6).(g_1[25];r_6).G_1' \paral &&\\
@@ -195,7 +196,7 @@ Now it is possible for $\MutL$ to bond to $\MutS$ on $l$ with key 30 (see Figure
 &(b_8[21];i_8).(g_3[29];r_8).G_3' \paral ((p3_8[12],p5_8[13];s_8) \paral (b_8[18],d_8)).\DP_8' \paral &&\\
 &((p3_9[13],p5_9[14];s_9) \paral (b_9[19],d_9)).\DP_9' \paral ((p3_{10}[14],p5_{10}[15];s_{10}) \paral (b_{10}[20],d_{10})).\DP_{10}' \paral  &&\\
 &((p3_{11}[15],p5_{11}[16];s_{11}) \paral (b_{11}[21],d_{11})).\DP_{11}' \paral ((p3_{12}[16],p5_{12};s_{12}) \paral (b_{12}[22],d_{12})).\DP_{12}' \paral &&\\
-&(m[40]).(n).\Me'\paral (k[28],k[29]).(\bm{l[30]}).\MutS' \paral (\bm{l[30]}).(n).(o).\MutL' \paral &&\\
+&(m[40]).(\Blue{\bm{n}}).\Me'\paral (k[28],k[29]).(\bm{l[30]}).\MutS' \paral (\bm{l[30]}).(\Blue{\bm{n}}).(o).\MutL' \paral &&\\
 &(o).(w).\MutH' \paral ((u;r) \paral (v;s)).\UvrD'&&
 \end{flalign*}
 
@@ -207,22 +208,25 @@ $\MutL$ then bonds with $\Me$ on $n$, which means it detects which of the strand
 &(b_8[21];i_8).(g_2[29];r_8).G_3' \paral ((p3_8[12],p5_8[13];s_8) \paral (b_8[18],d_8)).\DP_8' \paral &&\\
 &((p3_9[13],p5_9[14];s_9) \paral (b_9[19],d_9)).\DP_9' \paral ((p3_{10}[14],p5_{10}[15];s_{10}) \paral (b_{10}[20],d_{10})).\DP_{10}' \paral &&\\
 &((p3_{11}[15],p5_{11}[16];s_{11}) \paral (b_{11}[21],d_{11})).\DP_{11}' \paral ((p3_{12}[16],p5_{12};s_{12}) \paral (b_{12}[22],d_{12})).\DP_{12}' \paral  &&\\
-&S(m[40]).(\bm{n[31]}).\Me'\paral (k[28],k[29]).(l[30]).\MutS' \paral (l[30]).(\bm{n[31]}).(o).\MutL' \paral &&\\
-&(o).(w).\MutH' \paral ((u;r) \paral (v;s)).\UvrD'&&
+&S(m[40]).(\bm{n[31]}).\Me'\paral (k[28],k[29]).(l[30]).\MutS' \paral (l[30]).(\bm{n[31]}).(\Blue{\bm{o}}).\MutL' \paral 
+&&\\
+&(\Blue{\bm{o}}).(w).\MutH' \paral ((u;r) \paral (v;s)).\UvrD'&&
 \end{flalign*}
 %
-Finally, $\MutL$ recruits $\MutH$:
+Finally, $\MutL$ recruits $\MutH$.
+We shall used from now on bold red font to highlight actions and keys of bonds that will be next broken. Once the bonds are broken, their actions will be shown in bold black font.
 %
 \begin{flalign*}
 &\xrightarrow{oo[32]} (b_1[6];i_1).(a_1[24],m_1[40];r_1).A_1' \paral (b_6[9];i_6).(g_1[25];r_6).G_1' \paral  &&\\
 &(b_2[7];i_2).(a_2[28],m_2;r_2).A_2' \paral (b_5[19];i_5).(t_2[24];r_5).T_2' \paral (b_{12}[20];i_{12}).(c_3[25];r_{12}).C_3'  \paral&&\\
-&(b_8[21];i_8).(g_3[29];r_8).G_3' \paral ((p3_8[12],p5_8[13];s_8) \paral (b_8[18],d_8)).\DP_8' \paral &&\\
-&((p3_9[13],p5_9[14];s_9) \paral (b_9[19],d_9)).\DP_9' \paral ((p3_{10}[14],p5_{10}[15];s_{10}) \paral (b_{10}[20],d_{10})).\DP_{10}' \paral &&\\
+&(b_8[21];i_8).(g_3[29];r_8).G_3' \paral ((p3_8[12],\Red{\bm{p5_8[13]}};s_8) \paral (b_8[18],d_8)).\DP_8' \paral &&\\
+&((\Red{\bm{p3_9[13]}},p5_9[14];s_9) \paral (b_9[19],d_9)).\DP_9' \paral ((p3_{10}[14],p5_{10}[15];s_{10}) \paral (b_{10}[20],d_{10})).\DP_{10}' \paral &&\\
 & ((p3_{11}[15],p5_{11}[16];s_{11}) \paral (b_{11}[21],d_{11})).\DP_{11}' \paral ((p3_{12}[16],p5_{12};s_{12}) \paral (b_{12}[22],d_{12})).\DP_{12}' \paral &&\\
 &(m[40]).(n[31]).\Me'\paral (k[28],k[29]).(l[30]).\MutS' \paral (l[30]).(n[31]).(\bm{o[32]}).\MutL' \paral &&\\
 &(\bm{o[32]}).(w).\MutH' \paral ((u;r) \paral (v;s)).\UvrD'&&
 \end{flalign*}
 %
+
 The system at this stage is shown in Figure~\ref{fig:state15}.
 
 Next, $\MutH$ is ready to cleave the DNA at the right location. This is done by bonding to $\DP_8$ with the key 33 and, at the same time, breaking the bond between $\DP_9$ and $\DP_8$ (with the key 13). These two simultaneous reactions are represented by the following concerted actions transition.
@@ -279,10 +283,10 @@ Next, {\em promotion} happens, which moves the bond with the key 33 from a weak 
 &\overset{ \rulename{prom}}\Rightarrow (b_1[6];i_1).(a_1[24],m_1[40];r_1).A_1' \paral (b_6[9];i_6).(g_1[25];r_6).G_1' \paral  &&\\
 &(b_2[7];i_2).(a_2[28],m_2;r_2).A_2' \paral (b_5[19];i_5).(t_2[24];r_5).T_2' \paral (b_{12}[20];i_{12}).(c_3[25];r_{10}).C_3'  \paral &&\\
 &(b_8[21];i_8).(g_3[29];r_8).G_3' \paral ((p3_8[12],\bm{p5_8[33]};\bm{s_8}) \paral (b_8[18],d_8)).DP_8' \paral &&\\
-&((p3_9,p5_9[14];s_9) \paral (b_9[19],d_9)).DP_9' \paral ((p3_{10}[14],p5_{10}[15];s_{10}) \paral (b_{10}[20],d_{10})).DP_{10}' \paral  &&\\
+&((p3_9,\Red{\bm{p5_9[14]}};s_9) \paral (b_9[19],d_9)).DP_9' \paral ((\Red{\bm{p3_{10}[14]}},p5_{10}[15];\Blue{\bm{s_{10}}}) \paral (b_{10}[20],d_{10})).DP_{10}' \paral  &&\\
 &((p3_{11}[15],p5_{11}[16];s_{11}) \paral (b_{11}[21],d_{11})).DP_{11}' \paral ((p3_{12}[16],p5_{12};s_{12}) \paral (b_{12}[22],d_{12})).DP_{12}' \paral  &&\\
 &(m[40]).(n[31]).Me'\paral (k[28],k[29]).(l[30]).MutS' \paral (l[30]).(n[31]).(o[32]).MutL' \paral &&\\
-&(o[32]).({w[33]}).MutH' \paral ((u;r) \paral (v;s)).UvrD'&&
+&(o[32]).({w[33]}).MutH' \paral ((u;r) \paral (\Blue{\bm{v}};s)).UvrD'&&
 \end{flalign*}
 Note that $\MutH$ bonding with $\DP_8$ on $s_8$ (key 33) leads to breaking the bond between two deoxyribose/phosphate groups $\DP_8$ and $\DP_9$ (key13). 
 %
@@ -332,17 +336,31 @@ and the broken bond (key 13) is indicated by a dotted line.  This has now the ri
 
 Next, the protein $\UvrD$ gets involved in the repair. It uses the cleavage to remove pairs of deoxyribose/phosphate groups and bases.
 Firstly, $\UvrD$ bonds to $\DP_{10}$ (key 34) and thus breaks the bond between $\DP_{10}$ and its left neighbour
-$\DP_9$ (key 14). Secondly, $\UvrD$ combines with $T_2$ (key 35) thus breaking the bond between $T_2$ and its paired base $A_1$ (key 24). Each of these concerted actions transitions is followed immediately by an application of \rulename{prom}, which moves bonds from weak actions $s_{10}$ and $r_5$ to strong actions $p3_{10}$ and $t_2$ respectively.
-These concerted actions transitions and applications of \rulename{prom} are as follows:
+$\DP_9$ (key 14). Then the bond 34 is promoted from weak action $s_{10}$ to strong action $p3_{10}$:
 
 \begin{flalign*}
-&\xrightarrow{\{sv[34],\underline{p}[14]\}}  \overset{ \rulename{prom}}\Rightarrow \xrightarrow{\{ur[35],\underline{at}[24]\}}  \overset{ \rulename{prom}}\Rightarrow (b_1[6];i_1).(\bm{a_1},m_1[40];r_1).A_1' \paral  (b_6[9];i_6).(g_1[25];r_6).G_1' \paral &&\\
-&(b_2[7];i_2).(a_2[28],m_2;r_2).A_2' \paral (b_5[19];i_5).(\bm{t_2[35]};\bm{r_5}).T_2' \paral (b_{12}[20];i_{12}).(c_3[25];r_{12}).C_3'  \paral&&\\
+&\xrightarrow{\{sv[34],\underline{p}[14]\}}  \overset{ \rulename{prom}}\Rightarrow  
+(b_1[6];i_1).(\Red{\bm{a_1[24]}},m_1[40];r_1).A_1' \paral  (b_6[9];i_6).(g_1[25];r_6).G_1' \paral &&\\
+&(b_2[7];i_2).(a_2[28],m_2;r_2).A_2' \paral (b_5[19];i_5).(\Red{\bm{t_2[24]}};\Blue{\bm{r_5}}).T_2' \paral (b_{12}[20];i_{12}).(c_3[25];r_{12}).C_3'  \paral&&\\
 &(b_8[21];i_8).(g_3[29];r_8).G_3' \paral ((p3_8[12],p5_8[33];s_8) \paral (b_8[18],d_8)).\DP_8' \paral &&\\
 &((p3_9,\bm{p5_9};s_9) \paral (b_9[19],d_9)).\DP_9' \paral ((\bm{p3_{10}[34]},p5_{10}[15];\bm{s_{10}}) \paral (b_{10}[20],d_{10})).\DP_{10}' \paral  &&\\
 &((p3_{11}[15],p5_{11}[16];s_{11}) \paral (b_{11}[21],d_{11})).\DP_{11}' \paral ((p3_{12}[16],p5_{12};s_{12}) \paral (b_{12}[22],d_{12})).\DP_{12}' \paral  &&\\
 &(m[40]).(n[31]).\Me'\paral (k[28],k[29]).(l[30]).\MutS' \paral (l[30]).(n[31]).(o[32]).\MutL' \paral &&\\
-&(o[32]).(w[33]).\MutH' \paral ((\bm{u[35]};r) \paral (\bm{v[34]};s)).\UvrD'&&
+&(o[32]).(w[33]).\MutH' \paral ((\Blue{\bm{u}};r) \paral (\bm{v[34]};s)).\UvrD'&&
+\end{flalign*}
+
+Secondly, $\UvrD$ combines with $T_2$ (key 35) thus breaking the bond between $T_2$ and its paired base $A_1$ (key 24). This concerted actions transition is followed immediately by an application of \rulename{prom}, which moves a bond from weak action $r_5$ to strong actions $t_2$.
+%These concerted actions transitions and applications of \rulename{prom} are as follows:
+
+\begin{flalign*}
+&\xrightarrow{\{ur[35],\underline{at}[24]\}}  \overset{ \rulename{prom}}\Rightarrow 
+(b_1[6];i_1).(\bm{a_1},m_1[40];r_1).A_1' \paral  (b_6[9];i_6).(g_1[25];r_6).G_1' \paral &&\\
+&(b_2[7];i_2).(a_2[28],m_2;r_2).A_2' \paral (b_5[19];i_5).(\bm{t_2[35]};\bm{r_5}).T_2' \paral (b_{12}[20];i_{12}).(c_3[25];r_{12}).C_3'  \paral&&\\
+&(b_8[21];i_8).(g_3[29];r_8).G_3' \paral ((p3_8[12],p5_8[33];s_8) \paral (b_8[18],d_8)).\DP_8' \paral &&\\
+&((p3_9,p5_9;s_9) \paral (b_9[19],d_9)).\DP_9' \paral ((p3_{10}[34],p5_{10}[15];\bm{s_{10}}) \paral (b_{10}[20],d_{10})).\DP_{10}' \paral  &&\\
+&((p3_{11}[15],p5_{11}[16];s_{11}) \paral (b_{11}[21],d_{11})).\DP_{11}' \paral ((p3_{12}[16],p5_{12};s_{12}) \paral (b_{12}[22],d_{12})).\DP_{12}' \paral  &&\\
+&(m[40]).(n[31]).\Me'\paral (k[28],k[29]).(l[30]).\MutS' \paral (l[30]).(n[31]).(o[32]).\MutL' \paral &&\\
+&(o[32]).(w[33]).\MutH' \paral ((\bm{u[35]};r) \paral (v[34];s)).\UvrD'&&
 \end{flalign*}
 Note that $\UvrD$ does not attach to $\DP_9$ initially, but to $\DP_{10}$. If it had been attached to $\DP_9$, it would have had no connection to the DNA strand once the bonds of $DP_9$ and $T_2$ to the rest of DNA strand have been broken.
 
@@ -395,21 +413,29 @@ The two pairs of concerted actions transitions have the keys (34,14) and (35,24)
 
 $\UvrD$ can now ``walk'' along the lower chain of the strand towards the right end.
 %As opposed to BER, the bonds between the base pairs are now broken during the walk.
-Concurrently, the bonds between the deoxyribose/phosphate groups are also broken as $\UvrD$ progresses. We write these reactions as two separate concerted actions transitions for clarity, and note that this is the first time we have used the new \rulename{concert3} SOS rule.
-
+Concurrently, the bonds between the deoxyribose/phosphate groups are also broken as $\UvrD$ progresses. We write these reactions as two separate concerted actions transitions for clarity, with the first transition in full,  and note that this is the first time we have used the new \rulename{concert3} SOS rule.
 \begin{flalign*}
+& (b_1[6];i_1).(a_1,m_1[40];r_1).A_1' \paral  (b_6[9];i_6).(g_1[25];r_6).G_1' \paral &&\\
+&(b_2[7];i_2).(a_2[28],m_2;r_2).A_2' \paral (b_5[19];i_5).(t_2[35]; r_5).T_2' \paral (b_{12}[20];i_{12}).(c_3[25];r_{12}).C_3'  \paral&&\\
+&(b_8[21];i_8).(g_3[29];r_8).G_3' \paral ((p3_8[12],p5_8[33];s_8) \paral (b_8[18],d_8)).\DP_8' \paral &&\\
+&((p3_9,p5_9;s_9) \paral (b_9[19],d_9)).\DP_9' \paral ((\Red{\bm{p3_{10}[34]}},\Red{\bm{p5_{10}[15]}};s_{10}) 
+ \paral (b_{10}[20],d_{10})).\DP_{10}' \paral  &&\\
+&((\Red{\bm{p3_{11}[15]}},p5_{11}[16];\Blue{\bm{s_{11}}}) \paral (b_{11}[21],d_{11})).\DP_{11}' \paral ((p3_{12}[16],p5_{12};s_{12}) \paral (b_{12}[22],d_{12})).\DP_{12}' \paral  &&\\
+&(m[40]).(n[31]).\Me'\paral (k[28],k[29]).(l[30]).\MutS' \paral (l[30]).(n[31]).(o[32]).\MutL' \paral &&\\
+&(o[32]).(w[33]).\MutH' \paral ((u[35];r) \paral (\Red{\bm{v[34]}};\Blue{\bm{s}})).\UvrD'&&\\
 &\xrightarrow{\{ss[36],\underline{vp3}[34],\underline{p}[15]\}}
-\overset{ \rulename{prom}}\Rightarrow \; \overset{ \rulename{prom}}\Rightarrow
-(b_1[6];i_1).(a_1,m_1[40];r).A_1' \paral (b_6[9];i_6).(g_1[25];r_3).G_1' \paral &&\\
-&(b_2[7];i_2).(a_2[28],m_2;r).A_2' \paral (b_5[19];i_5).(t_2[35];r_2).T_2' \paral (b_{11}[20];i_{11}).(c_3[25];r_8).C_3'  \paral&&\\
+\overset{ \rulename{prom}}\Rightarrow \; \overset{ \rulename{prom}}\Rightarrow\\
+& (b_1[6];i_1).(a_1,m_1[40];r).A_1' \paral (b_6[9];i_6).(\Red{\bm{g_1[25]}};r_3).G_1' \paral &&\\
+&(b_2[7];i_2).(a_2[28],m_2;r).A_2' \paral (b_5[19];i_5).(\Red{\bm{t_2[35]}};r_2).T_2' \paral (b_{11}[20];i_{11}).(\Red{\bm{c_3[25]}};\Blue{\bm{r_8}}).C_3'  \paral&&\\
 &(b_8[21];i_8).(g_2[29];r_4).G_3' \paral ((p3_8[12],p5_8[33];s_8) \paral (b_8[18],d_8)).\DP_8' \paral &&\\
 &((p3_9,p5_9;s_9) \paral (b_9[19],d_9)).\DP_9' \paral ((\bm{p3_{10},p5_{10}};s_{10}) \paral (b_{10}[20],d_{10})).\DP_{10}' \paral &&\\
 &((\bm{p3_{11}[36]},p5_{11}[16];\bm{s_{11}}) \paral (b_{11}[21],d_{11})).\DP_{11}' \paral ((p3_{12}[16],p5_{12};s_{12}) \paral (b_{12}[22],d_{12})).\DP_{12}' \paral  &&\\
 &(m[40]).(n[31]).\Me'\paral (k[28],k[29]).(l[30]).\MutS' \paral (l[30]).(n[31]).(o[32]).\MutL' \paral &&\\
-&(o[32]).(w[33]).\MutH' \paral ((u[35];r) \paral (\bm{v[36]};\bm{s})).\UvrD'&&
+&(o[32]).(w[33]).\MutH' \paral ((\Red{\bm{u[35]}};\Blue{\bm{r}}) \paral (\bm{v[36]};\bm{s})).\UvrD'&&
 \end{flalign*}
-Notice that promotion has taken place from $s_{11}$ to $p3_{11}$ and from $s$ to $v$. Correspondingly, from
-$r_8$ to $c_3$ and from $r$ to $u$ below.
+Notice that promotion has moved a bond from $s_{11}$ to $p3_{11}$ and from $s$ to $v$. 
+
+Next,  $\UvrD$ combines with $C_3$ thus breaking bonds with keys 35 and 25:
 \begin{flalign*}
 &\xrightarrow{\{rr[37],\underline{tu}[35],\underline{cg}[25]\}}
 \overset{ \rulename{prom}}\Rightarrow \; \overset{ \rulename{prom}}\Rightarrow
@@ -421,6 +447,8 @@ $r_8$ to $c_3$ and from $r$ to $u$ below.
 &(m[40]).(n[31]).\Me'\paral (k[28],k[29]).(l[30]).\MutS' \paral (l[30]).(n[31]).(o[32]).\MutL' \paral &&\\
 &(o[32]).(w[33]).\MutH' \paral ((\bm{u[37]};\bm{r}) \paral (v[36];s)).\UvrD'&&
 \end{flalign*}
+Promotion moves bonds from
+$r_8$ to $c_3$ and from $r$ to $u$ below.
 
 
 The resulting system is shown in Figure~\ref{fig:state4}. Here, the first  base $T_2$ and deoxyribose/phosphate group
