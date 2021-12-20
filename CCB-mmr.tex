@@ -214,20 +214,21 @@ $\MutL$ then bonds with $\Me$ on $n$, which means it detects which of the strand
 \end{flalign*}
 %
 Finally, $\MutL$ recruits $\MutH$.
-We shall use from now on bold red font to highlight actions and keys of bonds that will be next broken. Once the bonds are broken, their actions will be shown in bold black font.
+Henceforth, we shall use bold red font to highlight actions and keys of bonds that will be next broken. Once the bonds are broken, their actions will be shown in bold black font.
 %
 \begin{flalign*}
 &\xrightarrow{oo[32]} (b_1[6];i_1).(a_1[24],m_1[40];r_1).A_1' \paral (b_6[9];i_6).(g_1[25];r_6).G_1' \paral  &&\\
 &(b_2[7];i_2).(a_2[28],m_2;r_2).A_2' \paral (b_5[19];i_5).(t_2[24];r_5).T_2' \paral (b_{12}[20];i_{12}).(c_3[25];r_{12}).C_3'  \paral&&\\
-&(b_8[21];i_8).(g_3[29];r_8).G_3' \paral ((p3_8[12],\Red{\bm{p5_8[13]}};s_8) \paral (b_8[18],d_8)).\DP_8' \paral &&\\
+&(b_8[21];i_8).(g_3[29];r_8).G_3' \paral ((p3_8[12],\Red{\bm{p5_8[13]}};\Blue{\bm{s_8}}) \paral (b_8[18],d_8)).\DP_8' \paral &&\\
 &((\Red{\bm{p3_9[13]}},p5_9[14];s_9) \paral (b_9[19],d_9)).\DP_9' \paral ((p3_{10}[14],p5_{10}[15];s_{10}) \paral (b_{10}[20],d_{10})).\DP_{10}' \paral &&\\
 & ((p3_{11}[15],p5_{11}[16];s_{11}) \paral (b_{11}[21],d_{11})).\DP_{11}' \paral ((p3_{12}[16],p5_{12};s_{12}) \paral (b_{12}[22],d_{12})).\DP_{12}' \paral &&\\
 &(m[40]).(n[31]).\Me'\paral (k[28],k[29]).(l[30]).\MutS' \paral (l[30]).(n[31]).(\bm{o[32]}).\MutL' \paral &&\\
-&(\bm{o[32]}).(w).\MutH' \paral ((u;r) \paral (v;s)).\UvrD'&&
+&(\bm{o[32]}).(\Blue{\bm{w}}).\MutH' \paral ((u;r) \paral (v;s)).\UvrD'&&
 \end{flalign*}
 %
 
-The system at this stage is shown in Figure~\ref{fig:state15}.
+The system at this stage is shown in Figure~\ref{fig:state15}. 
+%The bond to broken next (between $DP_8$ and $DP_9$) is displayed as a red dashed line, and henceforth we shall use this representation for bonds to be broken.
 %
 \begin{figure}[h!]
 \psfrag{dp1}{$DP_1$}
@@ -267,7 +268,7 @@ The system at this stage is shown in Figure~\ref{fig:state15}.
   \label{fig:state15}
 \end{figure}
 
-Next, $\MutH$ is ready to cleave the DNA at the right location. This is done by bonding to $\DP_8$ with the key 33 and, at the same time, breaking the bond between $\DP_9$ and $\DP_8$ (with the key 13). These two simultaneous reactions are represented by the following concerted actions transition.
+Next, $\MutH$ is ready to cleave the DNA at the right location. This is done by bonding to $\DP_8$ with the key 33 and, at the same time, breaking the bond between $\DP_8$ and $\DP_9$ (with the key 13). These two simultaneous reactions are represented by the following concerted actions transition.
 
 \begin{flalign*}
 &\xrightarrow{\{ws[33],\underline{p}[13]\}} (b_1[6];i_1).(a_1[24],m_1[40];r_1).A_1' \paral (b_6[9];i_6).(g_1[25];r_6).G_1' \paral  &&\\
@@ -292,8 +293,7 @@ Note that $\MutH$ bonding with $\DP_8$ on $s_8$ (key 33) leads to breaking the b
 %
 %Note that execution of $s_8$ on $\DP_8$ leads to breaking a bond between two deoxyribose/phosphate groups. Specifically, bond 33 from $\MutH$ to $DP_8$ via actions $w$ and $s$ is formed and bond 13 between $p5$ in $\DP_8$ and $p3$ in  $\DP_9$ is broken. %We use concerted actions and rewriting for this.
 %
-The situation after this step is shown in Figure~\ref{fig:state2}, where the new bond (key 33) is shown as a blue line 
-and the broken bond (key 13) is indicated by a red dotted line.  This has now the right DNA strand cleaved.
+The situation after this step is shown in Figure~\ref{fig:state2}, where the new bond (key 33) is shown as a blue line. The broken bond (key 13) is indicated by a red dotted line, and henceforth, we shall use this representation for broken bonds. Such dotted lines will be left out in subsequent figures to indicate that the relevant bonds no longer exist.  This has now the right DNA strand cleaved.
 
 \begin{figure}[h!]
 \psfrag{13}[cc][][0.8][0]{$13$}
@@ -330,7 +330,7 @@ and the broken bond (key 13) is indicated by a red dotted line.  This has now th
   \centering
     \includegraphics[width=1.0\textwidth]{mmr/state2}
   \caption[A six base pair DNA fragment.]{%A six base pair DNA fragment, with a DNA mismatch and methylation of one strand.
-  The mismatch has been detected by $\MutS$, and $\MutH$ and $\MutL$ have been recruited. $\MutL$ has detected the methylation, and $\MutH$ has cleaved the strand containing the wrong base.}
+  The mismatch has been detected by $\MutS$, and $\MutH$ and $\MutL$ have been recruited. $\MutL$ has detected the methylation, and $\MutH$ has cleaved the strand containing the wrong base by bonding to $DP_8$ (blue line) and thus breaking   the bond between $DP_8$ and $DP_9$ (red dotted line).}
   \label{fig:state2}
 \end{figure}
 
