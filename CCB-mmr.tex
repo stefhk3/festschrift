@@ -99,7 +99,7 @@ chain of the DNA in Figure~\ref{fig:state1}. This is where the methylation happe
 \psfrag{UD}{${\mathit{UvrD}}$}
   \centering
     \includegraphics[width=1.0\textwidth]{mmr/state1}
-  \caption[A six base pair DNA fragment.]{A six base pair DNA fragment, with a DNA mismatch and methylation of an upper strand. The proteins MutL, MutS, MutH, and UvrD are currently not bonded to the DNA.}
+  \caption[A six base pair DNA fragment.]{A six base pair DNA fragment, with a DNA mismatch and methylation of an upper strand. The proteins $\MutL$, $\MutS$, $\MutH$, and $\UvrD$ are not currently bonded to the DNA.}
   \label{fig:state1}
 \end{figure}
 
@@ -268,8 +268,8 @@ The system at this stage is shown in Figure~\ref{fig:state15}.
 \psfrag{UD}{${\mathit{UvrD}}$}
   \centering
     \includegraphics[width=1.0\textwidth]{mmr/state15}
-  \caption[A six base pair DNA fragment.]{A six base pair DNA fragment, with a DNA mismatch and methylation of one strand. The proteins MutL, MutS, and  MutH are bonded to the strand and ready to recruit UvrD, which is not
-  involved at this point yet.}
+  \caption[A six base pair DNA fragment.]{A six base pair DNA fragment, with a DNA mismatch and methylation of one strand. The proteins $\MutL$, $\MutS$, and  $\MutH$ are bonded to the strand and ready to recruit $\UvrD$, which at this point is not
+  involved yet.}
   \label{fig:state15}
 \end{figure}
 
@@ -335,7 +335,7 @@ The situation after this step is shown in Figure~\ref{fig:state2}, where the new
   \centering
     \includegraphics[width=1.0\textwidth]{mmr/state2}
   \caption[A six base pair DNA fragment.]{%A six base pair DNA fragment, with a DNA mismatch and methylation of one strand.
-  The mismatch has been detected by $\MutS$, and $\MutH$ and $\MutL$ have been recruited. $\MutL$ has detected the methylation, and $\MutH$ has cleaved the strand containing the wrong base by bonding to $DP_8$ (blue line) and thus breaking   the bond between $DP_8$ and $DP_9$ (red dotted line).}
+  The mismatch has been detected by $\MutS$, and $\MutH$ and $\MutL$ have been recruited. $\MutL$ has detected the methylation, and $\MutH$ has cleaved the strand containing the wrong base by bonding to $DP_8$ (blue line) and thus breaking the bond between $DP_8$ and $DP_9$ (red dotted line).}
   \label{fig:state2}
 \end{figure}
 
@@ -411,7 +411,7 @@ The two pairs of concerted actions transitions have the keys (34,14) and (35,24)
   \centering
     \includegraphics[width=1.0\textwidth]{mmr/state3}
   \caption[A six base pair DNA fragment.]{%A six base pair DNA fragment, with a DNA mismatch and methylation of one strand.
-  $\UvrD$ has now bonded to $T_2$ and $\DP_{10}$ (blue lines), breaking the bonds of those molecules to the rest of the DNA (red dotted lines). %In a next step, $\UvrD$ can now ``walk'' along the DNA strand, and remove the next pair of $\DP$ and base molecules.
+  $\UvrD$ has now bonded to $T_2$ and $\DP_{10}$ (blue lines), thus breaking the bonds of  the $DP_9$-$T_2$ group to the rest of the DNA (red dotted lines). %In a next step, $\UvrD$ can now ``walk'' along the DNA strand, and remove the next pair of $\DP$ and base molecules.
 }
   \label{fig:state3}
 \end{figure}
@@ -500,7 +500,7 @@ and deoxyribose/phosphate group $\DP_{10}$, again to remove them. The two concer
   \centering
     \includegraphics[width=1.0\textwidth]{mmr/state4}
   \caption[A six base pair DNA fragment.]{%A six base pair DNA fragment, with a DNA mismatch and methylation of one strand.
-  $\UvrD$ has now bonded to $C_3$ and $\DP_{11}$ (bonds shows as blue lines), breaking the bonds of those molecules to the rest of the DNA via concerted actions (shown as red dotted lines). The group of $T_2$ and $\DP_{9}$ is no longer attached to the DNA (shown in grey). % This process can continue for more pairs.
+  $\UvrD$ has now bonded to $C_3$ and $\DP_{11}$, thus breaking the bonds of the $DP_{10}$-$C_3$ group with the rest of the DNA (via two concerted actions). The $T_2$-$\DP_{9}$ group is no longer attached to the DNA (shown in grey). % This process can continue for more pairs.
 }
   \label{fig:state4}
 \end{figure}
@@ -508,7 +508,7 @@ and deoxyribose/phosphate group $\DP_{10}$, again to remove them. The two concer
 This process continues until the offending base $G_3$ has been removed. We do not show concerted actions transitions that model this since they correspond very closely to the last two transitions. Figure~\ref{fig:state6} shows the result of these two transitions which remove of the offending base.
 %We do not model how the number of base pairs to remove is determined.
 %In reality, that number is not fixed, but is determined by the interal workings of the protein, where the number is statistically distributed.
-Once this is done and the MutH, MutL, and MutS proteins have detached we get the situation shown in Figure~\ref{fig:state7}.
+Once this is done and the $\MutH$, $\MutL$, and $\MutS$ proteins have detached we get the situation shown in Figure~\ref{fig:state7}.
 
 
 \begin{figure}[t!]
@@ -550,7 +550,8 @@ Once this is done and the MutH, MutL, and MutS proteins have detached we get the
   \centering
     \includegraphics[width=1.0\textwidth]{mmr/state6}
   \caption[A six base pair DNA fragment.]{%A six base pair DNA fragment, with a DNA mismatch and methylation of one strand.
-$\UvrD$ has now bonded to $G_3$ (the offending base) and $\DP_{12}$, breaking the bonds of those molecules to the rest of the DNA via concerted actions. The $G_3$-$\DP_{10}$ group, containing the offending base $G_3$,  is now removed (shown in grey).}
+$\UvrD$ has now bonded to $G_3$ (the offending base) and $\DP_{12}$, thus breaking the bonds of the 
+$G_3$-$DP_{11}$ group to the rest of the DNA (via two concerted actions). The $C_3$-$\DP_{10}$ group is now removed (shown in grey). Next, the group $G_3$-$DP_{11}$ will be removed.}
   \label{fig:state6}
 \end{figure}
 
@@ -592,6 +593,6 @@ $\UvrD$ has now bonded to $G_3$ (the offending base) and $\DP_{12}$, breaking th
 The resulting system is now ready for other proteins to replace the bases and deoxyribose/phosphate groups. Notice that the remaining strand contains the necessary information for this, in particular that only a $T$ base can bond with $A_1$ and $A_2$ and that a $C$ must bond with $G_1$. Note that the methyl group stays attached to $A_1$, since it is still an old DNA strand. Also the appropriate groups in the new, lower half will be methylated, so that both strands are marked as old material after the next DNA duplication process.
 
 Our modelling has not considered any aspects of spatial configuration of proteins and bases. As in the BER example,
-this means that UvrD could bond to any deoxyribose/phosphate group, not just the neighbouring one. It also means that we have not modelled the formation of the loop in the DNA, which is crucial for cleaving the correct strand.
+this means that $\UvrD$ could bond to any deoxyribose/phosphate group, not just the neighbouring one. It also means that we have not modelled the formation of the loop in the DNA, which is crucial for cleaving the correct strand.
 
 
