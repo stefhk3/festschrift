@@ -9,9 +9,10 @@ We first introduce some preliminary notions and notations.
 Let $\mA$ be the set of (forward) action labels, 
 ranged over by $a,b,c,d,e,f,h$ and $j$. We partition $\mA$ into the set of \emph{strong actions}, written as
 $\mSA$, and the set of \emph{weak actions}, written as $\mWA$. 
-\textcolor{blue}{
-Communication between pairs of actions model creating bonds and undoing such communications represents breaking bonds. Most bonds result from communication between strong actions, but some bonds also involve a weak action. When a bond involving a weak action is created it causes breaking a neighbouring bond on strong actions\footnote{Fuller explanation follows Definition~1 on page 16.}
+%\textcolor{blue}{
+Communication between pairs of actions model creating bonds and undoing such communications represents breaking bonds. Most bonds result from communication between strong actions, but some bonds also involve a weak action. When a bond involving a weak action is created it causes breaking a neighbouring bond on strong actions\footnote{Fuller explanation follows Definition~1 on page 16.
 }
+%}
 Reverse (or past) action labels are members of
 $\underline\mA$, with typical members $\un{a},\un b, \un c,\un d, \un e ,\un f, \un h$ and $\un j$, and represent 
 undoing of actions. The set $\mathcal{P}(\mA \cup \underline\mA)$ is ranged over by $L$.
@@ -22,8 +23,8 @@ Let $\Keys$ be an infinite set of {\em communication keys} (or {\em keys} for sh
 Correspondingly, we have the set $\umAK$ that represents undoing of past actions. Letters $\alpha, \beta$ denote actions which are either from $\mA$ or $\mAK$. It will be 
 useful to consider sequences of actions or past actions, namely the elements of $(\mA \cup \mAK)^*$, 
 which are ranged over by $s,s'$, and sequences of purely past actions, namely the elements of $\mAK^*$, 
-which are ranged over by $t,t'$. The empty sequence is denoted by $\epsilon$. We use $\alpha, s$ and
-$s,s'$ to denote a concatenation of elements, which can be strings or single actions.
+which are ranged over by $t,t'$. The empty sequence is denoted by $\epsilon$. We use ``$\alpha, s$'' and
+``$s,s'$'' to denote a concatenation of elements, which can be strings or single actions.
 
 We shall also use two sets of \emph{auxiliary action} labels, namely the set $(\mA) =\{ (a)\ \mid a\in\mA\}$, and its product with the set of keys, denoted by $(\mA)\Keys$. These labels will be used in the auxiliary rules when defining
 the semantics of CCB.
