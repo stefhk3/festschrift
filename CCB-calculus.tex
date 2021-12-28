@@ -721,11 +721,11 @@ this bond by computing forwards alone is not possible.}
 \end{example}
 
 We shall call henceforth the transitions derived by the forward SOS rules as the \emph{forward transitions} 
-and, the the transitions derived by the reverse SOS rules as the \emph{reverse transitions}.
+and the transitions derived by the reverse SOS rules as the \emph{reverse transitions}.
 Correspondingly, there are the \emph{concerted (action)} transitions. 
 \subsection{Properties of CCB}
 The current version of CCB is a minor extension of the original CCB from \cite{KU2017}. If our collections have only one site, then both calculi have the same syntax. If we additionally do not define rules for concerted transitions that involve three actions, namely \rulename{concert3}, \rulename{concert3 act}, \rulename{concert3 par}, \rulename{concert3 res},
-and do not use the alternative rule \rulename{concert2}, then the transition relations that are associated with both calculi are the same. This means that all the properties that the original CCB posses are also enjoyed by the core of the current calculus.
+and do not use the alternative rule \rulename{concert2}, then the transition relations that are associated with both calculi are the same. This means that all the properties that the original CCB possesses are also enjoyed by the core of the current calculus.
 
 In particular, we can show, using the same arguments as in \cite{KU2017}, that this CCB satisfies several classical properties of reversible computation such as, for example, \emph{Well-foundedness}, \emph{Reverse Diamond} and \emph{Forward Diamond} \cite{PHILLIPS200770,LPU2020}. Moreover, if we leave out weak actions (and do not use SOS rules that involve weak actions), then the resulting calculus satisfies the \emph{Causal Consistency} property
 ~\cite{10.1007/978-3-540-28644-8_19,LPU2020}. This gives confidence that the core of CCB models reversibility correctly. 

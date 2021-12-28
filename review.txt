@@ -4,58 +4,94 @@ Reviewer #1:
 There could be several criticisms on how the semantics is defined: 
 starting from the use of lookahead, 
 the priority of rewriting rules over reduction rules 
+> Both of these are needed for it to work as we want it to work.
+
 and to the syntactic constraints on how weak actions appear in the prefix without the ";". Indeed one could re-design the semantics to apply the moving of a weak bond to a strong one directly in the concert rules, without resorting to an extra "pre-congruence". 
+> I suppose this would be possible, but our system nicely separates the reaction possibility from the state.
+
 The use of synchronisation function gamma is not argued, why you don't use taus? Is there any reason to prefer gammas over taus in this scenario? 
+> My main reason for gamma was that the entities (atoms) are designed for themselves. Only later interactions come into play. This is different from a typical CCS setup, where the processes are designed so that they may interact.
+
 Also the conclusions are quite meagre. You could give some hints on future work, or on how you can add "rates" to CCB since your ultimate goal is to simulate reactions. 
 Or you could think to extend the tool in [1] so to account for multiple sites.
-
+> Rates is something I had in mind all the time. I just didn't see much of a use, but it should be easy to do.
+> FOr the tools, I think we said we do this if reviewers ask. I coudl do it.
 
 Typos & Comments
 
 Please when introducing the syntax of P, please also add the syntax of \mu. 
+>That relates to below, we use mu in P, but not in C. Probably use mu for both and define mu?
+
 In figure 3 the condition * does not have to mention b \in WA
+>We can leave that out
+
 Fig 5 \equiv is never defined
+>Could we use ::= instead
+
 Definition 2 I m not sure what is \rho
+>Indeed missing
+
 Reference [5] is wrong: De Nicola and Montanari did not write the CHAM machine
+>I have chanted the authors. I am not sure how this happened, normally I export the citations from the journal. There is a conference publication from the same year (which I used in my phd), not sure which one is better (or both?)
+
 On reversibility and Petri nets there have been newer works this year
+>https://www.sciencedirect.com/science/article/pii/S235222082100081X anything else?
 
 l 37 sits --> sites
 >Corrected
-l 188, when defining contexts you should use \mu.C instead of (s;b).C
 
+l 188, when defining contexts you should use \mu.C instead of (s;b).C
+>See above
 
 
 Reviewer #2: 
 ============
 The paper gives a fairly detailed account of the modeling of the DNA Mismatch Repair using the Calculus of Covalent Bonding (CCB) developed, in other contexts, by the authors. The motivation for using such calculus is that it allow to undo actions in an out of causal order fashion, namely to reverse an action without having previously undone all the other actions depending on it, and DNA Mismatch Repair apparently needs it. I am using the word "apparently" as it is not clear to me why this problem needs this, or if having this kind of reversibility is a common feature of all (bio)chemical reactions. In fact the introduction is from this point rather unsatisfactory and rather assertive, leaving the impression that everything can be done also in other calculi, which are discussed in the related work section. In this section the calculi appeared in literature are reviewed either because they model (bio)chemical reactions or because they encompass reversibility, and
 even after it is not clear why the CCB should be used, namely what is the concrete advantage for using it. 
+>We can reword that. I guess it was clearer e. g. in my thesis
 
-Now I come to the CCB itself. The bonds are represented by the unique shared key between two actions, but the curious point is that actions may synchronize (aka form a bond) according to a synchronization mapping which is meant only to give an observable, possibly different, action, which vanishes somehow. This choice can be understood if a notion of equivalence is provided, which is not the case in this calculus, even in the paper where it has been introduced. And indeed I do not follow it. Nondeterminism is absent, the only possibility being that two parallel components proceed independently making in this way possible synchronizations available and I find this counterintuitive as if everything would be deterministic then the mismatch to be repaired would not arise, but this is not my main issue here. What I find not properly explained in this paper is why the calculus should be in this way, in some sense I got the impression that rules are tailored for the problem tackled
+Now I come to the CCB itself. The bonds are represented by the unique shared key between two actions, but the curious point is that actions may synchronize (aka form a bond) according to a synchronization mapping which is meant only to give an observable, possibly different, action, which vanishes somehow. This choice can be understood if a notion of equivalence is provided, which is not the case in this calculus, even in the paper where it has been introduced. And indeed I do not follow it. 
+>This is similar to reviewer 1. We need to justify the choice of synchronisation.
+
+Nondeterminism is absent, the only possibility being that two parallel components proceed independently making in this way possible synchronizations available and I find this counterintuitive as if everything would be deterministic then the mismatch to be repaired would not arise, but this is not my main issue here. 
+>There is another type of nondeterminism here, thanks to our weak actions.
+
+What I find not properly explained in this paper is why the calculus should be in this way, in some sense I got the impression that rules are tailored for the problem tackled
 and they lose the generality that a calculus should have. Now the possibility of introducing a rule tailored to a specific problem is possible as a "shortcut", thus expressible with the other rules, but this does not seem the case here, hence a thorough discussion is needed.
+>We should stress that the biological problem was not what we used to design the calculus. That should solve that point.
 
 Some other issues on rules are:
 
 * In the rule "rev s" it is impossible to have the same key twice (or at least is what I get from the other rules), so what is the purpose of the premise?  
-
+>I agree
 * in the rule "concert1" the premise is written in an asymmetric way, namely P -(b)[k]-> P' -a[l]-> P"  but Q -[k]-> Q' and Q' -d[l]-> Q". Is there a reason? 
+>Not as far as I can see (wasn't in my PhD, btw, this must have sneaked in)
 
 *  in the rules "concert2" and "concert3" you write in the premises "U ≡ P | Q" and in the conclusion the U is used for that, so why do not go directly for P | Q avoiding a useless part?
+>Would solve reviewer 1's remark as well
+
 *  in the rules "concert2 act" and "concert3 act" you write fsh[k](t) in the premise, but I have not been able to find the "t" in the rules.
+>already changed
 
 Another issue that puzzles me is that in the prefix (s) one gets the idea that the order in which the actions are written is irrelevant, but in the end, looking at the rules "move-r" and "move-l" it is not, and I am not able to understand why. An explanation here is needed, unless, but then you have to explain why the position of the weak action in a prefix where no weak action is present after the semicolon is relevant.
+>That's because of weak and strong actions. WE can nadd a sentence.
 
 I want to stress that the main problem I have with the rules is the following one. With respect to the CCB proposed by the authors in the paper "A calculus for local reversibility" and "Local reversibility in a calculus of covalent bonding" there is a kind of proliferation of concert rules, and the examples suggest that they are needed as otherwise the DNA Mismatch Repair could not be modeled. The conclusion is that in the original CCB the specific problem tackled here cannot be modeled, and then the relevant question is which problems can be modeled in this extended CCB (a new name would be a good choice) and I believe that the authors have to justify better what they have done, explaining, for instance, why the problem cannot be modeled using the "old" CCB. 
+>The extension only is the "more parallel". We can justify this.
 
 Though the paper is well written, I find the necessity of being thoroughly revised, which implies an extensively rewriting, explaining better the following points that I already mentioned:
 
 *  in (bio)chemical reactions bonds are created, and also destroyed. Why has the destruction of a bond to be considered as the reversing of its creation? Reversibility has a precise meaning which is, I believe, a bit different from the one implied by the plain breaking of a bond. 
+>I could write something here
 
 *  why the calculus should have these rules? The fact that they are used in the examples is not an indication of their usefulness. 
+>The rules really are in all of our papers.
 
 *  the relation induced by the rules is a stratified one. Wouldn't be better to consider a very abstract one without "labels"?, this would allow to define the synchronization algebra not as a mapping but as a plain relation, which I believe is better.
+>?
 
 Please revise the bibliography properly, some papers have titles written differently (pi or the corresponding greek letter as an example) and some others do not have the proper author (e.g. the paper "The Chemical abstract machine" is authored by Berry and Boudol, not by De Nicola and Montanari), check also capital letters.
-
+>Done some and will check once more.
 
 
 
@@ -148,13 +184,16 @@ Reviewer #4:
 ============
 
 -	My first concern regards the design decisions for the extensions of the calculus. The paper does not sufficiently motivate these extensions and it is not clear if they have been made (and can be applied) only for the purposes of modeling the specific case study. I also wonder: what are the limitations of the extensions and is it possible to generalize the construct to a form that can fully capture concerted reactions?
+>Has it been made for this: Yes. Can it do more: Likely. Should I look for examples: Can it be generalized (to n parties): Should be doable, but I am not sure how to write this in SOS rules.
 
 -	Secondly, I have some concerns about the technical aspects of the new rules. First, it is not clear that the rules sufficiently take sites into account. Furthermore, in rule concert3, it appears that while executing a concerted action an action may be reversed in unrelated processes, i.e. processes that were not involved in execution of the weak action. I understand that this was not the intention. I give more details about this in the "Detailed Comments" below.
+>Not sure about the sites. For the second part, see below.
 
 -	Furthermore, I find the presentation of the paper to have a number of shortcomings. On the one hand, the paper contains a lot of repetition from [25]. In fact most of Section 3 is repeated from [25], including examples pertaining to the original version of the calculus. On the other hand, the new aspects of the calculus are not sufficiently discussed nor motivated and I expect that the paper in its present form will be quite difficult to read for someone with no knowledge of CCB as very little intuitive explanation is given. Regarding this second point, I would recommend to the authors to introduce the calculus and its extension informally through a simple but realistic example in the introduction that will highlight the main idea and modeling approach of the calculus and illustrate the need for the proposed extension.
+>We can do that, but if we do not remove other stuff, it gets quite long.
 
 -	As far as the case study is concerned, as the authors briefly discuss, important spatial issues are not considered in the model and in fact the model appears to allow transitions that do not take place in reality. It would be good if the paper discusses upfront these limitations and argues about the merits and potential of the approach.
-
+>We could add something.
 
 Detailed comments and typos:
 In what follows, ** is used for more important points and * for less important ones.
@@ -163,84 +202,118 @@ In what follows, ** is used for more important points and * for less important o
 >Corrected
 
 ** In the introduction I would include, as explained before, an example for explaining CCB and motivating the new extension. A clear statement of the paper's contribution is also missing.
+> An example for general CCB is not new and would expand the paper. A different example might be possible, but it would make it longer. Perhaps an informal discussion of the example could be there? I still think that this is problematic in the introduction.
 
 * line 48: is => was
+>changed
 
 * line 63: \pi calculus => \pi-calculus
+>changed
 
 * line 112: bee => be
+>already corrected
 
 * lines 147-149: You model a site of a molecule as a sequence of actions that model bonds and a weak bond action. How does this relate to reality? Why just one weak bond action and what exactly is a weak bond action?
+>I could explain that.
 
 * line 166: You mention (s).P. How about \mu.P?
+>See reviewer 1, should be uniform.
 
 * line 170-171: You refer to this feature as "new" but it has already been proposed in [25], etc. The same applies to the reference on line 179.
+Reword "The new feature of the operator (s; b).P is the execution of the weak action b, which can happen only after all the actions in s, which are strong actions, have taken place." to "The execution of the weak action b can happen only after all the actions in s, which are strong actions, have taken
+place." And change "which is the new feature of our calculus" to "which is the new feature of CCB".
 
 * line 190: As far as I can see the notion of a subprocess is not used in the sequel.
+>Remove
 
 * line 194: AL is defined to be the set of action labels and then as the forward actions AK, the reverse actions and the concerted actions. However, on lines 128-131 action labels are considered as the set \calA \cup \underline{\calA}. 
+> Line 128-131 should use a different name. In line 194 ff. I cannot see any contradictions.
 
 Overall, your references to actions and action labels are not the standard ones found in classical process calculi: roughly actions are the objects that decorate transitions. As this can be confusing to the reader, try to be consistent in the names used for the various terms. A table collecting all the notions and notations and how these form the syntax of the language might be useful.
- 
+> We might use action labels in 128 and actions in 194 ff.
+
 * On line 211 in the definition of keys(P) you assume that b could be associated with a key but notation does not permit this.
+>It can be temporarily. I believe sos rules allow it.
 
 * What is the point of the inductive definitions for std and fsn? Couldn't they be defined as:
 	std(P) 		iff 	keys(P) = \emptyset
 	fsh[m](P)	iff  	n\not\in keys(P)
+>keys is inductive as well
 
 * Rule act1, Figure 3: I don't think you need the premise fsh[k](\mu).
+>I think we do to avoid duplicate keys.
+
 
 * Rule aux1: what is t in the premise and is this clause really needed?
+>should be mu
 
 ** Concert rules: 
 What puzzles me in these rules is that the actions executed e.g. by P and P' need not originate from the same site, e.g. it could be that P = \sigma1 | \sigma2 and the (b)[k] action originates from \sigma1 whereas the \underline(a)[l] action from \sigma2. So, I can't see how you are ensuring that a bond of the same site is reversed.
+>Don't really understand this.
 
 By the way, I don't think \equiv has been defined and \alpha is not used according to its intended use as described on line 136. Furthermore, note that the label on R->R' in concert3 does not follow the defined syntax.
+>equiv, see reviewer 1 and 2
 
 In rules concert2 and concert3, it appears that if the concerted action involves a weak action in both "molecules" it is sufficient to reverse a strong action in only one of them. Can you give some motivation on that?
+>I could motivate that.
 
 And as far as rule concert3 is concerned, I am quite puzzled.  It appears to me that its enunciation may not capture the intended meaning. The rule seems to enable the reversal of an action in unrelated processes, i.e. processes that were not involved in execution of the weak action: Q and R could be parallel compositions with distinct subprocesses/sites enabling each of the actions. This may arise since the \alpha transition of Q is not necessarily an auxiliary transition. 
+>This sound like the comment three above. Do we need to say something about the structure of the processes?
 
 Overall, I find these rules rather ad hoc and not sufficiently discussed or motivated. I also wonder if the rules are sufficient to capture all possible types of concerted actions and, if not, whether they can be elegantly extended to more general concerted rules if it should be needed…
+>That is similar to reviewer 2, can we have an n rule?
 
 * Example 3: There are some typos in the example that could be resolved by setting the second $b$ in the process under study to a $d$ and the $d$ action to $f$.
+>There is only one b?
 
 * concert2+3 act: t should be \eta
+>Done
 
 * concert2+3 res: As far as I understand L does not contain reverse action labels so the side conditions should be corrected.
+>This is related to the question of uniform terminology. We say "where L is a set of labels" - we use only "action labels" otherwise, as far as I can see.
 
 * Figure 8: The last three rules should be upgraded to \mu.P processes.
+>Not sure here, we need the structure of mu, so just saying mu can't work, I would say.
 
 * Move Figures 7 and 8 close to where they are referenced.
+>For this, they would need to go before figure 5. This means the SOS rules are no longer in a continuouis sequence. Not sure what to do best here.
 
 ** The notions of promotion of actions is not made sufficiently clear. An example of this in terms of a chemical reaction would be useful.
+>Again, I can try this, this is a bit similar to others.
  
 Is it possible for any of the strong actions to be used in the promotion? This has confused me in terms of what the actions in s signify? The reduction rules seems to suggest that they are just bonding sites and it is only the keys of the actions that capture bonds. 
 
 * Line 316: the the => the
+> Changed (also removed the comma)
 
 * Line 326: possesSES
+>Changed
 
 ** It is not clear to me how the properties of reversible computation are inherited from the old CCB to the new one.  Some discussion about how the state space is affected by the extensions and new rules, or some other explanation would be useful. 
 
 In this respect, I wonder what properties one might prove about concerted transitions.
+> I thinks this is all unchanged - any chance to do some proof here?
 
 * line 354: THE old strand
+>Changed
 
 * page 19: A schematics description of the repair mechanism would be quite useful.
+>that would look like our figures. We can try, but it would take half a page or so at least.
 
 * model description, pages 21 and 22: Please clarify if subscripts are actually needed or just used for easing the presentation/association with graphical representation.
 
 * line 401: if they ARE parts
+>changed
 
 * page 25, line 7: There is a superfluous S at the beginning of this line
 
 ** page 25, last paragraph: How is the correct DP chosen and why is p5 broken as opposed to p3? Similar questions arise for other transitions. 
+>That's the spaital issue, that was mentioned by another reviewer as well.
 
 In general it seems that the model allows transitions that do now occur in reality. It would be good to comment on this and discuss the merits and drawbacks of the model.
 
 * line 465: extendED
-
+> Changed
 
 
 Reviewer #5:

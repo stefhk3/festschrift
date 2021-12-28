@@ -1,4 +1,4 @@
-﻿
+
 \subsection{Description of DNA Mismatch Repair}
 
 We now return to the DNA mismatch repair, which we have briefly described in the introduction, and we give a fuller explanation of how it works.
@@ -7,7 +7,7 @@ If two bases are incorporated into a DNA strand which do not match, namely are n
 % just from the bases alone - both could be right.
 We are looking at a specific way to handle this situation, called Methyl Mismatch Repair (MMR). This is the repair mechanism in bacteria, in particular E.\! coli, for which detailed studies has been done\footnote{Paul L. Modrich, Tomas Lindahl and Aziz Sancar received the Nobel Price in Chemistry 2015 for their work on DNA repair. Modrich's Nobel Lecture about Methyl-directed Mismatch Repair in E. coli and humans \cite{pmid27198632} gives a good overview.}.
 The mechanism relies on DNA strands being methylated sometime after their creation. Methylation means the attachment a methyl group (a carbon atom with three hydrogen atoms), in this case to the adenine base A. Specifically, this happens whenever there is a GATC sequence. Since the methylation %(which is done by specific proteins, which we do not model)
-happens with a delay after the duplication of a strand, old strand is methylated and the new strand is not methylated for a short period of time. This enables the removal of the wrong base from the new strand.
+happens with a delay after the duplication of a strand, the old strand is methylated and the new strand is not methylated for a short period of time. This enables the removal of the wrong base from the new strand.
 
 The actual repair involves the proteins MutS, MutL, MutH, and UvrD. MutS first binds to the mismatch and then recruits MutL and MutH. MutL can detect the methylated strand and can form a loop in the DNA. In this loop, the newer strand is now outside, whereas the old strand is covered by itself and MutL. Then MutH cleaves the unmethylated strand. This happens in some distance from the mismatch, due to the size of the proteins and the loop in the DNA. UvrD can then detect the cleavage and can move along the strand towards the site of the mismatch. It removes the outer strand when moving along. At the same time, the MutL, MutH, and MutS proteins are released and the loop in the DNA disappears. Finally UvrD moves to a position immediately beyond the mismatch, removing the wrong base together with its neighbours. UvrD then goes off the DNA and leaves the old, and correct, strand to be completed.
 
@@ -137,7 +137,7 @@ $\DP_1$ is connected to $\DP_2$ via the bond on $p5_1$ and $p3_2$ with the key 1
 A mismatch in the DNA section in Figure~\ref{fig:state1} is between $A_2$ and $G_3$.
 %: they do not form an A-T or G-C pair as required.
 Methylation is on the old upper half of the strand, which means that a methyl group $\Me$ is attached to $A_1$. Note that there is no methyl group on $A_2$. This is because the methylation only happens on CTAG sequences via a specific protein, which we do not model here. %, we just assume the end result.
-No bases $A$ are methylated on the new lower half, even if they parts of CTAG sequences, since not enough time has passed at this stage for this to happen.
+No bases $A$ are methylated on the new lower half, even if they are part of CTAG sequences, since not enough time has passed at this stage for this to happen.
 
 Before we show the main reactions of the MMR mechanism, we shall shorten the presentation of our MMR system so that the reactions are more easily readable and can be quickly checked.  Since $\DP_1$, $\DP_2$, $\DP_3$, $\DP_4$, $\DP_5$, $\DP_6$, and $\DP_7$, and the bases $C_1$,  $T_1$, $C_2$, $G_2$, $A_3$, and $G_4$  (read from top to bottom and from left to right in Figure~\ref{fig:state1}) never directly participate in the reactions, we will leave them out from now on. The remaining part of the syntax of the MMR system is much smaller:
 %
