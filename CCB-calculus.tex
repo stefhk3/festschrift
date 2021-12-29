@@ -74,7 +74,7 @@ $P\paral Q$ represents two systems $P$ and $Q$ which can perform actions or reve
 their own, or which can interact with each other according to a communication function
 $\gamma$. As in the calculus ACP \cite{ACPBook}, the communication function is a partial function 
 $\gamma: \mathcal A \times \mathcal A \rightarrow \mathcal A$ which is commutative and associative. The function
-$\gamma$ is used in the operational semantics to define when two processes can interact. Processes 
+$\gamma$ is used in the operational semantics to define when two processes can interact. \Red{The use of a synchronization function instead of a $\tau$-style communication as in CCS was motivated in the original CCB by the potential bonding between many different atoms. This can easily be captured by desiging the atoms and the synchronizations separately.} Processes 
 $P$ and $Q$ in $P\paral Q$ can also perform a pair of concerted actions,
 which is the new feature of our calculus.  We also have the ACP-like restriction operator 
 $\setminus L$, where $L$ is a set of labels. It prevents actions from taking place and, due to 
