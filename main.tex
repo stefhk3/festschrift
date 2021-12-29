@@ -257,6 +257,15 @@ DNA repair is crucial to maintain the quality of information in organisms. Whils
 In this paper, we model DNA mismatch repair using the calculus CCB. This builds upon and extends our previous work on the modelling of BER and other biochemical reactions.
 %. The aim of the work is on the one hand to further test and evaluate CCB. On the other hand, it is an extension of the biological modelling done in previous work.
 
+\begin{figure}[h!]
+  \centering
+    \includegraphics[width=1.0\textwidth]{introexample.ps}
+  \caption{The old (left) and new (right) type of concerted actions in CCB. On the left, the formation of a new bond (dashed) triggers breaking of one bond (marked with a circle), whereas on the right two bonds (both marked with a circle) are broken with the formation of one new bond (dashed).}
+  \label{fig:introexample}
+\end{figure}
+
+\Red{We demonstrate the new operation introduced in this paper informally in Figure~\ref{fig:introexample}. On the left, we see an example of a concerted action as used in CCB so far. Here, the formation of one bond from B to C (dashed) triggers the breaking of one other bond (from A to B, marked with a circle). On the right, the situation is different: There is a chain of objects (A, B, and C, potentially more) and we want another object (X) to move along this chain and break the bonds between the objects at the same time. X is currently bonded to A. For performing a step, it needs to form a new bond to B (dashed), break the old bond to A and break the bond from B to C (both marked with a circle). As we will see, this new mechanism enables the DNA mismatch repair to be modelled in CCB.}
+
 \section{Related Work}
 \input{CCB-related.tex}
 %
