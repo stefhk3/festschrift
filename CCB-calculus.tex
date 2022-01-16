@@ -244,7 +244,8 @@ site $\sigma$ in $\mu$.
 \\[25pt]
 \rulename{act1}\ 
 \Rule
-{\std{P} \quad \fresh{k}{\mu}\quad \mu \xrightarrow{a[k]}_s \mu'}
+{\std{P} %\quad \fresh{k}{\mu}
+   \quad \mu \xrightarrow{a[k]}_s \mu'}
 {\mu.P \xrightarrow{a[k]}\mu'.P}
 \qquad &
 \rulename{act2}\
@@ -392,7 +393,8 @@ $$
 {\sigma \paral \mu \xrightarrow{(b)[l]}_s \sigma' \paral \mu}
 \\[20pt]
 \rulename{aux1}\ 
-\Rule{\std{P} \quad \fresh{k}{t}\quad \mu\xrightarrow{(b)[k]}_s \mu'}
+\Rule{\std{P} % \quad \fresh{k}{t}
+  \quad \mu\xrightarrow{(b)[k]}_s \mu'}
 {\mu.P \xrightarrow{(b)[k]}\mu'.P}
 \qquad
 \rulename{aux2}\
@@ -400,9 +402,9 @@ $$
 {P \xrightarrow{(b)[k]} P' \quad \fresh{k}{\eta}}
 {\eta.P \xrightarrow{(b)[k]} \eta.P'}
 \\[25pt]
-\rulename{concert1}\ 
+\rulename{concert2'}\ 
 \Rule
-{P\xrightarrow{(b)[k]} P'\xrightarrow{\underline{a}[l]}P'' \qquad Q\xrightarrow{\alpha[k]}Q' 
+{P\xrightarrow{(b)[k]} P'\xrightarrow{\underline{a}[l]}P'' \qquad Q\xrightarrow{(c)[k]}Q' 
   \quad Q'\xrightarrow{\underline{d}[l]}Q''% %\quad \fresh{k}{Q} 
  }
 {P \paral Q\xrightarrow{\{e[k],\underline{f}[l]\}} P'' \paral Q''}\\[25pt]
@@ -413,16 +415,16 @@ $$
   \quad R\xrightarrow{\underline{d}[l]}R'% %\quad \fresh{k}{Q} 
  }
 {U \paral R\xrightarrow{\{e[k],\underline{f}[l]\}} P'' \paral Q'\paral R'} \\[25pt]
-\rulename{concert3}\ 
-\Rule
-{U\equiv P \paral Q \quad  P\xrightarrow{(b)[k]}P'\xrightarrow{\underline{a}[l]}P'' 
-  \quad Q\xrightarrow{\alpha[k]}Q' \xrightarrow{\underline{g}[m]}Q''
-  \quad R\xrightarrow{\underline{d}[l],\underline{h}[m]}R'' % %\quad \fresh{k}{Q} 
- }
-{U \paral R\xrightarrow{\{e[k],\underline{f}[l]\},\underline{j}[m]} P'' \paral Q''\paral R''}\\[25pt]
+%\rulename{concert3}\ 
+%\Rule
+%{U\equiv P \paral Q \quad  P\xrightarrow{(b)[k]}P'\xrightarrow{\underline{a}[l]}P'' 
+%  \quad Q\xrightarrow{\alpha[k]}Q' \xrightarrow{\underline{g}[m]}Q''
+ % \quad R\xrightarrow{\underline{d}[l],\underline{h}[m]}R'' % %\quad \fresh{k}{Q} 
+ %}
+%{U \paral R\xrightarrow{\{e[k],\underline{f}[l]\},\underline{j}[m]} P'' \paral Q''\paral R''}\\[25pt]
 
 \end{array}$$
-\caption{SOS rules for concerted actions. We assume $\alpha$ is $c$ or $(c)$ 
+\caption{SOS rules for two concerted actions transitions. We assume $\alpha$ is $c$ or $(c)$ 
 and $\gamma(b,c)=e$ for some $c\in \mathcal{A}$, $\gamma(a,d)=f$, and  $\gamma(g,h)=j$.}
 \label{fig:c1sos}
 \end{figure}
@@ -431,30 +433,30 @@ and $\gamma(b,c)=e$ for some $c\in \mathcal{A}$, $\gamma(a,d)=f$, and  $\gamma(g
 \begin{figure}[t] 
 \[
 \begin{array}{l}
-\rulename{concert2 act}\
+\rulename{concert act}\
 \Rule
 {P \xrightarrow{\{{a}[k], \underline{h}[l]\}} P' \quad \fresh{k}{\eta}}
 {\eta.P \xrightarrow{\{{a}[k], \underline{h}[l]\}} \eta.P'}\\[25pt]
-\rulename{concert3 act}\
-\Rule
-{P \xrightarrow{\{{a}[k], \underline{h}[l], \underline{j}[m]\}} P' \quad \fresh{k}{\eta}}
-{\eta.P \xrightarrow{\{{a}[k], \underline{h}[l], \underline{j}[m]\}} \eta.P'}\\[25pt]
+%\rulename{concert3 act}\
+%\Rule
+%{P \xrightarrow{\{{a}[k], \underline{h}[l], \underline{j}[m]\}} P' \quad \fresh{k}{\eta}}
+%{\eta.P \xrightarrow{\{{a}[k], \underline{h}[l], \underline{j}[m]\}} \eta.P'}\\[25pt]
 \rulename{concert2 par}\
 \Rule
 {P \xrightarrow{\{{a}[k], \underline{h}[l]\}} P'\quad \fresh{k}{Q} \quad \fresh{l}{Q}}
 {P \paral Q \xrightarrow{\{{a}[k], \underline{h}[l]\}} P' \paral Q}\\[25pt]
-\rulename{concert3 par}\
-\Rule
-{P \xrightarrow{\{{a}[k], \underline{h}[l], \underline{j}[m]\}} P'\quad \fresh{k}{Q} \quad \fresh{l}{Q}\quad \fresh{m}{Q}}
-{P \paral Q \xrightarrow{\{{a}[k], \underline{h}[l], \underline{j}[m]\}} P' \paral Q}\\[25pt]
+%\rulename{concert3 par}\
+%\Rule
+%{P \xrightarrow{\{{a}[k], \underline{h}[l], \underline{j}[m]\}} P'\quad \fresh{k}{Q} \quad \fresh{l}{Q}\quad \fresh{m}{Q}}
+%{P \paral Q \xrightarrow{\{{a}[k], \underline{h}[l], \underline{j}[m]\}} P' \paral Q}\\[25pt]
 \rulename{concert2 res}\
 \Rule
 {P \xrightarrow{\{{a}[k], \underline{h}[l]\}} P'}
 {P\backslash L \xrightarrow{\{{a}[k], \underline{h}[l]\}} P'\backslash L}\;\;  a, \underline{h}  \notin L \cup (L)\\[25pt]
-\rulename{concert3 res}\
-\Rule
-{P \xrightarrow{\{{a}[k], \underline{h}[l], \underline{j}[m]\}} P'}
-{P\backslash L \xrightarrow{\{{a}[k], \underline{h}[l], \underline{j}[m]\}} P'\backslash L}\;\;  a, \underline{h}, \underline{j}  \notin L \cup (L)
+%\rulename{concert3 res}\
+%\Rule
+%{P \xrightarrow{\{{a}[k], \underline{h}[l], \underline{j}[m]\}} P'}
+%{P\backslash L \xrightarrow{\{{a}[k], \underline{h}[l], \underline{j}[m]\}} P'\backslash L}\;\;  a, \underline{h}, \underline{j}  \notin L \cup (L)
 %
 \end{array}
 \] 
@@ -464,6 +466,49 @@ and $\gamma(b,c)=e$ for some $c\in \mathcal{A}$, $\gamma(a,d)=f$, and  $\gamma(g
 \end{figure}
 
 
+\begin{figure}[t] 
+\[
+\begin{array}{l}
+\rulename{concert3}\ 
+\Rule
+{U\equiv P \paral Q \quad  P\xrightarrow{(b)[k]}P'\xrightarrow{\underline{a}[l]}P'' 
+  \quad Q\xrightarrow{\alpha[k]}Q' \xrightarrow{\underline{g}[m]}Q''
+  \quad R\xrightarrow{\underline{d}[l]} R'\xrightarrow{\underline{h}[m]}R'' % %\quad \fresh{k}{Q} 
+ }
+{U \paral R\xrightarrow{\{e[k],\underline{f}[l]\},\underline{j}[m]} P'' \paral Q''\paral R''}\\[25pt]
+%\rulename{concert2 act}\
+%\Rule
+%{P \xrightarrow{\{{a}[k], \underline{h}[l]\}} P' \quad \fresh{k}{\eta}}
+%{\eta.P \xrightarrow{\{{a}[k], \underline{h}[l]\}} \eta.P'}\\[25pt]
+\rulename{concert3 act}\
+\Rule
+{P \xrightarrow{\{{a}[k], \underline{h}[l], \underline{j}[m]\}} P' \quad \fresh{k}{\eta}}
+{\eta.P \xrightarrow{\{{a}[k], \underline{h}[l], \underline{j}[m]\}} \eta.P'}\\[25pt]
+%\rulename{concert2 par}\
+%\Rule
+%{P \xrightarrow{\{{a}[k], \underline{h}[l]\}} P'\quad \fresh{k}{Q} \quad \fresh{l}{Q}}
+%{P \paral Q \xrightarrow{\{{a}[k], \underline{h}[l]\}} P' \paral Q}\\[25pt]
+\rulename{concert3 par}\
+\Rule
+{P \xrightarrow{\{{a}[k], \underline{h}[l], \underline{j}[m]\}} P'\quad \fresh{k}{Q} \quad \fresh{l}{Q}\quad \fresh{m}{Q}}
+{P \paral Q \xrightarrow{\{{a}[k], \underline{h}[l], \underline{j}[m]\}} P' \paral Q}\\[25pt]
+%\rulename{concert2 res}\
+%\Rule
+%{P \xrightarrow{\{{a}[k], \underline{h}[l]\}} P'}
+%{P\backslash L \xrightarrow{\{{a}[k], \underline{h}[l]\}} P'\backslash L}\;\;  a, \underline{h}  \notin L \cup (L)\\[25pt]
+\rulename{concert3 res}\
+\Rule
+{P \xrightarrow{\{{a}[k], \underline{h}[l], \underline{j}[m]\}} P'}
+{P\backslash L \xrightarrow{\{{a}[k], \underline{h}[l], \underline{j}[m]\}} P'\backslash L}\;\;  a, \underline{h}, \underline{j}  \notin L \cup (L)
+%
+\end{array}
+\] 
+\caption{Shorthand SOS rules for the three concerted actions transitions.  We assume $\alpha$ is $c$ or $(c)$ 
+and $\gamma(b,c)=e$ for some $c\in \mathcal{A}$, $\gamma(a,d)=f$, and  $\gamma(g,h)=j$.
+\label{fig:xc3sos} 
+}
+\end{figure}
+
 
 \begin{figure}[t] 
 \[
@@ -471,8 +516,7 @@ and $\gamma(b,c)=e$ for some $c\in \mathcal{A}$, $\gamma(a,d)=f$, and  $\gamma(g
 %\rom{sc}\
 \Rule
 {P \Rightarrow Q \quad Q \tran{\mu} Q' \quad Q' \Rightarrow P'}
-{P\tran{\mu} P
-'} 
+{P\tran{\mu} P'} 
 %\quad \mu \in \mAK\cup \umAK \cup \mathcal{C}
 %%TODO Moreover, $S\equiv P$ for all $S, P$ 
 %%such that $S\bydef P$.
@@ -545,7 +589,7 @@ initial synchronisation of actions $a$, which produces the transition $c[1]$, we
 with a pair of concerted actions:
 $$(a[1];b) \paral a[1] \paral  d \xrightarrow{\{f[2], \underline{c}[1]\}} 
   (a;b[2])\paral a \paral d[2]$$
-The transition is derived by rule \rulename{concert1} in Figure~\ref{fig:c1sos}
+The transition is derived by rule \rulename{concert2} in Figure~\ref{fig:c1sos}
  since $(a[1];b) \xrightarrow{(b)[2]} (a[1];b[2]) \xrightarrow{\underline{a}[1]} (a;b[2])$ by \rulename{aux1} and \rulename{rev act1}, 
 and since $a[1] \paral d \xrightarrow{f[2]} a[1] \paral d[2] \xrightarrow{\underline{a}[1]} a \paral d[2]$
 by \rulename{par} and \rulename{rev par}.}
@@ -553,24 +597,24 @@ by \rulename{par} and \rulename{rev par}.}
 %
 The next example illustrates a creation of a bond between weak actions.
 \begin{example}\label{ex:examp2}
-{\rm Consider $(a[1];b)\paral (a[1];b)\paral e$ with $\gamma(a,a)=c$ and $\gamma(b,b)=d$. Recall that actions $b$ here are weak.
-We have the following pair of concerted actions derived by \rulename{concert1}, where the bond created and the bond broken are between the same two processes:
- $$(a[1];b)\paral (a[1];b)\paral e  \xrightarrow{\{d[2], \underline{c}[1]\}} 
-(a;b[2])\paral (a;b[2])\paral e. $$}
+{\rm Consider $(a[1];b)\paral (a[1];b)$ with $\gamma(a,a)=c$ and $\gamma(b,b)=d$. Recall that actions $b$ here are weak.
+We have the following pair of concerted actions derived by \rulename{concert2'}, where the bond created and the bond broken are between the same two processes:
+ $$(a[1];b)\paral (a[1];b)  \xrightarrow{\{d[2], \underline{c}[1]\}} 
+(a;b[2])\paral (a;b[2])\ . $$}
 \end{example}
 
-There are situations where creation of a bond between two processes with weak actions requires breaking of bonds with other processes. Such transitions cannot be derived by \rulename{concert1}, so we use other concert rules in Figure~\ref{fig:c1sos}.
+There are situations where creation of a bond between weak actions of two processes requires breaking of bonds with other processes. %Such transitions cannot be derived by \rulename{concert1}, so we use other concert rules in Figure~\ref{fig:c1sos}.
 
 
 \begin{example}\label{ex:examp3}
 {\rm Consider $(a[1];b)\paral (e[2];b)\paral (a[1],e[2])$ with $\gamma(a,a)=c$, $\gamma(b,b)=d$, and
 $\gamma(e,e)=h$.
-The process cannot perform any concerted actions by \rulename{concert1}: Although $(a[1];b)  \xrightarrow{(b)[l]} 
+The process cannot perform any concerted actions by \rulename{concert2'}: Although $(a[1];b)  \xrightarrow{(b)[l]} 
 \xrightarrow{\underline{a}[1]} (a;b[l])$, for any $l$ different from 1 and 2, but
 $(e[2];b)\paral (a[1],e[2])$  cannot perform the auxiliary $(b[l])$
 transition since there are no SOS rules for parallel composition and auxiliary actions $(b)$. This forces us
-to treat $(a[1];b)$ and $ (e[2];b)$ as $P$ and $Q$ in \rulename{concert1}, respectively, and we notice that
-we cannot undo a communication on $a$ or $e$. However, this is precisely what \rulename{concert2} allows, so we have these two concerted transitions:
+to treat $(a[1];b)$ and $ (e[2];b)$ as $P$ and $Q$ in \rulename{concert2'}, respectively, and we notice that
+we cannot undo a communication on $a$ or $e$. However, this is precisely what \rulename{concert2} allows, so we have these two different concerted actions transitions:
 $$
 (a[1];b)\paral (e[2];b)\paral (a[1],e[2])  \xrightarrow{\{d[3], \underline{c}[1]\}} 
 (a;b[3])\paral (e[2];b[3])\paral (a,e[2])
@@ -579,13 +623,22 @@ $$
 (a[1];b)\paral (e[2];b)\paral (a[1],e[2])  \xrightarrow{\{d[3], \underline{h}[2]\}} 
 (a[1];b[3])\paral (e;b[3])\paral (a[1],e)
 $$ 
-We notice that, following the first transition above, the $h[2]$ bond can be broken, and correspondingly the $c[1]$ bond can be broken after the second transition. Since creation and breaking of such bonds is almost instantaneous, we have added 
-a new concert rule that captures such cascade of three reactions, called \rulename{concert3}. It allows us to derive
+We notice that, following the first transition above, the $h[2]$ bond can be broken, and correspondingly the $c[1]$ bond can be broken after the second transition:
+$$
+(a;b[3])\paral (e[2];b[3])\paral (a,e[2]) \xrightarrow{\underline{h}[2]}  (a;b[3])\paral (e;b[3])\paral (a,e)
+$$ 
+$$
+(a[1];b[3])\paral (e;b[3])\paral (a[1],e)  \xrightarrow{\underline{c}[1]} (a;b[3])\paral (e;b[3])\paral (a,e) 
+$$ 
+Creation of the $d[3]$ bonds makes the $h[2]$ and $c[1]$ bonds unstable, so they break immediately
+after the corresponding concerted actions. Since creation and breaking of such bonds is almost instantaneous, we have are using
+a ``shorthand'' SOS rule to captures such cascade of two concerted actions and a reversal of an unstable action, called \rulename{concert3}. It allows us to derive
 $$
 (a[1];b)\paral (e[2];b)\paral (a[1],e[2])  \xrightarrow{\{d[3], \underline{c}[1], \underline{h}[2]\}} 
 (a;b[3])\paral (e;b[3])\paral (a,e) .
 $$ 
-Here, creation of the bond $d$ results in two other bonds being broken.  }
+Here, creation of the bond $d$ results in two other bonds $c, h$ being broken. The rule \rulename{concert3} and the related rules
+are in Figure~\ref{fig:xc3sos}.}
 \end{example}
 
 Overall, the transitions in Figures~\ref{fig:fsos}--\ref{fig:xc2sos} are labelled with $a[k] \in \mAK$, or with 
