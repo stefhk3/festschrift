@@ -2,8 +2,9 @@
 %
 The Calculus of Covalent Bonding, or CCB for short, was defined in~\cite{KU2017}. 
 We recall here the main definitions in order to make the paper self-contained. 
-We note, however, that the syntax of this version of CCB is slightly extended resulting in several 
-SOS rules being revised. Moreover, two new SOS rules for concerted actions are added. 
+We note, however, that the syntax of this version of CCB is slightly extended, and a new `shortcut'  
+SOS rule for three concerted actions is added. 
+%Moreover, two new SOS rules for concerted actions are added. 
 We first introduce some preliminary notions and notations.
 
 Let $\mA$ be the set of (forward) action labels, 
@@ -66,7 +67,7 @@ DNA replication. Such a protein could be modelled by having the walk modelled in
 }
 %
 %
-The new feature of the operator $(s;b).P$ is the execution of the weak action $b$, which
+An interesting feature of the operator $(s;b).P$ is the execution of the weak action $b$, which
 can happen only after all the actions in $s$, which are strong actions, have taken place. Performing $b$ then forces
 undoing one of the past actions in $s$ (by the \rulename{concert} rules in Figures~\ref{fig:c1sos}-\ref{fig:xc2sos}).
 
@@ -76,7 +77,7 @@ $\gamma$. As in the calculus ACP \cite{ACPBook}, the communication function is a
 $\gamma: \mathcal A \times \mathcal A \rightarrow \mathcal A$ which is commutative and associative. The function
 $\gamma$ is used in the operational semantics to define when two processes can interact. \Red{The use of a synchronization function instead of a $\tau$-style communication as in CCS was motivated in the original CCB by the potential bonding between many different atoms. This can easily be captured by desiging the atoms and the synchronizations separately.} Processes 
 $P$ and $Q$ in $P\paral Q$ can also perform a pair of concerted actions,
-which is the new feature of our calculus.  We also have the ACP-like restriction operator 
+which is a novel feature of our calculus.  We also have the ACP-like restriction operator 
 $\setminus L$, where $L$ is a set of labels. It prevents actions from taking place and, due to 
 the synchronisation algebra used, it also blocks communication. If $\gamma(a,b)=c$ then $a.P$ and $b.Q$
 cannot communicate in $(a.P\paral b.Q)\setminus c$.
@@ -106,10 +107,10 @@ The term $C[Q]$ denotes the result of filling the hole in the context $C\hole$ w
 We say that $R$ is a \emph{subprocess} of $P$ if $P$ is $C[R]$ for some context $C\hole$.
 
 We define the semantics of our calculus by a labelled transition system,
-LTS for short, which is a structure $(St,AL,\rightarrow: \subseteq St \times AL \times St)$
-with $St$ the set of states, $AL$ the set of action labels and $\rightarrow: 
-\subseteq St \times AL \times St$ the labelled transition relation.
-The set of states $St$ is the set $\Proc$. 
+LTS for short, which is a structure $(St,L,\rightarrow: \subseteq St \times AL \times St)$
+with $St$ the set of states, $L$ the set of action labels and $\rightarrow: 
+\subseteq St \times L \times St$ the labelled transition relation.
+For CCB, the set of states $St$ is the set $\Proc$. 
 %In practice, all our results and examples hold for \emph{consistent} processes, namely processes
 %reachable from standard processes.
 % (see Definition~\ref{consistent}). 
@@ -213,16 +214,17 @@ They are defined in Figure~\ref{fig:predicates}, and they use two auxiliary func
 $\kkey{s}: (\mathcal{A}\cup\mathcal{AK})^* \rightarrow \mathcal{P}(\Keys)$ and
 $\keys{P}: \Proc \rightarrow \mathcal{P}(\Keys)$. 
 %
-The function $\kkey$ is defined as follows:
+The function $\kkey{\_}$ is defined as follows:
 $\kkey{\epsilon}=\emptyset$, $\kkey{\alpha:s}=\{l\}\cup\kkey{s} \text{ if }\alpha=a[l]$, for 
 $a\in \mathcal{A}$ and $l\in \Keys$, and $\kkey{\alpha:s}= \kkey{s} \text{ if }\alpha \in \mathcal{A}$.
 %
-The function $\keys$ is given by $\keys{\Nil}=\emptyset$, $\keys{S}=\keys{P}$ if $S\bydef P$, 
+The function $\keys{\_}$ is given by $\keys{\Nil}=\emptyset$, $\keys{S}=\keys{P}$ if $S\bydef P$ and $S$ is guarded in $P$
+(correspondingly for $\std{S}$ and $\fresh{m}{S}$ in Figure~\ref{fig:predicates}), 
 $\keys{((s;b)\Mid \mu).P}=\kkey{s} \cup \kkey{b} \cup \keys{\mu.P}$, $\keys{P \paral Q}= \keys{P} \cup \keys{Q}$, and $\keys{P \restrict L}=\keys{P}$. Informally $\keys{P}$ associates with each term $P$ the set of its keys. 
 A process $P$ is \emph{standard}, written $\std{P}$, if it contains no past actions (hence no keys). 
 A key $n$ is \emph{fresh} in $Q$, written $\freshpred{n}(Q)$, if $Q$ contains no past action with the key $n$.
 We extend the notion of fresh keys to the sequences of actions and past actions $s$ and $t$, and to sites $\sigma$, 
-via the function $\kkey$. Moreover, correspondingly, $\freshpred{n}(\mu)$ if $\freshpred{n}(\sigma)$ for every
+via the function $\kkey{\_}$. Moreover, correspondingly, $\freshpred{n}(\mu)$ if $\freshpred{n}(\sigma)$ for every
 site $\sigma$ in $\mu$. 
 %Figure~\ref{fig:predicates} defines the predicates by induction over the process terms. 
 %We could also have said that $\std{P}$ is true if $\keys{P} = \emptyset$ and that 
@@ -284,7 +286,8 @@ site $\sigma$ in $\mu$.
 \; S \bydef P
 \end{array}
 \] 
-\caption{Forward SOS rules. We assume $\gamma(a,d)=c$ and $b \in \mathcal{WA}$.} 
+\caption{Forward SOS rules. We assume $\gamma(a,d)=c$.% and $b \in \mathcal{WA}$.
+} 
 % caption at submission \caption{Forward SOS rules. The condition (*) is $\gamma(a,d)=c$, and $b \in \mathcal{WA}$.} 
 \label{fig:fsos}
 \end{figure}
@@ -312,7 +315,9 @@ and the reduction rule \rulename{red1} in Figure~\ref{fig:reduction}.
 \begin{array}{ll}
 \rulename{rev s}\ 
 \Rule
-{\fresh{k}{s,s'}}
+{
+%\fresh{k}{s,s'}
+}
 {(s,a[k],s';\beta) \xrightarrow{\underline{a}[k]}_s (s,a,s';\beta)}
 \qquad &
 \rulename{rev c}\
@@ -404,8 +409,7 @@ $$
 \\[25pt]
 \rulename{concert2'}\ 
 \Rule
-{P\xrightarrow{(b)[k]} P'\xrightarrow{\underline{a}[l]}P'' \qquad Q\xrightarrow{(c)[k]}Q' 
-  \quad Q'\xrightarrow{\underline{d}[l]}Q''% %\quad \fresh{k}{Q} 
+{P\xrightarrow{(b)[k]} P'\xrightarrow{\underline{a}[l]}P'' \qquad Q\xrightarrow{\alpha[k]}Q'\xrightarrow{\underline{d}[l]}Q''% %\quad \fresh{k}{Q} 
  }
 {P \paral Q\xrightarrow{\{e[k],\underline{f}[l]\}} P'' \paral Q''}\\[25pt]
 \rulename{concert2}\ 
@@ -425,7 +429,7 @@ $$
 
 \end{array}$$
 \caption{SOS rules for two concerted actions transitions. We assume $\alpha$ is $c$ or $(c)$ 
-and $\gamma(b,c)=e$ for some $c\in \mathcal{A}$, $\gamma(a,d)=f$, and  $\gamma(g,h)=j$.}
+and $\gamma(b,c)=e$ for some $c\in \mathcal{A}$, $\gamma(a,d)=f$, and  $\gamma(g,h)=j$. The symbol `$\equiv$' denotes syntactic congruence.}
 \label{fig:c1sos}
 \end{figure}
 
@@ -503,7 +507,7 @@ and $\gamma(b,c)=e$ for some $c\in \mathcal{A}$, $\gamma(a,d)=f$, and  $\gamma(g
 %
 \end{array}
 \] 
-\caption{Shorthand SOS rules for the three concerted actions transitions.  We assume $\alpha$ is $c$ or $(c)$ 
+\caption{Shortcut SOS rules for the three concerted actions transitions.  We assume $\alpha$ is $c$ or $(c)$ 
 and $\gamma(b,c)=e$ for some $c\in \mathcal{A}$, $\gamma(a,d)=f$, and  $\gamma(g,h)=j$.
 \label{fig:xc3sos} 
 }
@@ -562,7 +566,7 @@ Since $(a,b).(c).S$ is the definition of $S$ we obtain by rule \rulename{rev con
 }
 \end{example}
 
-Figures \ref{fig:c1sos}--\ref{fig:xc2sos} contain the SOS rules that define the new concerted actions transitions. 
+Figures \ref{fig:c1sos}--\ref{fig:xc2sos} contain the SOS rules that define the novel concerted actions transitions. 
 The main rules are the three \rulename{concert} rules in Figure~\ref{fig:c1sos} that define when a pair or a triple 
 of concerted actions take place. 
 We also have four auxiliary rules \rulename{w}, \rulename{cw}, \rulename{aux1} and \rulename{aux2} which 
@@ -600,7 +604,10 @@ The next example illustrates a creation of a bond between weak actions.
 {\rm Consider $(a[1];b)\paral (a[1];b)$ with $\gamma(a,a)=c$ and $\gamma(b,b)=d$. Recall that actions $b$ here are weak.
 We have the following pair of concerted actions derived by \rulename{concert2'}, where the bond created and the bond broken are between the same two processes:
  $$(a[1];b)\paral (a[1];b)  \xrightarrow{\{d[2], \underline{c}[1]\}} 
-(a;b[2])\paral (a;b[2])\ . $$}
+(a;b[2])\paral (a;b[2])\ . $$
+This transition cannot be derived by \rulename{concert2} because we only have two processes here and \rulename{concert2} requires at least three separate processes. Note that \rulename{concert2'} can be used to derive  
+  $$(a[1];b)\paral (a[1], b)  \xrightarrow{\{d[2], \underline{c}[1]\}} (a;b[2])\paral (a, b[2])\ . $$
+ }
 \end{example}
 
 There are situations where creation of a bond between weak actions of two processes requires breaking of bonds with other processes. %Such transitions cannot be derived by \rulename{concert1}, so we use other concert rules in Figure~\ref{fig:c1sos}.
@@ -631,8 +638,8 @@ $$
 (a[1];b[3])\paral (e;b[3])\paral (a[1],e)  \xrightarrow{\underline{c}[1]} (a;b[3])\paral (e;b[3])\paral (a,e) 
 $$ 
 Creation of the $d[3]$ bonds makes the $h[2]$ and $c[1]$ bonds unstable, so they break immediately
-after the corresponding concerted actions. Since creation and breaking of such bonds is almost instantaneous, we have are using
-a ``shorthand'' SOS rule to captures such cascade of two concerted actions and a reversal of an unstable action, called \rulename{concert3}. It allows us to derive
+after the corresponding concerted actions. Since creation and breaking of such bonds is almost instantaneous, we are using
+a ``shortcut'' SOS rule to captures such cascade of two concerted actions and a reversal of an unstable action, called \rulename{concert3}. It allows us to derive
 $$
 (a[1];b)\paral (e[2];b)\paral (a[1],e[2])  \xrightarrow{\{d[3], \underline{c}[1], \underline{h}[2]\}} 
 (a;b[3])\paral (e;b[3])\paral (a,e) .
@@ -716,15 +723,15 @@ We associate to $\Proc$ and $\mAK \cup \umAK \cup \aAK \cup (\mAK \times \umAK)
 \cup (\mAK \times \umAK\times \umAK) $
 a transition relation
 $\rightarrow$ given by $ \bigcup_{l<\omega} \rightarrow^l$, where transition relations
-$\rightarrow^l \subseteq \Proc \times \mAK \cup \umAK \cup \aAK \cup (\mAK \times \umAK) \times 
- (\mAK \times \umAK\times \umAK) \Proc$
+$\rightarrow^l \subseteq \Proc \times ( \mAK \cup \umAK \cup \aAK \cup (\mAK \times \umAK) \times 
+ (\mAK \times \umAK\times \umAK)) \times  \Proc$
 are as follows, with $b\in \mAK$ and $\mu \in \mAK \cup \umAK \cup (\mAK \times \umAK)
 \cup (\mAK \times \umAK\times \umAK) $:
 
 \begin{enumerate}
 \item
 $P \xrightarrow{(b)[k]} P' \in \rightarrow^l$ if $d(P)=l$,
-$P \xrightarrow{(b)[k]} P'= \rho(con(r))$, where $r$ is either \rulename{aux1} or \rulename{aux2},
+$P \xrightarrow{(b)[k]} P'= con(r)$, where $r$ is either \rulename{aux1} or \rulename{aux2},
 and each premise in $pre(r)$ is a valid transition in $\bigcup_{k<l} \rightarrow^k$, a valid transition $\rightarrow_s$, 
  or a valid predicate.
 
