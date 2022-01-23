@@ -108,7 +108,7 @@ The term $C[Q]$ denotes the result of filling the hole in the context $C\hole$ w
 We say that $R$ is a \emph{subprocess} of $P$ if $P$ is $C[R]$ for some context $C\hole$.
 
 We define the semantics of our calculus by a labelled transition system,
-LTS for short, which is a structure $(St,L,\rightarrow: \subseteq St \times AL \times St)$
+LTS for short, which is a structure $(St,L,\rightarrow: \subseteq St \times L \times St)$
 with $St$ the set of states, $L$ the set of action labels and $\rightarrow: 
 \subseteq St \times L \times St$ the labelled transition relation.
 For CCB, the set of states $St$ is the set $\Proc$. 
@@ -116,13 +116,15 @@ For CCB, the set of states $St$ is the set $\Proc$.
 %reachable from standard processes.
 % (see Definition~\ref{consistent}). 
 The action labels are the forward actions $\mAK$, 
-the reverse actions $\umAK$ and the \emph{groups of concerted actions} $\mAK \times \umAK \cup 
- \mAK \times \umAK \times \umAK$. 
+the reverse actions $\umAK$ and the \emph{groups of concerted actions} $\mAK \times \umAK $. We shall
+use $\omega$ to denote a typical action label.
 %
-The labelled transition relation is defined by SOS rules (Figures~\ref{fig:fsos}--\ref{fig:sc}) 
+%\cup  \mAK \times \umAK \times \umAK$. 
+%
+The labelled transition relation will be defined in terms of SOS rules (Figures~\ref{fig:fsos}--\ref{fig:sc}) 
 and rewrite rules (Figure~\ref{fig:reduction}), where
 the rules in Figures~\ref{fig:fsos}--\ref{fig:reversesos}
-are influenced by \cite{Irek2007}. 
+are influenced by \cite{Irek2007}.  
 Note that sequences $s$ and $t$ in Figures~\ref{fig:fsos}--\ref{fig:xc2sos} 
 are members of $(\mathcal{A}\cup\mathcal{AK})^*$ and $\mathcal{AK}^*$ respectively.
 
@@ -470,7 +472,7 @@ and $\gamma(b,c)=e$ for some $c\in \mathcal{A}$, $\gamma(a,d)=f$, and  $\gamma(g
 }
 \end{figure}
 
-
+\Comment{
 \begin{figure}[t] 
 \[
 \begin{array}{l}
@@ -513,22 +515,23 @@ and $\gamma(b,c)=e$ for some $c\in \mathcal{A}$, $\gamma(a,d)=f$, and  $\gamma(g
 \label{fig:xc3sos} 
 }
 \end{figure}
-
+}
 
 \begin{figure}[t] 
 \[
 \begin{array}{l}
 %\rom{sc}\
 \Rule
-{P \Rightarrow Q \quad Q \tran{\mu} Q' \quad Q' \Rightarrow P'}
-{P\tran{\mu} P'} 
+{P \Rightarrow Q \quad Q \tran{\omega} Q' \quad Q' \Rightarrow P'}
+{P\tran{\omega} P'} 
 %\quad \mu \in \mAK\cup \umAK \cup \mathcal{C}
 %%TODO Moreover, $S\equiv P$ for all $S, P$ 
 %%such that $S\bydef P$.
 \end{array}
 \] 
-\caption{Structural congruence rule \rulename{sc} when $\mu\in \mAK \cup (\mAK\times \umAK) \cup  (\mAK\times \umAK\times \umAK))$,
-and \rulename{rev sc} when $\mu\in \umAK$.} 
+\caption{Structural congruence rule \rulename{sc} when $\omega \in \mAK \cup (\mAK\times \umAK)$
+% \cup  (\mAK\times \umAK\times \umAK))$,
+and \rulename{rev sc} when $\omega \in \umAK$.} 
 \label{fig:sc}
 \end{figure}
 
@@ -549,9 +552,10 @@ and \rulename{rev sc} when $\mu\in \umAK$.}
 \\[2pt]
 \rulename{prom}: & ( (s,a,s';b[k])\mid \mu).P \Rightarrow ((s,a[k],s';b)\mid \mu).P & \mbox{ if } a \in \mathcal{SA}, b \in \mathcal{WA} 
 \\[2pt]
-\rulename{move-r}: & ((s,a,s',b[k],s'')\mid \mu).P \Rightarrow ((s,a[k],s',b,s'')\mid \mu).P & \mbox{ if } a \in \mathcal{SA}, b \in \mathcal{WA}
-\\[2pt]
-\rulename{move-l}: & ((s,b[k],s',a,s'')\mid \mu).P \Rightarrow ((s,b,s',a[k],s'')\mid \mu).P & \mbox{ if } a \in \mathcal{SA}, b \in \mathcal{WA}
+\rulename{move}: & ((s,a,s',b[k],s'')\mid \mu).P \Rightarrow ((s,a[k],s',b,s'')\mid \mu).P & \mbox{ if } a \in \mathcal{SA}, b \in \mathcal{WA}
+%\rulename{move-r}: & ((s,a,s',b[k],s'')\mid \mu).P \Rightarrow ((s,a[k],s',b,s'')\mid \mu).P & \mbox{ if } a \in \mathcal{SA}, b \in \mathcal{WA}
+%\\[2pt]
+%\rulename{move-l}: & ((s,b[k],s',a,s'')\mid \mu).P \Rightarrow ((s,b,s',a[k],s'')\mid \mu).P & \mbox{ if } a \in \mathcal{SA}, b \in \mathcal{WA}
 \end{array}
 \] 
 \caption{Reduction rules. Sequences $s, s', s''$ are members of $(\mathcal{A} \cup \mathcal{AK})^{*}$.} 
@@ -614,10 +618,11 @@ This transition cannot be derived by \rulename{concert2} because we only have tw
  }
 \end{example}
 
-There are situations where creation of a bond between weak actions of two processes requires breaking of bonds with other processes. %Such transitions cannot be derived by \rulename{concert1}, so we use other concert rules in Figure~\ref{fig:c1sos}.
+%
+%
+\Comment{There are situations where creation of a bond between weak actions of two processes requires breaking of bonds with other processes. %Such transitions cannot be derived by \rulename{concert1}, so we use other concert rules in Figure~\ref{fig:c1sos}.
 
-
-\begin{example}\label{ex:examp3}
+\begin{example}\label{ex:concert3}
 {\rm Consider $(a[1];b)\paral (e[2];b)\paral (a[1],e[2])$ with $\gamma(a,a)=c$, $\gamma(b,b)=d$, and
 $\gamma(e,e)=h$.
 The process cannot perform any concerted actions by \rulename{concert2'}: Although $(a[1];b)  \xrightarrow{(b)[l]} 
@@ -651,9 +656,12 @@ $$
 Here, creation of the bond $d$ results in two other bonds $c, h$ being broken. The rule \rulename{concert3} and the related rules
 are in Figure~\ref{fig:xc3sos}.}
 \end{example}
+}
+
 
 Overall, the transitions in Figures~\ref{fig:fsos}--\ref{fig:sc} are labelled with $a[k] \in \mAK$, or with 
-$\underline{c}[l] \in \umAK$, or with concerted actions $(a[k], \underline{c}[l])$  or $(a[k], \underline{c}[l], \underline{e}[m])$.
+$\underline{c}[l] \in \umAK$, or with concerted actions $(a[k], \underline{c}[l])$.
+%  or $(a[k], \underline{c}[l], \underline{e}[m])$.
 %\} \in \mathcal{C}$.
 
 We also have the usual structural congruence rules 
@@ -668,11 +676,12 @@ of actions. First we define {\em free names} of processes.
 The function 
 $\mathsf{fn}: \Proc \rightarrow \mathcal{P}(\Keys)$ is given as follows: 
 $\mathsf{fn}(\Nil) = \emptyset$,
-$\mathsf{fn}(S)=\mathsf{fn}(P) \text{ if }  S\bydef P$, $\mathsf{fn}((\alpha : s;b).P)=\{\alpha\} \cup 
-\mathsf{fn}((s;b).P)$, $\mathsf{fn}((a;b).P)=\{a,b\} \cup \mathsf{fn}(P) $, $\mathsf{fn}(P\paral Q)=\mathsf{fn}(P) \cup \mathsf{fn}(Q)$, and $\mathsf{fn}(P \restrict L)=\mathsf{fn}(P) \restrict L$.
+$\mathsf{fn}(S)=\mathsf{fn}(P) \text{ if }  S\bydef P$, 
+$\mathsf{fn}((\sigma\mid \mu).P)=\mathsf{f}(\sigma)\cup \mathsf{fn}(\mu.P)$, where $\mathsf{f}(\sigma)$ is the set of all action labels in $\sigma$,
+$\mathsf{fn}(\varepsilon.P)=\mathsf{fn}(P) $, $\mathsf{fn}(P\paral Q)=\mathsf{fn}(P) \cup \mathsf{fn}(Q)$, and $\mathsf{fn}(P \restrict L)=\mathsf{fn}(P) \restrict L$.
 %\end{definition}
 
-\noindent
+
 The reduction rules have names such as, for example, \rulename{red} and we write 
 \rulename{red}: $P \Rightarrow Q$
 to indicate that the reduction rule $P \Rightarrow Q$ is called \rulename{red}. 
@@ -687,18 +696,20 @@ $C[\ ]$ giving rise to a reduction step: $C[P] \Rightarrow C[Q]$.
 transitive relation on CCB processes that is preserved by all contexts, and that satisfies the rules 
 in Figure~\ref{fig:reduction}.
 \end{definition}
-Note that we do not want $\Rightarrow$ to be symmetric as we wish to apply \rulename{prom} only 
+Note that we do not want $\Rightarrow$ to be symmetric as we wish to apply \rulename{prom} and \rulename{move} only 
 from left to right. 
 
 The rewrite rules in Figure~\ref{fig:reduction} include 
-\rulename{prom}, \rulename{move-r}, and \rulename{move-l} which  
-promote weak bonds (here $b$) to strong bonds (here $a$).
-The rule \rulename{prom} applies to the full version of our prefix operator (with the ; construct), and
-\rulename{move-r} and \rulename{move-l} apply only to the simple prefix.
-These three rules are here to model what happens in chemical systems: a bond on a weak action is 
+\rulename{prom} and \rulename{move}
+%, and \rulename{move-l} 
+which promote weak bonds (here $b$) to strong bonds (here $a$). Recall that the order of actions in $s$ in expressions for sites
+$(s)$ and $(s;b)$ is irrelevant.
+The rule \rulename{prom} applies to the full version of site expression (with the ; construct), and
+\rulename{move} applies only to the simple site expressions without `;'.
+These two rules model what happens in chemical systems: a bond on a weak action is 
 temporary and as soon as there is a strong action that can accommodate that bond (as the result
 of concerted actions) the bond establishes itself on the strong action thus releasing the weak action.
-In order to align the use of these three rules to what happens in chemical reactions, we insist
+In order to align the use of these two rules to what happens in chemical reactions, we insist
 that they are used as soon as they becomes applicable: this is made 
 precise in Definition~\ref{LTS}.
 %We could have used the idea of ordering on SOS rules and rewrite rules \cite{irek2002,mousavi}
@@ -712,11 +723,26 @@ precise in Definition~\ref{LTS}.
 
 We now define the transition relation for the labelled transition system for CCB.
 Recall that the states of the LTS are processes in $\Proc$ and the labels are members of $\mA$,
-$\mAK$, $\aAK$ and the concerted actions labels in $\mAK \times \umAK$
-or $\mAK \times \umAK \times \umAK$. First, the transition relation on collections sites, $\rightarrow_s$, 
+$\mAK$, $\aAK$ and the concerted actions labels in $\mAK \times \umAK$.
+%or $\mAK \times \umAK \times \umAK$. 
+First, the transition relation on collections sites, $\rightarrow_s$, 
 is defined as the smallest relation derived by the rules \rulename{s}, \rulename{c},  \rulename{rev s}, \rulename{rev c},   
-\rulename{w}, and \rulename{cw} in Figures~\ref{fig:fsos}--\ref{fig:c1sos}.   
+\rulename{w}, and \rulename{cw} in Figures~\ref{fig:fsos}--\ref{fig:c1sos}.  Second, the transition relation $\rightarrow$ is defined
+as the smallest relation derived by the rules in Figures~\ref{fig:fsos}--\ref{fig:sc}. 
 %
+In order to define our transition relation $\mapsto$ we introduce processes in \emph{normal forms}: $\mathsf{nf}(P)$ is the set of $P'$ 
+such that $P\Rightarrow P'$ and $P'$ cannot be reduced via \rulename{prom} or  \rulename{move}.
+
+
+
+\begin{definition}\label{LTS} \normalfont
+We associate to $\Proc$ and $\mAK \cup \umAK \cup \aAK \cup (\mAK \times \umAK) $
+a transition relation $\mapsto$ given by $P \xmapsto{\omega} Q$ if $P \xrightarrow{\omega} P'$ for some $P'$ and $Q \in \mathsf{nf}(P')$. 
+\end{definition}
+
+
+
+\Comment{
 Let $d:\Proc \rightarrow \mathbb{N}$ be the operator depth function defined by 
 $d(P)=0$ if $P$ is a constant, and $d(f(P_1,\ldots,P_n))=1+max\{d(P_i)\vert 1 \leq i \leq n\}$ 
 otherwise, where $f$ is an operator of CCB. The transition relation is given as follows:
@@ -748,7 +774,6 @@ in $ \bigcup_{k<l} \rightarrow^k$, a valid transition $\rightarrow_s$, a valid r
 
 \end{definition}
 
-
 The first part of the definition specifies the auxiliary transitions using rules \rulename{aux1} and 
 \rulename{aux2}. The second
 part tells us how to use the remaining rules to define transitions. If $P$ has no \rulename{prom}, 
@@ -764,29 +789,131 @@ And, if we use any of these rules, then the reduced process $Q$ must no longer h
 %could be to employ some of the techniques suggested in \cite{Cleaveland2001711}
 %that employ SOS rules with predicates. This would require the use of negative information in the premisses, 
 %so we opted for the alternative approach which is based on the orderings on SOS rules and rewrite rules. 
-
-
+}
+%
 \Comment{
 \Stefan{Our approach for prioritising transitions is different from approaches using predicates in the premises of the SOS rules, as 
-
 suggested for example in \cite{Cleaveland2001711}. In our case we decided for a different approach since we need to prioritise rewrite rules as well as SOS rules.}
 }
+
 The next example illustrates the application of the promotion rewrite rule.
 \begin{example}\label{example4}
 {\rm The transition 
 $(a[1];b) \paral a[1] \paral  b \xrightarrow{\{d[2], \underline{c}[1]\}} (a;b[2])\paral a \paral b[2]$ 
-from Example \ref{ex:examp1} cannot be followed by a communication of actions $a$ because there
+from Example \ref{ex:examp1} cannot give rise to the corresponding $\mapsto$ transition which is followed by a communication of actions $a$. This is because there
 is a \rulename{prom} redex $(a;b[2])$ in $(a;b[2])\paral a \paral b[2]$. The rewrite of this redex takes 
-priority: the bond 2 moves from the weak $b$ to the strong $a$ by \rulename{prom}:
-$$(a;b[2])\paral a \paral b[2] \Rightarrow (a[2];b)\paral a \paral b[2] $$
+priority: the bond 2 moves from the weak $b$ to the strong $a$ by \rulename{prom}. Since 
+$(a;b[2])\paral a \paral b[2] \Rightarrow (a[2];b)\paral a \paral b[2] $ and the contractum cannot be reduced with \rulename{prom} or
+with \rulename{move}, we have 
+$$(a[1];b) \paral a[1] \paral  b \xmapsto{\{d[2], \underline{c}[1]\}} (a[2];b)\paral a \paral b[2]$$
+
 As a result, we can bond on the weak $b$ again and, importantly, the $a[2]$ to $b[2]$ bond is irreversible
 as $\gamma(a,b)$ is undefined. Note that reaching
 this bond by computing forwards alone is not possible.}
 \end{example}
 
+There are situations where creation of a bond between weak actions of two processes requires breaking of bonds with other processes. %Such transitions cannot be derived by \rulename{concert1}, so we use other concert rules in Figure~\ref{fig:c1sos}.
+
+\begin{example}\label{ex:concert3}
+{\rm Consider $(a[1];b)\paral (e[2];b)\paral (a[1],e[2])$ with $\gamma(a,a)=c$, $\gamma(b,b)=d$, and
+$\gamma(e,e)=h$.
+The process cannot perform any concerted actions by \rulename{concert2'}: Although $(a[1];b)  \xrightarrow{(b)[l]} 
+\xrightarrow{\underline{a}[1]} (a;b[l])$, for any $l$ different from 1 and 2, but
+$(e[2];b)\paral (a[1],e[2])$  cannot perform the auxiliary $(b[l])$
+transition since there are no SOS rules for parallel composition and auxiliary actions $(b)$. This forces us
+to treat $(a[1];b)$ and $ (e[2];b)$ as $P$ and $Q$ in \rulename{concert2'}, respectively, and we notice that
+we cannot undo a communication on $a$ or $e$. However, this is precisely what \rulename{concert2} allows, so we have these two different concerted actions transitions:
+$$
+(a[1];b)\paral (e[2];b)\paral (a[1],e[2])  \xrightarrow{\{d[3], \underline{c}[1]\}} 
+(a;b[3])\paral (e[2];b[3])\paral (a,e[2])
+$$ 
+$$
+(a[1];b)\paral (e[2];b)\paral (a[1],e[2])  \xrightarrow{\{d[3], \underline{h}[2]\}} 
+(a[1];b[3])\paral (e;b[3])\paral (a[1],e)
+$$ 
+Promotion can be applied in both cases giving us the transitions
+$$
+(a[1];b)\paral (e[2];b)\paral (a[1],e[2])  \xmapsto{\{d[3], \underline{c}[1]\}} 
+(a[3];b)\paral (e[2];b[3])\paral (a,e[2])
+$$ 
+$$
+(a[1];b)\paral (e[2];b)\paral (a[1],e[2])  \xmapsto{\{d[3], \underline{h}[2]\}} 
+(a[1];b[3])\paral (e[3];b)\paral (a[1],e)
+$$ 
+
+
+We notice that, following the first transition above, the $h[2]$ bond can be broken, and correspondingly the $c[1]$ bond can be broken after the second transition. These together with applying promotion gives us the following:
+$$
+(a[3];b)\paral (e[2];b[3])\paral (a,e[2]) \xmapsto{\underline{h}[2]}  (a[3];b)\paral (e[3];b)\paral (a,e)
+$$ 
+$$
+(a[1];b[3])\paral (e[3];b)\paral (a[1],e)  \xmapsto{\underline{c}[1]} (a[3];b)\paral (e[3];b)\paral (a,e) 
+$$ 
+Creation of the $d[3]$ bonds makes the $h[2]$ and $c[1]$ bonds unstable, so they break immediately
+after the corresponding concerted actions. Since creation and breaking of such bonds is almost instantaneous, we shall use additional
+``shortcut'' SOS rules to capture such cascade of two concerted actions and a reversal of an unstable action, called \rulename{concert3}. It allows us to derive
+$$
+(a[1];b)\paral (e[2];b)\paral (a[1],e[2])  \xrightarrow{\{d[3], \underline{c}[1], \underline{h}[2]\}} 
+(a;b[3])\paral (e;b[3])\paral (a,e) 
+$$ 
+which, when followed by application of promotion, gives us
+$$
+(a[1];b)\paral (e[2];b)\paral (a[1],e[2])  \xrightarrow{\{d[3], \underline{c}[1], \underline{h}[2]\}} 
+(a;b[3])\paral (e;b[3])\paral (a,e) 
+$$ 
+Here, creation of the bond $d$ results in two other bonds $c, h$ being broken. The rule \rulename{concert3} and the related rules
+are in Figure~\ref{fig:xc3sos}.}
+\end{example}
+
+\begin{figure}[t] 
+\[
+\begin{array}{l}
+\rulename{concert3}\ 
+\Rule
+{U\equiv P \paral Q \quad  P\xrightarrow{(b)[k]}P'\xrightarrow{\underline{a}[l]}P'' 
+  \quad Q\xrightarrow{\alpha[k]}Q' \xrightarrow{\underline{g}[m]}Q''
+  \quad R\xrightarrow{\underline{d}[l]} R'\xrightarrow{\underline{h}[m]}R'' % %\quad \fresh{k}{Q} 
+ }
+{U \paral R\xrightarrow{\{e[k],\underline{f}[l]\},\underline{j}[m]} P'' \paral Q''\paral R''}\\[25pt]
+%\rulename{concert2 act}\
+%\Rule
+%{P \xrightarrow{\{{a}[k], \underline{h}[l]\}} P' \quad \fresh{k}{\eta}}
+%{\eta.P \xrightarrow{\{{a}[k], \underline{h}[l]\}} \eta.P'}\\[25pt]
+\rulename{concert3 act}\
+\Rule
+{P \xrightarrow{\{{a}[k], \underline{h}[l], \underline{j}[m]\}} P' \quad \fresh{k}{\eta}}
+{\eta.P \xrightarrow{\{{a}[k], \underline{h}[l], \underline{j}[m]\}} \eta.P'}\\[25pt]
+%\rulename{concert2 par}\
+%\Rule
+%{P \xrightarrow{\{{a}[k], \underline{h}[l]\}} P'\quad \fresh{k}{Q} \quad \fresh{l}{Q}}
+%{P \paral Q \xrightarrow{\{{a}[k], \underline{h}[l]\}} P' \paral Q}\\[25pt]
+\rulename{concert3 par}\
+\Rule
+{P \xrightarrow{\{{a}[k], \underline{h}[l], \underline{j}[m]\}} P'\quad \fresh{k}{Q} \quad \fresh{l}{Q}\quad \fresh{m}{Q}}
+{P \paral Q \xrightarrow{\{{a}[k], \underline{h}[l], \underline{j}[m]\}} P' \paral Q}\\[25pt]
+%\rulename{concert2 res}\
+%\Rule
+%{P \xrightarrow{\{{a}[k], \underline{h}[l]\}} P'}
+%{P\backslash L \xrightarrow{\{{a}[k], \underline{h}[l]\}} P'\backslash L}\;\;  a, \underline{h}  \notin L \cup (L)\\[25pt]
+\rulename{concert3 res}\
+\Rule
+{P \xrightarrow{\{{a}[k], \underline{h}[l], \underline{j}[m]\}} P'}
+{P\backslash L \xrightarrow{\{{a}[k], \underline{h}[l], \underline{j}[m]\}} P'\backslash L}\;\;  a, \underline{h}, \underline{j}  \notin L \cup (L)
+%
+\end{array}
+\] 
+\caption{Shortcut SOS rules for the three concerted actions transitions.  We assume $\alpha$ is $c$ or $(c)$ 
+and $\gamma(b,c)=e$ for some $c\in \mathcal{A}$, $\gamma(a,d)=f$, and  $\gamma(g,h)=j$.}
+\label{fig:xc3sos} 
+\end{figure}
+
+
 We shall call henceforth the transitions derived by the forward SOS rules as the \emph{forward transitions} 
 and the transitions derived by the reverse SOS rules as the \emph{reverse transitions}.
 Correspondingly, there are the \emph{concerted (action)} transitions. 
+%
+%
+%
 \subsection{Properties of CCB}
 The current version of CCB is a minor extension of the original CCB from \cite{KU2017}. If our collections have only one site, then both calculi have the same syntax. If we additionally do not define rules for concerted transitions that involve three actions, namely \rulename{concert3}, \rulename{concert3 act}, \rulename{concert3 par}, \rulename{concert3 res},
 and do not use the alternative rule \rulename{concert2}, then the transition relations that are associated with both calculi are the same. This means that all the properties that the original CCB possesses are also enjoyed by the core of the current calculus.
