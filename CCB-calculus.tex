@@ -105,7 +105,7 @@ A context $C\hole$ is a process term containing a \emph{hole}, represented by $\
 Formally, contexts are defined by the following syntax: 
 $$C::= \hole\ \mid\ \mu.C\ \mid\  P\paral C \ \mid\  C \paral P \ \mid \ C\restrict L $$
 The term $C[Q]$ denotes the result of filling the hole in the context $C\hole$ with $Q$.
-We say that $R$ is a \emph{subprocess} of $P$ if $P$ is $C[R]$ for some context $C\hole$.
+%We say that $R$ is a \emph{subprocess} of $P$ if $P$ is $C[R]$ for some context $C\hole$.
 
 We define the semantics of our calculus by a labelled transition system,
 LTS for short, which is a structure $(St,L,\rightarrow: \subseteq St \times L \times St)$
@@ -223,7 +223,7 @@ $a\in \mathcal{A}$ and $l\in \Keys$, and $\kkey{\alpha:s}= \kkey{s} \text{ if }\
 %
 The function $\keys{\_}$ is given by $\keys{\Nil}=\emptyset$, $\keys{S}=\keys{P}$ if $S\bydef P$ and $S$ is guarded in $P$
 (correspondingly for $\std{S}$ and $\fresh{m}{S}$ in Figure~\ref{fig:predicates}), 
-$\keys{((s;b)\Mid \mu).P}=\kkey{s} \cup \kkey{b} \cup \keys{\mu.P}$, $\keys{P \paral Q}= \keys{P} \cup \keys{Q}$, and $\keys{P \restrict L}=\keys{P}$. Informally $\keys{P}$ associates with each term $P$ the set of its keys. 
+$\keys{((s;\beta)\Mid \mu).P}=\kkey{s} \cup \kkey{\beta} \cup \keys{\mu.P}$, $\keys{P \paral Q}= \keys{P} \cup \keys{Q}$, and $\keys{P \restrict L}=\keys{P}$. Informally $\keys{P}$ associates with each term $P$ the set of its keys. 
 A process $P$ is \emph{standard}, written $\std{P}$, if it contains no past actions (hence no keys). 
 A key $n$ is \emph{fresh} in $Q$, written $\freshpred{n}(Q)$, if $Q$ contains no past action with the key $n$.
 We extend the notion of fresh keys to the sequences of actions and past actions $s$ and $t$, and to sites $\sigma$, 
@@ -432,7 +432,10 @@ $$
 
 \end{array}$$
 \caption{SOS rules for two concerted actions transitions. We assume $\alpha$ is $c$ or $(c)$ 
-and $\gamma(b,c)=e$ for some $c\in \mathcal{A}$, $\gamma(a,d)=f$, and  $\gamma(g,h)=j$. The symbol `$\equiv$' denotes syntactic congruence.}
+and $\gamma(b,c)=e$ for some $c\in \mathcal{A}$, $\gamma(a,d)=f$, and  $\gamma(g,h)=j$. The symbol `$\equiv$' 
+denotes syntactic congruence. Additionally, we assume that actions $(b)[k]$ and $\underline{a}[l]$ in \rulename{concert2'} 
+and \rulename{concert2} occur in the same site of $P$ and correspondingly for $(c)[k]$, $\underline{d}[l]$ and $Q$ 
+in \rulename{concert2'}.}
 \label{fig:c1sos}
 \end{figure}
 
