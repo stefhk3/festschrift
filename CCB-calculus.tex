@@ -853,12 +853,12 @@ Creation of the $d[3]$ bonds makes the $h[2]$ and $c[1]$ bonds unstable, so they
 after the corresponding concerted actions. Since creation and breaking of such bonds is almost instantaneous, we shall use additional
 ``shortcut'' SOS rules to capture such cascade of two concerted actions and a reversal of an unstable action, called \rulename{concert3}. It allows us to derive
 $$
-(a[1];b)\paral (e[2];b)\paral (a[1],e[2])  \xrightarrow{\{d[3], \underline{c}[1], \underline{h}[2]\}} 
+(a[1];b)\paral (e[2];b)\paral (a[1],e[2])  \xxrightarrow{\{d[3], \underline{c}[1], \underline{h}[2]\}} 
 (a;b[3])\paral (e;b[3])\paral (a,e) 
 $$ 
 which, when followed by application of promotion, gives us
 $$
-(a[1];b)\paral (e[2];b)\paral (a[1],e[2])  \xrightarrow{\{d[3], \underline{c}[1], \underline{h}[2]\}} 
+(a[1];b)\paral (e[2];b)\paral (a[1],e[2])  \xxrightarrow{\{d[3], \underline{c}[1], \underline{h}[2]\}} 
 (a;b[3])\paral (e;b[3])\paral (a,e) 
 $$ 
 Here, creation of the bond $d$ results in two other bonds $c, h$ being broken. The rule \rulename{concert3} and the related rules
@@ -915,8 +915,14 @@ Correspondingly, there are the \emph{concerted (action)} transitions.
 %
 %
 \subsection{Properties of CCB}
-The current version of CCB is a minor extension of the original CCB from \cite{KU2017}. If our collections have only one site, then both calculi have the same syntax. If we additionally do not define rules for concerted transitions that involve three actions, namely \rulename{concert3}, \rulename{concert3 act}, \rulename{concert3 par}, \rulename{concert3 res},
-and do not use the alternative rule \rulename{concert2}, then the transition relations that are associated with both calculi are the same. This means that all the properties that the original CCB possesses are also enjoyed by the core of the current calculus.
+The current version of CCB is a minor extension of the original CCB from \cite{KU2017}, mainly resulting from extending the 
+prefix operator to use collections of sites. If our collections have only one site, then both calculi have the same syntax. We are
+using additionally shortcut rules for concerted transitions that involve three actions, namely \rulename{concert3}, \rulename{concert3 act}, \rulename{concert3 par}, \rulename{concert3 res}, but they are just a shorthand for our standard rules. 
+
+We have used extended slightly the class of processes for which we can derive concerted actions and for that reason we have used 
+ \rulename{concert2'} and  \rulename{concert2} rules.
+% , then the transition relations that are associated with both calculi are the same. This means
+As a result, all the properties that the original CCB possesses are also enjoyed by the current calculus.
 
 In particular, we can show, using the same arguments as in \cite{KU2017}, that this CCB satisfies several classical properties of reversible computation such as, for example, \emph{Well-foundedness}, \emph{Reverse Diamond} and \emph{Forward Diamond} \cite{PHILLIPS200770,LPU2020}. Moreover, if we leave out weak actions (and do not use SOS rules that involve weak actions), then the resulting calculus satisfies the \emph{Causal Consistency} property
 ~\cite{10.1007/978-3-540-28644-8_19,LPU2020}. This gives confidence that the core of CCB models reversibility correctly. 
