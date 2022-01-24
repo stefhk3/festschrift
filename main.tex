@@ -272,6 +272,8 @@ In this paper, we model DNA mismatch repair using the calculus CCB. This builds 
 
 \Red{We demonstrate the new operation introduced in this paper informally in Figure~\ref{fig:introexample}. On the left, we see an example of a concerted action as used in CCB so far. Here, the formation of one bond from B to C (dashed) triggers the breaking of one other bond (from A to B, marked with a circle). On the right, the situation is different: There is a chain of objects (A, B, and C, potentially more) and we want another object (X) to move along this chain and break the bonds between the objects at the same time. X is currently bonded to A. For performing a step, it needs to form a new bond to B (dashed), break the old bond to A and break the bond from B to C (both marked with a circle). As we will see, this new mechanism enables the DNA mismatch repair to be modelled in CCB.}
 
+\Red{For modelling such situations, CCB is useful since it enables out-of-causal order reversibility. This is needed to model processes like the one on the rigtht in Figure~\ref{fig:introexample}. Here, a bond to one element (for example A) is needed when the bond to the nexte element (for example B) is formed to avoid losing the connection completely. Only once the new connection is formed, the old one can be released, which is out-of-causal order. A good modelling in a calculus requering causal consistency is not possible.}
+
 \section{Related Work}
 \input{CCB-related.tex}
 %
