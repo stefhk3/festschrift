@@ -236,7 +236,79 @@ We extend the calculus by allowing prefixing with collections of bonding sites a
 
 \section{Introduction}
 
-Deoxyribonucleic acid (DNA) carries the essential information for the working of all known organisms. It is composed of two polynucleotide chains. Each nucleotide contains one of the four nucleobases, or simply bases,  adenine (A), cytosine (C), guanine (G), and thymine (T). 
+We have previously introduced the Calculus of Covalent  Bonding (CCB) \cite{KU16,KU2017}. CCB models the formation and breaking of covalent bonds in organic molecules. CCB contains the possibility to link forming and breaking of bonds, thus enabling integrated, local control of reversibility. This feature gives rise to mlodelling of out-of-causal order reversibility. In order to demonstrate the basics of CCB, we shortly sketch the autoprotlysis of water here as an example. For details of CCB, the reader is referred to the aforementioned publications.
+
+We consider a reaction that transfers a proton between two water molecules. Since the
+reaction takes place in water it is also known as autoprotolysis of water. This reversible reaction is shown 
+in Figure~\ref{fig:autoprotolysis}.
+
+\begin{figure}
+\centering
+\includegraphics[height=1.5cm]{autoprotolysis}
+\caption{Autoprotolysis of water.}
+\label{fig:autoprotolysis}
+\end{figure}
+
+The main factor in that reaction is that oxygen is \emph{nucleophilic}, so it attracts electrons. This makes the hydrogen atoms in water
+have a positive partial charge and the oxygen atoms a negative partial charge, attracting each other. Due to the nucleophilicity of 
+oxygen, a covalent bond can form between them. This bond is formed out of electrons in the outer shell of the oxygen atom not used in bonds so far. Since a hydrogen atom cannot have more than one bond the creation of a new bond is compensated by breaking of the existing hydrogen-oxygen bond.
+These reactions are \emph{concerted}, namely they happen together without a stable intermediate configuration. As a result we have reached the state where one oxygen has three covalent bonds to hydrogens and is positively charged
+and the other oxygen bonds to only one hydrogen and is negatively charged. The reaction is reversible: the oxygen, which has lost a hydrogen, can 
+pull back one of the hydrogens from the other water.
+
+We outline the modelling of the reaction in CCB to remind the reader of the basics of CCB. We model the hydrogen and oxygen atoms as processes $H$ and $O$ as follows, where 
+$h,o$ are actions representing the bonding capabilities of the atoms and $n,p$ 
+represent negative and positive charges respectively. $H',O'$ are process constants.
+$$\begin{array}{lll}
+H & \bydef & (h;p).H'\\
+O & \bydef & (o,o,n).O'
+\end{array}$$
+We use a general prefixing construct $(s;b).P$ where $s$ is a sequence of actions or executed 
+actions, and $b$ is a \emph{weak} action. Sometime the weak action is omitted 
+(as in the definition of $O$). Informally, action in $s$ can take place in any order 
+and $b$ can happen if
+all actions in $s$ have already taken place. Once $b$ takes place, it must be accompanied by
+undoing immediately one of the actions in $s$. 
+
+We use a synchronisation function $\gamma$ which tells us which actions can combine to 
+produce bonds between atoms:
+
+$$\begin{array}{llllll}
+\gamma(h,o) & = & ho \qquad &
+\gamma(n,p) & = & np\\
+\gamma(n,h) & = & nh &
+\gamma(n,o) & = & no 
+\end{array}$$
+
+Each water molecule is a structure consisting of two hydrogen atoms and one oxygen atom 
+which are bonded appropriately. Using subscripts to name the individual copies of 
+atoms and actions, the system of two water molecules in Figure~\ref{fig:autoprotolysis} is represented 
+by the following process (with restrictions grouped using structural congruence laws for restriction):
+\begin{flalign*}
+& ( (h_1[1];p).H'_1 \paral (h_2[2];p).H'_2 \paral (o_1[1],o_2[2],n).O'_1 \paral \\ 
+&\paral  (h_3[3];p).H'_3 \paral (h_4[4];p).H'_4  \paral (o_3[3],o_4[4],n).O'_2) 
+\setminus\{h_3,h_4,o_3,o_4,h_1,h_2,o_1,o_2,n,p\}
+\end{flalign*}
+Now actions $n,p$ can combine, representing a transfer of a proton from one atom 
+of oxygen to another oxygen. We show the transfer from $O_2$ to $O_1$, using the \emph{concerted actions} feature of CCB. We also can use a rewrite to move the new bond $5$ from $p$ to $H_3$ :
+\begin{flalign*}
+& ( (h_1[1];p).H'_1 \paral (h_2[2];p).H'_2 \paral (o_1[1],o_2[2],n[5]).O'_1 \paral 
+(h_3[3];p[5]).H'_3 \\
+&\paral (h_4[4];p).H'_4  \paral (o_3[3],o_4[4],n).O'_2) 
+\setminus\{h_3,h_4,o_3,o_4,h_1,h_2,o_1,o_2,n,p\}\\
+&\xrightarrow{\{ np[5], \underline{h_{3}o_{2}}[3]\}} \Rightarrow \\
+&( (h_1[1];p).H'_1 \paral (h_2[2];p).H'_2 \paral (o_1[1],o_2[2],n[5]).O'_1 \paral 
+(h_3[5];p).H'_3 \\
+&\paral (h_4[4];p).H'_4  \paral (o_3,o_4[4],n).O'_2) 
+\setminus\{h_3,h_4,o_3,o_4,h_1,h_2,o_1,o_2,n,p\}
+\end{flalign*}
+We have now arrived at the state on the right hand side in Figure~\ref{fig:autoprotolysis}.
+Oxygen $O_1$ is blocked, which represents it being fully bonded (and positively charged).
+Oxygen  $O_2$ has a free $n$ capability and can abstract any of the hydrogens from $O_1$. 
+As a result the process can reverse to its original state or to equivalent states where
+different hydrogen atoms are bonded to $O_1$ and $O_2$.
+
+In this paper, we model DNA mismatch repair using the calculus CCB. This builds upon and extends our previous work on the modelling of BER and other biochemical reactions and shows that the mechanisms in CCB are relevant outside its immediate origin. Deoxyribonucleic acid (DNA) carries the essential information for the working of all known organisms. It is composed of two polynucleotide chains. Each nucleotide contains one of the four nucleobases, or simply bases,  adenine (A), cytosine (C), guanine (G), and thymine (T). 
 The bases can react with each other as follows: A and T produce a pair A-T, C and G produce a pair C-G,
 and other combinations are not normally possible. This property means that each of the two polynucleotide chains of a DNA contains the same biological information, but expressed differently. It also enables DNA replication. 
 DNA can split into two chains and then each chain can be completed with the matching bases, so that each new DNA is an identical copy of the original strand. Replication in turn enables the multiplication of cells and growth.
@@ -258,7 +330,7 @@ or internal factors, such as free radicals produced by the body. Another source 
 
 DNA repair is crucial to maintain the quality of information in organisms. Whilst DNA replication errors are rare (they happen at a rate of about 1 per every 100,000 nucleotides), this translates to a large number of errors given the length of DNA: about 120,000 mistakes every time a human cell divides~\cite{damage}. There are other sources of DNA damage, and also a multitude of repair mechanisms. Here, we focus on a particular type of replication error and its repair. Since incorrect DNA can give rise to cancer and other illnesses and generally to early ageing and death, DNA repair is a crucial part of life and its understanding is an important research topic.
 
-In this paper, we model DNA mismatch repair using the calculus CCB. This builds upon and extends our previous work on the modelling of BER and other biochemical reactions.
+%In this paper, we model DNA mismatch repair using the calculus CCB. This builds upon and extends our previous work on the modelling of BER and other biochemical reactions.
 %. The aim of the work is on the one hand to further test and evaluate CCB. On the other hand, it is an extension of the biological modelling done in previous work.
 
 \Comment{
