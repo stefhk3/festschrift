@@ -422,7 +422,8 @@ The two pairs of concerted actions transitions have the keys (34,14) and (35,24)
 
 $\UvrD$ can now ``walk'' along the lower chain of the strand towards the right end.
 %As opposed to BER, the bonds between the base pairs are now broken during the walk.
-Concurrently, the bonds between the deoxyribose/phosphate groups are also broken as $\UvrD$ progresses. We write these reactions as two separate concerted actions transitions for clarity, with the first transition in full,  and note that this is the first time we have used the shortcut  \rulename{concert3} SOS rule.
+Concurrently, the bonds between the deoxyribose/phosphate groups are also broken as $\UvrD$ progresses. We write these reactions as two separate sequences of transitions for clarity, with the first transition in full, and note that this is the place
+where could have used the shortcut  \rulename{concert3} SOS rule.
 \begin{flalign*}
 & (b_1[6];i_1).(a_1,m_1[40];r_1).A_1' \paral  (b_6[9];i_6).(g_1[25];r_6).G_1' \paral &&\\
 &(b_2[7];i_2).(a_2[28],m_2;r_2).A_2' \paral (b_5[19];i_5).(t_2[35]; r_5).T_2' \paral (b_{12}[20];i_{12}).(c_3[25];r_{12}).C_3'  \paral&&\\
@@ -432,8 +433,11 @@ Concurrently, the bonds between the deoxyribose/phosphate groups are also broken
 &((\Red{\bm{p3_{11}[15]}},p5_{11}[16];\Blue{\bm{s_{11}}}) \paral (b_{11}[21],d_{11})).\DP_{11}' \paral ((p3_{12}[16],p5_{12};s_{12}) \paral (b_{12}[22],d_{12})).\DP_{12}' \paral  &&\\
 &(m[40]).(n[31]).\Me'\paral (k[28],k[29]).(l[30]).\MutS' \paral (l[30]).(n[31]).(o[32]).\MutL' \paral &&\\
 &(o[32]).(w[33]).\MutH' \paral ((u[35];r) \paral (\Red{\bm{v[34]}};\Blue{\bm{s}})).\UvrD'&&\\
-&\xrightarrow{\{ss[36],\underline{vp3}[34],\underline{p}[15]\}}
-\overset{ \rulename{prom}}\Rightarrow \; \overset{ \rulename{prom}}\Rightarrow\\
+%
+& \xxrightarrow{\{ss[36],\underline{vp3}[34]} \; \xxrightarrow{\underline{p}[15]}\\
+%&\xrightarrow{\{ss[36],\underline{vp3}[34],\underline{p}[15]\}}
+%\overset{ \rulename{prom}}\Rightarrow \; \overset{ \rulename{prom}}\Rightarrow\\
+%
 & (b_1[6];i_1).(a_1,m_1[40];r).A_1' \paral (b_6[9];i_6).(\Red{\bm{g_1[25]}};r_3).G_1' \paral &&\\
 &(b_2[7];i_2).(a_2[28],m_2;r).A_2' \paral (b_5[19];i_5).(\Red{\bm{t_2[35]}};r_2).T_2' \paral (b_{11}[20];i_{11}).(\Red{\bm{c_3[25]}};\Blue{\bm{r_8}}).C_3'  \paral&&\\
 &(b_8[21];i_8).(g_2[29];r_4).G_3' \paral ((p3_8[12],p5_8[33];s_8) \paral (b_8[18],d_8)).\DP_8' \paral &&\\
@@ -442,13 +446,16 @@ Concurrently, the bonds between the deoxyribose/phosphate groups are also broken
 &(m[40]).(n[31]).\Me'\paral (k[28],k[29]).(l[30]).\MutS' \paral (l[30]).(n[31]).(o[32]).\MutL' \paral &&\\
 &(o[32]).(w[33]).\MutH' \paral ((\Red{\bm{u[35]}};\Blue{\bm{r}}) \paral (\bm{v[36]};\bm{s})).\UvrD'&&
 \end{flalign*}
-Notice that promotion has moved a bond from $s_{11}$ to $p3_{11}$ and from $s$ to $v$. Instead of using \rulename{concert3}, we could have used this sequence of transitions from the source to the target process:
-$\xxrightarrow{\{ss[36],\underline{vp3}[34]} \xxrightarrow{\underline{p}[15]}$.
+Notice that promotion has moved a bond from $s_{11}$ to $p3_{11}$ and from $s$ to $v$. Instead of using these
+transitions we could have applied \rulename{concert3}, we could have used this sequence of transitions from the source to the target process:
+$\xrightarrow{\{ss[36],\underline{vp3}[34],\underline{p}[15]\}}
+\overset{ \rulename{prom}}\Rightarrow \; \overset{ \rulename{prom}}\Rightarrow$.
 
 Next,  $\UvrD$ combines with $C_3$ thus breaking bonds with keys 35 and 25. 
 \begin{flalign*}
-&\xrightarrow{\{rr[37],\underline{tu}[35],\underline{cg}[25]\}}
-\overset{ \rulename{prom}}\Rightarrow \; \overset{ \rulename{prom}}\Rightarrow
+& \xxrightarrow{\{rr[37],\underline{tu}[35]\}}\; \xxrightarrow{\underline{cg}[25]}
+%&\xrightarrow{\{rr[37],\underline{tu}[35],\underline{cg}[25]\}}
+%\overset{ \rulename{prom}}\Rightarrow \; \overset{ \rulename{prom}}\Rightarrow
  (b_1[6];i_1).(a_1,m_1[40];r).A_1' \paral (b_6[9];i_6).(\bm{g_1};r_3).G_1' \paral  &&\\
 &(b_2[7];i_2).(a_2[28],m_2;r).A_2' \paral (b_5[19];i_5).(\bm{t_2};r_2).T_2' \paral (b_{11}[20];i_{11}).(\bm{c_3[37]};\bm{r_8}).C_3'  \paral&&\\
 &(b_8[21];i_8).(g_2[29];r_4).G_3' \paral  ((p3_8[12],p5_8[33];s_8) \paral (b_8[18],d_8)).\DP_8' \paral &&\\
@@ -459,8 +466,9 @@ Next,  $\UvrD$ combines with $C_3$ thus breaking bonds with keys 35 and 25.
 \end{flalign*}
 Promotion moves bonds from
 $r_8$ to $c_3$ and from $r$ to $u$ below.
-As above, we could write these reactions
-using this sequence: $\xxrightarrow{\{rr[37],\underline{tu}[35]\}}\xxrightarrow{\underline{cg}[25]}$.
+Correspondingly as above, we could use shortcut rule \rulename{concert3} and write these reactions
+using this sequence: $\xrightarrow{\{rr[37],\underline{tu}[35],\underline{cg}[25]\}}
+\overset{ \rulename{prom}}\Rightarrow \; \overset{ \rulename{prom}}\Rightarrow$.
 
 
 The resulting system is shown in Figure~\ref{fig:state4}. Here, the first  base $T_2$ and deoxyribose/phosphate group

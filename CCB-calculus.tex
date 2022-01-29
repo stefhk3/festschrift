@@ -79,7 +79,9 @@ $\gamma: \mathcal A \times \mathcal A \rightarrow \mathcal A$ which is commutati
 $\gamma$ is used in the operational semantics to define when two processes can interact. \Red{The use of a synchronization function instead of a $\tau$-style communication as in CCS was motivated in the original CCB by the potential bonding between many different atoms. This can easily be captured by desiging the atoms and the synchronizations separately.} Processes 
 $P$ and $Q$ in $P\paral Q$ can also perform a pair of concerted actions,
 which is a novel feature of our calculus.  We also have the ACP-like restriction operator 
-$\setminus L$, where $L$ is a set of labels. It prevents actions from taking place and, due to 
+$\setminus L$, where $L$ is a set of labels (subset of $\mathcal{P}(\mA \cup \underline\mA)$ ). 
+%
+It prevents actions from taking place and, due to 
 the synchronisation algebra used, it also blocks communication. If $\gamma(a,b)=c$ then $a.P$ and $b.Q$
 cannot communicate in $(a.P\paral b.Q)\setminus c$.
 Note that we do not use here the usual relabelling 
@@ -108,9 +110,9 @@ The term $C[Q]$ denotes the result of filling the hole in the context $C\hole$ w
 %We say that $R$ is a \emph{subprocess} of $P$ if $P$ is $C[R]$ for some context $C\hole$.
 
 We define the semantics of our calculus by a labelled transition system,
-LTS for short, which is a structure $(St,L,\rightarrow: \subseteq St \times L \times St)$
-with $St$ the set of states, $L$ the set of action labels and $\rightarrow: 
-\subseteq St \times L \times St$ the labelled transition relation.
+LTS for short, which is a structure $(St,L,\rightarrow: \subseteq St \times \mathit{Lab} \times St)$
+with $St$ the set of states, $\mathit{Lab}$ the set of action labels and $\rightarrow: 
+\subseteq St \times \mathit{Lab} \times St$ the labelled transition relation.
 For CCB, the set of states $St$ is the set $\Proc$. 
 %In practice, all our results and examples hold for \emph{consistent} processes, namely processes
 %reachable from standard processes.
