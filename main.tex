@@ -290,18 +290,30 @@ by the following process (with restrictions grouped using structural congruence 
 \setminus\{h_3,h_4,o_3,o_4,h_1,h_2,o_1,o_2,n,p\}
 \end{flalign*}
 Now actions $n,p$ can combine, representing a transfer of a proton from one atom 
-of oxygen to another oxygen. We show the transfer from $O_2$ to $O_1$, using the \emph{concerted actions} feature of CCB. We also can use a rewrite to move the new bond $5$ from $p$ to $H_3$ :
+of oxygen to another oxygen. We show the transfer from $O_2$ to $O_1$, using the \emph{concerted actions} feature of CCB:
 \begin{flalign*}
 & ( (h_1[1];p).H'_1 \paral (h_2[2];p).H'_2 \paral (o_1[1],o_2[2],n[5]).O'_1 \paral 
 (h_3[3];p[5]).H'_3 \\
 &\paral (h_4[4];p).H'_4  \paral (o_3[3],o_4[4],n).O'_2) 
 \setminus\{h_3,h_4,o_3,o_4,h_1,h_2,o_1,o_2,n,p\}\\
-&\xrightarrow{\{ np[5], \underline{h_{3}o_{2}}[3]\}} \Rightarrow \\
+&\xrightarrow{\{ np[5], \underline{h_{3}o_{2}}[3]\}} \\
 &( (h_1[1];p).H'_1 \paral (h_2[2];p).H'_2 \paral (o_1[1],o_2[2],n[5]).O'_1 \paral 
+(h_3;p[5]).H'_3 \\
+&\paral (h_4[4];p).H'_4  \paral (o_3,o_4[4],n).O'_2) 
+\setminus\{h_3,h_4,o_3,o_4,h_1,h_2,o_1,o_2,n,p\}
+\end{flalign*}
+
+Since $H_3$ is weakly bonded to $O_1$ and its strong capability 
+$h_3$ has become available, the bond $5$ gets promoted to a stronger bond, releasing 
+the capability $p$ of $H_3$. This is done by the application of CCB's promotion rule:
+
+\begin{flalign*}
+\Rightarrow &( (h_1[1];p).H'_1 \paral (h_2[2];p).H'_2 \paral (o_1[1],o_2[2],n[5]).O'_1 \paral 
 (h_3[5];p).H'_3 \\
 &\paral (h_4[4];p).H'_4  \paral (o_3,o_4[4],n).O'_2) 
 \setminus\{h_3,h_4,o_3,o_4,h_1,h_2,o_1,o_2,n,p\}
 \end{flalign*}
+
 We have now arrived at the state on the right hand side in Figure~\ref{fig:autoprotolysis}.
 Oxygen $O_1$ is blocked, which represents it being fully bonded (and positively charged).
 Oxygen  $O_2$ has a free $n$ capability and can abstract any of the hydrogens from $O_1$. 
