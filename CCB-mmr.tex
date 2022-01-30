@@ -607,18 +607,23 @@ $G_3$-$DP_{11}$ group to the rest of the DNA (via two concerted actions). The $C
 \end{figure}
 The resulting system is now ready for other proteins to replace the bases and deoxyribose/phosphate groups. Notice that the remaining strand contains the necessary information for this, in particular that only a $T$ base can bond with $A_1$ and $A_2$ and that a $C$ must bond with $G_1$. Note that the methyl group stays attached to $A_1$, since it is still an old DNA strand. Also the appropriate groups in the new, lower half will be methylated, so that both strands are marked as old material after the next DNA duplication process.
 
-\subsection{Discussion}
+\subsection{Evaluation}
 
-We have shown that CCB can be used the model the MMR gene repair mechanism. This is significant since the calculus was designed using a different type of system. We were able to reuse the design features of CCB, in particular, the concerted actions. Out-of-causal order reversibility plays a significant role in our example, in particular for modelling the movement of the proteins along the DNA chain.
+We have shown that CCB can be used to model the MMR gene repair mechanism. This is significant since the calculus was designed for simpler lower level systems and reactions. We have been able to reuse the main features of CCB, in particular, the concerted actions. Out-of-causal order reversibility plays a significant role in our example, in particular for the modelling of movement of the proteins along the DNA chain.
 
-There is one aspect of the process which we cannot model adequately. This is the breaking of two bonds as a result of one bond being formed, which is covered by the  shortcut  \rulename{concert3}. In contrast to the real situation, this rule does not link the breaking of the second bond directly to the formation of the new bond. Here, the  \rulename{concert} rule, which was derived from how covalent reactions work, is not general enough.
+There is one aspect of our reactions which we model adequately but which we intend to improve in the future. This is the breaking of two bonds as a result of one bond on weak actions being formed as, for example, in these transitions   $\xrightarrow{\{rr[37],\underline{tu}[35],\underline{cg}[25]\}}
+\overset{ \rulename{prom}}\Rightarrow \; \overset{ \rulename{prom}}\Rightarrow$ derived with the  shortcut  \rulename{concert3} rule. Currently, we represent this
+by two consecutive transitions $\xxrightarrow{\{rr[37],\underline{tu}[35]\}}\; \xxrightarrow{\underline{cg}[25]}$, but note 
+that these transitions can be interleaved by other transitions, which weakens the modelling of the two bonds being broken immediately after the weak bond is created. In short, our \rulename{concert} rules, which were developed for covalent reactions, are not general enough.
 
-On the other hand, our modelling would enable a number of transitions which cannot happen in reality. Those are due to non-consideration of aspects of spatial configuration of proteins and bases. Some examples for those transitions are:
+% In contrast to the real situation, this rule does not link the breaking of the second bond directly to the formation of the new bond. Here, the  \rulename{concert} rule, which was derived from how covalent reactions work, is not general enough.
 
+Our calculus permits the modelling of certain reactions which normally do not happen in reality, and this property is inherited from the original CCB. This is mainly due to non-consideration of aspects of spatial configuration of proteins and bases. We give several examples of reactions where do not model the spacial aspect adequately: 
 \begin{itemize}
-\item We have not modelled the formation of the loop in the DNA, which is crucial for cleaving the correct strand. In reality, MutL forms a loop in the strand, which hides the methylated strand, in this way making sure MutH cleaves the unmethylated, that means new, strand.
-\item MutL could bond to a methyl group and a base pair any distance apart. In reality, MutL has a fixed size and it can only react with parts of the DNA it can physically reach.
-\item As in the BER example, $\UvrD$ could bond to any deoxyribose/phosphate group, not just the neighbouring one. 
+\item We have not modelled the formation of the loop in the DNA, which is crucial for cleaving the correct strand. In reality, 
+$\MutL$ forms a loop in the strand, which hides the methylated strand, making sure in this way that $\MutH$ cleaves the un-methylated (meaning new) strand.
+\item In our model, $\MutL$ can bond to any methyl group and a base pair any distance apart. In reality, $\MutL$ has 
+a fixed size and it can only react with parts of the DNA it can physically reach. Similarly, $\UvrD$ can bond to any deoxyribose/phosphate group, not just the neighbouring one. 
 \end{itemize}
 
-We have check that all reactions given in here are possible and that the unmodelled reactions can be explained in that way by using the simulation software from \cite{10.1007/978-3-319-99498-7_8}. The software has been extended to cover the new multiple bonding site prefix operator.
+We have checked that all reactions given in this section are possible in our model by using the simulation software tool~\cite{10.1007/978-3-319-99498-7_8}, which has been extended to cover the extended prefix operator.
