@@ -236,12 +236,11 @@ We extend the calculus by allowing prefixing with collections of bonding sites a
 
 \section{Introduction}
 
-We have previously introduced the Calculus of Covalent  Bonding (CCB) \cite{KU16,KU2017}. CCB models the formation and breaking of covalent bonds in organic molecules. CCB contains the possibility to link forming and breaking of bonds, thus enabling integrated, local control of reversibility. This feature gives rise to mlodelling of out-of-causal order reversibility. In order to demonstrate the basics of CCB, we shortly sketch the autoprotlysis of water here as an example. For details of CCB, the reader is referred to the aforementioned publications.
-
-We consider a reaction that transfers a proton between two water molecules. Since the
-reaction takes place in water it is also known as autoprotolysis of water. This reversible reaction is shown 
-in Figure~\ref{fig:autoprotolysis}.
-
+We have previously introduced a Calculus of Covalent  Bonding (CCB) \cite{KU16,KU2017} to models the formation and breaking of covalent bonds. % in organic molecules. 
+CCB contains the possibility to link forming and breaking of bonds, thus enabling integrated, local control of reversibility. This feature allows us to represent both standard reversibility as well as the out-of-causal order reversibility. In order to demonstrate the basics of our calculus we show how to model the autoprotlysis of water, which transfers a proton between two water molecules. 
+%Since the reaction takes place in water it is also known as autoprotolysis of water. 
+This reversible reaction is shown in Figure~\ref{fig:autoprotolysis}.
+%
 \begin{figure}
 \centering
 \includegraphics[height=2cm]{autoprotolysis}
@@ -249,14 +248,15 @@ in Figure~\ref{fig:autoprotolysis}.
 \label{fig:autoprotolysis}
 \end{figure}
 
-The main factor in that reaction is that oxygen is \emph{nucleophilic}, so it attracts electrons. This makes the hydrogen atoms in water
+The main factor in the reaction is that oxygen is \emph{nucleophilic}, so it attracts electrons. This makes the hydrogen atoms in water
 have a positive partial charge and the oxygen atoms a negative partial charge, attracting each other. Due to the nucleophilicity of 
 oxygen, a covalent bond can form between them. This bond is formed out of electrons in the outer shell of the oxygen atom not used in bonds so far. Since a hydrogen atom cannot have more than one bond the creation of a new bond is compensated by breaking of the existing hydrogen-oxygen bond.
-These reactions are \emph{concerted}, namely they happen together without a stable intermediate configuration. As a result we have reached the state where one oxygen has three covalent bonds to hydrogens and is positively charged
+These reactions are \emph{concerted}, namely they happen together without a stable intermediate configuration. As a result we have reached the state where one oxygen has three covalent bonds to hydrogens and is positively charged,
 and the other oxygen bonds to only one hydrogen and is negatively charged. The reaction is reversible: the oxygen, which has lost a hydrogen, can 
 pull back one of the hydrogens from the other water.
 
-We outline the modelling of the reaction in CCB to remind the reader of the basics of CCB. We model the hydrogen and oxygen atoms as processes $H$ and $O$ as follows, where 
+We now outline the modelling of the reaction in CCB.  % to remind the reader of the basics of CCB. 
+We model the hydrogen and oxygen atoms as processes $H$ and $O$ below, where 
 $h,o$ are actions representing the bonding capabilities of the atoms and $n,p$ 
 represent negative and positive charges respectively. $H',O'$ are process constants.
 $$\begin{array}{lll}
@@ -265,14 +265,14 @@ O & \bydef & (o,o,n).O'
 \end{array}$$
 We use a general prefixing construct $(s;b).P$ where $s$ is a sequence of actions or executed 
 actions, and $b$ is a \emph{weak} action. Sometime the weak action is omitted 
-(as in the definition of $O$). Informally, action in $s$ can take place in any order 
+(as in the definition of $O$). Informally, an action in $s$ can take place in any order, 
 and $b$ can happen if
 all actions in $s$ have already taken place. Once $b$ takes place, it must be accompanied by
-undoing immediately one of the actions in $s$. 
+undoing immediately one of the actions in $s$ (and thus possibly breaking a bond). We shall later extend
+this prefixing operator to permit multiple bonding sites as in $((s;b)\mid \cdots\mid (t;d)).P$.
 
 We use a synchronisation function $\gamma$ which tells us which actions can combine to 
 produce bonds between atoms:
-
 $$\begin{array}{llllll}
 \gamma(h,o) & = & ho \qquad &
 \gamma(n,p) & = & np\\
@@ -281,34 +281,38 @@ $$\begin{array}{llllll}
 \end{array}$$
 
 Each water molecule is a structure consisting of two hydrogen atoms and one oxygen atom 
-which are bonded appropriately. Using subscripts to name the individual copies of 
-atoms and actions, the system of two water molecules in Figure~\ref{fig:autoprotolysis} is represented 
-by the following process (with restrictions grouped using structural congruence laws for restriction):
+which are bonded appropriately. 
+$$( (h_1[1];p).H'_1 \paral (h_2[2];p).H'_2 \paral (o_1[1],o_2[2],n).O'_1)\setminus\{h_1,h_2,o_1,o_2\}$$
+We have used subscripts to name the individual copies of 
+atoms and actions. The system of two water molecules in Figure~\ref{fig:autoprotolysis} is represented 
+by placing them in parallel and restricting actions $n$ and $p$. This is represented by  
+the following process, where restrictions are moved outside using structural congruence laws:
 \begin{flalign*}
 & ( (h_1[1];p).H'_1 \paral (h_2[2];p).H'_2 \paral (o_1[1],o_2[2],n).O'_1 \paral \\ 
 &\paral  (h_3[3];p).H'_3 \paral (h_4[4];p).H'_4  \paral (o_3[3],o_4[4],n).O'_2) 
 \setminus\{h_3,h_4,o_3,o_4,h_1,h_2,o_1,o_2,n,p\}
 \end{flalign*}
-Now actions $n,p$ can combine, representing a transfer of a proton from one atom 
-of oxygen to another oxygen. We show the transfer from $O_2$ to $O_1$, using the \emph{concerted actions} feature of CCB:
+Now actions $n$ and $p$ of different water molecules can combine, representing a transfer of a proton from one atom 
+of oxygen to another oxygen. We show below the transfer from $O_2$ to $O_1$, using the \emph{concerted actions} feature of CCB, where the actions to bond are indicated in bold blue and the bond to be broken is in bold red.
 \begin{flalign*}
-& ( (h_1[1];p).H'_1 \paral (h_2[2];p).H'_2 \paral (o_1[1],o_2[2],n[5]).O'_1 \paral 
-(h_3[3];p[5]).H'_3 \\
-&\paral (h_4[4];p).H'_4  \paral (o_3[3],o_4[4],n).O'_2) 
+& ( (h_1[1];p).H'_1 \paral (h_2[2];p).H'_2 \paral (o_1[1],o_2[2],\Blue{\bm{n}}).O'_1 \paral 
+(\Red{\bm{h_3[3]}};\Blue{\bm{p}}).H'_3 \\
+&\paral (h_4[4];p).H'_4  \paral (\Red{\bm{o_3[3]}},o_4[4],n).O'_2) 
 \setminus\{h_3,h_4,o_3,o_4,h_1,h_2,o_1,o_2,n,p\}\\
-&\xrightarrow{\{ np[5], \underline{h_{3}o_{2}}[3]\}} \\
-&( (h_1[1];p).H'_1 \paral (h_2[2];p).H'_2 \paral (o_1[1],o_2[2],n[5]).O'_1 \paral 
-(h_3;p[5]).H'_3 \\
-&\paral (h_4[4];p).H'_4  \paral (o_3,o_4[4],n).O'_2) 
+%
+&\xrightarrow{\{ np[5], \underline{h_{3}o_{3}}[3]\}} \\
+%
+&( (h_1[1];p).H'_1 \paral (h_2[2];p).H'_2 \paral (o_1[1],o_2[2],\bm{n[5]}).O'_1 \paral 
+(\bm{h_3};\bm{p[5]}).H'_3 \\
+&\paral (h_4[4];p).H'_4  \paral (\bm{o_3},o_4[4],n).O'_2) 
 \setminus\{h_3,h_4,o_3,o_4,h_1,h_2,o_1,o_2,n,p\}
 \end{flalign*}
 
 Since $H_3$ is weakly bonded to $O_1$ and its strong capability 
 $h_3$ has become available, the bond $5$ gets promoted to a stronger bond, releasing 
 the capability $p$ of $H_3$. This is done by the application of CCB's promotion rule:
-
 \begin{flalign*}
-\Rightarrow &( (h_1[1];p).H'_1 \paral (h_2[2];p).H'_2 \paral (o_1[1],o_2[2],n[5]).O'_1 \paral 
+\Rightarrow\; &( (h_1[1];p).H'_1 \paral (h_2[2];p).H'_2 \paral (o_1[1],o_2[2],n[5]).O'_1 \paral 
 (h_3[5];p).H'_3 \\
 &\paral (h_4[4];p).H'_4  \paral (o_3,o_4[4],n).O'_2) 
 \setminus\{h_3,h_4,o_3,o_4,h_1,h_2,o_1,o_2,n,p\}
@@ -352,11 +356,13 @@ DNA repair is crucial to maintain the quality of information in organisms. Whils
   \caption{The old (left) and new (right) type of concerted actions in CCB. On the left, the formation of a new bond (dashed) triggers breaking of one bond (marked with a circle), whereas on the right two bonds (both marked with a circle) are broken with the formation of one new bond (dashed).}
   \label{fig:introexample}
 \end{figure}
-}
+
 
 \Red{We demonstrate the new operation introduced in this paper informally in Figure~\ref{fig:introexample}. On the left, we see an example of a concerted action as used in CCB so far. Here, the formation of one bond from B to C (dashed) triggers the breaking of one other bond (from A to B, marked with a circle). On the right, the situation is different: There is a chain of objects (A, B, and C, potentially more) and we want another object (X) to move along this chain and break the bonds between the objects at the same time. X is currently bonded to A. For performing a step, it needs to form a new bond to B (dashed), break the old bond to A and break the bond from B to C (both marked with a circle). As we will see, this new mechanism enables the DNA mismatch repair to be modelled in CCB.}
 
 \Red{For modelling such situations, CCB is useful since it enables out-of-causal order reversibility. This is needed to model processes like the one on the rigtht in Figure~\ref{fig:introexample}. Here, a bond to one element (for example A) is needed when the bond to the nexte element (for example B) is formed to avoid losing the connection completely. Only once the new connection is formed, the old one can be released, which is out-of-causal order. A good modelling in a calculus requering causal consistency is not possible.}
+}
+
 
 \section{Related Work}
 \input{CCB-related.tex}
