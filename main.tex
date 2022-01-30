@@ -379,10 +379,10 @@ DNA repair is crucial to maintain the quality of information in organisms. Whils
 \input{CCB-mmr.tex}
 %
 \section{Conclusion}
-We have shown previously that the Calculus of Covalent Bonding can be used successfully to represent and simulate higher-level biochemical processes and reactions. In this paper, we have extended the calculus and its operational semantics further so that we can model appropriately an important gene repair pathway, namely the DNA Mismatch Repair (MMR) mechanism. We have used a prefix operator that can represent 
-multiple bonding sites,  and we have included two additional SOS rules for concerted actions transitions, involving two or three actions. 
 
-The MMR mechanism is a complex pathway. We have modelled it with twelve deoxyribose/phosphate groups, twelve bases and four helper proteins, all composed in parallel. We then have shown a sequence of transitions (representing bonding reactions and cascades of concerted reactions with either two or three reactions each) that represent the MMR mechanism. The model and the transitions have worked very well in our opinion. However, we have not been able to consider some spatial aspects of such reactions in the current setting, which is left to future research.
+We have shown previously that the Calculus of Covalent Bonding can be used successfully to represent and simulate higher-level biochemical processes and reactions. In this paper, we have used the calculus to model an important gene repair pathway, namely the DNA Mismatch Repair (MMR) mechanism. We have extended the calculus with a prefix operator that can represent multiple bonding sites. We have also included a shorthand notation for concerted actions transitions, involving three actions, which, strictly speaking, does not represent an extension of the calculus.
+
+The MMR mechanism is a complex pathway. We have modelled it with twelve deoxyribose/phosphate groups, twelve bases and four helper proteins, all composed in parallel. We then have shown a sequence of transitions (representing bonding reactions and cascades of concerted reactions with either two or three reactions each) that represent the MMR mechanism. As shown, the shortcut rule \rulename{concert3} is only an approximation of reality. Also, we have not been able to consider some spatial aspects of such reactions in the current setting, which is left to future research. Overall, we still were able to demonstrate the general use of CCB outside its immediate domain.
 
 \bibliography{mybibfile}
 
