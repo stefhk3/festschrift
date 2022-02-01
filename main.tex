@@ -325,7 +325,7 @@ Oxygen  $O_2$ has a free $n$ capability and can abstract any of the hydrogens fr
 As a result the process can reverse to its original state or to equivalent states where
 different hydrogen atoms are bonded to $O_1$ and $O_2$.
 
-In this paper, we model DNA mismatch repair using the calculus CCB. This builds upon and extends our previous work on the modelling of BER and other biochemical reactions and shows that the mechanisms in CCB are relevant outside its immediate origin. Deoxyribonucleic acid (DNA) carries the essential information for the working of all known organisms. It is composed of two polynucleotide chains. Each nucleotide contains one of the four nucleobases, or simply bases,  adenine (A), cytosine (C), guanine (G), and thymine (T). 
+In this paper, we model DNA mismatch repair using the calculus CCB. This builds upon and extends our previous work on the modelling of BER and other biochemical reactions~\cite{10.1007/978-3-319-99498-7_8}  and shows that the mechanisms in CCB are relevant outside its direct application area. Deoxyribonucleic acid (DNA) carries the essential information for the working of all known organisms. It is composed of two polynucleotide chains. Each nucleotide contains one of the four nucleobases, or simply bases,  adenine (A), cytosine (C), guanine (G), and thymine (T). 
 The bases can react with each other as follows: A and T produce a pair A-T, C and G produce a pair C-G,
 and other combinations are not normally possible. This property means that each of the two polynucleotide chains of a DNA contains the same biological information, but expressed differently. It also enables DNA replication. 
 DNA can split into two chains and then each chain can be completed with the matching bases, so that each new DNA is an identical copy of the original strand. Replication in turn enables the multiplication of cells and growth.
@@ -350,20 +350,12 @@ DNA repair is crucial to maintain the quality of information in organisms. Whils
 %In this paper, we model DNA mismatch repair using the calculus CCB. This builds upon and extends our previous work on the modelling of BER and other biochemical reactions.
 %. The aim of the work is on the one hand to further test and evaluate CCB. On the other hand, it is an extension of the biological modelling done in previous work.
 
-\Comment{
-\begin{figure}[h!]
-  \centering
-    \includegraphics[width=1.0\textwidth]{introexample.ps}
-  \caption{The old (left) and new (right) type of concerted actions in CCB. On the left, the formation of a new bond (dashed) triggers breaking of one bond (marked with a circle), whereas on the right two bonds (both marked with a circle) are broken with the formation of one new bond (dashed).}
-  \label{fig:introexample}
-\end{figure}
+In this paper we show how CCB can be used to simulate higher-level biochemical processes of
+DNA Mismatch Repair.  We shall model around 30 molecules involved in the MMR system, and represent the reactions of the mechanism as transitions of the MMR system. On the one hand, this is a continuation of the biochemical modelling in our previous work and, other the other hand, it provides an opportunity to further test and evaluate CCB.  
+A significant advantage of CCB is that it allows to represent out-of-causal order reversibility~\cite{Irek2012}, where causes are seemingly undone before their effects are undone, which is common in biochemical reactions.
 
-
-\Red{We demonstrate the new operation introduced in this paper informally in Figure~\ref{fig:introexample}. On the left, we see an example of a concerted action as used in CCB so far. Here, the formation of one bond from B to C (dashed) triggers the breaking of one other bond (from A to B, marked with a circle). On the right, the situation is different: There is a chain of objects (A, B, and C, potentially more) and we want another object (X) to move along this chain and break the bonds between the objects at the same time. X is currently bonded to A. For performing a step, it needs to form a new bond to B (dashed), break the old bond to A and break the bond from B to C (both marked with a circle). As we will see, this new mechanism enables the DNA mismatch repair to be modelled in CCB.}
-
-\Red{For modelling such situations, CCB is useful since it enables out-of-causal order reversibility. This is needed to model processes like the one on the rigtht in Figure~\ref{fig:introexample}. Here, a bond to one element (for example A) is needed when the bond to the nexte element (for example B) is formed to avoid losing the connection completely. Only once the new connection is formed, the old one can be released, which is out-of-causal order. A good modelling in a calculus requering causal consistency is not possible.}
-}
-
+%\Red{For modelling such situations, CCB is useful since it enables out-of-causal order reversibility. This is needed to model processes like the one on the rigtht in Figure~\ref{fig:introexample}. Here, a bond to one element (for example A) is needed when the bond to the nexte element (for example B) is formed to avoid losing the connection completely. Only once the new connection is formed, the old one can be released, which is out-of-causal order. A good modelling in a calculus requering causal consistency is not possible.}
+%}
 
 \section{Related Work}
 \input{CCB-related.tex}
