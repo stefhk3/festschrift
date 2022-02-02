@@ -1,9 +1,9 @@
 %\section{Calculus of Covalent Bonding}\label{sec:calculus}
 %
 The Calculus of Covalent Bonding, or CCB for short, was defined in~\cite{KU2017}. 
-We recall here the main definitions in order to make the paper self-contained. 
-We note, however, that the syntax of this version of CCB is slightly extended, and a new `shortcut'  
-SOS rule for three concerted actions is added. 
+We recall here the main concepts and definitions in order to make the paper self-contained. 
+We note that the syntax of this version of CCB is slightly extended with collections of bonding sites (not just one site).
+Also, a new `shortcut'  SOS rule for three concerted actions is considered. 
 %Moreover, two new SOS rules for concerted actions are added. 
 We first introduce some preliminary notions and notations.
 
@@ -34,8 +34,9 @@ Molecules may have several bonding \emph{sites} and several bonds can be created
 $(s;b), \ldots,(s';b')$ we shall write them as $(s;b) \Mid  \ldots \Mid (s';b')$ by using the symbol ``$\paral$'' to indicate that sites bond independently of each other and that the order in which sites appear is irrelevant. Such expressions are called \emph{collections of sites}, or just collections, and will be used to define the prefix operator. More formally, a site $\sigma$
 is either $(s;b)$ or $(s)$. A collection $\mu$ is either 
 $\sigma$ or a composition of finitely many sites $\sigma\Mid\ldots\Mid \sigma$, where the order in which sites appear is irrelevant,
-and $\epsilon$ is the empty collection of sites. We shall denote collections where all strong actions of all sites are fully bonded as $\eta$.
-
+and $\epsilon$ is the empty collection of sites. 
+A site $(s;b)$ or $(s)$ is fully bonded if all actions in $s$ are bonded. 
+We shall denote collections where all sites are fully bonded as $\eta$.
 
 We now define the Calculus of Covalent Bonding. The syntax of CCB is given 
 below where $P$ and $Q$ are process terms:
@@ -76,7 +77,7 @@ $P\paral Q$ represents two systems $P$ and $Q$ which can perform actions or reve
 their own, or which can interact with each other according to a communication function
 $\gamma$. As in the calculus ACP \cite{ACPBook}, the communication function is a partial function 
 $\gamma: \mathcal A \times \mathcal A \rightarrow \mathcal A$ which is commutative and associative. The function
-$\gamma$ is used in the operational semantics to define when two processes can interact. \Red{The use of a synchronization function instead of a $\tau$-style communication as in CCS was motivated in the original CCB by the potential bonding between many different atoms. This can easily be captured by desiging the atoms and the synchronizations separately.} Processes 
+$\gamma$ is used in the operational semantics to define when two processes can interact. The use of a synchronization function instead of a $\tau$-style communication as in CCS was motivated in the original CCB by the need to allow bonding between many different atoms. This can easily be captured by designing the atoms and the synchronizations separately.  Processes 
 $P$ and $Q$ in $P\paral Q$ can also perform a pair of concerted actions,
 which is a novel feature of our calculus.  We also have the ACP-like restriction operator 
 $\setminus L$, where $L$ is a set of labels (subset of $\mathcal{P}(\mA \cup \underline\mA)$ ). 
@@ -110,7 +111,7 @@ The term $C[Q]$ denotes the result of filling the hole in the context $C\hole$ w
 %We say that $R$ is a \emph{subprocess} of $P$ if $P$ is $C[R]$ for some context $C\hole$.
 
 We define the semantics of our calculus by a labelled transition system,
-LTS for short, which is a structure $(St,L,\rightarrow: \subseteq St \times \mathit{Lab} \times St)$
+LTS for short, which is a structure $(St,\mathit{Lab},\rightarrow: \subseteq St \times \mathit{Lab} \times St)$
 with $St$ the set of states, $\mathit{Lab}$ the set of action labels and $\rightarrow: 
 \subseteq St \times \mathit{Lab} \times St$ the labelled transition relation.
 For CCB, the set of states $St$ is the set $\Proc$. 
@@ -126,7 +127,7 @@ use $\omega$ to denote a typical action label.
 The labelled transition relation will be defined in terms of SOS rules (Figures~\ref{fig:fsos}--\ref{fig:sc}) 
 and rewrite rules (Figure~\ref{fig:reduction}), where
 the rules in Figures~\ref{fig:fsos}--\ref{fig:reversesos}
-are influenced by \cite{Irek2007}.  
+are influenced by \cite{PHILLIPS200770}.  
 Note that sequences $s$ and $t$ in Figures~\ref{fig:fsos}--\ref{fig:xc2sos} 
 are members of $(\mathcal{A}\cup\mathcal{AK})^*$ and $\mathcal{AK}^*$ respectively.
 
@@ -579,7 +580,7 @@ Since $(a,b).(c).S$ is the definition of $S$ we obtain by rule \rulename{rev con
 Figures  \ref{fig:fsos}--\ref{fig:reversesos} contain the usual SOS rules that define single action transitions of CCB. An auxiliary transition relation $\xrightarrow{}_s$ is used there to define operational changes to sites and collections of sites.  
 
 
-Figures \ref{fig:c1sos}--\ref{fig:xc2sos} contain the SOS rules that define the novel concerted actions transitions. 
+Figures \ref{fig:c1sos}--\ref{fig:xc2sos} contain the SOS rules that define the concerted actions transitions. 
 The main rules are the \rulename{concert} rules in Figure~\ref{fig:c1sos} that define when a pair %or a triple 
 of concerted actions take place. 
 We also have there four auxiliary rules \rulename{w}, \rulename{cw}, \rulename{aux1} and \rulename{aux2} which 
@@ -728,7 +729,7 @@ precise in Definition~\ref{LTS}.
 
 We now define the transition relation for the labelled transition system for CCB.
 Recall that the states of the LTS are processes in $\Proc$ and the labels are members of $\mA$,
-$\mAK$, $\aAK$ and the concerted actions labels in $\mAK \times \umAK$.
+$\mAK$, and the concerted actions labels in $\mAK \times \umAK$.
 %or $\mAK \times \umAK \times \umAK$. 
 First, the transition relation on collections sites, $\rightarrow_s$, 
 is defined as the smallest relation derived by the rules \rulename{s}, \rulename{c},  \rulename{rev s}, \rulename{rev c},   
@@ -741,7 +742,7 @@ such that $P\Rightarrow P'$ and $P'$ cannot be reduced via \rulename{prom} or  \
 
 
 \begin{definition}\label{LTS} \normalfont
-We associate to $\Proc$ and $\mAK \cup \umAK \cup \aAK \cup (\mAK \times \umAK) $
+We associate to $\Proc$ and $\mAK \cup \umAK \cup (\mAK \times \umAK) $
 a transition relation $\mapsto$ given by $P \xmapsto{\omega} Q$ if $P \xrightarrow{\omega} P'$ for some $P'$ and $Q \in \mathsf{nf}(P')$. 
 \end{definition}
 
@@ -858,12 +859,12 @@ Creation of the $d[3]$ bonds makes the $h[2]$ and $c[1]$ bonds unstable, so they
 after the corresponding concerted actions. Since creation and breaking of such bonds is almost instantaneous, we shall use additional
 ``shortcut'' SOS rules to capture such cascade of two concerted actions and a reversal of an unstable action, called \rulename{concert3}. It allows us to derive
 $$
-(a[1];b)\paral (e[2];b)\paral (a[1],e[2])  \xxrightarrow{\{d[3], \underline{c}[1], \underline{h}[2]\}} 
+(a[1];b)\paral (e[2];b)\paral (a[1],e[2])  \xrightarrow{\{d[3], \underline{c}[1], \underline{h}[2]\}} 
 (a;b[3])\paral (e;b[3])\paral (a,e) 
 $$ 
 which, when followed by application of promotion, gives us
 $$
-(a[1];b)\paral (e[2];b)\paral (a[1],e[2])  \xxrightarrow{\{d[3], \underline{c}[1], \underline{h}[2]\}} 
+(a[1];b)\paral (e[2];b)\paral (a[1],e[2])  \xrightarrow{\{d[3], \underline{c}[1], \underline{h}[2]\}} 
 (a;b[3])\paral (e;b[3])\paral (a,e) 
 $$ 
 Here, creation of the bond $d$ results in two other bonds $c, h$ being broken. The rule \rulename{concert3} and the related rules
@@ -920,19 +921,20 @@ Correspondingly, there are the \emph{concerted (action)} transitions.
 %
 %
 \subsection{Properties of CCB}
-The current version of CCB is a minor extension of the original CCB from \cite{KU2017}, mainly resulting from extending the 
-prefix operator to use collections of sites. If our collections have only one site, then both calculi have the same syntax. We are
-using additionally shortcut rules for concerted transitions that involve three actions, namely \rulename{concert3}, \rulename{concert3 act}, \rulename{concert3 par}, \rulename{concert3 res}, but they are just a shorthand for our standard rules. 
+The current version of CCB is a minor extension of the original CCB from \cite{KU2017} by extending the 
+prefix operator to use collections of sites. If collections have only one site, then both calculi have the same syntax. We are
+using additionally shortcut rules for concerted transitions that involve three actions, namely \rulename{concert3}, \rulename{concert3 act}, \rulename{concert3 par}, \rulename{concert3 res}, but they are just a shorthand for sequences of two standard transitions.
+%our standard rules. 
 
-We have used extended slightly the class of processes for which we can derive concerted actions and for that reason we have used 
+We have enlarged slightly the class of processes for which we can derive concerted actions and for that reason we have used 
  \rulename{concert2'} and  \rulename{concert2} rules.
 % , then the transition relations that are associated with both calculi are the same. This means
-As a result, all the properties that the original CCB possesses are also enjoyed by the current calculus.
-
+All the properties that the original CCB possesses are also enjoyed by the current calculus.
 In particular, we can show, using the same arguments as in \cite{KU2017}, that this CCB satisfies several classical properties of reversible computation such as, for example, \emph{Well-foundedness}, \emph{Reverse Diamond} and \emph{Forward Diamond} \cite{PHILLIPS200770,LPU2020}. Moreover, if we leave out weak actions (and do not use SOS rules that involve weak actions), then the resulting calculus satisfies the \emph{Causal Consistency} property
 ~\cite{10.1007/978-3-540-28644-8_19,LPU2020}. This gives confidence that the core of CCB models reversibility correctly. 
 
-The purpose of CCB is however to capture the so called ``out-of-causal order'' behaviour which is so common in biochemical reactions. This is achieved via our concerted actions transitions, which allow us faithful modelling of complex sequences of reactions such as those present in a DNA mismatch repair mechanism. 
+The purpose of CCB is however to capture the so called ``out-of-causal order'' behaviour which is so common in biochemical reactions. This is achieved via our concerted actions transitions, which allow us faithful modelling of complex sequences of reactions such as those present in MMR.
+%a DNA mismatch repair mechanism. 
 
 
 
