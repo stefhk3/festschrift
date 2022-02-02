@@ -238,7 +238,7 @@ In order to achieve this, we extend the calculus by allowing prefixing with coll
 \section{Introduction}
 
 We have previously introduced a Calculus of Covalent  Bonding (CCB) \cite{KU16,KU2017} to models the formation and breaking of covalent bonds. % in organic molecules. 
-CCB contains the possibility to link forming and breaking of bonds, thus enabling integrated, local control of reversibility. This feature allows us to represent both standard reversibility as well as out-of-causal order reversibility~\cite{Irek2012}. In order to demonstrate the basics of our calculus we show how to model the autoprotlysis of water, which transfers a proton between two water molecules. 
+CCB contains the possibility to link forming and breaking of bonds, thus enabling integrated, local control of reversibility. This feature allows us to represent both standard reversibility as well as \emph{out-of-causal order} reversibility~\cite{Irek2012}. In order to demonstrate the basics of our calculus we show how to model the autoprotlysis of water, which transfers a proton between two water molecules. 
 %Since the reaction takes place in water it is also known as autoprotolysis of water. 
 This reversible reaction is shown in Figure~\ref{fig:autoprotolysis}.
 %
@@ -274,13 +274,12 @@ this prefixing operator to permit multiple bonding sites as in $((s;b)\mid \cdot
 
 We use a synchronisation function $\gamma$ which tells us which actions can combine to 
 produce bonds between atoms:
-$$\begin{array}{llllll}
-\gamma(h,o) & = & ho \qquad &
-\gamma(n,p) & = & np\\
-\gamma(n,h) & = & nh &
-\gamma(n,o) & = & no 
+$$\begin{array}{lllllllllllllllll}
+\gamma(h,o) = ho \quad &
+\gamma(n,p) = np \quad &
+\gamma(n,h) = nh\quad  &
+\gamma(n,o) = no 
 \end{array}$$
-
 Each water molecule is a structure consisting of two hydrogen atoms and one oxygen atom 
 which are bonded appropriately. 
 $$( (h_1[1];p).H'_1 \paral (h_2[2];p).H'_2 \paral (o_1[1],o_2[2],n).O'_1)\setminus\{h_1,h_2,o_1,o_2\}$$

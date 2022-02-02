@@ -552,9 +552,12 @@ and \rulename{rev sc} when $\omega \in \umAK$.}
 \\[2pt]
 \rulename{red4}: & P\Par \Nil \Rightarrow P & 
 \\[2pt]
-\rulename{red5}: & (P\paral Q)\backslash L \Rightarrow P\backslash L \paral Q & \mbox{ if fn(Q)} \cap L = \emptyset
+\rulename{red5}: & (P\paral Q)\backslash L \Rightarrow P\backslash L \paral Q &
+   \mbox{ if } (\gamma(\mathsf{fn}(P) \times \mathsf{fn}(Q)) \cup  \mathsf{fn}(Q)) \cap L = \emptyset
 \\[2pt]
-\rulename{red6}: & P\backslash L \paral Q \Rightarrow (P\paral Q)\backslash L & \mbox{ if fn(Q)} \cap L = \emptyset
+\rulename{red6}: & P\backslash L \paral Q \Rightarrow (P\paral Q)\backslash L & 
+  %\mbox{ if fn(Q)} \cap L = \emptyset
+   \mbox{ if } (\gamma(\mathsf{fn}(P) \times \mathsf{fn}(Q)) \cup  \mathsf{fn}(Q)) \cap L = \emptyset
 \\[2pt]
 \rulename{prom}: & ( (s,a,s';b[k])\mid \mu).P \Rightarrow ((s,a[k],s';b)\mid \mu).P & \mbox{ if } a \in \mathcal{SA}, b \in \mathcal{WA} 
 \\[2pt]
