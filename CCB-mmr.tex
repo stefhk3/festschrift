@@ -623,7 +623,11 @@ Our calculus permits the modelling of certain reactions which normally do not ha
 \item We have not modelled the formation of the loop in the DNA, which is crucial for cleaving the correct strand. In reality, 
 $\MutL$ forms a loop in the strand, which hides the methylated strand, making sure in this way that $\MutH$ cleaves the un-methylated (meaning new) strand.
 \item In our model, $\MutL$ can bond to any methyl group and a base pair any distance apart. In reality, $\MutL$ has 
-a fixed size and it can only react with parts of the DNA it can physically reach. Similarly, $\UvrD$ can bond to any deoxyribose/phosphate group, not just the neighbouring one. 
+a fixed size and it can only react with parts of the DNA it can physically reach. 
+\item Similarly, $\UvrD$ can bond to any deoxyribose/phosphate group, not just the neighbouring one. Moreover, 
+when $\UvrD$ bonds on weak $s$, there is no way to differentiate between $p3$ or $p5$ of $\DP$ being broken in our model.
+% when the weak action s happens, and this is a shortcoming. 
+
 \end{itemize}
 
 We have checked that all reactions given in this section are possible in our model by using the simulation software tool~\cite{10.1007/978-3-319-99498-7_8}, which has been extended to cover the extended prefix operator.
