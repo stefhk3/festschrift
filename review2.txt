@@ -38,6 +38,7 @@ L51. other the other hand ->
 L168. Concerted actions are now presented as a 'shortcut' (while it was previously said that "CCB is slightly extended"). What does shortcut mean? It seems to imply that it can be derived from the original calculus. In this case, I would expect to actually see that the rule is derivable from the original semantics (this does not seem immediate  since the new concert rules consider labels that are not in the original presentation, the collection of sites) . Otherwise, it should be explicitly stated that the calculus is extended. Note that this is stress again in the conclusions. 
 This is somehow addressed in the last section 
 
+>We've got that on page 20. Perhaps it needs a more explicit wording?
 
 L177. actions1 Reverse -> actions1. Reverse (full stop missed)
 
@@ -45,6 +46,8 @@ L177. actions1 Reverse -> actions1. Reverse (full stop missed)
 
 245. Groups of concerted actions -> groups? Are you referring to elements in AK x und(A)K. Then, they should be just pairs. Moreover, I think this presentation is partial, because the triples as in concert3 act or pairs in concert3 are not included in the enumeration. Note that this (incomplete?) definition of labels may need to be amended in the rest of the paper, e.g., Def 2.	
 
+>Considering that we have concert3 as a shortcut, I would just change this from "groups of concerted actions" to "concerted actions".
 
 Fig. 10. The label {e[k],_f[l]},_j[m]  in the transition in the conclusion of rule concert3 seems wrong. Shouldn't be {e[k],_f[l],_j[m]}
 
+>Changed
