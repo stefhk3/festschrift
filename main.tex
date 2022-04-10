@@ -270,8 +270,8 @@ actions, and $b$ is a \emph{weak} action. Sometime the weak action is omitted
 and $b$ can happen if
 all actions in $s$ have already taken place. Once $b$ takes place, it must be accompanied by
 undoing immediately one of the actions in $s$ (and thus possibly breaking a bond). We shall later extend
-this prefixing operator to permit multiple bonding sites as in $((s;b)\wr \cdots\wr (s';b')).P$
-or  $((s;b)\circ \cdots\circ (s';b')).P$ or  $((s;b)\otimes \cdots\otimes (s';b')).P$ .
+this prefixing operator to permit multiple bonding sites as in $((s;b)\wr \cdots\wr (s';b')).P$.
+%or  $((s;b)\circ \cdots\circ (s';b')).P$ or  $((s;b)\otimes \cdots\otimes (s';b')).P$ .
 
 We use a synchronisation function $\gamma$ which tells us which actions can combine to 
 produce bonds between atoms:
@@ -325,7 +325,9 @@ Oxygen  $O_2$ has a free $n$ capability and can abstract any of the hydrogens fr
 As a result the process can reverse to its original state or to equivalent states where
 different hydrogen atoms are bonded to $O_1$ and $O_2$.
 
-In this paper, we model DNA mismatch repair using CCB. This builds upon and extends our previous work on the modelling of BER and other biochemical reactions~\cite{10.1007/978-3-319-99498-7_8}  and shows that the mechanisms in CCB are relevant outside its original application area. 
+In this paper, we model DNA mismatch repair. Since this requires modelling complex molecules as opposed to atoms, we 
+extend the prefix operator of CCB to have multiple bonding sites. We also extend operational semantics of concerted actions 
+which allows us to cover a fuller range of covalent reactions involving concerted actions.  This builds upon our previous work on the modelling of BER and other biochemical reactions~\cite{10.1007/978-3-319-99498-7_8},  and shows that the mechanisms in CCB are relevant outside its original application area. 
 
 Deoxyribonucleic acid (DNA) carries the essential information for the working of all known organisms. It is composed of two polynucleotide chains. Each nucleotide contains one of the four nucleobases, or simply bases,  adenine (A), cytosine (C), guanine (G), and thymine (T). 
 The bases can react with each other as follows: A and T produce a pair A-T, C and G produce a pair C-G,
