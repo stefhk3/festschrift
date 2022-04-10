@@ -31,9 +31,9 @@ We shall also use two sets of \emph{auxiliary action} labels, namely the set $(\
 the semantics of CCB.
 
 Molecules may have several bonding \emph{sites} and several bonds can be created or dissolved at each bonding site. A site and its potential bonds are modelled via $(s;b)$, where $s$ is a sequence of actions, where actions model bonds, and $b$ is a weak (bond) action. The action $b$ can be omitted, in which case the construct is written as $(s)$. When a molecule has several sites 
-$(s;b), \ldots,(s';b')$ we shall write them as $(s;b) \Mid  \ldots \Mid (s';b')$ by using the symbol ``$\paral$'' to indicate that sites bond independently of each other and that the order in which sites appear is irrelevant. Such expressions are called \emph{collections of sites}, or just collections, and will be used to define the prefix operator. More formally, a site $\sigma$
+$(s;b), \ldots,(s';b')$ we shall write them as $(s;b) \wr  \ldots \wr (s';b')$ by using the symbol ``$\wr$'' to indicate that sites bond independently of each other and that the order in which sites appear is irrelevant. Such expressions are called \emph{collections of sites}, or just collections, and will be used to define the prefix operator. More formally, a site $\sigma$
 is either $(s;b)$ or $(s)$. A collection $\mu$ is either 
-$\sigma$ or a composition of finitely many sites $\sigma\Mid\ldots\Mid \sigma$, where the order in which sites appear is irrelevant,
+$\sigma$ or a composition of finitely many sites $\sigma\wr\ldots\wr \sigma$, where the order in which sites appear is irrelevant,
 and $\epsilon$ is the empty collection of sites. 
 A site $(s;b)$ or $(s)$ is fully bonded if all actions in $s$ are bonded. 
 We shall denote collections where all sites are fully bonded as $\eta$.
@@ -175,11 +175,11 @@ S \bydef P
 %
 \Rule
 {\kkey{s}=\emptyset \quad  \std{\mu.P}}
-{\std{((s;b)\Mid \mu).P}}
+{\std{((s;b)\wr \mu).P}}
 \qquad &
 \Rule
 {m \notin \kkey{s} \quad \fresh{m}{\mu.P}}
-{\fresh{m}{((s;b)\Mid \mu).P}}
+{\fresh{m}{((s;b)\wr \mu).P}}
 \\[15pt]
 %
 
@@ -192,7 +192,7 @@ S \bydef P
 &
 \Rule
 {m \notin \kkey{s} \quad m \neq n \quad \fresh{m}{\mu.P}}
-{\fresh{m}{((s;b[n])\Mid \mu).P}}
+{\fresh{m}{((s;b[n])\wr \mu).P}}
 \\[15pt]
 \Rule
 {\std{P} \quad \std{Q}}
@@ -226,7 +226,7 @@ $a\in \mathcal{A}$ and $l\in \Keys$, and $\kkey{\alpha:s}= \kkey{s} \text{ if }\
 %
 The function $\keys{\_}$ is given by $\keys{\Nil}=\emptyset$, $\keys{S}=\keys{P}$ if $S\bydef P$ and $S$ is guarded in $P$
 (correspondingly for $\std{S}$ and $\fresh{m}{S}$ in Figure~\ref{fig:predicates}), 
-$\keys{((s;\beta)\Mid \mu).P}=\kkey{s} \cup \kkey{\beta} \cup \keys{\mu.P}$, $\keys{P \paral Q}= \keys{P} \cup \keys{Q}$, and $\keys{P \restrict L}=\keys{P}$. Informally $\keys{P}$ associates with each term $P$ the set of its keys. 
+$\keys{((s;\beta)\wr \mu).P}=\kkey{s} \cup \kkey{\beta} \cup \keys{\mu.P}$, $\keys{P \paral Q}= \keys{P} \cup \keys{Q}$, and $\keys{P \restrict L}=\keys{P}$. Informally $\keys{P}$ associates with each term $P$ the set of its keys. 
 A process $P$ is \emph{standard}, written $\std{P}$, if it contains no past actions (hence no keys). 
 A key $n$ is \emph{fresh} in $Q$, written $\freshpred{n}(Q)$, if $Q$ contains no past action with the key $n$.
 We extend the notion of fresh keys to the sequences of actions and past actions $s$ and $t$, and to sites $\sigma$, 
@@ -559,9 +559,9 @@ and \rulename{rev sc} when $\omega \in \umAK$.}
   %\mbox{ if fn(Q)} \cap L = \emptyset
    \mbox{ if } (\gamma(\mathsf{fn}(P) \times \mathsf{fn}(Q)) \cup  \mathsf{fn}(Q)) \cap L = \emptyset
 \\[2pt]
-\rulename{prom}: & ( (s,a,s';b[k])\mid \mu).P \Rightarrow ((s,a[k],s';b)\mid \mu).P & \mbox{ if } a \in \mathcal{SA}, b \in \mathcal{WA} 
+\rulename{prom}: & ( (s,a,s';b[k])\wr \mu).P \Rightarrow ((s,a[k],s';b)\wr \mu).P & \mbox{ if } a \in \mathcal{SA}, b \in \mathcal{WA} 
 \\[2pt]
-\rulename{move}: & ((s,a,s',b[k],s'')\mid \mu).P \Rightarrow ((s,a[k],s',b,s'')\mid \mu).P & \mbox{ if } a \in \mathcal{SA}, b \in \mathcal{WA}
+\rulename{move}: & ((s,a,s',b[k],s'')\wr \mu).P \Rightarrow ((s,a[k],s',b,s'')\wr \mu).P & \mbox{ if } a \in \mathcal{SA}, b \in \mathcal{WA}
 %\rulename{move-r}: & ((s,a,s',b[k],s'')\mid \mu).P \Rightarrow ((s,a[k],s',b,s'')\mid \mu).P & \mbox{ if } a \in \mathcal{SA}, b \in \mathcal{WA}
 %\\[2pt]
 %\rulename{move-l}: & ((s,b[k],s',a,s'')\mid \mu).P \Rightarrow ((s,b,s',a[k],s'')\mid \mu).P & \mbox{ if } a \in \mathcal{SA}, b \in \mathcal{WA}
@@ -686,7 +686,7 @@ The function
 $\mathsf{fn}: \Proc \rightarrow \mathcal{P}(\Keys)$ is given as follows: 
 $\mathsf{fn}(\Nil) = \emptyset$,
 $\mathsf{fn}(S)=\mathsf{fn}(P) \text{ if }  S\bydef P$, 
-$\mathsf{fn}((\sigma\mid \mu).P)=\mathsf{f}(\sigma)\cup \mathsf{fn}(\mu.P)$, where $\mathsf{f}(\sigma)$ is the set of all action labels in $\sigma$,
+$\mathsf{fn}((\sigma\wr \mu).P)=\mathsf{f}(\sigma)\cup \mathsf{fn}(\mu.P)$, where $\mathsf{f}(\sigma)$ is the set of all action labels in $\sigma$,
 $\mathsf{fn}(\varepsilon.P)=\mathsf{fn}(P) $, $\mathsf{fn}(P\paral Q)=\mathsf{fn}(P) \cup \mathsf{fn}(Q)$, and $\mathsf{fn}(P \restrict L)=\mathsf{fn}(P) \restrict L$.
 %\end{definition}
 
