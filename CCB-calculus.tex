@@ -249,7 +249,7 @@ site $\sigma$ in $\mu$.
 \rulename{c}\
 \Rule
 {\sigma \xrightarrow{a[k]}_s \sigma'\quad \fresh{k}{\mu}}
-{\sigma \paral \mu \xrightarrow{a[k]}_s \sigma' \paral \mu}
+{\sigma \wr \mu \xrightarrow{a[k]}_s \sigma' \wr \mu}
 %
 \\[25pt]
 \rulename{act1}\ 
@@ -331,7 +331,7 @@ and the reduction rule \rulename{red1} in Figure~\ref{fig:reduction}.
 \rulename{rev c}\
 \Rule
 {\sigma \xrightarrow{\underline{a}[k]}_s \sigma'\quad \fresh{k}{\mu}}
-{\sigma \paral \mu \xrightarrow{\underline{a}[k]}_s \sigma' \paral \mu}
+{\sigma \wr \mu \xrightarrow{\underline{a}[k]}_s \sigma' \wr \mu}
 \\[25pt]
 %
 \rulename{rev act1}\
@@ -403,7 +403,7 @@ $$
 \rulename{cw}\
 \Rule
 {\sigma \xrightarrow{(b)[l]}_s \sigma'\quad \fresh{l}{\mu}}
-{\sigma \paral \mu \xrightarrow{(b)[l]}_s \sigma' \paral \mu}
+{\sigma \wr \mu \xrightarrow{(b)[l]}_s \sigma' \wr \mu}
 \\[20pt]
 \rulename{aux1}\ 
 \Rule{\std{P} % \quad \fresh{k}{t}
