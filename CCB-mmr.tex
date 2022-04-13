@@ -34,7 +34,7 @@ $$\begin{array}{lll}
 \MutS & \bydef & (k,k).(l).\MutS'\\
 \MutL & \bydef & (l).(n).(o).\MutL'\\
 \MutH & \bydef & (o).(w).\MutH'\\
-\UvrD & \bydef & ((u;r) \paral (v;s)).\UvrD'\\
+\UvrD & \bydef & ((u;r) \wr (v;s)).\UvrD'\\
 \end{array}$$
 %
 %where processes $MutS$, $MutL$, $MutH$, and $UvrD$ model the MutS, MutL, MutH, and UvrD protein respectively.
@@ -129,7 +129,7 @@ We leave out the restriction from now on for ease of reading. We mark copies of 
 &((p3_9[13],p5_9[14];s_9) \wr (b_9[19],d_9)).DP_9' \paral ((p3_{10}[14],p5_{10}[15];s_{10}) \wr (b_{10}[20],d_{10})).DP_{10}' \paral  &&\\
 &((p3_{11}[15],p5_{11}[16];s_{11}) \wr (b_{11}[21],d_{11})).DP_{11}' \paral ((p3_{12}[16],p5_{12};s_{12}) \wr (b_{12}[22],d_{12})).DP_{12}' \paral  &&\\
 &(m[40]).(n).Me'\paral (k,k).(l).MutS' \paral (l).(n).(o).MutL' \paral &&\\
-&(o).(w).MutH' \paral ((u;r) \paral (v;s)).UvrD'&&
+&(o).(w).MutH' \paral ((u;r) \wr (v;s)).UvrD'&&
 \end{flalign*}
 $\DP_1$ is connected to $\DP_2$ via the bond on $p5_1$ and $p3_2$ with the key 1. Similarly, $\DP_1$ is bonded to $C_1$ via the bond on actions $b$ with the key 10. Also, $\Me$ is bonded with $A_1$ on $m$ with the key 40. Correspondingly, there are other initial bonds with appropriate keys in the MMR system as shown in Figure~\ref{fig:state1}. It should be noted that the two processes above show the same system, and so does Figure~\ref{fig:state1}. The two notations above show different levels of detail, with the first only giving the process names and the second their definitions. Figure~\ref{fig:state1} shows the same level of detail as the second process. We do not say how this state emerged and how the bonds were formed.
 
@@ -150,7 +150,7 @@ Before we show the main reactions of the MMR mechanism, we shall shorten the pre
 &((p3_9[13],p5_9[14];s_9) \wr (b_9[19],d_9)).\DP_9' \paral ((p3_{10}[14],p5_{10}[15];s_{10}) \wr (b_{10}[20],d_{10})).\DP_{10}' \paral  &&\\
 &((p3_{11}[15],p5_{11}[16];s_{11}) \wr (b_{11}[21],d_{11})).\DP_{11}' \paral ((p3_{12}[16],p5_{12};s_{12}) \wr (b_{12}[22],d_{12})).\DP_{12}' \paral  &&\\
 &(m[40]).(n).\Me'\paral (k,k).(l).\MutS' \paral (l).(n).(o).\MutL' \paral &&\\
-&(o).(w).\MutH' \paral ((u;r) \paral (v;s)).\UvrD'&&
+&(o).(w).\MutH' \paral ((u;r) \wr (v;s)).\UvrD'&&
 \end{flalign*}
 Note that leaving out some components results in appearance of  several ``incomplete'' bonds, for example, between
 $\DP_8$ and $\DP_7$, which is left out, with the key 12.
@@ -175,7 +175,7 @@ highlight the actions and keys in bold black font after the bonds are created:
 &((p3_9[13],p5_9[14];s_9) \wr (b_9[19],d_9)).\DP_9' \paral ((p3_{10}[14],p5_{10}[15];s_{10}) \wr (b_{10}[20],d_{10})).\DP_{10}' \paral  &&\\
 &((p3_{11}[15],p5_{11}[16];s_{11}) \wr (b_{11}[21],d_{11})).\DP_{11}' \paral ((p3_{12}[16],p5_{12};s_{12}) \wr (b_{12}[22],d_{12})).\DP_{12}' \paral  &&\\
 &(m[40]).(n).\Me'\paral (\Blue{\bm{k}},\Blue{\bm{k}}).(l).\MutS' \paral (l).(n).(o).\MutL' \paral &&\\
-&(o).(w).\MutH' \paral ((u;r) \paral (v;s)).\UvrD'&&\\
+&(o).(w).\MutH' \paral ((u;r) \wr (v;s)).\UvrD'&&\\
 %
 &\xxrightarrow{ka[28]} \xxrightarrow{kg[29]} &&\\
 %
@@ -185,7 +185,7 @@ highlight the actions and keys in bold black font after the bonds are created:
 &((p3_9[13],p5_9[14];s_9) \wr (b_9[19],d_9)).\DP_9' \paral ((p3_{10}[14],p5_{10}[15];s_{10}) \wr (b_{10}[20],d_{10})).\DP_{10}' \paral &&\\
 &((p3_{11}[15],p5_{11}[16];s_{11}) \wr (b_{11}[21],d_{11})).\DP_{11}' \paral ((p3_{12}[16],p5_{12};s_{12}) \wr (b_{12}[22],d_{12})).\DP_{12}' \paral  &&\\
 &(m[40]).(n).\Me'\paral (\bm{k[28],k[29]}).(\Blue{\bm{l}}).\MutS' \paral (\Blue{\bm{l}}).(n).(o).\MutL' \paral &&\\
-&(o).(w).\MutH' \paral ((u;r) \paral (v;s)).\UvrD'&&
+&(o).(w).\MutH' \paral ((u;r) \wr (v;s)).\UvrD'&&
 \end{flalign*}
 
 Now it is possible for $\MutL$ to bond to $\MutS$ on $l$ with key 30 (see Figure~\ref{fig:state15}). Again, the participating actions $l$ are in bold blue font before the transition and then they are displayed in bold black font:
@@ -197,7 +197,7 @@ Now it is possible for $\MutL$ to bond to $\MutS$ on $l$ with key 30 (see Figure
 &((p3_9[13],p5_9[14];s_9) \wr (b_9[19],d_9)).\DP_9' \paral ((p3_{10}[14],p5_{10}[15];s_{10}) \wr (b_{10}[20],d_{10})).\DP_{10}' \paral  &&\\
 &((p3_{11}[15],p5_{11}[16];s_{11}) \wr (b_{11}[21],d_{11})).\DP_{11}' \paral ((p3_{12}[16],p5_{12};s_{12}) \wr (b_{12}[22],d_{12})).\DP_{12}' \paral &&\\
 &(m[40]).(\Blue{\bm{n}}).\Me'\paral (k[28],k[29]).(\bm{l[30]}).\MutS' \paral (\bm{l[30]}).(\Blue{\bm{n}}).(o).\MutL' \paral &&\\
-&(o).(w).\MutH' \paral ((u;r) \paral (v;s)).\UvrD'&&
+&(o).(w).\MutH' \paral ((u;r) \wr (v;s)).\UvrD'&&
 \end{flalign*}
 
 $\MutL$ then bonds with $\Me$ on $n$, which means it detects which of the strands is methylated, and therefore the correct one:
@@ -210,7 +210,7 @@ $\MutL$ then bonds with $\Me$ on $n$, which means it detects which of the strand
 &((p3_{11}[15],p5_{11}[16];s_{11}) \wr (b_{11}[21],d_{11})).\DP_{11}' \paral ((p3_{12}[16],p5_{12};s_{12}) \wr (b_{12}[22],d_{12})).\DP_{12}' \paral  &&\\
 &(m[40]).(\bm{n[31]}).\Me'\paral (k[28],k[29]).(l[30]).\MutS' \paral (l[30]).(\bm{n[31]}).(\Blue{\bm{o}}).\MutL' \paral 
 &&\\
-&(\Blue{\bm{o}}).(w).\MutH' \paral ((u;r) \paral (v;s)).\UvrD'&&
+&(\Blue{\bm{o}}).(w).\MutH' \paral ((u;r) \wr (v;s)).\UvrD'&&
 \end{flalign*}
 %
 Finally, $\MutL$ recruits $\MutH$.
@@ -223,7 +223,7 @@ Henceforth, we shall use bold red font to highlight actions and keys of bonds th
 &((\Red{\bm{p3_9[13]}},p5_9[14];s_9) \wr (b_9[19],d_9)).\DP_9' \paral ((p3_{10}[14],p5_{10}[15];s_{10}) \wr (b_{10}[20],d_{10})).\DP_{10}' \paral &&\\
 & ((p3_{11}[15],p5_{11}[16];s_{11}) \wr (b_{11}[21],d_{11})).\DP_{11}' \paral ((p3_{12}[16],p5_{12};s_{12}) \wr (b_{12}[22],d_{12})).\DP_{12}' \paral &&\\
 &(m[40]).(n[31]).\Me'\paral (k[28],k[29]).(l[30]).\MutS' \paral (l[30]).(n[31]).(\bm{o[32]}).\MutL' \paral &&\\
-&(\bm{o[32]}).(\Blue{\bm{w}}).\MutH' \paral ((u;r) \paral (v;s)).\UvrD'&&
+&(\bm{o[32]}).(\Blue{\bm{w}}).\MutH' \wr ((u;r) \paral (v;s)).\UvrD'&&
 \end{flalign*}
 %
 
@@ -282,7 +282,7 @@ Next, $\MutH$ is ready to cleave the DNA at the right location. This is done by 
 &((\bm{p3_9},p5_9[14];s_9) \wr (b_9[19],d_9)).DP_9' \paral ((p3_{10}[14],p5_{10}[15];s_{10}) \wr (b_{10}[20],d_{10})).DP_{10}' \paral  &&\\
 &((p3_{11}[15],p5_{11}[16];s_{11}) \wr (b_{11}[21],d_{11})).DP_{11}' \paral ((p3_{12}[16],p5_{12};s_{12}) \wr (b_{12}[22],d_{12})).DP_{12}' \paral  &&\\
 &(m[40]).(n[31]).Me'\paral (k[28],k[29]).(l[30]).MutS' \paral (l[30]).(n[31]).(o[32]).MutL' \paral &&\\
-&(o[32]).(\bm{w[33]}).MutH' \paral ((u;r) \paral (v;s)).UvrD'&&
+&(o[32]).(\bm{w[33]}).MutH' \paral ((u;r) \wr (v;s)).UvrD'&&
 \end{flalign*}
 Next, {\em promotion} happens, which moves the bond with the key 33 from a weak action $s_8$ to a strong action $p5_8$ in one of the sites of $\DP_8$:
 \begin{flalign*}
@@ -292,7 +292,7 @@ Next, {\em promotion} happens, which moves the bond with the key 33 from a weak 
 &((p3_9,\Red{\bm{p5_9[14]}};s_9) \wr (b_9[19],d_9)).DP_9' \paral ((\Red{\bm{p3_{10}[14]}},p5_{10}[15];\Blue{\bm{s_{10}}}) \wr (b_{10}[20],d_{10})).DP_{10}' \paral  &&\\
 &((p3_{11}[15],p5_{11}[16];s_{11}) \wr (b_{11}[21],d_{11})).DP_{11}' \paral ((p3_{12}[16],p5_{12};s_{12}) \wr (b_{12}[22],d_{12})).DP_{12}' \paral  &&\\
 &(m[40]).(n[31]).Me'\paral (k[28],k[29]).(l[30]).MutS' \paral (l[30]).(n[31]).(o[32]).MutL' \paral &&\\
-&(o[32]).({w[33]}).MutH' \paral ((u;r) \paral (\Blue{\bm{v}};s)).UvrD'&&
+&(o[32]).({w[33]}).MutH' \paral ((u;r) \wr (\Blue{\bm{v}};s)).UvrD'&&
 \end{flalign*}
 
 These two transitions give us the corresponding $\xxrightarrow{\{ws[33],\underline{p}[13]\}}$ by Definition~\ref{LTS}.
@@ -355,7 +355,7 @@ $\DP_9$ (key 14). Then the bond 34 is promoted from weak $s_{10}$ to strong $p3_
 &((p3_9,\bm{p5_9};s_9) \wr (b_9[19],d_9))\paral.\DP_9' \paral ((\bm{p3_{10}[34]},p5_{10}[15];\bm{s_{10}}) \wr (b_{10}[20],d_{10})).\DP_{10}'   &&\\
 &((p3_{11}[15],p5_{11}[16];s_{11}) \wr (b_{11}[21],d_{11})).\DP_{11}' \paral ((p3_{12}[16],p5_{12};s_{12}) \wr (b_{12}[22],d_{12})).\DP_{12}' \paral  &&\\
 &(m[40]).(n[31]).\Me'\paral (k[28],k[29]).(l[30]).\MutS' \paral (l[30]).(n[31]).(o[32]).\MutL' \paral &&\\
-&(o[32]).(w[33]).\MutH' \paral ((\Blue{\bm{u}};r) \paral (\bm{v[34]};s)).\UvrD'&&
+&(o[32]).(w[33]).\MutH' \paral ((\Blue{\bm{u}};r) \wr (\bm{v[34]};s)).\UvrD'&&
 \end{flalign*}
 
 Secondly, $\UvrD$ combines with $T_2$ (key 35) thus breaking the bond between $T_2$ and its paired base $A_1$ (key 24). This concerted actions transition is followed immediately by an application of \rulename{prom} (by Definition~\ref{LTS}), which moves a bond from weak action $r_5$ to strong actions $t_2$.
@@ -369,7 +369,7 @@ Secondly, $\UvrD$ combines with $T_2$ (key 35) thus breaking the bond between $T
 &((p3_9,p5_9;s_9) \wr (b_9[19],d_9)).\DP_9' \paral ((p3_{10}[34],p5_{10}[15];\bm{s_{10}}) \wr (b_{10}[20],d_{10})).\DP_{10}' \paral  &&\\
 &((p3_{11}[15],p5_{11}[16];s_{11}) \wr (b_{11}[21],d_{11})).\DP_{11}' \paral ((p3_{12}[16],p5_{12};s_{12}) \wr (b_{12}[22],d_{12})).\DP_{12}' \paral  &&\\
 &(m[40]).(n[31]).\Me'\paral (k[28],k[29]).(l[30]).\MutS' \paral (l[30]).(n[31]).(o[32]).\MutL' \paral &&\\
-&(o[32]).(w[33]).\MutH' \paral ((\bm{u[35]};r) \paral (v[34];s)).\UvrD'&&
+&(o[32]).(w[33]).\MutH' \paral ((\bm{u[35]};r) \wr (v[34];s)).\UvrD'&&
 \end{flalign*}
 Note that $\UvrD$ does not attach to $\DP_9$ initially, but to $\DP_{10}$. If it had been attached to $\DP_9$, it would have had no connection to the DNA strand once the bonds of $DP_9$ and $T_2$ to the rest of DNA strand have been broken.
 
@@ -432,7 +432,7 @@ where could have used the shortcut  \rulename{concert3} SOS rule.
  \wr (b_{10}[20],d_{10})).\DP_{10}' \paral  &&\\
 &((\Red{\bm{p3_{11}[15]}},p5_{11}[16];\Blue{\bm{s_{11}}}) \wr (b_{11}[21],d_{11})).\DP_{11}' \paral ((p3_{12}[16],p5_{12};s_{12}) \wr (b_{12}[22],d_{12})).\DP_{12}' \paral  &&\\
 &(m[40]).(n[31]).\Me'\paral (k[28],k[29]).(l[30]).\MutS' \paral (l[30]).(n[31]).(o[32]).\MutL' \paral &&\\
-&(o[32]).(w[33]).\MutH' \paral ((u[35];r) \paral (\Red{\bm{v[34]}};\Blue{\bm{s}})).\UvrD'&&\\
+&(o[32]).(w[33]).\MutH' \paral ((u[35];r) \wr (\Red{\bm{v[34]}};\Blue{\bm{s}})).\UvrD'&&\\
 %
 & \xxrightarrow{\{ss[36],\underline{vp3}[34]} \; \xxrightarrow{\underline{p}[15]}\\
 %&\xrightarrow{\{ss[36],\underline{vp3}[34],\underline{p}[15]\}}
@@ -444,7 +444,7 @@ where could have used the shortcut  \rulename{concert3} SOS rule.
 &((p3_9,p5_9;s_9) \wr (b_9[19],d_9)).\DP_9' \paral ((\bm{p3_{10},p5_{10}};s_{10}) \wr (b_{10}[20],d_{10})).\DP_{10}' \paral &&\\
 &((\bm{p3_{11}[36]},p5_{11}[16];\bm{s_{11}}) \wr (b_{11}[21],d_{11})).\DP_{11}' \paral ((p3_{12}[16],p5_{12};s_{12}) \wr (b_{12}[22],d_{12})).\DP_{12}' \paral  &&\\
 &(m[40]).(n[31]).\Me'\paral (k[28],k[29]).(l[30]).\MutS' \paral (l[30]).(n[31]).(o[32]).\MutL' \paral &&\\
-&(o[32]).(w[33]).\MutH' \paral ((\Red{\bm{u[35]}};\Blue{\bm{r}}) \paral (\bm{v[36]};\bm{s})).\UvrD'&&
+&(o[32]).(w[33]).\MutH' \paral ((\Red{\bm{u[35]}};\Blue{\bm{r}}) \wr (\bm{v[36]};\bm{s})).\UvrD'&&
 \end{flalign*}
 Notice that promotion has moved a bond from $s_{11}$ to $p3_{11}$ and from $s$ to $v$. Instead of using these
 transitions we could have applied \rulename{concert3}, we could have used this sequence of transitions from the source to the target process:
@@ -462,7 +462,7 @@ Next,  $\UvrD$ combines with $C_3$ thus breaking bonds with keys 35 and 25.
 &((p3_9,p5_9;s_9) \wr (b_9[19],d_9)).\DP_9' \paral ((p3_{10},p5_{10};s_{10}) \wr (b_{10}[20],d_{10})).\DP_{10}' \paral &&\\
 &((p3_{11}[36],p5_{11}[16];s_{11}) \wr (b_{11}[21],d_{11})).\DP_{11}' \paral ((p3_{12}[16],p5_{12};s_{12}) \wr (b_{12}[22],d_{12})).\DP_{12}' \paral  &&\\
 &(m[40]).(n[31]).\Me'\paral (k[28],k[29]).(l[30]).\MutS' \paral (l[30]).(n[31]).(o[32]).\MutL' \paral &&\\
-&(o[32]).(w[33]).\MutH' \paral ((\bm{u[37]};\bm{r}) \paral (v[36];s)).\UvrD'&&
+&(o[32]).(w[33]).\MutH' \paral ((\bm{u[37]};\bm{r}) \wr (v[36];s)).\UvrD'&&
 \end{flalign*}
 Promotion moves bonds from
 $r_8$ to $c_3$ and from $r$ to $u$ below.
